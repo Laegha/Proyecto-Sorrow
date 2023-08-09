@@ -6,15 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     InputManager inputManager;
     [SerializeField] float playerSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        inputManager = FindObjectOfType<InputManager>();
-    }
+    void Start() => inputManager = FindObjectOfType<InputManager>();
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis(inputManager.xMovementAxis),0 , Input.GetAxis(inputManager.zMovementAxis));
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),0 , Input.GetAxis("Vertical"));
         if (movement != Vector3.zero)
-            transform.Translate(movement);
+            transform.Translate(movement * playerSpeed * Time.deltaTime);
     }
 }
