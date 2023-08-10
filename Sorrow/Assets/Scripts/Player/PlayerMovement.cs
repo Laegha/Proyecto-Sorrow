@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     void Start() => inputManager = FindObjectOfType<InputManager>();
     void Update()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),0 , Input.GetAxis("Vertical"));
+        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"),0 , Input.GetAxisRaw("Vertical"));
         if (movement != Vector3.zero)
-            transform.Translate(movement * playerSpeed * Time.deltaTime);
+            transform.Translate(movement.normalized * playerSpeed * Time.deltaTime);
     }
 }

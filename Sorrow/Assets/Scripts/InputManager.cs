@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public KeyCode interactionKey = KeyCode.Mouse0;
+
     public int mouseSensitivity;
     public int MouseSensitivity
     {
