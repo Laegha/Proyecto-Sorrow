@@ -789,6 +789,7 @@ GameObject:
   - component: {fileID: 1259076766}
   - component: {fileID: 1259076765}
   - component: {fileID: 1259076764}
+  - component: {fileID: 1259076767}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -844,6 +845,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259076767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259076763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableName: 
+  _rigidbody: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  thisItem: {fileID: 0}
 --- !u!1 &1344565588
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344565592}
+  - component: {fileID: 1344565595}
   - component: {fileID: 1344565594}
   - component: {fileID: 1344565591}
   - component: {fileID: 1344565590}
@@ -935,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344565588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2916, y: 0.8184, z: -2.59}
+  m_LocalPosition: {x: -0.2916, y: 1.97, z: -3.01}
   m_LocalScale: {x: 0.4169, y: 0.4169, z: 0.4169}
   m_Children: []
   m_Father: {fileID: 0}
@@ -966,12 +984,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344565588}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e6ba28c3e33ca48845b2612414d2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sexo: 
+--- !u!114 &1344565595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344565588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactableName: 
   _rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
+  thisItem: {fileID: 0}
 --- !u!1 &1969104860
 GameObject:
   m_ObjectHideFlags: 0

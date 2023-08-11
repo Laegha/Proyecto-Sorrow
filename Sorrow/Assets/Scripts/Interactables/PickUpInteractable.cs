@@ -5,15 +5,18 @@ using UnityEngine;
 public class PickUpInteractable : Interactable
 {
     [HideInInspector] public Rigidbody _rigidbody;
+
     [HideInInspector] public MeshRenderer meshRenderer;
+
+    [HideInInspector] public Item thisItem;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
+        thisItem = GetComponent<Item>();
     }
     public override void Interaction()
-    {
-        base.Interaction();
-        FindObjectOfType<HeldObjectsManager>().HoldObject(this);
+    {        
+        FindObjectOfType<PickupInteractableManager>().HoldObject(this);
     }
 }

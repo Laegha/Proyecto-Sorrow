@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interaction()
     {
-        
+
     }
     private void OnMouseEnter()
     {
