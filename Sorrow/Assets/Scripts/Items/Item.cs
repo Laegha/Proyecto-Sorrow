@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public virtual bool ItemEffect()
+    public bool isConsumable;
+    public virtual void ItemEffect()
     {
-        return true;
+
     }
 }

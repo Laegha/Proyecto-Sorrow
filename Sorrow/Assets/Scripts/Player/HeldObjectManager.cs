@@ -8,24 +8,37 @@ public class HeldObjectManager : MonoBehaviour
 
     HeldObject heldObject;
 
-    Item heldObjectItem;
+    bool isHolding = false;
     void Start() => heldObjectPosition = transform.Find("HeldObjectPosition");
 
     private void Update()
     {
-        if (Input.GetKeyDown(InputManager.inputManager.useItemKey) && heldObjectItem != null)
-            if (heldObjectItem.ItemEffect())
-                heldObjectItem = null;
+        if (heldObject == null)
+            return;
+        if(!isHolding)
+        {
+            isHolding= true;
+            return;
+        }
+
+        if (Input.GetKeyDown(InputManager.inputManager.useItemKey) && heldObject.thisItem != null)
+        {
+            heldObject.thisItem.ItemEffect();
+            if(heldObject.thisItem.isConsumable)
+            {
+                isHolding = false;
+                heldObject = null;
+            }
+        }
         if (Input.GetKeyDown(InputManager.inputManager.dropObjectKey))
-            if (heldObject != null)
                 DropObject();
     }
     public void HoldObject(HeldObject newHeldObject)
     {
         if (heldObject != null)
             return;
+
         heldObject = newHeldObject;
-        heldObjectItem = heldObject.thisItem;
 
         heldObject.transform.SetParent(Camera.main.transform);
 

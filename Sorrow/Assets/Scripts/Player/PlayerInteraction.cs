@@ -12,19 +12,20 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-        inputManager = FindObjectOfType<InputManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(inputManager.interactionKey))
+        if (Input.GetKeyDown(InputManager.inputManager.interactionKey))
             CheckInteraction();
     }
     void CheckInteraction()
     {
         RaycastHit hitObj;
         Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out hitObj, 5);
+        if (hitObj.transform == null)
+            return;
         Interactable interactable = hitObj.transform.GetComponent<Interactable>();
         if (interactable != null)
             interactable.Interaction();
