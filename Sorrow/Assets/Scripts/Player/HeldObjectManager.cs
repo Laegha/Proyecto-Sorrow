@@ -6,7 +6,7 @@ public class HeldObjectManager : MonoBehaviour
 {
     Transform heldObjectPosition;
 
-    HeldObject heldObject;
+    [HideInInspector] public HeldObject heldObject;
 
     bool isHolding = false;
     void Start() => heldObjectPosition = transform.Find("HeldObjectPosition");
@@ -20,7 +20,6 @@ public class HeldObjectManager : MonoBehaviour
             isHolding= true;
             return;
         }
-
         if (Input.GetKeyDown(InputManager.inputManager.useItemKey) && heldObject.thisItem != null)
         {
             heldObject.thisItem.ItemEffect();
