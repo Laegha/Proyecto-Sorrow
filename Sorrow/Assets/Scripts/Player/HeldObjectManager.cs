@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class HeldObjectManager : MonoBehaviour
 {
-    Transform heldObjectPosition;
+    Transform heldObjectHolder;
 
     [HideInInspector] public HeldObject heldObject;
 
     bool isHolding = false;
-    void Start() => heldObjectPosition = transform.Find("HeldObjectPosition");
+    void Start() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
 
     private void Update()
     {
@@ -39,13 +39,13 @@ public class HeldObjectManager : MonoBehaviour
 
         heldObject = newHeldObject;
 
-        heldObject.transform.SetParent(Camera.main.transform);
+        heldObject.transform.SetParent(heldObjectHolder);
 
         heldObject.transform.localRotation= Quaternion.Euler(Vector3.zero);
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         
-        Vector3 objectSize = heldObject.meshRenderer.bounds.size; //falta que se ajuste al tamaño
-        heldObject.transform.position = heldObjectPosition.position + Vector3.forward * objectSize.z;
+        float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tamaño
+        heldObject.transform.localPosition = new Vector3(0, 0, objectLength);
     }
 
     void DropObject()
