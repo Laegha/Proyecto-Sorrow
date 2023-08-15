@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField] Material interactionMaterial;
+    private void Start()
+    {
+        interactionMaterial = GetComponent<Renderer>().material;
+    }
     public virtual void Interaction()
     {
 
     }
     private void OnMouseEnter()
     {
-        print("Can interact with object " + transform.name);
+        interactionMaterial.SetColor("currentColor", Color.white);
     }
     private void OnMouseExit()
     {
-        print("Can not interact with object " + transform.name);
+        interactionMaterial.SetColor("currentColor", Color.black);
         
     }
 }

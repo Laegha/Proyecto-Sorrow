@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208b92f71ff692542b117082c15fac33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 2100000, guid: b9b4b7796bc91364ba062c5a77494921, type: 2}
   neededObjectName: key
 --- !u!65 &331598290
 BoxCollider:
@@ -272,8 +273,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85f749cc46be0f341b622fe08fa63036, type: 2}
   - {fileID: 2100000, guid: b9b4b7796bc91364ba062c5a77494921, type: 2}
+  - {fileID: 2100000, guid: b12ab498efd6fb844a36bdfb83be2ee0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1121,7 +1122,7 @@ Transform:
   m_GameObject: {fileID: 1344565588}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.026, y: 1.449, z: -8.484}
+  m_LocalPosition: {x: 0.945, y: 0.981, z: -8.468}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1182,6 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 2100000, guid: b9b4b7796bc91364ba062c5a77494921, type: 2}
 --- !u!1 &1969104860
 GameObject:
   m_ObjectHideFlags: 0
