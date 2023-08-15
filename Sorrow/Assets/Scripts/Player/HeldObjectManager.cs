@@ -45,7 +45,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tamaño
-        heldObject.transform.localPosition = new Vector3(0, 0, objectLength);
+        heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
     }
 
     void DropObject()
