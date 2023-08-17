@@ -5,17 +5,17 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     static public InputManager instance;
-    public static InputManager inputManager
-    {
-        get { return instance; }
-    }
     private void Awake()
     {
+        if (instance != null && instance != this)
+            Destroy(this);
+
         instance = this;
     }
     public KeyCode interactionKey = KeyCode.Mouse0;
     public KeyCode useItemKey = KeyCode.Mouse0;
     public KeyCode dropObjectKey = KeyCode.Q;
+    public KeyCode runKey = KeyCode.LeftShift;
 
     public int mouseSensitivity;
     public int MouseSensitivity

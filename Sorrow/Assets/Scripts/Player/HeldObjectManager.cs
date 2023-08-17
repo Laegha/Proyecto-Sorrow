@@ -20,7 +20,7 @@ public class HeldObjectManager : MonoBehaviour
             isHolding= true;
             return;
         }
-        if (Input.GetKeyDown(InputManager.inputManager.useItemKey) && heldObject.thisItem != null)
+        if (Input.GetKeyDown(InputManager.instance.useItemKey) && heldObject.thisItem != null)
         {
             heldObject.thisItem.ItemEffect();
             if(heldObject.thisItem.isConsumable)
@@ -29,7 +29,7 @@ public class HeldObjectManager : MonoBehaviour
                 heldObject = null;
             }
         }
-        if (Input.GetKeyDown(InputManager.inputManager.dropObjectKey))
+        if (Input.GetKeyDown(InputManager.instance.dropObjectKey))
                 DropObject();
     }
     public void HoldObject(HeldObject newHeldObject)
