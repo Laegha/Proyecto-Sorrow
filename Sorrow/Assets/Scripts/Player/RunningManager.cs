@@ -32,6 +32,7 @@ public class RunningManager : MonoBehaviour
             if (currStamina >= maxRunSeconds)
                 canRun = true;
         }
+
         if (Input.GetKeyDown(InputManager.instance.runKey) && canRun)
             isRunning = true;
         if (Input.GetKeyUp(InputManager.instance.runKey))
