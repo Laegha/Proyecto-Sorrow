@@ -1,19 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    RunningManager runningManager;
+    [SerializeField] float sprintMultiplier;
 
-    [SerializeField] float playerSpeed;
+    Vector2 hMovement;
 
-    void Start() => runningManager = FindObjectOfType<RunningManager>();
+    public void Walk(InputAction.CallbackContext context) 
+        => hMovement = context.ReadValue<Vector2>();
+
+    public void StopWalk(InputAction.CallbackContext context)
+        => hMovement = Vector2.zero;
+
     void Update()
     {
-        float speed = runningManager.isRunning ? runningManager.runSpeed : playerSpeed;
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"),0 , Input.GetAxisRaw("Vertical"));
-        if (movement != Vector3.zero)
-            transform.Translate(movement.normalized * speed * Time.deltaTime);
+        var vector = hMovement * Time.deltaTime;
+
+        if (vector != Vector2.zero)
+            transform.Translate(vector.x, 0, vector.y);
     }
 }

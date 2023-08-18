@@ -1,33 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    InputManager inputManager;
-
     Camera _camera;
 
     public float interactionDistance;
-    void Start()
-    {
-        _camera = Camera.main;
-    }
+    void Start() => _camera = Camera.main;
 
-    // Update is called once per frame
-    void Update()
+    public void CheckInteraction(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(InputManager.instance.interactionKey))
-            CheckInteraction();
-    }
-    void CheckInteraction()
-    {
-        RaycastHit hitObj;
-        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out hitObj, 5);
+        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, 5);
         if (hitObj.transform == null)
             return;
-        Interactable interactable = hitObj.transform.GetComponent<Interactable>();
-        if (interactable != null)
+        if (hitObj.transform.TryGetComponent<Interactable>(out var interactable))
             interactable.Interaction();
     }
 }

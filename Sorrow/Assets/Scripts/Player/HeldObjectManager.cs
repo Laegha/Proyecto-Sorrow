@@ -15,12 +15,14 @@ public class HeldObjectManager : MonoBehaviour
     {
         if (heldObject == null)
             return;
-        if(!isHolding)
+
+        if (!isHolding)
         {
-            isHolding= true;
+            isHolding = true;
             return;
         }
-        if (Input.GetKeyDown(InputManager.instance.useItemKey) && heldObject.thisItem != null)
+
+        if (InputManager.controller.Player.UseItem.IsPressed() && heldObject.thisItem != null)
         {
             heldObject.thisItem.ItemEffect();
             if(heldObject.thisItem.isConsumable)
@@ -29,9 +31,11 @@ public class HeldObjectManager : MonoBehaviour
                 heldObject = null;
             }
         }
-        if (Input.GetKeyDown(InputManager.instance.dropObjectKey))
-                DropObject();
+
+        if (InputManager.controller.Player.Drop.IsPressed())
+            DropObject();
     }
+
     public void HoldObject(HeldObject newHeldObject)
     {
         if (heldObject != null)
@@ -44,7 +48,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject.transform.localRotation= Quaternion.Euler(Vector3.zero);
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         
-        float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tamaño
+        float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tamaï¿½o
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
     }
 
