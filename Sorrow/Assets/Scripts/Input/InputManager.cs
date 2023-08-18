@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
         controller = new Controller();
 
         controller.Player.Enable();
+        controller.Camera.Enable();
         controller.Dialog.Disable();
         controller.PlayerRun.Disable();
         
@@ -31,8 +32,9 @@ public class InputManager : MonoBehaviour
 
         if (TryGetComponent<PlayerChaseMovement>(out var playerChaseMovement))
         {
+            controller.PlayerRun.Run.performed += playerChaseMovement.Run;
             controller.PlayerRun.Jump.performed += playerChaseMovement.Jump;
-            controller.Player.UseItem.performed += playerChaseMovement.Shoot;
+            controller.PlayerRun.Shoot.performed += playerChaseMovement.Shoot;
         }
     }
 

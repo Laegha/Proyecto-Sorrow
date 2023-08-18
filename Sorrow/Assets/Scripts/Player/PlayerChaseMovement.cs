@@ -36,17 +36,21 @@ public class PlayerChaseMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {   
-        Collider[] colliders = Array.Empty<Collider>();
-        var num = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0f, jumpCheckOffset, 0f), 0.2f, colliders);
+        var cols = Physics.OverlapSphere(transform.position + new Vector3(0f, jumpCheckOffset, 0f), 0.2f);
 
-        Debug.Log($"Jump, cols num: {num}");
+        Debug.Log($"Jump, cols num: {cols}");
 
-        if (num is not 0 && colliders.Any(x => x.gameObject != gameObject))
+        if (cols.Length is not 0)
             rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
+    }
+    
+    public void Run(InputAction.CallbackContext context)
+    {
+        Debug.Log("RUN");
     }
 
     public void Shoot(InputAction.CallbackContext context)
     {
-
+        Debug.Log("SHOOT");
     }
 }

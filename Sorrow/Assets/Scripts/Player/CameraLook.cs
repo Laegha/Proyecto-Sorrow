@@ -15,7 +15,7 @@ public class CameraLook : MonoBehaviour
 
     void Update()
     {
-        var delta = InputManager.controller.Player.Camera.ReadValue<Vector2>();
+        var delta = InputManager.controller.Camera.Look.ReadValue<Vector2>();
         float mouseY = delta.y * InputManager.instance.mouseSensitivity;
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
