@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-    [HideInInspector] public float mouseSensitivity;
     Transform player;
-
     float currXRotation;
+
     void Start()
     {
         player = transform.root;
-        mouseSensitivity = FindObjectOfType<InputManager>().mouseSensitivity;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        var delta = InputManager.controller.Player.Camera.ReadValue<Vector2>();
+        float mouseY = delta.y * InputManager.instance.mouseSensitivity;
+        float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
-        if(mouseY != 0)
+        if (mouseY != 0)
         {
             currXRotation -= mouseY;
             currXRotation = Mathf.Clamp(currXRotation, -90f, 90f);

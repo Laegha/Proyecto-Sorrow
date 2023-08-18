@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RunningManager : MonoBehaviour
 {
+    /*
     [HideInInspector] public bool isRunning = false;
     bool canRun = true;
     [SerializeField] float maxRunSeconds;
@@ -38,4 +39,5 @@ public class RunningManager : MonoBehaviour
         if (Input.GetKeyUp(InputManager.instance.runKey))
             isRunning = false;
     }
+    */
 }

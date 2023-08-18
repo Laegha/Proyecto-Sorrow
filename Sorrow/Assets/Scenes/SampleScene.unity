@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -434,7 +434,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629149863}
-  - component: {fileID: 629149862}
   - component: {fileID: 629149864}
   m_Layer: 0
   m_Name: '[SCRIPTER]'
@@ -443,23 +442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &629149862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629149861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c17a24f8cdb01c14f99abbc612d7d066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionKey: 323
-  useItemKey: 323
-  dropObjectKey: 113
-  runKey: 304
-  mouseSensitivity: 530
 --- !u!4 &629149863
 Transform:
   m_ObjectHideFlags: 0
@@ -618,10 +600,10 @@ GameObject:
   - component: {fileID: 803088998}
   - component: {fileID: 803088997}
   - component: {fileID: 803088996}
+  - component: {fileID: 803089003}
   - component: {fileID: 803089000}
   - component: {fileID: 803089001}
   - component: {fileID: 803089002}
-  - component: {fileID: 803089003}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -743,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c05a537e0fe6f46aeaa5cfba4c75dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 4
+  sprintMultiplier: 2
 --- !u!114 &803089002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,12 +748,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 803088995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad771d123d89f2b4f80a9090eb9ba432, type: 3}
+  m_Script: {fileID: 11500000, guid: c17a24f8cdb01c14f99abbc612d7d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRunning: 0
-  maxRunSeconds: 2
-  runSpeed: 8
+  mouseSensitivity: 0.053
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b9f8df79aee341ad67167e26fe07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
