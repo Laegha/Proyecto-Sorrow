@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float sprintMultiplier;
-
     Vector2 hMovement;
 
     public void Walk(InputAction.CallbackContext context) 

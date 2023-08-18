@@ -16,6 +16,10 @@ public class InputManager : MonoBehaviour
         instance = this;
         controller = new Controller();
 
+        controller.Player.Enable();
+        controller.Dialog.Disable();
+        controller.PlayerRun.Disable();
+        
         if (TryGetComponent<PlayerMovement>(out var playerMovement))
         {
             controller.Player.Walk.performed += playerMovement.Walk;
@@ -24,6 +28,12 @@ public class InputManager : MonoBehaviour
 
         if (TryGetComponent<PlayerInteraction>(out var playerInteraction))
             controller.Player.Interact.performed += playerInteraction.CheckInteraction;
+
+        if (TryGetComponent<PlayerChaseMovement>(out var playerChaseMovement))
+        {
+            controller.PlayerRun.Jump.performed += playerChaseMovement.Jump;
+            controller.Player.UseItem.performed += playerChaseMovement.Shoot;
+        }
     }
 
     void OnEnable() => controller.Enable();

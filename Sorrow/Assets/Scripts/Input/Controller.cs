@@ -328,6 +328,45 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerRun"",
+            ""id"": ""10c1943c-ee05-4f5d-a2e3-7633c58a9873"",
+            ""actions"": [
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""d19f3d02-9972-4a39-940a-a0d7add37d40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""eda5d89d-d905-4b34-b132-3b34f323734e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1127a7b-1d57-48b6-9e9c-822eba8881a9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -373,6 +412,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Dialog_Skip = m_Dialog.FindAction("Skip", throwIfNotFound: true);
         m_Dialog_Auto = m_Dialog.FindAction("Auto", throwIfNotFound: true);
         m_Dialog_ShowTranscript = m_Dialog.FindAction("ShowTranscript", throwIfNotFound: true);
+        // PlayerRun
+        m_PlayerRun = asset.FindActionMap("PlayerRun", throwIfNotFound: true);
+        m_PlayerRun_Jump = m_PlayerRun.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -578,6 +620,52 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         }
     }
     public DialogActions @Dialog => new DialogActions(this);
+
+    // PlayerRun
+    private readonly InputActionMap m_PlayerRun;
+    private List<IPlayerRunActions> m_PlayerRunActionsCallbackInterfaces = new List<IPlayerRunActions>();
+    private readonly InputAction m_PlayerRun_Jump;
+    public struct PlayerRunActions
+    {
+        private @Controller m_Wrapper;
+        public PlayerRunActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_PlayerRun_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerRun; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerRunActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerRunActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Add(instance);
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IPlayerRunActions instance)
+        {
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IPlayerRunActions instance)
+        {
+            if (m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayerRunActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerRunActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PlayerRunActions @PlayerRun => new PlayerRunActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -610,5 +698,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         void OnSkip(InputAction.CallbackContext context);
         void OnAuto(InputAction.CallbackContext context);
         void OnShowTranscript(InputAction.CallbackContext context);
+    }
+    public interface IPlayerRunActions
+    {
+        void OnJump(InputAction.CallbackContext context);
     }
 }
