@@ -7,8 +7,9 @@ public class HeldObjectManager : MonoBehaviour
     Transform heldObjectHolder;
 
     [HideInInspector] public HeldObject heldObject;
-
+    Collider heldObjectCollider;
     bool isHolding = false;
+
     void Start() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
 
     private void Update()
@@ -50,12 +51,16 @@ public class HeldObjectManager : MonoBehaviour
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tama�o
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
+        heldObjectCollider = heldObject.GetComponent<Collider>();
+        heldObjectCollider.enabled = false; 
     }
 
     void DropObject()
     {
         heldObject.transform.SetParent(null);
         heldObject._rigidbody.constraints = RigidbodyConstraints.None;
+        heldObjectCollider.enabled = true;
+        heldObjectCollider = null;
         heldObject = null;
     }
 }

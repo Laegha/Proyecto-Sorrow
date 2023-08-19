@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 hMovement;
 
-    public void Walk(InputAction.CallbackContext context) 
+    public void Walk(InputAction.CallbackContext context)
         => hMovement = context.ReadValue<Vector2>();
 
     public void StopWalk(InputAction.CallbackContext context)
@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        var vector = hMovement * Time.deltaTime;
+        if (hMovement == Vector2.zero)
+            return;
 
-        if (vector != Vector2.zero)
-            transform.Translate(vector.x, 0, vector.y);
+        var vector = hMovement * Time.deltaTime;
+        transform.Translate(vector.x, 0, vector.y);
     }
 }

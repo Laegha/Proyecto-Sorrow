@@ -15,11 +15,6 @@ public class InputManager : MonoBehaviour
 
         instance = this;
         controller = new Controller();
-
-        controller.Player.Enable();
-        controller.Camera.Enable();
-        controller.Dialog.Disable();
-        controller.PlayerRun.Disable();
         
         if (TryGetComponent<PlayerMovement>(out var playerMovement))
         {
@@ -33,11 +28,20 @@ public class InputManager : MonoBehaviour
         if (TryGetComponent<PlayerChaseMovement>(out var playerChaseMovement))
         {
             controller.PlayerRun.Run.performed += playerChaseMovement.Run;
+            controller.PlayerRun.Run.canceled += playerChaseMovement.StopRun;
             controller.PlayerRun.Jump.performed += playerChaseMovement.Jump;
             controller.PlayerRun.Shoot.performed += playerChaseMovement.Shoot;
         }
     }
 
-    void OnEnable() => controller.Enable();
+    void OnEnable()
+    {
+        controller.Enable();
+        controller.Player.Enable();
+        controller.Camera.Enable();
+        controller.Dialog.Disable();
+        controller.PlayerRun.Disable();
+    }
+
     void OnDisable() => controller.Disable();
 }

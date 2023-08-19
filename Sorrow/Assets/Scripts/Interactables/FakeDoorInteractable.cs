@@ -17,12 +17,11 @@ public class FakeDoorInteractable : Interactable
 
         if (!InputManager.controller.PlayerRun.enabled)
         {
-            InputManager.controller.PlayerRun.Enable();
             InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
             Debug.Log("RUN");
-        } else
+        } 
+        else
         {
-            InputManager.controller.PlayerRun.Disable();
             InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = false;
             Debug.Log("WALK");
             timesInteracted = 0;
