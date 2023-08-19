@@ -45,4 +45,10 @@ public class ChaseController : MonoBehaviour
         traveled = 0;
         transform.rotation = Quaternion.Euler(new Vector3(0, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0));
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            print("El monstruo alcanzo al player");
+    }
 }
