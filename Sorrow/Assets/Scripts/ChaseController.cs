@@ -1,43 +1,48 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class ChaseController : MonoBehaviour
-//{
-//    Transform[] waypoints;
+public class ChaseController : MonoBehaviour
+{
+    Transform[] waypoints;
 
-//    int trackedWayPoint = 0;
+    int trackedWayPoint = 0;
 
-//    [HideInInspector] public bool isMoving;
+    [HideInInspector] public bool isMoving;
 
-//    [SerializeField] float speed;
+    [SerializeField] float speed;
 
-//    Vector2 delta;
-//    float direction;
+    float magnitude;
+    float traveled;
 
-//    private void Start() => TrackWaypoint();
+    private void Start() => TrackWaypoint();
 
-//    private void Update()
-//    {
-//        if (!isMoving)
-//            return;
+    private void Update()
+    {
+        if (!isMoving)
+            return;
 
-//        transform.Translate(new Vector3(delta.x, 0, delta.y) * speed * Time.deltaTime);
-//        if (delta.)
-//        {
-//            trackedWayPoint++;
-//            if (trackedWayPoint > waypoints.Length)
-//            {
-//                isMoving = false;
-//                return;
-//            }
-//            TrackWaypoint();
-//        }
-//    }
+        var delta = speed * Time.deltaTime;
+        transform.Translate(delta * Vector3.forward);
+        traveled += delta;
 
-//    void TrackWaypoint()
-//    {
-//        delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
-//        direction = Mathf.
-//    }
-//}
+        if (traveled < magnitude)
+            return;
+
+        trackedWayPoint++;
+        if (trackedWayPoint > waypoints.Length)
+        {
+            isMoving = false;
+            return;
+        }
+        TrackWaypoint();
+    }
+
+    void TrackWaypoint()
+    {
+        var delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
+        magnitude = delta.magnitude;
+        traveled = 0;
+        transform.Rotate(new Vector3(0, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0));
+    }
+}
