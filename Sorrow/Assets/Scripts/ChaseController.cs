@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ChaseController : MonoBehaviour
 {
-    Transform[] waypoints;
+    [SerializeField] Transform[] waypoints;
 
     int trackedWayPoint = 0;
 
-    [HideInInspector] public bool isMoving;
+    /*[HideInInspector]*/ public bool isMoving;
 
     [SerializeField] float speed;
 
@@ -30,7 +30,7 @@ public class ChaseController : MonoBehaviour
             return;
 
         trackedWayPoint++;
-        if (trackedWayPoint > waypoints.Length)
+        if (trackedWayPoint > waypoints.Length -1)
         {
             isMoving = false;
             return;
@@ -43,6 +43,6 @@ public class ChaseController : MonoBehaviour
         var delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
         magnitude = delta.magnitude;
         traveled = 0;
-        transform.Rotate(new Vector3(0, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0));
     }
 }
