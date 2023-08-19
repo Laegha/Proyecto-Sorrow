@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void CheckInteraction(InputAction.CallbackContext context)
     {
-        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, 5);
+        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, interactionDistance);
         if (hitObj.transform == null)
             return;
         if (hitObj.transform.TryGetComponent<Interactable>(out var interactable))
