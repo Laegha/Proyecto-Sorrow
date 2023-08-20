@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5020619567110249846}
   - component: {fileID: 4505359907138522339}
   - component: {fileID: 3557720236902609924}
-  - component: {fileID: 4521925540240255037}
   - component: {fileID: 6568050901902902347}
   - component: {fileID: 3860867142075615650}
   m_Layer: 0
@@ -125,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c175892588b714a89c442956b7fe35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 0
+  interactionDistance: 3.5
 --- !u!114 &3557720236902609924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,19 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c05a537e0fe6f46aeaa5cfba4c75dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4521925540240255037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2665982127368777901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d906ce7c6188e1469d771773d3112d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heldObject: {fileID: 0}
 --- !u!114 &6568050901902902347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +176,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &4374919114576354026
 GameObject:
   m_ObjectHideFlags: 0
