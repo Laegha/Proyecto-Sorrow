@@ -19,15 +19,15 @@ public class CameraLook : MonoBehaviour
         float mouseY = delta.y * InputManager.instance.mouseSensitivity;
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
-        if (mouseY != 0)
-        {
-            currXRotation -= mouseY;
-            currXRotation = Mathf.Clamp(currXRotation, -90f, 90f);
-
-            transform.localRotation = Quaternion.Euler(currXRotation, 0, 0);
-        }
-
         if(mouseX != 0)
             player.Rotate(Vector3.up * mouseX);
+
+        if (mouseY == 0)
+            return;
+
+        currXRotation -= mouseY;
+        currXRotation = Mathf.Clamp(currXRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(currXRotation, 0, 0);
     }
 }
