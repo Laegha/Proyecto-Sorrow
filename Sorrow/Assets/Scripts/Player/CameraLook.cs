@@ -19,7 +19,7 @@ public class CameraLook : MonoBehaviour
         float mouseY = delta.y * InputManager.instance.mouseSensitivity;
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
-        if(mouseX != 0)
+        if (mouseX != 0)
             player.Rotate(Vector3.up * mouseX);
 
         if (mouseY == 0)
