@@ -95,7 +95,7 @@ public class PlayerChaseMovement : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         canJump = CheckGround();
-        if (canJump && accel == Vector2.zero)
+        if (canJump && accel == Vector2.zero && enabled)
             rb.drag = stopDrag;
     }
 

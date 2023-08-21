@@ -18,6 +18,7 @@ public class FakeDoorInteractable : Interactable
         if (!InputManager.controller.PlayerRun.enabled)
         {
             InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
+            InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
             Debug.Log("RUN");
         } 
         else
