@@ -6,20 +6,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector2 hMovement;
+    Vector3 hMovement;
+    Rigidbody rb;
+
+    void Awake() => rb = GetComponent<Rigidbody>();
 
     public void Walk(InputAction.CallbackContext context)
-        => hMovement = context.ReadValue<Vector2>();
+    {
+        var vector2 = context.ReadValue<Vector2>();
+        hMovement = new Vector3(vector2.x, 0, vector2.y);
+    }
 
     public void StopWalk(InputAction.CallbackContext context)
-        => hMovement = Vector2.zero;
+        => hMovement = Vector3.zero;
 
-    void Update()
-    {
-        if (hMovement == Vector2.zero)
-            return;
-
-        var vector = hMovement * Time.deltaTime;
-        transform.Translate(vector.x, 0, vector.y);
-    }
+    void Update() => rb.velocity = transform.TransformDirection(hMovement);
 }

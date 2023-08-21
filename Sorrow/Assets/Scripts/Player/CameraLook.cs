@@ -6,11 +6,13 @@ public class CameraLook : MonoBehaviour
 {
     Transform player;
     float currXRotation;
+    Rigidbody rb;
 
     void Start()
     {
         player = transform.root;
         Cursor.lockState = CursorLockMode.Locked;
+        rb = player.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -20,7 +22,8 @@ public class CameraLook : MonoBehaviour
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
         if (mouseX != 0)
-            player.Rotate(Vector3.up * mouseX);
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(Vector3.up * mouseX));
+            //player.Rotate(Vector3.up * mouseX);
 
         if (mouseY == 0)
             return;

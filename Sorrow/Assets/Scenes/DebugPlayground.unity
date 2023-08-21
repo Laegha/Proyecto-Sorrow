@@ -144,7 +144,7 @@ MonoBehaviour:
   maxBurstSpeed: 10
   maxSpeed: 20
   moveDrag: 0.05
-  stopDrag: 4
+  stopDrag: 2
   jumpForce: 8
   jumpCheckOffset: -1.2
 --- !u!1 &68524350
