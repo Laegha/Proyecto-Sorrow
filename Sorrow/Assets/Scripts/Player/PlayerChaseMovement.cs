@@ -31,6 +31,7 @@ public class PlayerChaseMovement : MonoBehaviour
         rb.drag = stopDrag;
         previousMaxSpeed = rb.maxLinearVelocity;
         rb.maxLinearVelocity = maxSpeed;
+        OnCollisionEnter(default);
     }
 
     void OnDisable()
