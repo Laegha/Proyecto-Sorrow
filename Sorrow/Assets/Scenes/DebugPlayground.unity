@@ -145,8 +145,9 @@ MonoBehaviour:
   maxSpeed: 20
   moveDrag: 0.05
   stopDrag: 2
-  jumpForce: 8
+  jumpForce: 6
   jumpCheckOffset: -1.2
+  jumpBufferTime: 0
 --- !u!1 &68524350
 GameObject:
   m_ObjectHideFlags: 0

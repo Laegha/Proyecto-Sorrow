@@ -285,7 +285,7 @@
                     "type": "Value",
                     "id": "1416ac97-d253-4a44-9145-a154f6366322",
                     "expectedControlType": "Stick",
-                    "processors": "ScaleVector2(x=250,y=500)",
+                    "processors": "ScaleVector2(x=2.5,y=5)",
                     "interactions": "",
                     "initialStateCheck": true
                 },

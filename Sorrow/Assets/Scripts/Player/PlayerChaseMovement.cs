@@ -14,18 +14,15 @@ public class PlayerChaseMovement : MonoBehaviour
     [SerializeField] float stopDrag;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCheckOffset;
+    [SerializeField] float jumpBufferTime;
     Rigidbody rb;
-    CapsuleCollider capsuleCollider;
     Vector2 accel;
     bool canJump;
+    float jumpBuffer;
     float previousMaxSpeed;
     readonly Vector3 halfExtents = new(0.45f, 0.1f, 0.45f);
 
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
-    }
+    void Awake() => rb = GetComponent<Rigidbody>();
 
     void OnEnable()
     {
@@ -48,7 +45,10 @@ public class PlayerChaseMovement : MonoBehaviour
     {   
         // 3) Si no puede saltar o no está tocando el piso, no hacer nada.
         if (!canJump || !CheckGround())
+        {
+            jumpBuffer = jumpBufferTime;
             return;
+        }
 
         // 1) Darle la fuerza y sacar la capacidad de saltar para que no pueda volver a saltar hasta realmente tocar el piso.
         rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
@@ -77,13 +77,15 @@ public class PlayerChaseMovement : MonoBehaviour
     {
         Debug.Log("V " + rb.velocity.magnitude + " " + rb.GetPointVelocity(transform.position));
 
+        jumpBuffer -= Time.deltaTime;
+
         if (Mathf.Abs(rb.velocity.y) > .5f)
             rb.drag = moveDrag;
 
         if (accel == Vector2.zero)
             return;
 
-        var vector = accel * Time.deltaTime;
+        var vector = accel;
 
         if (rb.velocity.magnitude < maxBurstSpeed)
             vector *= burstAccelMult;
@@ -94,8 +96,16 @@ public class PlayerChaseMovement : MonoBehaviour
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
     void OnCollisionEnter(Collision collision)
     {
+        if (!enabled) return;
+
         canJump = CheckGround();
-        if (canJump && accel == Vector2.zero && enabled)
+
+        if (!canJump) return;
+
+        if (jumpBuffer > 0f)
+            Jump(default);
+        
+        if (accel == Vector2.zero)
             rb.drag = stopDrag;
     }
 
