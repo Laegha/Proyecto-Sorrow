@@ -140,11 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3845aa4281ec614ca3f7c3d6be4577f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burstAccelMult: 4
-  maxBurstSpeed: 10
-  maxSpeed: 20
+  lerpFactor: 4
   moveDrag: 0.05
-  stopDrag: 2
+  stopDrag: 4
   jumpForce: 6
   jumpCheckOffset: -1.2
   jumpBufferTime: 0.1
@@ -1447,7 +1445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1261677290
 BoxCollider:
   m_ObjectHideFlags: 0

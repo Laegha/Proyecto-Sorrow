@@ -7,19 +7,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerChaseMovement : MonoBehaviour
 {
-    [SerializeField] float burstAccelMult;
-    [SerializeField] float maxBurstSpeed;
-    [SerializeField] float maxSpeed;
+    [SerializeField] float lerpFactor;
     [SerializeField] float moveDrag;
     [SerializeField] float stopDrag;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCheckOffset;
     [SerializeField] float jumpBufferTime;
     Rigidbody rb;
-    Vector2 accel;
+    Vector2 input;
     bool canJump;
     float jumpBuffer;
-    float previousMaxSpeed;
+    float t;
     readonly Vector3 halfExtents = new(0.45f, 0.1f, 0.45f);
 
     void Awake() => rb = GetComponent<Rigidbody>();
@@ -29,8 +27,6 @@ public class PlayerChaseMovement : MonoBehaviour
         InputManager.controller.Player.Disable();
         InputManager.controller.PlayerRun.Enable();
         rb.drag = stopDrag;
-        previousMaxSpeed = rb.maxLinearVelocity;
-        rb.maxLinearVelocity = maxSpeed;
         OnCollisionEnter(default);
     }
 
@@ -39,7 +35,6 @@ public class PlayerChaseMovement : MonoBehaviour
         InputManager.controller.Player.Enable();
         InputManager.controller.PlayerRun.Disable();
         rb.drag = 0f;
-        rb.maxLinearVelocity = previousMaxSpeed;
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -58,13 +53,13 @@ public class PlayerChaseMovement : MonoBehaviour
 
     public void Run(InputAction.CallbackContext context)
     {
-        accel = context.ReadValue<Vector2>();
+        input = context.ReadValue<Vector2>();
         rb.drag = moveDrag;
     }
 
     public void StopRun(InputAction.CallbackContext context)
     {
-        accel = Vector2.zero;
+        input = Vector2.zero;
         if (CheckGround())
             rb.drag = stopDrag;
     }
@@ -79,19 +74,29 @@ public class PlayerChaseMovement : MonoBehaviour
         Debug.Log("V " + rb.velocity.magnitude + " " + rb.GetPointVelocity(transform.position));
 
         jumpBuffer -= Time.deltaTime;
-
+        
         if (Mathf.Abs(rb.velocity.y) > .5f)
             rb.drag = moveDrag;
 
-        if (accel == Vector2.zero)
+        if (input == Vector2.zero)
+        {
+            t = 0f;
             return;
+        }
 
-        var vector = accel;
+        if (t < 1f)
+            t += lerpFactor * Time.deltaTime;
+        else
+            t = 1f;
 
-        if (rb.velocity.magnitude < maxBurstSpeed)
-            vector *= burstAccelMult;
+        var vector = Mathf.Lerp(0f, 1f, t) * input;
 
-        rb.AddRelativeForce(vector.x , 0, vector.y, ForceMode.Acceleration);
+        //if (rb.velocity.magnitude < maxBurstSpeed)
+            //vector *= burstAccelMult;
+
+        //rb.AddRelativeForce(vector.x , 0, vector.y, ForceMode.Force);
+
+        rb.velocity = transform.TransformDirection(new Vector3(vector.x, rb.velocity.y, vector.y));
     }
 
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
@@ -106,7 +111,7 @@ public class PlayerChaseMovement : MonoBehaviour
         if (jumpBuffer > 0f)
             Jump(default);
         
-        if (accel == Vector2.zero)
+        if (input == Vector2.zero)
             rb.drag = stopDrag;
     }
 
