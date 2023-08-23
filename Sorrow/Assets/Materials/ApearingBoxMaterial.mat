@@ -38,11 +38,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _FillAmount: 0.17
-    - _OutlineRange: 0.7
+    - _OutlineRange: 0.68
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BoxColor: {r: 0.02224991, g: 0.3373977, b: 0.9433962, a: 0}
+    - _BoxColor: {r: 0, g: 0.3404255, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1020724906349843284
 MonoBehaviour:
