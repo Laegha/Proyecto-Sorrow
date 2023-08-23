@@ -661,36 +661,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 990399248}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
---- !u!1 &990399247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 990399246}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &990399248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990399247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3845aa4281ec614ca3f7c3d6be4577f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burstAccelMult: 4
-  maxBurstSpeed: 10
-  maxSpeed: 20
-  moveDrag: 0.05
-  stopDrag: 4
-  jumpForce: 8
-  jumpCheckOffset: -1.2
-  jumpBufferTime: 0
 --- !u!1 &1105930884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,8 +1024,8 @@ Transform:
   m_GameObject: {fileID: 1733314752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6624, y: 1.9946, z: -6.574}
-  m_LocalScale: {x: 0.8978775, y: 1.0109605, z: 1.3279961}
+  m_LocalPosition: {x: -2.8493, y: 1.9946, z: -6.7973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

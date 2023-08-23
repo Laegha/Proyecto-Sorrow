@@ -6,7 +6,7 @@ public class HeldObjectManager : MonoBehaviour
 {
     Transform heldObjectHolder;
 
-    [HideInInspector] public HeldObject heldObject;
+    /*[HideInInspector]*/ public HeldObject heldObject;
     Collider heldObjectCollider;
     bool isHolding = false;
 
