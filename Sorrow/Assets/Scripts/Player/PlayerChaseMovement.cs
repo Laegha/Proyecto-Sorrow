@@ -7,14 +7,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerChaseMovement : MonoBehaviour
 {
+    [SerializeField] bool useForceMode;
+    [SerializeField] float fForce;
     [SerializeField] float lerpFactor;
+    [SerializeField] float minLerp;
     [SerializeField] float moveDrag;
     [SerializeField] float stopDrag;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCheckOffset;
     [SerializeField] float jumpBufferTime;
+    [SerializeField] float airControl;
     Rigidbody rb;
-    Vector2 input;
+    Vector3 input;
     bool canJump;
     float jumpBuffer;
     float t;
@@ -53,13 +57,14 @@ public class PlayerChaseMovement : MonoBehaviour
 
     public void Run(InputAction.CallbackContext context)
     {
-        input = context.ReadValue<Vector2>();
+        var vector2 = context.ReadValue<Vector2>();
+        input = new(vector2.x, 0f, vector2.y);
         rb.drag = moveDrag;
     }
 
     public void StopRun(InputAction.CallbackContext context)
     {
-        input = Vector2.zero;
+        input = Vector3.zero;
         if (CheckGround())
             rb.drag = stopDrag;
     }
@@ -71,14 +76,17 @@ public class PlayerChaseMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("V " + rb.velocity.magnitude + " " + rb.GetPointVelocity(transform.position));
+        //Debug.Log("V " + rb.velocity.magnitude + " " + rb.GetPointVelocity(transform.position));
 
         jumpBuffer -= Time.deltaTime;
         
         if (Mathf.Abs(rb.velocity.y) > .5f)
             rb.drag = moveDrag;
 
-        if (input == Vector2.zero)
+        if (useForceMode)
+            return;
+
+        if (input == Vector3.zero)
         {
             t = 0f;
             return;
@@ -88,15 +96,53 @@ public class PlayerChaseMovement : MonoBehaviour
             t += lerpFactor * Time.deltaTime;
         else
             t = 1f;
+        
+        var vector = Mathf.Lerp(minLerp, 1f, t) * input;
+        vector.y = rb.velocity.y;
+        rb.velocity = transform.TransformDirection(vector);
+    }
 
-        var vector = Mathf.Lerp(0f, 1f, t) * input;
+    void FixedUpdate()
+    {
+        if (!useForceMode)
+            return;
 
-        //if (rb.velocity.magnitude < maxBurstSpeed)
-            //vector *= burstAccelMult;
+        Vector3 finalVelocity = transform.TransformDirection(input);
 
-        //rb.AddRelativeForce(vector.x , 0, vector.y, ForceMode.Force);
+        if (Mathf.Abs(rb.velocity.y) > .5f)
+            finalVelocity *= airControl;
 
-        rb.velocity = transform.TransformDirection(new Vector3(vector.x, rb.velocity.y, vector.y));
+        ApplyForceToReachVelocity(finalVelocity, fForce);
+
+        /* 
+        Ok, me quiero ir a acostar, el tema es así:
+        vos aca si dejas de apretar en el aire va a frenar también, vos no queres eso, vos queres que frene pero no tanto como si apretase para atras
+        también, no tiene que ser apretar para "atras" tiene que ser el contrario de la velocidad actualmente
+        debe de ser algo tan facil como pasar el input a world y despues un == entre los 2 Math.Sign
+
+        atte y buenas atrasadas noches
+        - el que te quiere (sugerencia de github copilot)
+        */
+
+        /*
+        if (Mathf.Abs(rb.velocity.y) < .5f || input.z > 0f)
+        {
+            ApplyForceToReachVelocity(transform.TransformDirection(input), fForce);
+            return;
+        }
+
+        // Airborne and not pushing forward
+
+        Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
+
+        Vector3 slowdownVector = new(
+            localVelocity.x/2,
+            0f,
+            localVelocity.z / (input.z == 0f ? 2f : Mathf.Abs(input.z))
+        );
+
+        ApplyForceToReachVelocity(transform.TransformDirection(slowdownVector), fForce);
+        */
     }
 
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
@@ -111,10 +157,30 @@ public class PlayerChaseMovement : MonoBehaviour
         if (jumpBuffer > 0f)
             Jump(default);
         
-        if (input == Vector2.zero)
+        if (input == Vector3.zero)
             rb.drag = stopDrag;
     }
 
     bool CheckGround()
         => Physics.OverlapBox(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents).Length is not 0;
+
+    void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
+    {
+        if (force == 0 || velocity.magnitude == 0)
+            return;
+
+        velocity += 0.2f * rb.drag * velocity.normalized;
+
+        force = Mathf.Clamp(force, -rb.mass / Time.fixedDeltaTime, rb.mass / Time.fixedDeltaTime);
+
+        if (rb.velocity.magnitude == 0)
+        {
+            rb.AddForce(velocity * force, mode);
+            return;
+        }
+        
+        var velocityProjectedToTarget = velocity.normalized * Vector3.Dot(velocity, rb.velocity) / velocity.magnitude;
+        Debug.Log(velocityProjectedToTarget);
+        rb.AddForce((velocity - velocityProjectedToTarget) * force, mode);
+    }
 }
