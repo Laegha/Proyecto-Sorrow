@@ -307,7 +307,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""1416ac97-d253-4a44-9145-a154f6366322"",
                     ""expectedControlType"": ""Stick"",
-                    ""processors"": ""ScaleVector2(x=6,y=8)"",
+                    ""processors"": ""ScaleVector2(x=7,y=8)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
