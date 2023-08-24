@@ -37,7 +37,7 @@ public class InputManager : MonoBehaviour
             controller.PlayerRun.Run.performed += playerChaseMovement.Run;
             controller.PlayerRun.Run.canceled += playerChaseMovement.StopRun;
             controller.PlayerRun.Jump.performed += playerChaseMovement.Jump;
-            controller.PlayerRun.Shoot.performed += playerChaseMovement.Shoot;
+            controller.PlayerRun.Shoot.performed += heldObjectManager.UseObject;
         }
     }
 
