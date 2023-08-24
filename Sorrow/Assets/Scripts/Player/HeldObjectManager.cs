@@ -6,7 +6,7 @@ public class HeldObjectManager : MonoBehaviour
 {
     Transform heldObjectHolder;
 
-    /*[HideInInspector]*/ public HeldObject heldObject;
+    [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
     bool isHolding = false;
 
@@ -47,7 +47,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject.transform.SetParent(heldObjectHolder);
 
         heldObject.transform.localRotation= Quaternion.Euler(Vector3.zero);
-        heldObject._rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tama�o
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);

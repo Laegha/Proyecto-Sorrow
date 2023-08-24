@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -546,7 +546,7 @@ Transform:
   m_GameObject: {fileID: 331598288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0.534, z: -13}
+  m_LocalPosition: {x: -5.325, y: 0.657, z: -13.579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1439,13 +1439,14 @@ GameObject:
   - component: {fileID: 1261677292}
   - component: {fileID: 1261677291}
   - component: {fileID: 1261677290}
-  m_Layer: 0
+  - component: {fileID: 1261677294}
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1261677290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1487,6 +1488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 30fa8823f75e63c409a9e9d15a96d334, type: 2}
   - {fileID: 2100000, guid: a2a690b158d0f47418fcd25a53ac3745, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1526,12 +1528,25 @@ Transform:
   m_GameObject: {fileID: 1261677289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.419, y: 2.1274, z: -37.569}
-  m_LocalScale: {x: 0.90111655, y: 0.4932, z: 1.0304387}
+  m_LocalPosition: {x: -5.061, y: 1.96, z: -7.745}
+  m_LocalScale: {x: 1.9151868, y: 0.21809304, z: 1.0304387}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1261677294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261677289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillMultiplier: 5
 --- !u!1 &1344565588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,8 +2103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConsumable: 0
   bulletPrefab: {fileID: 5451920008731461933, guid: 64004574387337945a10abf78e95c83c, type: 3}
-  bulletForce: 0
-  bulletPerSecond: 0
+  bulletForce: 10
+  bulletPerSecond: 4
 --- !u!1 &1969104860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2431,10 @@ PrefabInstance:
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.x
