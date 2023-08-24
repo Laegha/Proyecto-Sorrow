@@ -107,18 +107,18 @@ public class PlayerChaseMovement : MonoBehaviour
         if (!useForceMode)
             return;
 
-        Vector3 finalVelocity = transform.TransformDirection(input);
+        Vector3 finalVelocity = input;
 
-        bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(finalVelocity.z) != Mathf.Sign(rb.velocity.z);
+        bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(transform.TransformDirection(input).z) != Mathf.Sign(rb.velocity.z);
         bool airborne = rb.velocity.y != 0f && !CheckGround();
 
         if (airborne && isGoingOpositeZ)
             if (rb.velocity.y < -.1f)
-                finalVelocity *= -airControl;
+                finalVelocity.z *= -airControl;
             else
                 return;
 
-        ApplyForceToReachVelocity(finalVelocity, fForce);
+        ApplyForceToReachVelocity(transform.TransformDirection(finalVelocity), fForce);
 
         /* 
         Ok, me quiero ir a acostar, el tema es así:
