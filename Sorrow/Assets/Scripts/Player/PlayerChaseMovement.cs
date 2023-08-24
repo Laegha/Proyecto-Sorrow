@@ -109,8 +109,14 @@ public class PlayerChaseMovement : MonoBehaviour
 
         Vector3 finalVelocity = transform.TransformDirection(input);
 
-        if (Mathf.Abs(rb.velocity.y) > .5f)
-            finalVelocity *= airControl;
+        bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(finalVelocity.z) != Mathf.Sign(rb.velocity.z);
+        bool airborne = rb.velocity.y != 0f && !CheckGround();
+
+        if (airborne && isGoingOpositeZ)
+            if (rb.velocity.y < -.1f)
+                finalVelocity *= -airControl;
+            else
+                return;
 
         ApplyForceToReachVelocity(finalVelocity, fForce);
 
@@ -180,7 +186,7 @@ public class PlayerChaseMovement : MonoBehaviour
         }
         
         var velocityProjectedToTarget = velocity.normalized * Vector3.Dot(velocity, rb.velocity) / velocity.magnitude;
-        Debug.Log(velocityProjectedToTarget);
+        Debug.Log("Vel " + velocity + " VP " + velocityProjectedToTarget);
         rb.AddForce((velocity - velocityProjectedToTarget) * force, mode);
     }
 }
