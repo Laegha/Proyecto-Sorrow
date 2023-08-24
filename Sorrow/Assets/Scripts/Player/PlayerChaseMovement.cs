@@ -7,10 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerChaseMovement : MonoBehaviour
 {
-    [SerializeField] bool useForceMode;
     [SerializeField] float fForce;
-    [SerializeField] float lerpFactor;
-    [SerializeField] float minLerp;
     [SerializeField] float moveDrag;
     [SerializeField] float stopDrag;
     [SerializeField] float jumpForce;
@@ -21,7 +18,6 @@ public class PlayerChaseMovement : MonoBehaviour
     Vector3 input;
     bool canJump;
     float jumpBuffer;
-    float t;
     readonly Vector3 halfExtents = new(0.45f, 0.1f, 0.45f);
 
     void Awake() => rb = GetComponent<Rigidbody>();
@@ -41,7 +37,7 @@ public class PlayerChaseMovement : MonoBehaviour
         rb.drag = 0f;
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext _)
     {   
         // 3) Si no puede saltar o no está tocando el piso, no hacer nada.
         if (!canJump || !CheckGround())
@@ -62,16 +58,11 @@ public class PlayerChaseMovement : MonoBehaviour
         rb.drag = moveDrag;
     }
 
-    public void StopRun(InputAction.CallbackContext context)
+    public void StopRun(InputAction.CallbackContext _)
     {
         input = Vector3.zero;
         if (CheckGround())
             rb.drag = stopDrag;
-    }
-
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        Debug.Log("SHOOT");
     }
 
     void Update()
@@ -82,31 +73,10 @@ public class PlayerChaseMovement : MonoBehaviour
         
         if (Mathf.Abs(rb.velocity.y) > .5f)
             rb.drag = moveDrag;
-
-        if (useForceMode)
-            return;
-
-        if (input == Vector3.zero)
-        {
-            t = 0f;
-            return;
-        }
-
-        if (t < 1f)
-            t += lerpFactor * Time.deltaTime;
-        else
-            t = 1f;
-        
-        var vector = Mathf.Lerp(minLerp, 1f, t) * input;
-        vector.y = rb.velocity.y;
-        rb.velocity = transform.TransformDirection(vector);
     }
 
     void FixedUpdate()
     {
-        if (!useForceMode)
-            return;
-
         Vector3 finalVelocity = input;
 
         bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(transform.TransformDirection(input).z) != Mathf.Sign(rb.velocity.z);
@@ -119,36 +89,6 @@ public class PlayerChaseMovement : MonoBehaviour
                 return;
 
         ApplyForceToReachVelocity(transform.TransformDirection(finalVelocity), fForce);
-
-        /* 
-        Ok, me quiero ir a acostar, el tema es así:
-        vos aca si dejas de apretar en el aire va a frenar también, vos no queres eso, vos queres que frene pero no tanto como si apretase para atras
-        también, no tiene que ser apretar para "atras" tiene que ser el contrario de la velocidad actualmente
-        debe de ser algo tan facil como pasar el input a world y despues un == entre los 2 Math.Sign
-
-        atte y buenas atrasadas noches
-        - el que te quiere (sugerencia de github copilot)
-        */
-
-        /*
-        if (Mathf.Abs(rb.velocity.y) < .5f || input.z > 0f)
-        {
-            ApplyForceToReachVelocity(transform.TransformDirection(input), fForce);
-            return;
-        }
-
-        // Airborne and not pushing forward
-
-        Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
-
-        Vector3 slowdownVector = new(
-            localVelocity.x/2,
-            0f,
-            localVelocity.z / (input.z == 0f ? 2f : Mathf.Abs(input.z))
-        );
-
-        ApplyForceToReachVelocity(transform.TransformDirection(slowdownVector), fForce);
-        */
     }
 
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
