@@ -20,5 +20,5 @@ public class PlayerMovement : MonoBehaviour
     public void StopWalk(InputAction.CallbackContext context)
         => hMovement = Vector3.zero;
 
-    void Update() => rb.velocity = transform.TransformDirection(hMovement);
+    void FixedUpdate() => rb.velocity = transform.TransformDirection(hMovement);
 }
