@@ -22,8 +22,15 @@ public class InputManager : MonoBehaviour
             controller.Player.Walk.canceled += playerMovement.StopWalk;
         }
 
+        if (TryGetComponent<HeldObjectManager>(out var heldObjectManager))
+        {
+            // Suscribe to event before check interaction to prevent pickup and use overlapping in the same click (I'm a god)
+            controller.Player.Click.performed += heldObjectManager.UseObject;
+            controller.Player.Drop.performed += heldObjectManager.DropObject;
+        }
+
         if (TryGetComponent<PlayerInteraction>(out var playerInteraction))
-            controller.Player.Interact.performed += playerInteraction.CheckInteraction;
+            controller.Player.Click.performed += playerInteraction.CheckInteraction;
 
         if (TryGetComponent<PlayerChaseMovement>(out var playerChaseMovement))
         {

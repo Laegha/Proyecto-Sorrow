@@ -1,41 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HeldObjectManager : MonoBehaviour
 {
     Transform heldObjectHolder;
-
     [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
-    bool isHolding = false;
 
     void Start() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
-
-    private void Update()
-    {
-        if (heldObject == null)
-            return;
-
-        if (!isHolding)
-        {
-            isHolding = true;
-            return;
-        }
-
-        if (InputManager.controller.Player.UseItem.IsPressed() && heldObject.thisItem != null)
-        {
-            heldObject.thisItem.ItemEffect();
-            if(heldObject.thisItem.isConsumable)
-            {
-                isHolding = false;
-                heldObject = null;
-            }
-        }
-
-        if (InputManager.controller.Player.Drop.IsPressed())
-            DropObject();
-    }
 
     public void HoldObject(HeldObject newHeldObject)
     {
@@ -46,17 +20,33 @@ public class HeldObjectManager : MonoBehaviour
 
         heldObject.transform.SetParent(heldObjectHolder);
 
-        heldObject.transform.localRotation= Quaternion.Euler(Vector3.zero);
+        heldObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tama�o
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
         heldObjectCollider = heldObject.GetComponent<Collider>();
-        heldObjectCollider.enabled = false; 
+        heldObjectCollider.enabled = false;
     }
 
-    void DropObject()
+    public void UseObject(InputAction.CallbackContext _)
     {
+
+        if (heldObject == null || heldObject.thisItem == null)
+            return;
+
+        heldObject.thisItem.ItemEffect();
+        if (!heldObject.thisItem.isConsumable)
+            return;
+
+        heldObject = null;
+    }
+
+    public void DropObject(InputAction.CallbackContext _)
+    {
+        if (heldObject == null || heldObject.thisItem == null)
+            return;
+
         heldObject.transform.SetParent(null);
         heldObject._rigidbody.constraints = RigidbodyConstraints.None;
         heldObjectCollider.enabled = true;

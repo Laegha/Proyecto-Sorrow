@@ -15,16 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "00792115-a95e-4bbf-9332-3ffd7ddf035a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "UseItem",
+                    "name": "Click",
                     "type": "Button",
                     "id": "306986a6-cd23-4216-8b36-b827b37dfc8f",
                     "expectedControlType": "Button",
@@ -111,34 +102,12 @@
                 },
                 {
                     "name": "",
-                    "id": "f2c96249-6984-4495-8176-0ea1a3fab220",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "317a2d28-a53b-4374-a026-808f651fcb3e",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "798ee452-7c3e-4879-9940-2610eff65403",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "UseItem",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -149,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "UseItem",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
