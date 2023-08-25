@@ -965,9 +965,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733314752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b0ed366cae4124c91c74d24a4710cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fillMultiplier: 5
 --- !u!65 &1733314754
 BoxCollider:
   m_ObjectHideFlags: 0
