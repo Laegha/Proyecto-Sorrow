@@ -126,7 +126,6 @@ public class PlayerChaseMovement : MonoBehaviour
         }
         
         var velocityProjectedToTarget = velocity.normalized * Vector3.Dot(velocity, rb.velocity) / velocity.magnitude;
-        Debug.Log("Vel " + velocity + " VP " + velocityProjectedToTarget);
         rb.AddForce((velocity - velocityProjectedToTarget) * force, mode);
     }
 }

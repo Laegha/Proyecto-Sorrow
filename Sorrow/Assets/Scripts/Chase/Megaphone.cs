@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class Megaphone : Item
 {
-    Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float bulletForce;
-
     [SerializeField] float bulletPerSecond;
+    Transform firePoint;
     float shootCooldown;
 
-    private void Start()
-    {
-        firePoint = transform.Find("FirePoint");
-    }
+    private void Start() => firePoint = transform.Find("FirePoint");
 
     public override void ItemEffect()
     {
         if (shootCooldown > 0)
             return;
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>().AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         shootCooldown = 1 / bulletPerSecond; 
     }
-    private void Update()
-    {
-        if (shootCooldown > 0)
-            shootCooldown -= Time.deltaTime;
-    }
+
+    private void Update() => shootCooldown -= Time.deltaTime;
 }
