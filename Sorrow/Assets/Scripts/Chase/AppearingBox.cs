@@ -24,13 +24,11 @@ public class AppearingBox : MegaphoneTarget
 
     void Update()
     {
-        if (!isFilling)
+        if (!isFilling || fillAmount > 1)
             return;
 
         fillAmount += Time.deltaTime * fillMultiplier;
         boxMaterial.SetFloat("_FillAmount", fillAmount);
-        if (fillAmount > 1)
-            isFilling = false;
 
 
     }
