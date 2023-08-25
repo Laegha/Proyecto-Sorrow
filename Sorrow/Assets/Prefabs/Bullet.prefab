@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletForce: 25
   bounces: 5
-  time: 20
+  time: 10
