@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakingBlock : MegaphoneTarget
+public class BreakingBlock : HitableTarget
 {
     [SerializeField] Transform particleSystemHolder;
     public override void Activate()
