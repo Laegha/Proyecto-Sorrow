@@ -428,6 +428,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ButtonMashing",
+            "id": "d69f51b9-5962-4664-981e-ef188e312d50",
+            "actions": [
+                {
+                    "name": "Button",
+                    "type": "Button",
+                    "id": "56029723-3a1b-4429-af82-c65a2bbef478",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "52c9ec31-6913-4160-9025-8ea23d42a577",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e19064e7-3f26-4175-a5d7-f0f32206b200",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

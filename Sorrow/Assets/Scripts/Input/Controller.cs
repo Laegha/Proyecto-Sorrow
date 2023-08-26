@@ -450,6 +450,45 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ButtonMashing"",
+            ""id"": ""d69f51b9-5962-4664-981e-ef188e312d50"",
+            ""actions"": [
+                {
+                    ""name"": ""Button"",
+                    ""type"": ""Button"",
+                    ""id"": ""56029723-3a1b-4429-af82-c65a2bbef478"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""52c9ec31-6913-4160-9025-8ea23d42a577"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e19064e7-3f26-4175-a5d7-f0f32206b200"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -501,6 +540,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
+        // ButtonMashing
+        m_ButtonMashing = asset.FindActionMap("ButtonMashing", throwIfNotFound: true);
+        m_ButtonMashing_Button = m_ButtonMashing.FindAction("Button", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -798,6 +840,52 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // ButtonMashing
+    private readonly InputActionMap m_ButtonMashing;
+    private List<IButtonMashingActions> m_ButtonMashingActionsCallbackInterfaces = new List<IButtonMashingActions>();
+    private readonly InputAction m_ButtonMashing_Button;
+    public struct ButtonMashingActions
+    {
+        private @Controller m_Wrapper;
+        public ButtonMashingActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Button => m_Wrapper.m_ButtonMashing_Button;
+        public InputActionMap Get() { return m_Wrapper.m_ButtonMashing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ButtonMashingActions set) { return set.Get(); }
+        public void AddCallbacks(IButtonMashingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ButtonMashingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ButtonMashingActionsCallbackInterfaces.Add(instance);
+            @Button.started += instance.OnButton;
+            @Button.performed += instance.OnButton;
+            @Button.canceled += instance.OnButton;
+        }
+
+        private void UnregisterCallbacks(IButtonMashingActions instance)
+        {
+            @Button.started -= instance.OnButton;
+            @Button.performed -= instance.OnButton;
+            @Button.canceled -= instance.OnButton;
+        }
+
+        public void RemoveCallbacks(IButtonMashingActions instance)
+        {
+            if (m_Wrapper.m_ButtonMashingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IButtonMashingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ButtonMashingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ButtonMashingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ButtonMashingActions @ButtonMashing => new ButtonMashingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -838,5 +926,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     public interface ICameraActions
     {
         void OnLook(InputAction.CallbackContext context);
+    }
+    public interface IButtonMashingActions
+    {
+        void OnButton(InputAction.CallbackContext context);
     }
 }
