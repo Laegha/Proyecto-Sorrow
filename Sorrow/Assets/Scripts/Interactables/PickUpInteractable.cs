@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PickUpInteractable : Interactable
 {
-    public override void Interaction() => FindObjectOfType<HeldObjectManager>().HoldObject(GetComponent<HeldObject>());
-    
+    public override void Interaction()
+    {
+        if (enabled)
+            FindObjectOfType<HeldObjectManager>().HoldObject(GetComponent<HeldObject>());
+    }
 }
