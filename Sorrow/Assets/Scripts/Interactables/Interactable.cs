@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] Material interactionMaterial;
-    private void Start()
-    {
+    Material interactionMaterial;
+    private void Start() {
         interactionMaterial = GetComponent<Renderer>().material;
-    }
+        print(interactionMaterial);
+         }
+    
     public virtual void Interaction()
     {
 

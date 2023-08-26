@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppearingBox : MegaphoneTarget
+public class AppearingBox : HitableTarget
 {
     Material boxMaterial;
 
