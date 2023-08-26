@@ -39,6 +39,9 @@ public class InputManager : MonoBehaviour
             controller.PlayerRun.Jump.performed += playerChaseMovement.Jump;
             controller.PlayerRun.Shoot.performed += heldObjectManager.UseObject;
         }
+
+        if (TryGetComponent<ButtonMashing>(out var buttonMashing))
+            controller.ButtonMashing.Button.performed += buttonMashing.Mash;
     }
 
     void OnEnable()
@@ -48,6 +51,8 @@ public class InputManager : MonoBehaviour
         controller.Camera.Enable();
         controller.Dialog.Disable();
         controller.PlayerRun.Disable();
+        controller.ButtonMashing.Disable();
+        controller.LockRythm.Disable();
     }
 
     void OnDisable() => controller.Disable();

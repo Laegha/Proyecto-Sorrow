@@ -489,6 +489,89 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""LockRythm"",
+            ""id"": ""f1264aed-1226-4b01-8bef-628e897e4853"",
+            ""actions"": [
+                {
+                    ""name"": ""LockNum"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbf6d520-d9d0-40bf-86d9-aa5b85f921dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8e0d90a7-1d90-4680-a62b-e612acd777f7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""109dc312-ff91-461a-bc79-31aba84092c0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afaf78bd-72ea-472f-82e3-5754bcdb3b46"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""181b24d5-082c-429c-8e8c-319c61d4e774"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""877488f9-e519-45fa-87e9-3a999049187f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6dabb47b-cf57-415e-b23a-5727b17f216c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""LockNum"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -543,6 +626,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         // ButtonMashing
         m_ButtonMashing = asset.FindActionMap("ButtonMashing", throwIfNotFound: true);
         m_ButtonMashing_Button = m_ButtonMashing.FindAction("Button", throwIfNotFound: true);
+        // LockRythm
+        m_LockRythm = asset.FindActionMap("LockRythm", throwIfNotFound: true);
+        m_LockRythm_LockNum = m_LockRythm.FindAction("LockNum", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -886,6 +972,52 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         }
     }
     public ButtonMashingActions @ButtonMashing => new ButtonMashingActions(this);
+
+    // LockRythm
+    private readonly InputActionMap m_LockRythm;
+    private List<ILockRythmActions> m_LockRythmActionsCallbackInterfaces = new List<ILockRythmActions>();
+    private readonly InputAction m_LockRythm_LockNum;
+    public struct LockRythmActions
+    {
+        private @Controller m_Wrapper;
+        public LockRythmActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LockNum => m_Wrapper.m_LockRythm_LockNum;
+        public InputActionMap Get() { return m_Wrapper.m_LockRythm; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LockRythmActions set) { return set.Get(); }
+        public void AddCallbacks(ILockRythmActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LockRythmActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LockRythmActionsCallbackInterfaces.Add(instance);
+            @LockNum.started += instance.OnLockNum;
+            @LockNum.performed += instance.OnLockNum;
+            @LockNum.canceled += instance.OnLockNum;
+        }
+
+        private void UnregisterCallbacks(ILockRythmActions instance)
+        {
+            @LockNum.started -= instance.OnLockNum;
+            @LockNum.performed -= instance.OnLockNum;
+            @LockNum.canceled -= instance.OnLockNum;
+        }
+
+        public void RemoveCallbacks(ILockRythmActions instance)
+        {
+            if (m_Wrapper.m_LockRythmActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILockRythmActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LockRythmActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LockRythmActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LockRythmActions @LockRythm => new LockRythmActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -930,5 +1062,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     public interface IButtonMashingActions
     {
         void OnButton(InputAction.CallbackContext context);
+    }
+    public interface ILockRythmActions
+    {
+        void OnLockNum(InputAction.CallbackContext context);
     }
 }
