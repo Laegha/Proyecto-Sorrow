@@ -6,7 +6,7 @@ public class ActionCounter : MonoBehaviour
 {
     int doneActions = 0;
 
-    [SerializeField] int neededActions;
+    [HideInInspector]public int neededActions;
     public void ActionDone()
     { 
         doneActions++;

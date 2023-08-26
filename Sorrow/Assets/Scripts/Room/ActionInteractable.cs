@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,21 @@ using UnityEngine.Events;
 public class ActionInteractable : Interactable
 {
     [SerializeField] UnityEvent onInteractEvent;
-    // Start is called before the first frame update
-    void Start()
+
+    protected override void Start()
     {
-        
+        base.Start();
+
+        FindObjectOfType<ActionCounter>().neededActions ++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interaction()
     {
-        
+        onInteractEvent.Invoke();
+    }
+
+    public void ChangeCamera(CinemachineVirtualCamera cam)
+    {
+
     }
 }
