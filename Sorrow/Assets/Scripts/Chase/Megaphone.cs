@@ -15,7 +15,13 @@ public class Megaphone : Item
     {
         if (shootCooldown > 0)
             return;
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Transform bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).transform;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+            bullet.rotation = Quaternion.Euler((hit.point - firePoint.transform.position).normalized);
+
+        print("rotacion fr: " + Quaternion.Euler((hit.point - firePoint.transform.position).normalized));
+        print("rotacion firepoint: " + firePoint.rotation);
         shootCooldown = 1 / bulletPerSecond; 
     }
 
