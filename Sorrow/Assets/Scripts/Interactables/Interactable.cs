@@ -5,7 +5,7 @@ public class Interactable : MonoBehaviour
 {
     Material interactionMaterial;
 
-    protected virtual void Start() => interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");
+    protected virtual void Start() => interactionMaterial = GetComponent<MeshRenderer>().material; /*interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");*/
 
     public virtual void Interaction() {}
 

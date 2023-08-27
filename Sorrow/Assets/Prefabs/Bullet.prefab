@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82df2d5121b53b946bc6e0786b2e5a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletForce: 25
+  bulletForce: 25.9
   bounces: 5
   time: 10

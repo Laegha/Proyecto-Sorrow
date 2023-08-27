@@ -7,8 +7,10 @@ public class HeldObjectNeedInteractable : Interactable
     HeldObjectManager heldObjectManager;
 
     [SerializeField] string neededObjectName;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         heldObjectManager = FindObjectOfType<HeldObjectManager>();
     }
     public override void Interaction()
