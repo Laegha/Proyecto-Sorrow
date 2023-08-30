@@ -8,9 +8,9 @@ public class RestartChase : MonoBehaviour
 {
     [SerializeField] TimelineAsset restartTimeline;
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        if (!col.collider.CompareTag("Player"))
+        if (!col.CompareTag("Player"))
             return;
 
         // Start timeline clip
@@ -18,5 +18,5 @@ public class RestartChase : MonoBehaviour
         EndResult(); // DEBUG
     }
 
-    void EndResult() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    void EndResult() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
