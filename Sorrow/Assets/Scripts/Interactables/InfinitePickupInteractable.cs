@@ -8,7 +8,12 @@ public class InfinitePickUpInteractable : Interactable
 
     HeldObjectManager heldObjectManager;
 
-    private void Start() => heldObjectManager = FindObjectOfType<HeldObjectManager>();
+    protected override void Start()
+    {
+        base.Start(); 
+    
+        heldObjectManager = FindObjectOfType<HeldObjectManager>();
+    }
 
     public override void Interaction()
     {
