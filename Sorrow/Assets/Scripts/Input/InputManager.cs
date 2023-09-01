@@ -43,12 +43,8 @@ public class InputManager : MonoBehaviour
         if (TryGetComponent<ButtonMashing>(out var buttonMashing))
             controller.ButtonMashing.Button.performed += buttonMashing.Mash;
 
-        if (TryGetComponent<LockInterfase>(out var lockInterfase))
-        {
-            controller.LockRythm.Enable();
-            controller.LockRythm.LockNum.performed += lockInterfase.Lock;
-            controller.Player.Click.performed += lockInterfase.StartLock;
-        }
+        if (TryGetComponent<LockRythmController>(out var lockRythmController))
+            controller.LockRythm.LockNum.performed += lockRythmController.Lock;
     }
 
     void OnEnable()

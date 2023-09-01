@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LockRythmController : MonoBehaviour
 {
+    const int totalNums = 32;
     [SerializeField] float bpm;
-    readonly int[] finalPin = new int[16];
-    readonly int[] currentPin = new int[16];
+    readonly int[] finalPin = new int[totalNums];
+    readonly int[] currentPin = new int[totalNums];
     int lockedNums = 0;
     float BeatDuration => 60 / bpm;
     int currentBeat = 1;
 
+    void OnEnable()
+    {
+        InputManager.controller.LockRythm.Enable();
+        StartCoroutine(MetronomeCoroutine());
+    }
+
     void Awake()
     {
-        for (int i = 0; i < 16; i++)
+        for (int i = 0; i < totalNums; i++)
         {
             finalPin[i] = Random.Range(minInclusive: 1, maxExclusive: 9);
             currentPin[i] = 1;
@@ -24,7 +32,7 @@ public class LockRythmController : MonoBehaviour
     {
         while (true)
         {
-            for (int i = lockedNums; i < 16; i++)
+            for (int i = lockedNums; i < totalNums; i++)
                 currentPin[i] = currentBeat;
             Debug.Log(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
             yield return new WaitForSeconds(BeatDuration);
@@ -32,16 +40,17 @@ public class LockRythmController : MonoBehaviour
         }
     }
 
-    public void StartMetronome() => StartCoroutine(MetronomeCoroutine());
-
-    public void Lock()
+    public void Lock(InputAction.CallbackContext _)
     {
+        if (!enabled)
+            return;
+
         if (currentPin[lockedNums] == finalPin[lockedNums])
             lockedNums++;
         else
-            lockedNums -= lockedNums % 4;
+            lockedNums -= lockedNums % 8;
 
-        if (lockedNums is 16)
+        if (lockedNums is totalNums)
         {
             StopCoroutine(MetronomeCoroutine());
             Debug.Log("Unlocked");
