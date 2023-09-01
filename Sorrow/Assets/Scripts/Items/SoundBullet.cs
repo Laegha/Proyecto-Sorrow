@@ -22,7 +22,7 @@ public class SoundBullet : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (bounces is 0) // || collision.object es de los que interactuan con las balas
+        if (bounces is 0 || collision.transform.CompareTag("BulletReactable"))
             Destroy(gameObject);
 
         
