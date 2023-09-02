@@ -14,7 +14,7 @@ public class RestartChase : MonoBehaviour
             return;
 
         // Start timeline clip
-        Debug.Log("Restarting chase");
+        print("Restarting chase");
         EndResult(); // DEBUG
     }
 

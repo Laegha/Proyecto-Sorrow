@@ -13,10 +13,11 @@ public class HeldObjectNeedInteractable : Interactable
 
         heldObjectManager = FindObjectOfType<HeldObjectManager>();
     }
+
     public override void Interaction()
     {
         if (heldObjectManager.heldObject != null)
             if (heldObjectManager.heldObject.objectName == neededObjectName)
-                print("Se interactúa efectivamente con " + transform.name);
+                print("Se interactÃºa efectivamente con " + transform.name);
     }
 }

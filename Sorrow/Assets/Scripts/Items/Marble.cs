@@ -5,6 +5,7 @@ using UnityEngine;
 public class Marble : Item
 {
     [SerializeField] int throwForce;
+    
     public override void ItemEffect()
     {
         transform.SetParent(null);

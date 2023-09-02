@@ -11,7 +11,7 @@ public class BreakingBlock : HitableTarget
 
         particleSystemHolder.GetComponent<ParticleSystem>().Play();
 
-        Destroy(particleSystemHolder.gameObject, 5);
+        Destroy(particleSystemHolder.gameObject, 5f);
 
         Destroy(gameObject);
     }

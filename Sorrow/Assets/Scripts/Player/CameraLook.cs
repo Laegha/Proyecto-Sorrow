@@ -22,10 +22,10 @@ public class CameraLook : MonoBehaviour
         float mouseY = delta.y * InputManager.instance.mouseSensitivity;
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
-        if (mouseX != 0)
+        if (mouseX is not 0f)
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, mouseX, 0f));
 
-        if (mouseY == 0)
+        if (mouseY is 0f)
             return;
 
         currXRotation -= mouseY;

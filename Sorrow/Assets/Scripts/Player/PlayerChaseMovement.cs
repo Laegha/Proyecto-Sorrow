@@ -76,13 +76,7 @@ public class PlayerChaseMovement : MonoBehaviour
 
     void StopRun(InputAction.CallbackContext _) => input = Vector3.zero;
 
-    void Update()
-    {
-        jumpBuffer -= Time.deltaTime;
-        
-        //if (Mathf.Abs(rb.velocity.y) > .5f)
-        //    rb.drag = moveDrag;
-    }
+    void Update() => jumpBuffer -= Time.deltaTime;
 
     void FixedUpdate()
     {
@@ -131,14 +125,14 @@ public class PlayerChaseMovement : MonoBehaviour
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {
-        if (force == 0 || velocity.magnitude == 0)
+        if (force is 0f || velocity.magnitude is 0f)
             return;
 
         velocity += 0.2f * rb.drag * velocity.normalized;
 
         force = Mathf.Clamp(force, -rb.mass / Time.fixedDeltaTime, rb.mass / Time.fixedDeltaTime);
 
-        if (rb.velocity.magnitude == 0)
+        if (rb.velocity.magnitude is 0f)
         {
             rb.AddForce(velocity * force, mode);
             return;

@@ -41,7 +41,7 @@ public class LockRythmController : MonoBehaviour
         {
             for (int i = lockedNums; i < totalNums; i++)
                 currentPin[i] = currentBeat;
-            Debug.Log(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
+            print(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
             yield return new WaitForSeconds(BeatDuration);
             currentBeat += currentBeat != 8 ? 1 : -7;
         }
@@ -57,10 +57,10 @@ public class LockRythmController : MonoBehaviour
         else
             lockedNums -= lockedNums % 8;
 
-        if (lockedNums is totalNums)
-        {
-            StopCoroutine(MetronomeCoroutine());
-            Debug.Log("Unlocked");
-        }
+        if (lockedNums is not totalNums)
+            return;
+
+        StopCoroutine(MetronomeCoroutine());
+        print("Unlocked");
     }
 }

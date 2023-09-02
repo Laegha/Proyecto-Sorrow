@@ -24,7 +24,7 @@ public class FakeDoorInteractable : Interactable
         if (timesInteracted < 2)
         {
             timesInteracted++;
-            Debug.Log($"Interacted {timesInteracted}");
+            print($"Interacted {timesInteracted}");
             if (timesInteracted == 2)
                 pickUpInteractable.enabled = true;
             // Trying to open timeline
@@ -49,7 +49,7 @@ public class FakeDoorInteractable : Interactable
         InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
         Destroy(debugWall);
         InputManager.instance.GetComponent<HeldObjectManager>().HoldObject(heldObject);
-        Debug.Log("RUN");
+        print("RUN");
         megaphoneComponent.enabled = true;
         chaseController.isMoving = true;
         enabled = false;

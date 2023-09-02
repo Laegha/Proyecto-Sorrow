@@ -30,14 +30,14 @@ public class ButtonMashing : MonoBehaviour
     {
         mashCount -= mashIntencity;
 
-        if (mashCount <= 0)
+        if (mashCount <= 0f)
             End();
     }
 
     void Update()
     {
         mashCount += Time.deltaTime * disminutionMultiplier;
-        Debug.Log(mashCount);
+        print(mashCount);
     }
 
     void End()

@@ -4,8 +4,8 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     Material interactionMaterial;
-
     HeldObjectManager playerInteraction;
+
     protected virtual void Start()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interaction() {}
 
-    private void OnMouseEnter()
+    void OnMouseEnter()
     {
         if (!enabled)
             return;
@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
             interactionMaterial.SetColor("currentColor", Color.white);
     }
 
-    private void OnMouseExit()
+    void OnMouseExit()
     {
         if (!enabled)
             return;

@@ -11,7 +11,7 @@ public class AppearingBox : HitableTarget
     bool isFilling;
     [SerializeField] float fillMultiplier;
 
-    private void Start() => boxMaterial= GetComponent<Renderer>().material;
+    void Start() => boxMaterial= GetComponent<Renderer>().material;
     
 
     public override void Activate()
@@ -30,7 +30,5 @@ public class AppearingBox : HitableTarget
 
         fillAmount += Time.deltaTime * fillMultiplier;
         boxMaterial.SetFloat("_FillAmount", fillAmount);
-
-
     }
 }

@@ -9,7 +9,7 @@ public class Megaphone : Item
     Transform firePoint;
     float shootCooldown;
 
-    private void Start() => firePoint = transform.Find("FirePoint");
+    void Start() => firePoint = transform.Find("FirePoint");
 
     public override void ItemEffect()
     {
@@ -28,5 +28,5 @@ public class Megaphone : Item
         shootCooldown = 1 / bulletPerSecond; 
     }
 
-    private void Update() => shootCooldown -= Time.deltaTime;
+    void Update() => shootCooldown -= Time.deltaTime;
 }

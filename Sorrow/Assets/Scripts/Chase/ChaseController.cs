@@ -15,9 +15,9 @@ public class ChaseController : MonoBehaviour
     float magnitude;
     float traveled;
 
-    private void Start() => TrackWaypoint();
+    void Start() => TrackWaypoint();
 
-    private void Update()
+    void Update()
     {
         if (!isMoving)
             return;
@@ -30,7 +30,7 @@ public class ChaseController : MonoBehaviour
             return;
 
         trackedWayPoint++;
-        if (trackedWayPoint > waypoints.Length -1)
+        if (trackedWayPoint > waypoints.Length - 1)
         {
             isMoving = false;
             return;
@@ -42,7 +42,7 @@ public class ChaseController : MonoBehaviour
     {
         var delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
         magnitude = delta.magnitude;
-        traveled = 0;
-        transform.rotation = Quaternion.Euler(new Vector3(0, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0));
+        traveled = 0f;
+        transform.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
     }
 }

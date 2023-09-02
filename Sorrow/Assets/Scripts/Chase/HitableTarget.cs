@@ -10,10 +10,9 @@ public class HitableTarget : MonoBehaviour
         print(name + " activated");
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag(incomingProyectileTag))
             Activate();
     }
-
 }

@@ -16,7 +16,7 @@ public class SoundBullet : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
-        if (time <= 0)
+        if (time <= 0f)
             Destroy(gameObject);
     }
     
@@ -24,7 +24,6 @@ public class SoundBullet : MonoBehaviour
     {
         if (bounces is 0 || collision.transform.CompareTag("BulletReactable"))
             Destroy(gameObject);
-
         
         // Reflect the bullet's rotation with the normal of the surface it collided with.
         transform.rotation = Quaternion.LookRotation(Vector3.Reflect(transform.forward, collision.contacts[0].normal));

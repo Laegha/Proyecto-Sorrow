@@ -5,7 +5,6 @@ using UnityEngine;
 public class InfinitePickUpInteractable : Interactable
 {
     [SerializeField] GameObject pickUpPrefab;
-
     HeldObjectManager heldObjectManager;
 
     protected override void Start()

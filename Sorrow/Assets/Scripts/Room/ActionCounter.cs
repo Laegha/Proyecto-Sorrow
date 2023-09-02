@@ -5,15 +5,15 @@ using UnityEngine;
 public class ActionCounter : MonoBehaviour
 {
     int doneActions = 0;
+    [HideInInspector] public int neededActions;
 
-    [HideInInspector]public int neededActions;
     public void ActionDone()
-    { 
+    {
         doneActions++;
-        if(doneActions == neededActions)
-        {
-            print("All actions done");
-            Destroy(gameObject);
-        }
+        if (doneActions != neededActions)
+            return;
+            
+        print("All actions done");
+        Destroy(gameObject);
     }
 }

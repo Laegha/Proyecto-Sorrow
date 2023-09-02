@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    private void Awake()
+    void Awake()
     {
         if (instance != null && instance != this)
             Destroy(this);
