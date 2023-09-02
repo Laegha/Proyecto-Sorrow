@@ -16,6 +16,8 @@ public class HeldObjectNeedInteractable : Interactable
 
     public override void Interaction()
     {
+        base.Interaction();
+
         if (heldObjectManager.heldObject != null)
             if (heldObjectManager.heldObject.objectName == neededObjectName)
                 print("Se interactúa efectivamente con " + transform.name);
