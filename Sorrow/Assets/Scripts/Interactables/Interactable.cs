@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    Material interactionMaterial;
+    [HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
 
     protected virtual void Start()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
-        interactionMaterial = GetComponent<MeshRenderer>().material; /*interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");*/
+        //interactionMaterial = GetComponent<MeshRenderer>().material;
+        interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");
     }
 
-    public virtual void Interaction() {}
+    public virtual void Interaction() 
+    {
+        if (!enabled)
+            return;
+    }
 
     void OnMouseEnter()
     {
