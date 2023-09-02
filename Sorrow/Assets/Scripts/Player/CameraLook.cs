@@ -7,14 +7,12 @@ public class CameraLook : MonoBehaviour
     Transform player;
     float currXRotation;
     Rigidbody rb;
-    bool transformVelocity;
 
     void Start()
     {
-        player = transform.root;
         Cursor.lockState = CursorLockMode.Locked;
+        player = transform.root;
         rb = player.GetComponent<Rigidbody>();
-        transformVelocity = player.TryGetComponent<PlayerChaseMovement>(out _);
         currXRotation = transform.localRotation.eulerAngles.x;
     }
 
@@ -25,13 +23,7 @@ public class CameraLook : MonoBehaviour
         float mouseX = delta.x * InputManager.instance.mouseSensitivity;
 
         if (mouseX != 0)
-        {
-            var quaternion = Quaternion.Euler(0f, mouseX, 0f);
-            rb.MoveRotation(rb.rotation * quaternion);
-
-            if (transformVelocity)
-                rb.velocity = quaternion * rb.velocity;
-        }   
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, mouseX, 0f));
 
         if (mouseY == 0)
             return;
