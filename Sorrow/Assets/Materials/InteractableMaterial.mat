@@ -86,6 +86,7 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _CanBeInteracted: 0
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
