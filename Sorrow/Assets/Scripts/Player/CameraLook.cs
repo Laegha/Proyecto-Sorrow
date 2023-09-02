@@ -15,6 +15,7 @@ public class CameraLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         rb = player.GetComponent<Rigidbody>();
         transformVelocity = player.TryGetComponent<PlayerChaseMovement>(out _);
+        currXRotation = transform.localRotation.eulerAngles.x;
     }
 
     void Update()
