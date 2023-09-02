@@ -31,6 +31,6 @@ public class CameraLook : MonoBehaviour
         currXRotation -= mouseY;
         currXRotation = Mathf.Clamp(currXRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(currXRotation, 0, 0);
+        transform.localRotation = Quaternion.Euler(currXRotation, 0f, 0f);
     }
 }
