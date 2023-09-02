@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4574280849399801522}
   - component: {fileID: 5020619567110249846}
   - component: {fileID: 7238555324295211407}
-  - component: {fileID: 4505359907138522339}
   - component: {fileID: 3557720236902609924}
   - component: {fileID: 6568050901902902347}
   - component: {fileID: 3860867142075615650}
@@ -126,20 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d906ce7c6188e1469d771773d3112d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldObject: {fileID: 0}
---- !u!114 &4505359907138522339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2665982127368777901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c175892588b714a89c442956b7fe35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   interactionDistance: 3.5
+  heldObject: {fileID: 0}
 --- !u!114 &3557720236902609924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fForce: 3.25
-  moveDrag: 0.05
+  airDrag: 0
   stopDrag: 4
   jumpForce: 5.5
   jumpCheckOffset: -1.2

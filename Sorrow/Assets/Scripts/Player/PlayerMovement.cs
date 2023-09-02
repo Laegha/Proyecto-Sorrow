@@ -11,6 +11,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
+    void OnEnable()
+    {
+        InputManager.controller.Player.Enable();
+        InputManager.controller.Player.Walk.performed += Walk;
+        InputManager.controller.Player.Walk.canceled += StopWalk;
+    }
+
+    void OnDisable()
+    {
+        InputManager.controller.Player.Disable();
+        InputManager.controller.Player.Walk.performed -= Walk;
+        InputManager.controller.Player.Walk.canceled -= StopWalk;
+    }
+
     public void Walk(InputAction.CallbackContext context)
         => hMovement = context.ReadValue<Vector2>();
 

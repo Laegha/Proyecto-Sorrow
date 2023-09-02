@@ -14,30 +14,47 @@ public class PlayerChaseMovement : MonoBehaviour
     [SerializeField] float jumpCheckOffset;
     [SerializeField] float jumpBufferTime;
     [SerializeField] float airControl;
-    Rigidbody rb;
     Vector3 input;
     bool canJump;
     float jumpBuffer;
     readonly Vector3 halfExtents = new(0.45f, 0.1f, 0.45f);
+    Rigidbody rb;
+    HeldObjectManager heldObjectManager;
+    PlayerMovement playerMovement;
 
-    void Awake() => rb = GetComponent<Rigidbody>();
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        heldObjectManager = GetComponent<HeldObjectManager>();
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     void OnEnable()
     {
-        InputManager.controller.Player.Disable();
+        playerMovement.enabled = false;
         InputManager.controller.PlayerRun.Enable();
-        rb.drag = stopDrag;
+        InputManager.controller.PlayerRun.Jump.performed += Jump;
+        InputManager.controller.PlayerRun.Run.performed += Run;
+        InputManager.controller.PlayerRun.Run.canceled += StopRun;
+        InputManager.controller.PlayerRun.Shoot.performed += heldObjectManager.UseObject;
+
         OnCollisionEnter(default);
     }
 
     void OnDisable()
     {
-        InputManager.controller.Player.Enable();
+        InputManager.controller.PlayerRun.Jump.performed -= Jump;
+        InputManager.controller.PlayerRun.Run.performed -= Run;
+        InputManager.controller.PlayerRun.Run.canceled -= StopRun;
+        InputManager.controller.PlayerRun.Shoot.performed -= heldObjectManager.UseObject;
         InputManager.controller.PlayerRun.Disable();
+        playerMovement.enabled = true;
+        
         rb.drag = 0f;
     }
 
-    public void Jump(InputAction.CallbackContext _)
+    void Jump(InputAction.CallbackContext _)
     {   
         // 3) Si no puede saltar o no está tocando el piso, no hacer nada.
         if (!canJump || !CheckGround())
@@ -51,13 +68,13 @@ public class PlayerChaseMovement : MonoBehaviour
         canJump = false;
     }
 
-    public void Run(InputAction.CallbackContext context)
+    void Run(InputAction.CallbackContext context)
     {
         var vector2 = context.ReadValue<Vector2>();
         input = new(vector2.x, 0f, vector2.y);
     }
 
-    public void StopRun(InputAction.CallbackContext _) => input = Vector3.zero;
+    void StopRun(InputAction.CallbackContext _) => input = Vector3.zero;
 
     void Update()
     {

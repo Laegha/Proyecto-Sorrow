@@ -5,10 +5,10 @@ public class Interactable : MonoBehaviour
 {
     Material interactionMaterial;
 
-    PlayerInteraction playerInteraction;
+    HeldObjectManager playerInteraction;
     protected virtual void Start()
     {
-        playerInteraction = GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>();
+        playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
         interactionMaterial = GetComponent<MeshRenderer>().material; /*interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");*/
     }
 

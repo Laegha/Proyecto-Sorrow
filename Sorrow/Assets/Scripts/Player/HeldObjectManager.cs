@@ -5,11 +5,40 @@ using UnityEngine.InputSystem;
 
 public class HeldObjectManager : MonoBehaviour
 {
+    Camera _camera;
+    public float interactionDistance;
     Transform heldObjectHolder;
     [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
 
-    void Start() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
+    void Start()
+    {
+        heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
+        _camera = Camera.main;
+    }
+
+    void OnEnable()
+    {
+        InputManager.controller.Player.Click.performed += UseObject;
+        InputManager.controller.Player.Drop.performed += DropObject;
+        InputManager.controller.Player.Click.performed += CheckInteraction;
+    }
+
+    void OnDisable()
+    {
+        InputManager.controller.Player.Click.performed -= UseObject;
+        InputManager.controller.Player.Drop.performed -= DropObject;
+        InputManager.controller.Player.Click.performed -= CheckInteraction;
+    }
+
+    void CheckInteraction(InputAction.CallbackContext context)
+    {
+        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, interactionDistance);
+        if (hitObj.transform == null)
+            return;
+        foreach(Interactable interactable in hitObj.transform.GetComponents<Interactable>())
+            interactable.Interaction();
+    }
 
     public void HoldObject(HeldObject newHeldObject)
     {
@@ -42,7 +71,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject = null;
     }
 
-    public void DropObject(InputAction.CallbackContext _)
+    void DropObject(InputAction.CallbackContext _)
     {
         if (heldObject == null || heldObject.thisItem == null)
             return;

@@ -16,7 +16,14 @@ public class LockRythmController : MonoBehaviour
     void OnEnable()
     {
         InputManager.controller.LockRythm.Enable();
+        InputManager.controller.LockRythm.LockNum.performed += Lock;
         StartCoroutine(MetronomeCoroutine());
+    }
+
+    void OnDisable()
+    {
+        InputManager.controller.LockRythm.LockNum.performed -= Lock;
+        InputManager.controller.LockRythm.Disable();
     }
 
     void Awake()
@@ -40,7 +47,7 @@ public class LockRythmController : MonoBehaviour
         }
     }
 
-    public void Lock(InputAction.CallbackContext _)
+    void Lock(InputAction.CallbackContext _)
     {
         if (!enabled)
             return;

@@ -14,7 +14,19 @@ public class ButtonMashing : MonoBehaviour
 
     void Awake() => mashCount = mashMin;
 
-    public void Mash(InputAction.CallbackContext _)
+    void OnEnable()
+    {
+        InputManager.controller.ButtonMashing.Enable();
+        InputManager.controller.ButtonMashing.Button.performed += Mash;
+    }
+
+    void OnDisable()
+    {
+        InputManager.controller.ButtonMashing.Button.performed -= Mash;
+        InputManager.controller.ButtonMashing.Disable();
+    }
+
+    void Mash(InputAction.CallbackContext _)
     {
         mashCount -= mashIntencity;
 
