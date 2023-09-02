@@ -18,8 +18,9 @@ public class AppearingBox : HitableTarget
     {
         base.Activate();
 
-        isFilling= true;
+        isFilling = true;
         gameObject.layer = 0;
+        gameObject.tag = "Untagged";
     }
 
     void Update()
