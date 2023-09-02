@@ -5,10 +5,8 @@ using UnityEngine;
 public class HitableTarget : MonoBehaviour
 {
     [SerializeField] string incomingProyectileTag;
-    public virtual void Activate()
-    {
-        print(name + " activated");
-    }
+
+    public virtual void Activate() => print(name + " activated");
 
     void OnCollisionEnter(Collision collision)
     {
