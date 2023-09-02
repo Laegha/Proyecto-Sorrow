@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerChaseMovement : MonoBehaviour
 {
     [SerializeField] float fForce;
-    [SerializeField] float moveDrag;
+    [SerializeField] float airDrag;
     [SerializeField] float stopDrag;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCheckOffset;
@@ -55,38 +55,40 @@ public class PlayerChaseMovement : MonoBehaviour
     {
         var vector2 = context.ReadValue<Vector2>();
         input = new(vector2.x, 0f, vector2.y);
-        rb.drag = moveDrag;
     }
 
-    public void StopRun(InputAction.CallbackContext _)
-    {
-        input = Vector3.zero;
-        if (CheckGround())
-            rb.drag = stopDrag;
-    }
+    public void StopRun(InputAction.CallbackContext _) => input = Vector3.zero;
 
     void Update()
     {
-        //Debug.Log("V " + rb.velocity.magnitude + " " + rb.GetPointVelocity(transform.position));
-
         jumpBuffer -= Time.deltaTime;
         
-        if (Mathf.Abs(rb.velocity.y) > .5f)
-            rb.drag = moveDrag;
+        //if (Mathf.Abs(rb.velocity.y) > .5f)
+        //    rb.drag = moveDrag;
     }
 
     void FixedUpdate()
     {
         Vector3 finalVelocity = input;
 
-        bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(transform.TransformDirection(input).z) != Mathf.Sign(rb.velocity.z);
+        //bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(transform.TransformDirection(input).z) != Mathf.Sign(rb.velocity.z);
         bool airborne = rb.velocity.y != 0f && !CheckGround();
 
+        /*
         if (airborne && isGoingOpositeZ)
             if (rb.velocity.y < -.1f)
                 finalVelocity.z *= -airControl;
             else
                 return;
+        */
+
+        if (airborne)
+        {
+            rb.drag = airDrag;
+            finalVelocity *= airControl;
+        }
+        else
+            rb.drag = stopDrag;
 
         ApplyForceToReachVelocity(transform.TransformDirection(finalVelocity), fForce);
     }
@@ -108,7 +110,7 @@ public class PlayerChaseMovement : MonoBehaviour
     }
 
     bool CheckGround()
-        => Physics.OverlapBox(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents).Length is not 0;
+        => Physics.OverlapBox(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents).Where(x => x.gameObject.layer is not 7).Count() is not 0;
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {
