@@ -121,7 +121,7 @@ public class PlayerChaseMovement : MonoBehaviour
     }
 
     bool CheckGround()
-        => Physics.OverlapBox(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents).Where(x => x.gameObject.layer is not 7).Count() is not 0;
+        => Physics.OverlapBoxNonAlloc(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents, null, Quaternion.identity, 0) is not 0;
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {
