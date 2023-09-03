@@ -6,6 +6,8 @@ public class KeyPadInteractable : RithmInteractable
 {
     KeypadButton[] buttons => GetComponentsInChildren<KeypadButton>();
 
+    [SerializeField] Beat[] beats;
+
     protected override void Start()
     {
         base.Start();
@@ -17,6 +19,23 @@ public class KeyPadInteractable : RithmInteractable
     public override void StartMinigame()
     {
         //Cursor.lockState = CursorLockMode.Confined;
-
+        //arrancar el tema
+        StartCoroutine(BeatTimer());
     }
+
+    IEnumerator BeatTimer()
+    {
+        int currBeat = 0;
+        while(currBeat < beats.Length)
+        {
+            yield return new WaitForSeconds(beats[currBeat].beatTime);
+
+        }
+    }
+}
+
+[System.Serializable]
+public class Beat
+{
+    public float beatTime;
 }
