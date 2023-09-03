@@ -10,6 +10,7 @@ public class KeypadButton : MonoBehaviour
 
     private void OnMouseDown()
     {
+        print("Clickeaste " + name);
         if (!waitingForBeat)
             return;
         //keyPadInteractable

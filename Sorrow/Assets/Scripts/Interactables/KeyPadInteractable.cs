@@ -14,9 +14,9 @@ public class KeyPadInteractable : RithmInteractable
             button.keyPadInteractable = this;
     }
 
-    public override void Interaction()
+    public override void StartMinigame()
     {
-        base.Interaction();
-        print("Interactuas con el keypad");
+        //Cursor.lockState = CursorLockMode.Confined;
+
     }
 }

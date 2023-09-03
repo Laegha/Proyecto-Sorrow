@@ -24,14 +24,7 @@ public class Interactable : MonoBehaviour
         interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");
     }
 
-    public virtual void Interaction() 
-    {
-        if (!CanBeInteracted)
-        {
-            print("No se puede interactuar");
-            return;
-        }
-    }
+    public virtual void Interaction() { }
 
     void OnMouseEnter()
     {
