@@ -18,9 +18,12 @@ public class RithmInteractable : Interactable
     protected override void Start()
     {
         base.Start();
-
         headphonesOnMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name == headphonesOnTextureName + " (Instance)");
+        
         HeadphoneController.rithmInteractables.Add(this);
+
+
+        CanBeInteracted = false;
     }
 
     public override void Interaction()
@@ -28,13 +31,14 @@ public class RithmInteractable : Interactable
         base.Interaction();
 
         CinematicManager.CameraChange(interactableCamera);
-        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        CinematicManager.PlayerFreeze(true);
+
+        CanBeInteracted = false;
     }
 
     public void SwitchCurrState(bool canBeInteracted)
     {
-        enabled = canBeInteracted;
+        CanBeInteracted = canBeInteracted;
         headphonesOnMaterial.SetTexture("_MainTex", canBeInteracted ? headphonesOnTexture : headphonesOffTexture);
-        interactionMaterial.SetFloat("_CanBeInteracted", canBeInteracted ? 1 : 0);
     }
 }

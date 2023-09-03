@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -6,6 +7,16 @@ public class Interactable : MonoBehaviour
     [HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
 
+    bool canBeInteracted;
+    public bool CanBeInteracted
+    {
+        get { return canBeInteracted; }
+        set 
+        {
+            canBeInteracted = value;
+            interactionMaterial.SetFloat("_CanBeInteracted", value ? 1 : 0);
+        }
+    }
     protected virtual void Start()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
@@ -15,13 +26,16 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interaction() 
     {
-        if (!enabled)
+        if (!CanBeInteracted)
+        {
+            print("No se puede interactuar");
             return;
+        }
     }
 
     void OnMouseEnter()
     {
-        if (!enabled)
+        if (!CanBeInteracted)
             return;
 
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
@@ -31,7 +45,7 @@ public class Interactable : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!enabled)
+        if (!CanBeInteracted)
             return;
 
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
