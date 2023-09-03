@@ -28,13 +28,20 @@ public class RithmInteractable : Interactable
 
     public override void Interaction()
     {
-        base.Interaction();
+        if (!CanBeInteracted)
+        {
+            print("No se puede interactuar");
+            return;
+        }
 
         CinematicManager.CameraChange(interactableCamera);
         CinematicManager.PlayerFreeze(true);
 
         CanBeInteracted = false;
+        StartMinigame();
     }
+
+    public virtual void StartMinigame() { }
 
     public void SwitchCurrState(bool canBeInteracted)
     {
