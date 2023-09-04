@@ -9,15 +9,19 @@ public class PlayerChaseMovement : MonoBehaviour
 {
     [SerializeField] float fForce;
     [SerializeField] float airDrag;
-    [SerializeField] float stopDrag;
+    [SerializeField] float groundDrag;
     [SerializeField] float jumpForce;
     [SerializeField] float jumpCheckOffset;
     [SerializeField] float jumpBufferTime;
+    [SerializeField] float coyoteTime;
     [SerializeField] float airControl;
     Vector3 input;
-    bool canJump;
+    bool grounded;
     float jumpBuffer;
-    readonly Vector3 halfExtents = new(0.45f, 0.1f, 0.45f);
+    float coyoteBuffer;
+    readonly Vector3 halfExtentsEnter = new(0.45f, 0.05f, 0.45f);
+    readonly Vector3 halfExtentsExit = new(0.1f, 0.05f, 0.1f);
+    LayerMask maskToIgnore = ~(1 << 7);
     Rigidbody rb;
     HeldObjectManager heldObjectManager;
     PlayerMovement playerMovement;
@@ -57,15 +61,17 @@ public class PlayerChaseMovement : MonoBehaviour
     void Jump(InputAction.CallbackContext _)
     {   
         // 3) Si no puede saltar o no está tocando el piso, no hacer nada.
-        if (!canJump || !CheckGround())
+        if (!grounded && coyoteBuffer < 0f)
         {
             jumpBuffer = jumpBufferTime;
             return;
         }
 
         // 1) Darle la fuerza y sacar la capacidad de saltar para que no pueda volver a saltar hasta realmente tocar el piso.
+        rb.velocity.Set(rb.velocity.x, 0f, rb.velocity.z);
+        rb.drag = airDrag;
         rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
-        canJump = false;
+        grounded = false;
     }
 
     void Run(InputAction.CallbackContext context)
@@ -76,30 +82,18 @@ public class PlayerChaseMovement : MonoBehaviour
 
     void StopRun(InputAction.CallbackContext _) => input = Vector3.zero;
 
-    void Update() => jumpBuffer -= Time.deltaTime;
+    void Update()
+    {
+        jumpBuffer -= Time.deltaTime;
+        coyoteBuffer -= Time.deltaTime;
+    }
 
     void FixedUpdate()
     {
         Vector3 finalVelocity = input;
 
-        //bool isGoingOpositeZ = Mathf.Abs(rb.velocity.z) > 0.1f && Mathf.Sign(transform.TransformDirection(input).z) != Mathf.Sign(rb.velocity.z);
-        bool airborne = rb.velocity.y != 0f && !CheckGround();
-
-        /*
-        if (airborne && isGoingOpositeZ)
-            if (rb.velocity.y < -.1f)
-                finalVelocity.z *= -airControl;
-            else
-                return;
-        */
-
-        if (airborne)
-        {
-            rb.drag = airDrag;
+        if (!grounded)
             finalVelocity *= airControl;
-        }
-        else
-            rb.drag = stopDrag;
 
         ApplyForceToReachVelocity(transform.TransformDirection(finalVelocity), fForce);
     }
@@ -109,19 +103,30 @@ public class PlayerChaseMovement : MonoBehaviour
     {
         if (!enabled) return;
 
-        canJump = CheckGround();
+        grounded = CheckGround(halfExtentsEnter);
 
-        if (!canJump) return;
+        rb.drag = grounded ? groundDrag : airDrag;
 
-        if (jumpBuffer > 0f)
+        if (grounded && jumpBuffer > 0f)
             Jump(default);
-        
-        if (input == Vector3.zero)
-            rb.drag = stopDrag;
     }
 
-    bool CheckGround()
-        => Physics.OverlapBoxNonAlloc(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents, null, Quaternion.identity, 0) is not 0;
+    void OnCollisionExit(Collision collision)
+    {
+        if (!grounded || !enabled) return;
+
+        grounded = CheckGround(halfExtentsExit);
+
+        print(grounded);
+
+        rb.drag = grounded ? groundDrag : airDrag;
+
+        if (!grounded)
+            coyoteBuffer = coyoteTime;
+    }
+
+    bool CheckGround(Vector3 halfExtents)
+        => Physics.OverlapBoxNonAlloc(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {

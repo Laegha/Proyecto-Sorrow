@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208b92f71ff692542b117082c15fac33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 0}
   neededObjectName: key
 --- !u!65 &331598290
 BoxCollider:
@@ -1339,6 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3be481e7fafc7a43993c2b529df7df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 0}
   debugWall: {fileID: 0}
   chaseController: {fileID: 0}
 --- !u!65 &933552265
@@ -2033,6 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 0}
 --- !u!1 &1433192010
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,6 +7510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionMaterial: {fileID: 0}
 --- !u!4 &1955447267
 Transform:
   m_ObjectHideFlags: 0
@@ -8021,6 +8025,22 @@ PrefabInstance:
     - target: {fileID: 4374919114576354026, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: coyoteTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: groundDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: jumpCheckOffset
+      value: -1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
