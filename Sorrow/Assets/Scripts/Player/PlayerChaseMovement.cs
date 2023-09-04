@@ -11,17 +11,20 @@ public class PlayerChaseMovement : MonoBehaviour
     [SerializeField] float airDrag;
     [SerializeField] float groundDrag;
     [SerializeField] float jumpForce;
-    [SerializeField] float jumpCheckOffset;
     [SerializeField] float jumpBufferTime;
     [SerializeField] float coyoteTime;
     [SerializeField] float airControl;
+    [SerializeField] float maxSlopeAngle;
     Vector3 input;
     bool grounded;
     float jumpBuffer;
     float coyoteBuffer;
-    readonly Vector3 halfExtentsEnter = new(0.45f, 0.05f, 0.45f);
-    readonly Vector3 halfExtentsExit = new(0.1f, 0.05f, 0.1f);
-    LayerMask maskToIgnore = ~(1 << 7);
+    readonly Vector3 jumpCheckOffset = new(0f, -1.1f, 0f);
+    readonly Vector3 rayCastOffset = new(0f, -1f, 0f);
+    readonly Vector3 halfExtentsEnter = new(.45f, .05f, .45f);
+    readonly Vector3 halfExtentsExit = new(.1f, .05f, .1f);
+    readonly LayerMask maskToIgnore = ~(1 << 7);
+    readonly LayerMask slopeMask = 1 << 9;
     Rigidbody rb;
     HeldObjectManager heldObjectManager;
     PlayerMovement playerMovement;
@@ -105,6 +108,12 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsEnter);
 
+
+        if (collision.gameObject.layer is 9 && Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, slopeMask))
+        {
+            //
+        }
+
         rb.drag = grounded ? groundDrag : airDrag;
 
         if (grounded && jumpBuffer > 0f)
@@ -117,8 +126,6 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsExit);
 
-        print(grounded);
-
         rb.drag = grounded ? groundDrag : airDrag;
 
         if (!grounded)
@@ -126,14 +133,14 @@ public class PlayerChaseMovement : MonoBehaviour
     }
 
     bool CheckGround(Vector3 halfExtents)
-        => Physics.OverlapBoxNonAlloc(transform.position + new Vector3(0f, jumpCheckOffset, 0f), halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
+        => Physics.OverlapBoxNonAlloc(transform.position + jumpCheckOffset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {
         if (force is 0f || velocity.magnitude is 0f)
             return;
 
-        velocity += 0.2f * rb.drag * velocity.normalized;
+        velocity += .2f * rb.drag * velocity.normalized;
 
         force = Mathf.Clamp(force, -rb.mass / Time.fixedDeltaTime, rb.mass / Time.fixedDeltaTime);
 
