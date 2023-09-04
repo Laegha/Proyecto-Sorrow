@@ -14,14 +14,17 @@ public class PlayerChaseMovement : MonoBehaviour
     [SerializeField] float jumpBufferTime;
     [SerializeField] float coyoteTime;
     [SerializeField] float airControl;
+    [SerializeField] float maxSlopeAngle;
     Vector3 input;
     bool grounded;
     float jumpBuffer;
     float coyoteBuffer;
     readonly Vector3 jumpCheckOffset = new(0f, -1.1f, 0f);
+    readonly Vector3 rayCastOffset = new(0f, -1f, 0f);
     readonly Vector3 halfExtentsEnter = new(.45f, .05f, .45f);
     readonly Vector3 halfExtentsExit = new(.1f, .05f, .1f);
     readonly LayerMask maskToIgnore = ~(1 << 7);
+    readonly LayerMask slopeMask = 1 << 9;
     Rigidbody rb;
     HeldObjectManager heldObjectManager;
     PlayerMovement playerMovement;
@@ -104,6 +107,12 @@ public class PlayerChaseMovement : MonoBehaviour
         if (!enabled) return;
 
         grounded = CheckGround(halfExtentsEnter);
+
+
+        if (collision.gameObject.layer is 9 && Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, slopeMask))
+        {
+            //
+        }
 
         rb.drag = grounded ? groundDrag : airDrag;
 
