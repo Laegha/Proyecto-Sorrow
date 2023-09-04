@@ -8032,7 +8032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: coyoteTime
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6887168731755937942, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: groundDrag
