@@ -2369,6 +2369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 60
+  bpmIncrease: 0
 --- !u!1 &1740975092
 GameObject:
   m_ObjectHideFlags: 0
