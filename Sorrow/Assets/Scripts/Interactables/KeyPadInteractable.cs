@@ -32,8 +32,7 @@ public class KeyPadInteractable : RithmInteractable
             yield return new WaitForSeconds(deltaBeatTime);
 
             StartCoroutine(buttons[Random.Range(0, buttons.Length)].WaitForBeat(beats[currBeat].beatDuration));
-            
-            //Repetir
+            currBeat++;
         }
     }
 }

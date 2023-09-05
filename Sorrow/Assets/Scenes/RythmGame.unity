@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130089261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19607551, y: 0.000000016872384, z: -0.0000000033737497, w: 0.9805888}
+  m_LocalRotation: {x: 0.19607553, y: -0.000000016872384, z: 0.00000000337375, w: 0.9805888}
   m_LocalPosition: {x: 0, y: 0.357, z: -0.857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -445,7 +445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 314305339}
 --- !u!212 &253172887
 SpriteRenderer:
@@ -870,7 +872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 2116042438}
 --- !u!212 &640980079
 SpriteRenderer:
@@ -1018,7 +1022,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 1213148631}
 --- !u!61 &699545130
 BoxCollider2D:
@@ -1166,7 +1172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 1003625175}
 --- !u!212 &723996893
 SpriteRenderer:
@@ -1573,7 +1581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 1148967554}
 --- !u!212 &877213938
 SpriteRenderer:
@@ -1764,6 +1774,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01999998
+      objectReference: {fileID: 0}
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -33129,9 +33143,9 @@ MonoBehaviour:
   headphonesOffTexture: {fileID: 11700000, guid: 47ba5e04c6af41440ae6832b16787172, type: 3}
   headphonesOnTextureName: KeypadMaterial
   beats:
-  - beatTime: 15
+  - beatTime: 5
     beatDuration: 2
-  - beatTime: 20
+  - beatTime: 8
     beatDuration: 3
 --- !u!65 &1674297412
 BoxCollider:
@@ -33466,7 +33480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingScale: 2
-  clickSpareRange: 0.2
+  clickSpareRange: 1.2
+  unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
+  highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
   outerRingSR: {fileID: 740032166}
 --- !u!212 &2135689126
 SpriteRenderer:
