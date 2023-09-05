@@ -18,7 +18,7 @@ public class KeyPadInteractable : RithmInteractable
 
     public override void StartMinigame()
     {
-        //Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Confined;
         //arrancar el tema
         StartCoroutine(BeatTimer());
     }
@@ -31,8 +31,8 @@ public class KeyPadInteractable : RithmInteractable
             float deltaBeatTime = currBeat > 0 ? beats[currBeat].beatTime - beats[currBeat - 1].beatTime : beats[currBeat].beatTime;
             yield return new WaitForSeconds(deltaBeatTime);
 
-            buttons[Random.Range(0, buttons.Length)].WaitForBeat(beats[currBeat].beatDuration); //Generar beat
-            //Llamar a otra corrutina para la duración del beat
+            StartCoroutine(buttons[Random.Range(0, buttons.Length)].WaitForBeat(beats[currBeat].beatDuration));
+            
             //Repetir
         }
     }
