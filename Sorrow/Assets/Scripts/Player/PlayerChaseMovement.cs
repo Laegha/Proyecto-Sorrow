@@ -16,6 +16,7 @@ public class PlayerChaseMovement : MonoBehaviour
     [SerializeField] float airControl;
     [SerializeField] float maxSlopeAngle;
     Vector3 input;
+    Vector3 slopeNormal;
     bool grounded;
     float jumpBuffer;
     float coyoteBuffer;
@@ -24,7 +25,7 @@ public class PlayerChaseMovement : MonoBehaviour
     readonly Vector3 halfExtentsEnter = new(.45f, .05f, .45f);
     readonly Vector3 halfExtentsExit = new(.1f, .05f, .1f);
     readonly LayerMask maskToIgnore = ~(1 << 7);
-    readonly LayerMask slopeMask = 1 << 9;
+    //readonly LayerMask slopeMask = 1 << 9;
     Rigidbody rb;
     HeldObjectManager heldObjectManager;
     PlayerMovement playerMovement;
@@ -71,6 +72,7 @@ public class PlayerChaseMovement : MonoBehaviour
         }
 
         // 1) Darle la fuerza y sacar la capacidad de saltar para que no pueda volver a saltar hasta realmente tocar el piso.
+        slopeNormal = Vector3.up;
         rb.velocity.Set(rb.velocity.x, 0f, rb.velocity.z);
         rb.drag = airDrag;
         rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
@@ -93,12 +95,14 @@ public class PlayerChaseMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 finalVelocity = input;
+        Vector3 finalVelocity = transform.TransformDirection(input);
 
         if (!grounded)
             finalVelocity *= airControl;
+        else if (slopeNormal != Vector3.up)
+            finalVelocity = Vector3.ProjectOnPlane(finalVelocity, slopeNormal);
 
-        ApplyForceToReachVelocity(transform.TransformDirection(finalVelocity), fForce);
+        ApplyForceToReachVelocity(finalVelocity, fForce);
     }
 
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
@@ -108,11 +112,7 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsEnter);
 
-
-        if (collision.gameObject.layer is 9 && Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, slopeMask))
-        {
-            //
-        }
+        CheckSlope();
 
         rb.drag = grounded ? groundDrag : airDrag;
 
@@ -126,6 +126,8 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsExit);
 
+        CheckSlope();
+
         rb.drag = grounded ? groundDrag : airDrag;
 
         if (!grounded)
@@ -134,6 +136,16 @@ public class PlayerChaseMovement : MonoBehaviour
 
     bool CheckGround(Vector3 halfExtents)
         => Physics.OverlapBoxNonAlloc(transform.position + jumpCheckOffset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
+
+    void CheckSlope()
+    {
+        Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, maskToIgnore);
+
+        slopeNormal = hitInfo.normal;
+
+        if (Vector3.Angle(Vector3.up, slopeNormal) >= maxSlopeAngle)
+            slopeNormal = Vector3.up;
+    }
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {
