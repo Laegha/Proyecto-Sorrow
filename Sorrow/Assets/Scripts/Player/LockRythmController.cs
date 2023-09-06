@@ -23,6 +23,7 @@ public class LockRythmController : MonoBehaviour
     {
         InputManager.controller.LockRythm.Enable();
         InputManager.controller.LockRythm.LockNum.performed += Lock;
+        RecalculateHalfBeatDuration();
         StartCoroutine(MetronomeCoroutine());
     }
 
@@ -52,7 +53,7 @@ public class LockRythmController : MonoBehaviour
             yield return new WaitForSeconds(halfBeatDuration);
             canLock = false;
             print("rotating");
-            OnRotate.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
+            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
             yield return new WaitForSeconds(halfBeatDuration);
             currentBeat += currentBeat != 4 ? 1 : -3;
             hasLocked = false;
@@ -78,7 +79,7 @@ public class LockRythmController : MonoBehaviour
         else
         {
             lockedNums -= lockedNums % 8;
-            OnUnlock.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
+            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
         }
 
         if (lockedNums is not totalNums)
