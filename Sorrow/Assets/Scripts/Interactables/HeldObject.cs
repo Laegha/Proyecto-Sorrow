@@ -9,7 +9,7 @@ public class HeldObject : MonoBehaviour
     [HideInInspector] public MeshRenderer meshRenderer;
     [HideInInspector] public Item thisItem;
 
-    void Start()
+    void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
