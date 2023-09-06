@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     [HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
 
-    bool canBeInteracted;
+    bool canBeInteracted = true;
     public bool CanBeInteracted
     {
         get { return canBeInteracted; }
