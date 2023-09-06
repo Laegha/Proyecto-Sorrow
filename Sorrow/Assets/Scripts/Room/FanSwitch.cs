@@ -6,7 +6,8 @@ public class FanSwitch : HitableTarget
 {
     Transform playerTransform;
     Rigidbody rb;
-    BoxCollider boxCollider;
+    CapsuleCollider boxCollider;
+    PlayerMovement playerMovement;
 
     void Awake()
     {
@@ -14,25 +15,26 @@ public class FanSwitch : HitableTarget
 
         playerTransform = player.transform;
         rb = player.GetComponent<Rigidbody>();
-        boxCollider = player.GetComponent<BoxCollider>();
-
+        boxCollider = player.GetComponent<CapsuleCollider>();
+        playerMovement = player.GetComponent<PlayerMovement>();
 
         rb.isKinematic = true;
         boxCollider.enabled = false;
-
-        InputManager.controller.Movement.Disable();
+        playerMovement.enabled = false;
     }
 
     public override void Activate()
     {
         //Iniciar timeline
-        
+        EndResult();
     }
 
     void EndResult() // DEBUG
     {
-        transform.Translate(Vector3.up);
-        rb.isKinematic = false;
+        playerTransform.Translate(Vector3.up);
         boxCollider.enabled = true;
+        rb.isKinematic = false;
+        playerMovement.enabled = true;
+        enabled = false;
     }
 }
