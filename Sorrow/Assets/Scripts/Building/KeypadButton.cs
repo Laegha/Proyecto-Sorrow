@@ -39,11 +39,20 @@ public class KeypadButton : MonoBehaviour
             return;
 
         if (canHitBeat)
-            print("Acertaste el beat");
+            BeatSucceed();
         else
-            print("Fallaste el beat");
+            BeatFailed();
 
         WaitingForBeat = false;
+    }
+    void BeatFailed()
+    {
+
+    }
+
+    void BeatSucceed()
+    {
+
     }
 
     public IEnumerator WaitForBeat(float beatDuration)
