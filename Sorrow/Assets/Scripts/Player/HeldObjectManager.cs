@@ -69,6 +69,7 @@ public class HeldObjectManager : MonoBehaviour
             return;
 
         heldObject = null;
+        heldObjectCollider.enabled = true;
     }
 
     void DropObject(InputAction.CallbackContext _)
