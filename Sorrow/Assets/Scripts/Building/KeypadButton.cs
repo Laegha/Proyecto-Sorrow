@@ -16,8 +16,7 @@ public class KeypadButton : MonoBehaviour
 
             ringSR.enabled = value;
             outerRingSR.enabled = value;
-            if(value)
-                outerRingSR.transform.localScale = new Vector3(outerRingScale, outerRingScale, outerRingScale);
+                
         }
     }
     bool canHitBeat;
@@ -29,12 +28,10 @@ public class KeypadButton : MonoBehaviour
     [SerializeField] Color highlightedRingColor;
     [SerializeField] SpriteRenderer outerRingSR;
     SpriteRenderer ringSR;
-
     private void Start() => ringSR = GetComponent<SpriteRenderer>();
 
     private void OnMouseDown()
     {
-        print("Clickeaste " + name);
         if (!waitingForBeat)
             return;
 
@@ -47,12 +44,14 @@ public class KeypadButton : MonoBehaviour
     }
     void BeatFailed()
     {
+        print("Fallaste el beat pa");
         //El anillo exterior se pone en rojo
         //El botón queda presionado
     }
 
     void BeatSucceed()
     {
+        print("Godeano");
         //El anillo exterior se pone en verde y se detiene el decrecimiento
     }
 
@@ -60,30 +59,33 @@ public class KeypadButton : MonoBehaviour
     {
         WaitingForBeat = true;
 
+        outerRingSR.transform.localScale = new Vector3(outerRingScale, outerRingScale, outerRingScale);
         outerRingSR.material.SetColor("_RingColor", unhighlightedRingColor);
         canHitBeat = false;
 
-        float currOuterRingScale = outerRingSR.transform.localScale.x;
+        float currOuterRingScale = outerRingScale;
         while (beatDuration > 0)
         {
             yield return new WaitForEndOfFrame();
 
             currOuterRingScale -= Time.deltaTime * 1 / beatDuration;
-            outerRingSR.transform.localScale -= new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
+            outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
             beatDuration -= Time.deltaTime;
 
-            if (currOuterRingScale <= 0)
-            {
-                BeatFailed();
-                yield return null;
-            }
-            
-            if (outerRingSR.transform.localScale.magnitude <= transform.localScale.magnitude * clickSpareRange && !canHitBeat)
+            if (canHitBeat)
+                continue;
+
+            if (outerRingSR.transform.localScale.magnitude <= transform.localScale.magnitude * clickSpareRange)
             {
                 outerRingSR.material.SetColor("_RingColor", highlightedRingColor);
                 canHitBeat = true;
             }
         }
-        WaitingForBeat = false;
+        if (waitingForBeat)
+        {
+            BeatFailed();
+            WaitingForBeat = false;
+
+        }
     }
 }
