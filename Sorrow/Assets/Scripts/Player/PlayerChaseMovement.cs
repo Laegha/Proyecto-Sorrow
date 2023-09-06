@@ -41,22 +41,22 @@ public class PlayerChaseMovement : MonoBehaviour
     void OnEnable()
     {
         playerMovement.enabled = false;
-        InputManager.controller.PlayerRun.Enable();
-        InputManager.controller.PlayerRun.Jump.performed += Jump;
-        InputManager.controller.PlayerRun.Run.performed += Run;
-        InputManager.controller.PlayerRun.Run.canceled += StopRun;
-        InputManager.controller.PlayerRun.Shoot.performed += heldObjectManager.UseObject;
+        InputManager.controller.ChaseMovement.Enable();
+        InputManager.controller.ChaseMovement.Jump.performed += Jump;
+        InputManager.controller.ChaseMovement.Run.performed += Run;
+        InputManager.controller.ChaseMovement.Run.canceled += StopRun;
+        //InputManager.controller.Camera.Click.performed += heldObjectManager.UseObject;
 
         OnCollisionEnter(default);
     }
 
     void OnDisable()
     {
-        InputManager.controller.PlayerRun.Jump.performed -= Jump;
-        InputManager.controller.PlayerRun.Run.performed -= Run;
-        InputManager.controller.PlayerRun.Run.canceled -= StopRun;
-        InputManager.controller.PlayerRun.Shoot.performed -= heldObjectManager.UseObject;
-        InputManager.controller.PlayerRun.Disable();
+        InputManager.controller.ChaseMovement.Jump.performed -= Jump;
+        InputManager.controller.ChaseMovement.Run.performed -= Run;
+        InputManager.controller.ChaseMovement.Run.canceled -= StopRun;
+        //InputManager.controller.Camera.Click.performed -= heldObjectManager.UseObject;
+        InputManager.controller.ChaseMovement.Disable();
         playerMovement.enabled = true;
         
         rb.drag = 0f;

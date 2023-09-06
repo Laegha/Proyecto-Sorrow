@@ -5,19 +5,14 @@ using UnityEngine;
 public class AppearingBox : HitableTarget
 {
     Material boxMaterial;
-
     float fillAmount;
-
     bool isFilling;
     [SerializeField] float fillMultiplier;
 
-    void Start() => boxMaterial= GetComponent<Renderer>().material;
+    void Start() => boxMaterial = GetComponent<Renderer>().material;
     
-
     public override void Activate()
     {
-        base.Activate();
-
         isFilling = true;
         gameObject.layer = 0;
         gameObject.tag = "Untagged";

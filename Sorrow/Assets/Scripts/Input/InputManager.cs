@@ -20,10 +20,10 @@ public class InputManager : MonoBehaviour
     void OnEnable()
     {
         controller.Enable();
-        controller.Player.Enable();
+        controller.Movement.Enable();
         controller.Camera.Enable();
         controller.Dialog.Disable();
-        controller.PlayerRun.Disable();
+        controller.ChaseMovement.Disable();
         controller.ButtonMashing.Disable();
         controller.LockRythm.Disable();
     }
