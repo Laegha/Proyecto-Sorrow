@@ -10,6 +10,7 @@ public class Marble : Item
     {
         transform.SetParent(null);
         Rigidbody rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = false;
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.AddForce(transform.forward * throwForce, ForceMode.Impulse);
     }
