@@ -13,16 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     void OnEnable()
     {
-        InputManager.controller.Player.Enable();
-        InputManager.controller.Player.Walk.performed += Walk;
-        InputManager.controller.Player.Walk.canceled += StopWalk;
+        InputManager.controller.Movement.Enable();
+        InputManager.controller.Movement.Walk.performed += Walk;
+        InputManager.controller.Movement.Walk.canceled += StopWalk;
     }
 
     void OnDisable()
     {
-        InputManager.controller.Player.Disable();
-        InputManager.controller.Player.Walk.performed -= Walk;
-        InputManager.controller.Player.Walk.canceled -= StopWalk;
+        InputManager.controller.Movement.Disable();
+        InputManager.controller.Movement.Walk.performed -= Walk;
+        InputManager.controller.Movement.Walk.canceled -= StopWalk;
     }
 
     public void Walk(InputAction.CallbackContext context)

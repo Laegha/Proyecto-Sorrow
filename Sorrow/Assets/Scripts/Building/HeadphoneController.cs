@@ -8,6 +8,7 @@ public class HeadphoneController : MonoBehaviour
     public static List<RithmInteractable> rithmInteractables = new List<RithmInteractable>();
     [SerializeField] Image headphonesFilter;
     bool headphonesOn = false;
+    
     // Start is called before the first frame update
     void Start()
     {

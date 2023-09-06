@@ -24,7 +24,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     ""name"": ""Controller"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Movement"",
             ""id"": ""dce871d9-5e8a-4688-a139-21fed9ad48c6"",
             ""actions"": [
                 {
@@ -35,24 +35,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": ""ScaleVector2(x=3,y=3)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Click"",
-                    ""type"": ""Button"",
-                    ""id"": ""306986a6-cd23-4216-8b36-b827b37dfc8f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Drop"",
-                    ""type"": ""Button"",
-                    ""id"": ""9f84b0dd-2281-4b64-ad2d-c3e9bb37302a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -119,50 +101,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""798ee452-7c3e-4879-9940-2610eff65403"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d5710d2d-170a-4df4-b028-92ab61c4ea86"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f95e3de5-cd7e-4c62-b881-5af81c9bb76c"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5d6f736c-40ec-4cde-b4ad-701990e08f05"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -268,7 +206,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerRun"",
+            ""name"": ""ChaseMovement"",
             ""id"": ""10c1943c-ee05-4f5d-a2e3-7633c58a9873"",
             ""actions"": [
                 {
@@ -288,40 +226,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""847d2ba2-829f-4851-ad8f-b5f998abe4c7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""2684432a-e36c-484e-8e5d-17f0304f3e2f"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a59e7539-b8f8-4c61-8cd1-68fce2048be8"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""c5c01d39-6b9c-4e1e-8288-de97798236f4"",
@@ -424,6 +331,24 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""39105158-6057-4766-9551-45f88cdeebc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e469879-41bd-460a-ad02-80a856a3fe28"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -446,6 +371,50 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6556efa9-4ff5-49a4-bc8a-73818ef1e853"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4cdc940-f919-4186-b35a-8e16001698e1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19069e76-4c14-40d0-aa0e-99cb76936bf9"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d273ddef-01fa-4bd3-858d-ce483633a930"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -604,25 +573,24 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
-        m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
-        m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
+        // Movement
+        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
+        m_Movement_Walk = m_Movement.FindAction("Walk", throwIfNotFound: true);
         // Dialog
         m_Dialog = asset.FindActionMap("Dialog", throwIfNotFound: true);
         m_Dialog_Continue = m_Dialog.FindAction("Continue", throwIfNotFound: true);
         m_Dialog_Skip = m_Dialog.FindAction("Skip", throwIfNotFound: true);
         m_Dialog_Auto = m_Dialog.FindAction("Auto", throwIfNotFound: true);
         m_Dialog_ShowTranscript = m_Dialog.FindAction("ShowTranscript", throwIfNotFound: true);
-        // PlayerRun
-        m_PlayerRun = asset.FindActionMap("PlayerRun", throwIfNotFound: true);
-        m_PlayerRun_Run = m_PlayerRun.FindAction("Run", throwIfNotFound: true);
-        m_PlayerRun_Jump = m_PlayerRun.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerRun_Shoot = m_PlayerRun.FindAction("Shoot", throwIfNotFound: true);
+        // ChaseMovement
+        m_ChaseMovement = asset.FindActionMap("ChaseMovement", throwIfNotFound: true);
+        m_ChaseMovement_Run = m_ChaseMovement.FindAction("Run", throwIfNotFound: true);
+        m_ChaseMovement_Jump = m_ChaseMovement.FindAction("Jump", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
+        m_Camera_Click = m_Camera.FindAction("Click", throwIfNotFound: true);
+        m_Camera_Drop = m_Camera.FindAction("Drop", throwIfNotFound: true);
         // ButtonMashing
         m_ButtonMashing = asset.FindActionMap("ButtonMashing", throwIfNotFound: true);
         m_ButtonMashing_Button = m_ButtonMashing.FindAction("Button", throwIfNotFound: true);
@@ -687,67 +655,51 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Walk;
-    private readonly InputAction m_Player_Click;
-    private readonly InputAction m_Player_Drop;
-    public struct PlayerActions
+    // Movement
+    private readonly InputActionMap m_Movement;
+    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
+    private readonly InputAction m_Movement_Walk;
+    public struct MovementActions
     {
         private @Controller m_Wrapper;
-        public PlayerActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Walk => m_Wrapper.m_Player_Walk;
-        public InputAction @Click => m_Wrapper.m_Player_Click;
-        public InputAction @Drop => m_Wrapper.m_Player_Drop;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public MovementActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Walk => m_Wrapper.m_Movement_Walk;
+        public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public void AddCallbacks(IMovementActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
-            @Click.started += instance.OnClick;
-            @Click.performed += instance.OnClick;
-            @Click.canceled += instance.OnClick;
-            @Drop.started += instance.OnDrop;
-            @Drop.performed += instance.OnDrop;
-            @Drop.canceled += instance.OnDrop;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(IMovementActions instance)
         {
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
-            @Click.started -= instance.OnClick;
-            @Click.performed -= instance.OnClick;
-            @Click.canceled -= instance.OnClick;
-            @Drop.started -= instance.OnDrop;
-            @Drop.performed -= instance.OnDrop;
-            @Drop.canceled -= instance.OnDrop;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(IMovementActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(IMovementActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public MovementActions @Movement => new MovementActions(this);
 
     // Dialog
     private readonly InputActionMap m_Dialog;
@@ -819,40 +771,35 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     }
     public DialogActions @Dialog => new DialogActions(this);
 
-    // PlayerRun
-    private readonly InputActionMap m_PlayerRun;
-    private List<IPlayerRunActions> m_PlayerRunActionsCallbackInterfaces = new List<IPlayerRunActions>();
-    private readonly InputAction m_PlayerRun_Run;
-    private readonly InputAction m_PlayerRun_Jump;
-    private readonly InputAction m_PlayerRun_Shoot;
-    public struct PlayerRunActions
+    // ChaseMovement
+    private readonly InputActionMap m_ChaseMovement;
+    private List<IChaseMovementActions> m_ChaseMovementActionsCallbackInterfaces = new List<IChaseMovementActions>();
+    private readonly InputAction m_ChaseMovement_Run;
+    private readonly InputAction m_ChaseMovement_Jump;
+    public struct ChaseMovementActions
     {
         private @Controller m_Wrapper;
-        public PlayerRunActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Run => m_Wrapper.m_PlayerRun_Run;
-        public InputAction @Jump => m_Wrapper.m_PlayerRun_Jump;
-        public InputAction @Shoot => m_Wrapper.m_PlayerRun_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerRun; }
+        public ChaseMovementActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Run => m_Wrapper.m_ChaseMovement_Run;
+        public InputAction @Jump => m_Wrapper.m_ChaseMovement_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_ChaseMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerRunActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerRunActions instance)
+        public static implicit operator InputActionMap(ChaseMovementActions set) { return set.Get(); }
+        public void AddCallbacks(IChaseMovementActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_ChaseMovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ChaseMovementActionsCallbackInterfaces.Add(instance);
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
         }
 
-        private void UnregisterCallbacks(IPlayerRunActions instance)
+        private void UnregisterCallbacks(IChaseMovementActions instance)
         {
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
@@ -860,36 +807,37 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
         }
 
-        public void RemoveCallbacks(IPlayerRunActions instance)
+        public void RemoveCallbacks(IChaseMovementActions instance)
         {
-            if (m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_ChaseMovementActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerRunActions instance)
+        public void SetCallbacks(IChaseMovementActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerRunActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_ChaseMovementActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerRunActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_ChaseMovementActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerRunActions @PlayerRun => new PlayerRunActions(this);
+    public ChaseMovementActions @ChaseMovement => new ChaseMovementActions(this);
 
     // Camera
     private readonly InputActionMap m_Camera;
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
     private readonly InputAction m_Camera_Look;
+    private readonly InputAction m_Camera_Click;
+    private readonly InputAction m_Camera_Drop;
     public struct CameraActions
     {
         private @Controller m_Wrapper;
         public CameraActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @Look => m_Wrapper.m_Camera_Look;
+        public InputAction @Click => m_Wrapper.m_Camera_Click;
+        public InputAction @Drop => m_Wrapper.m_Camera_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -902,6 +850,12 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
@@ -909,6 +863,12 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -1036,11 +996,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_ControllerSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IMovementActions
     {
         void OnWalk(InputAction.CallbackContext context);
-        void OnClick(InputAction.CallbackContext context);
-        void OnDrop(InputAction.CallbackContext context);
     }
     public interface IDialogActions
     {
@@ -1049,15 +1007,16 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         void OnAuto(InputAction.CallbackContext context);
         void OnShowTranscript(InputAction.CallbackContext context);
     }
-    public interface IPlayerRunActions
+    public interface IChaseMovementActions
     {
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
         void OnLook(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
     public interface IButtonMashingActions
     {

@@ -19,16 +19,16 @@ public class HeldObjectManager : MonoBehaviour
 
     void OnEnable()
     {
-        InputManager.controller.Player.Click.performed += UseObject;
-        InputManager.controller.Player.Drop.performed += DropObject;
-        InputManager.controller.Player.Click.performed += CheckInteraction;
+        InputManager.controller.Camera.Click.performed += UseObject;
+        InputManager.controller.Camera.Drop.performed += DropObject;
+        InputManager.controller.Camera.Click.performed += CheckInteraction;
     }
 
     void OnDisable()
     {
-        InputManager.controller.Player.Click.performed -= UseObject;
-        InputManager.controller.Player.Drop.performed -= DropObject;
-        InputManager.controller.Player.Click.performed -= CheckInteraction;
+        InputManager.controller.Camera.Click.performed -= UseObject;
+        InputManager.controller.Camera.Drop.performed -= DropObject;
+        InputManager.controller.Camera.Click.performed -= CheckInteraction;
     }
 
     void CheckInteraction(InputAction.CallbackContext context)

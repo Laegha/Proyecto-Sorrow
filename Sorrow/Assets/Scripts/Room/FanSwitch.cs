@@ -20,7 +20,7 @@ public class FanSwitch : HitableTarget
         rb.isKinematic = true;
         boxCollider.enabled = false;
 
-        InputManager.controller.Player.Disable();
+        InputManager.controller.Movement.Disable();
     }
 
     public override void Activate()
