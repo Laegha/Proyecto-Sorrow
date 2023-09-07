@@ -120,7 +120,7 @@ public class PlayerChaseMovement : MonoBehaviour
             Jump(default);
     }
 
-    void OnCollisionExit(Collision collision)
+    public void OnCollisionExit(Collision collision)
     {
         if (!grounded || !enabled) return;
 

@@ -13,6 +13,8 @@ public class RestartChase : MonoBehaviour
         if (!col.CompareTag("Player"))
             return;
 
+        BreakingBlock.RefreshPlayer();
+
         // Start timeline clip
         print("Restarting chase");
         EndResult(); // DEBUG
