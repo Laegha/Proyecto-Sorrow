@@ -17,10 +17,10 @@ public class Interactable : MonoBehaviour
             interactionMaterial.SetFloat("_CanBeInteracted", value ? 1 : 0);
         }
     }
+
     protected virtual void Start()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
-        //interactionMaterial = GetComponent<MeshRenderer>().material;
         interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");
     }
 
