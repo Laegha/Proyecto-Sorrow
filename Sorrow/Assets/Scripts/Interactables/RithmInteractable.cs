@@ -8,20 +8,19 @@ public class RithmInteractable : Interactable
 {
     //public int empanadas;//esto es un meme
     [SerializeField] CinemachineVirtualCamera interactableCamera;
-
     [SerializeField] Texture3D headphonesOnTexture;
     [SerializeField] Texture3D headphonesOffTexture;
-
     [SerializeField] string headphonesOnTextureName;
 
     Material headphonesOnMaterial;
-    protected override void Start()
+
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
+        
         headphonesOnMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name == headphonesOnTextureName + " (Instance)");
         
         HeadphoneController.rithmInteractables.Add(this);
-
 
         CanBeInteracted = false;
     }

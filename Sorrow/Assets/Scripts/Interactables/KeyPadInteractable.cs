@@ -8,9 +8,9 @@ public class KeyPadInteractable : RithmInteractable
 
     [SerializeField] Beat[] beats;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         foreach(KeypadButton button in buttons) 
             button.keyPadInteractable = this;

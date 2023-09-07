@@ -7,9 +7,9 @@ public class InfinitePickUpInteractable : Interactable
     [SerializeField] GameObject pickUpPrefab;
     HeldObjectManager heldObjectManager;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start(); 
+        base.Awake(); 
     
         heldObjectManager = FindObjectOfType<HeldObjectManager>();
     }

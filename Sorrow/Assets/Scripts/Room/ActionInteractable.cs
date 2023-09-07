@@ -8,9 +8,9 @@ public class ActionInteractable : Interactable
 {
     [SerializeField] UnityEvent onInteractEvent;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         FindObjectOfType<ActionCounter>().neededActions ++;
     }

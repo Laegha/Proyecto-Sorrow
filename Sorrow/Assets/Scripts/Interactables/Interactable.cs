@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
         interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "InteractableMaterial (Instance)");

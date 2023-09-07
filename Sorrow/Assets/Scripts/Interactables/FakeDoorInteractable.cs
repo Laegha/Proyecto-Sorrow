@@ -11,8 +11,10 @@ public class FakeDoorInteractable : Interactable
     PickUpInteractable pickUpInteractable;
     int timesInteracted = 0;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         megaphoneComponent = GetComponent<Megaphone>();
         heldObject = GetComponent<HeldObject>();
         pickUpInteractable = GetComponent<PickUpInteractable>();
