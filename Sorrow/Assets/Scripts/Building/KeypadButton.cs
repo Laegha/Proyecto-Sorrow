@@ -44,14 +44,14 @@ public class KeypadButton : MonoBehaviour
     }
     void BeatFailed()
     {
-        print("Fallaste el beat pa");
+        //print("Fallaste el beat pa");
         //El anillo exterior se pone en rojo
         //El botón queda presionado
     }
 
     void BeatSucceed()
     {
-        print("Godeano");
+        //print("Godeano");
         //El anillo exterior se pone en verde y se detiene el decrecimiento
     }
 
@@ -64,13 +64,16 @@ public class KeypadButton : MonoBehaviour
         canHitBeat = false;
 
         float currOuterRingScale = outerRingScale;
-        while (beatDuration > 0)
+
+        float timer = 0;
+
+        while (timer < beatDuration)
         {
             yield return new WaitForEndOfFrame();
 
-            currOuterRingScale -= Time.deltaTime * 1 / beatDuration;
+            currOuterRingScale = outerRingScale / 4f * ((timer - beatDuration) * (timer - beatDuration));
             outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
-            beatDuration -= Time.deltaTime;
+            timer += Time.deltaTime;
 
             if (canHitBeat)
                 continue;
