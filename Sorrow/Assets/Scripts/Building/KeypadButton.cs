@@ -71,7 +71,7 @@ public class KeypadButton : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
-            currOuterRingScale = outerRingScale / 4f * ((timer - beatDuration) * (timer - beatDuration));
+            currOuterRingScale = outerRingScale / (beatDuration * beatDuration) * ((timer - beatDuration) * (timer - beatDuration));
             outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
             timer += Time.deltaTime;
 
