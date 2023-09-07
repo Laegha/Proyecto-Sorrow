@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3557720236902609924}
   - component: {fileID: 6568050901902902347}
   - component: {fileID: 3860867142075615650}
-  - component: {fileID: 6887168731755937942}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -180,26 +179,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6887168731755937942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2665982127368777901}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3845aa4281ec614ca3f7c3d6be4577f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fForce: 3.25
-  airDrag: 0
-  groundDrag: 0
-  jumpForce: 5.5
-  jumpBufferTime: 0.1
-  coyoteTime: 0
-  airControl: 0.125
-  maxSlopeAngle: 0
 --- !u!1 &4374919114576354026
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 4374919114576354026}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.67999995, z: -0.02}
+  m_LocalPosition: {x: 0, y: 0.67999995, z: -0.01999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -443,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 5312563781604836768}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46799994, y: -0.591, z: 0.59400034}
+  m_LocalPosition: {x: 0.5, y: -0.55, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
