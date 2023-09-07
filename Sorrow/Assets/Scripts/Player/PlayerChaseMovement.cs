@@ -72,7 +72,12 @@ public class PlayerChaseMovement : MonoBehaviour
         }
 
         // 1) Darle la fuerza y sacar la capacidad de saltar para que no pueda volver a saltar hasta realmente tocar el piso.
-        slopeNormal = Vector3.up;
+        
+        if (slopeNormal != Vector3.up)
+        {
+            slopeNormal = Vector3.up;
+            rb.velocity = Vector3.ProjectOnPlane(rb.velocity, Vector3.up);
+        }
         rb.velocity.Set(rb.velocity.x, 0f, rb.velocity.z);
         rb.drag = airDrag;
         rb.AddForce(0f, jumpForce, 0f, ForceMode.Impulse);
