@@ -26,19 +26,17 @@ public class LockManager : MonoBehaviour
         float rotation = e.CurrentBeat switch
         {
             1 => 0f,
-            2 => 90f,
-            3 => 180f,
-            4 => 270f,
+            2 => -90f,
+            3 => -180f,
+            4 => -270f,
             _ => 0f
         };
-
-        print("Start rot");
+        
+        var euler = new Vector3(0f, 0f, rotation);
 
         for (int i = e.LockedNums; i < 32; i++)
-            nums[i].Rotate(0f, 0f, rotation, Space.Self);
+            nums[i].eulerAngles = euler;
         // Activate the animation
-
-        print("End rot");
     }
 
     void UnlockNums(object _, LockRythmController.LockEventArgs e)
@@ -46,14 +44,16 @@ public class LockManager : MonoBehaviour
         float rotation = e.CurrentBeat switch
         {
             1 => 0f,
-            2 => 90f,
-            3 => 180f,
-            4 => 270f,
+            2 => -90f,
+            3 => -180f,
+            4 => -270f,
             _ => 0f
         };
 
+        var euler = new Vector3(0f, 0f, rotation);
+
         for (int i = e.LockedNums; i < 32; i++)
-            nums[i].Rotate(0f, 0f, rotation, Space.Self);
+            nums[i].eulerAngles = euler;
         // Animate
     }
 }
