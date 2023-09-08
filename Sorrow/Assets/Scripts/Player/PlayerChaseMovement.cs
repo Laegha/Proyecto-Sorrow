@@ -117,7 +117,7 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsEnter);
 
-        CheckSlope();
+        CheckSlope(collision.contacts[0].normal);
 
         rb.drag = grounded ? groundDrag : airDrag;
 
@@ -131,9 +131,9 @@ public class PlayerChaseMovement : MonoBehaviour
 
         grounded = CheckGround(halfExtentsExit);
 
-        CheckSlope();
-
         rb.drag = grounded ? groundDrag : airDrag;
+
+        CheckSlope(collision == default ? collision.contacts[0].point : transform.position + rayCastOffset);
 
         if (!grounded)
             coyoteBuffer = coyoteTime;
@@ -142,11 +142,21 @@ public class PlayerChaseMovement : MonoBehaviour
     bool CheckGround(Vector3 halfExtents)
         => Physics.OverlapBoxNonAlloc(transform.position + jumpCheckOffset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
 
-    void CheckSlope()
+    void CheckSlope(Vector3 pos)
     {
-        Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, maskToIgnore);
+        if (!grounded)
+        {
+            slopeNormal = Vector3.up;
+            return;
+        }
+
+        /*
+        Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .05f, maskToIgnore);
 
         slopeNormal = hitInfo.normal;
+        */
+
+        slopeNormal = pos;
 
         if (Vector3.Angle(Vector3.up, slopeNormal) >= maxSlopeAngle)
             slopeNormal = Vector3.up;
