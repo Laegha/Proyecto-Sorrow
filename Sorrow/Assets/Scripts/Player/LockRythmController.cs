@@ -9,10 +9,12 @@ public class LockRythmController : MonoBehaviour
     const int totalNums = 32;
     [SerializeField] float bpm;
     [SerializeField] float bpmIncrease;
+    [SerializeField] float accuracyRange;
     readonly int[] finalPin = new int[totalNums];
     readonly int[] currentPin = new int[totalNums];
     int lockedNums = 0;
-    float halfBeatDuration;
+    float lockBeatDuration;
+    float rotateBeatDuration;
     int currentBeat = 1;
     bool hasLocked = false;
     bool canLock = true;
@@ -50,14 +52,14 @@ public class LockRythmController : MonoBehaviour
             for (int i = lockedNums; i < totalNums; i++)
                 currentPin[i] = currentBeat;
             print(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
-            yield return new WaitForSeconds(halfBeatDuration);
+            yield return new WaitForSeconds(lockBeatDuration);
             canLock = false;
-            print("rotating");
-            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
-            yield return new WaitForSeconds(halfBeatDuration);
+            print("rotating\n" + string.Join("", finalPin));
+            yield return new WaitForSeconds(rotateBeatDuration);
             currentBeat += currentBeat != 4 ? 1 : -3;
             hasLocked = false;
             canLock = true;
+            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, lockBeatDuration, currentBeat));
         }
     }
 
@@ -79,7 +81,7 @@ public class LockRythmController : MonoBehaviour
         else
         {
             lockedNums -= lockedNums % 8;
-            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, halfBeatDuration, currentBeat));
+            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, lockBeatDuration, currentBeat));
         }
 
         if (lockedNums is not totalNums)
@@ -89,7 +91,11 @@ public class LockRythmController : MonoBehaviour
         print("Unlocked");
     }
 
-    void RecalculateHalfBeatDuration() => halfBeatDuration = 60 / bpm / 2;
+    void RecalculateHalfBeatDuration()
+    {
+        lockBeatDuration = 60 / bpm * accuracyRange;
+        rotateBeatDuration = 60 / bpm * (1 - accuracyRange);
+    }
 
     public class LockEventArgs : System.EventArgs
     {
