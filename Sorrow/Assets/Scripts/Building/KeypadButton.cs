@@ -40,7 +40,6 @@ public class KeypadButton : MonoBehaviour
         else
             BeatFailed();
 
-        WaitingForBeat = false;
     }
     void BeatFailed()
     {
@@ -55,6 +54,14 @@ public class KeypadButton : MonoBehaviour
         //El anillo exterior se pone en verde y se detiene el decrecimiento
     }
 
+    IEnumerator RingColorChange(Color newColor)
+    {
+        outerRingSR.material.SetColor("_RingColor", newColor);
+        yield return new WaitForSeconds(2f);
+
+        WaitingForBeat = false;
+
+    }
     public IEnumerator WaitForBeat(float beatDuration)
     {
         WaitingForBeat = true;
@@ -63,15 +70,13 @@ public class KeypadButton : MonoBehaviour
         outerRingSR.material.SetColor("_RingColor", unhighlightedRingColor);
         canHitBeat = false;
 
-        float currOuterRingScale = outerRingScale;
-
         float timer = 0;
 
         while (timer < beatDuration)
         {
             yield return new WaitForEndOfFrame();
 
-            currOuterRingScale = outerRingScale / (beatDuration * beatDuration) * ((timer - beatDuration) * (timer - beatDuration));
+            float currOuterRingScale = outerRingScale / (beatDuration * beatDuration) * ((timer - beatDuration) * (timer - beatDuration));
             outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
             timer += Time.deltaTime;
 
