@@ -8773,7 +8773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConsumable: 0
   bulletPrefab: {fileID: 5451920008731461933, guid: 64004574387337945a10abf78e95c83c, type: 3}
-  bulletPerSecond: 4
+  bulletPerSecond: 8
 --- !u!114 &117084753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40206,13 +40206,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3845aa4281ec614ca3f7c3d6be4577f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fForce: 3.25
+  fForce: 3
   airDrag: 0
   groundDrag: 10
   jumpForce: 6
   jumpBufferTime: 0.1
   coyoteTime: 0.2
-  airControl: 0.125
+  airControl: 0.15
   maxSlopeAngle: 46
 --- !u!1 &992489864
 GameObject:
