@@ -66,15 +66,15 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -119,11 +119,11 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1.5
   contrast:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 5
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -131,7 +131,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   mixerRedOutBlueIn:
-    overrideState: 0
+    overrideState: 1
     value: 0
   mixerGreenOutRedIn:
     overrideState: 0
@@ -1395,11 +1395,11 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 2
   threshold:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.25
   softKnee:
     overrideState: 0
     value: 0.5
@@ -1445,11 +1445,11 @@ MonoBehaviour:
     overrideState: 0
     value: {x: 50, y: 95}
   minLuminance:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1.5
   maxLuminance:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 8
   keyValue:
     overrideState: 0
     value: 1
