@@ -18,6 +18,7 @@ public class FakeDoorInteractable : Interactable
         megaphoneComponent = GetComponent<Megaphone>();
         heldObject = GetComponent<HeldObject>();
         pickUpInteractable = GetComponent<PickUpInteractable>();
+        pickUpInteractable.enabled = false;
     }
 
     public override void Interaction()
