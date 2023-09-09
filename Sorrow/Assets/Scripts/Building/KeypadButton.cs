@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //Podría hacer un shader para el sprite del círculo que se achica y desde un Update cambiar la variable del shader que controla el tamaño del círculo
@@ -7,6 +8,8 @@ public class KeypadButton : MonoBehaviour
 {
     [HideInInspector] public KeyPadInteractable keyPadInteractable;
 
+    [SerializeField] SpriteRenderer outerRingSR;
+    SpriteRenderer ringSR => GetComponent<SpriteRenderer>();
     bool waitingForBeat;
     bool WaitingForBeat
     {
@@ -26,41 +29,43 @@ public class KeypadButton : MonoBehaviour
 
     [SerializeField] Color unhighlightedRingColor;
     [SerializeField] Color highlightedRingColor;
-    [SerializeField] SpriteRenderer outerRingSR;
-    SpriteRenderer ringSR;
-    private void Start() => ringSR = GetComponent<SpriteRenderer>();
 
+    [SerializeField] float ringDissapearTime;
+
+    ParticleSystem particleSystem => GetComponent<ParticleSystem>();
     private void OnMouseDown()
     {
         if (!waitingForBeat)
             return;
 
         if (canHitBeat)
-            BeatSucceed();
+            StartCoroutine(BeatSucceed());
         else
-            BeatFailed();
+            StartCoroutine(BeatFailed());
 
     }
-    void BeatFailed()
+    IEnumerator BeatFailed()
     {
-        //print("Fallaste el beat pa");
-        //El anillo exterior se pone en rojo
         //El botón queda presionado
-    }
+        outerRingSR.material.SetColor("_RingColor", Color.red);
+        waitingForBeat = false;
+        yield return new WaitForSeconds(ringDissapearTime);
 
-    void BeatSucceed()
-    {
-        //print("Godeano");
-        //El anillo exterior se pone en verde y se detiene el decrecimiento
-    }
-
-    IEnumerator RingColorChange(Color newColor)
-    {
-        outerRingSR.material.SetColor("_RingColor", newColor);
-        yield return new WaitForSeconds(2f);
-
+        keyPadInteractable.buttons.Remove(this);
+        //keypadInteractable.GetComponent<Renderer>().materials.First(m => m.name == "").SetVectorArray
+        if(keyPadInteractable.buttons.Count == 0)
+            //reiniciar el minijuego
         WaitingForBeat = false;
+    }
 
+    IEnumerator BeatSucceed()
+    {
+        outerRingSR.material.SetColor("_RingColor", Color.green);
+        //particleSystem.Play();
+        waitingForBeat = false;
+        yield return new WaitForSeconds(ringDissapearTime);
+     
+        WaitingForBeat = false;
     }
     public IEnumerator WaitForBeat(float beatDuration)
     {

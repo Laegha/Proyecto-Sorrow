@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyPadInteractable : RithmInteractable
 {
-    KeypadButton[] buttons => GetComponentsInChildren<KeypadButton>();
+    public List<KeypadButton> buttons;
 
     [SerializeField] Beat[] beats;
 
@@ -31,8 +31,20 @@ public class KeyPadInteractable : RithmInteractable
             float deltaBeatTime = currBeat > 0 ? beats[currBeat].beatTime - beats[currBeat - 1].beatTime : beats[currBeat].beatTime;
             yield return new WaitForSeconds(deltaBeatTime);
 
-            StartCoroutine(buttons[Random.Range(0, buttons.Length)].WaitForBeat(beats[currBeat].beatDuration));
+            StartCoroutine(buttons[Random.Range(0, buttons.Count)].WaitForBeat(beats[currBeat].beatDuration));
             currBeat++;
+        }
+        bool waitingForEnd = true;
+        while(waitingForEnd)
+        {
+            yield return new WaitForEndOfFrame();
+
+            if(!Camera.main.GetComponent<AudioSource>().isPlaying)
+            {
+                waitingForEnd = false;
+                CinematicManager.ReturnPlayerCamera();
+                CinematicManager.PlayerFreeze(false);
+            }
         }
     }
 }
