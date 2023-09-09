@@ -20,10 +20,11 @@ public class PlayerChaseMovement : MonoBehaviour
     bool grounded;
     float jumpBuffer;
     float coyoteBuffer;
-    readonly Vector3 jumpCheckOffset = new(0f, -1.1f, 0f);
+    readonly Vector3 checkOffsetEnter = new(0f, -1.1f, 0f);
+    readonly Vector3 checkOffsetExit = new(0f, -1.05f, 0f);
     readonly Vector3 rayCastOffset = new(0f, -1f, 0f);
     readonly Vector3 halfExtentsEnter = new(.45f, .05f, .45f);
-    readonly Vector3 halfExtentsExit = new(.1f, .05f, .1f);
+    readonly Vector3 halfExtentsExit = new(.1f, .025f, .1f);
     readonly LayerMask maskToIgnore = ~(1 << 7);
     //readonly LayerMask slopeMask = 1 << 9;
     Rigidbody rb;
@@ -45,7 +46,6 @@ public class PlayerChaseMovement : MonoBehaviour
         InputManager.controller.ChaseMovement.Jump.performed += Jump;
         InputManager.controller.ChaseMovement.Run.performed += Run;
         InputManager.controller.ChaseMovement.Run.canceled += StopRun;
-        //InputManager.controller.Camera.Click.performed += heldObjectManager.UseObject;
 
         OnCollisionEnter(default);
     }
@@ -55,7 +55,6 @@ public class PlayerChaseMovement : MonoBehaviour
         InputManager.controller.ChaseMovement.Jump.performed -= Jump;
         InputManager.controller.ChaseMovement.Run.performed -= Run;
         InputManager.controller.ChaseMovement.Run.canceled -= StopRun;
-        //InputManager.controller.Camera.Click.performed -= heldObjectManager.UseObject;
         InputManager.controller.ChaseMovement.Disable();
         playerMovement.enabled = true;
         
@@ -104,7 +103,7 @@ public class PlayerChaseMovement : MonoBehaviour
 
         if (!grounded)
             finalVelocity *= airControl;
-        else if (slopeNormal != Vector3.up)
+        else if (slopeNormal != Vector3.up && slopeNormal != Vector3.zero)
             finalVelocity = Vector3.ProjectOnPlane(finalVelocity, slopeNormal);
 
         ApplyForceToReachVelocity(finalVelocity, fForce);
@@ -115,34 +114,38 @@ public class PlayerChaseMovement : MonoBehaviour
     {
         if (!enabled) return;
 
-        grounded = CheckGround(halfExtentsEnter);
+        grounded = CheckGround(checkOffsetEnter, halfExtentsEnter);
 
-        CheckSlope(collision.contacts[0].normal);
+        CheckSlope();
 
         rb.drag = grounded ? groundDrag : airDrag;
 
         if (grounded && jumpBuffer > 0f)
             Jump(default);
+
+        print(grounded + " " + slopeNormal);
     }
 
     public void OnCollisionExit(Collision collision)
     {
         if (!grounded || !enabled) return;
 
-        grounded = CheckGround(halfExtentsExit);
+        grounded = CheckGround(checkOffsetExit, halfExtentsExit);
 
         rb.drag = grounded ? groundDrag : airDrag;
 
-        CheckSlope(collision == default ? collision.contacts[0].point : transform.position + rayCastOffset);
+        CheckSlope();
 
         if (!grounded)
             coyoteBuffer = coyoteTime;
+
+        print(grounded + " " + slopeNormal);
     }
 
-    bool CheckGround(Vector3 halfExtents)
-        => Physics.OverlapBoxNonAlloc(transform.position + jumpCheckOffset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
+    bool CheckGround(Vector3 offset, Vector3 halfExtents)
+        => Physics.OverlapBoxNonAlloc(transform.position + offset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
 
-    void CheckSlope(Vector3 pos)
+    void CheckSlope()
     {
         if (!grounded)
         {
@@ -150,16 +153,15 @@ public class PlayerChaseMovement : MonoBehaviour
             return;
         }
 
-        /*
-        Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .05f, maskToIgnore);
+        Physics.Raycast(transform.position + rayCastOffset, Vector3.down, out var hitInfo, .25f, maskToIgnore);
 
         slopeNormal = hitInfo.normal;
-        */
-
-        slopeNormal = pos;
 
         if (Vector3.Angle(Vector3.up, slopeNormal) >= maxSlopeAngle)
+        {
             slopeNormal = Vector3.up;
+            grounded = false;
+        }
     }
 
     void ApplyForceToReachVelocity(Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
