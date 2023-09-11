@@ -8,8 +8,13 @@ public class Megaphone : Item
     [SerializeField] float bulletPerSecond;
     Transform firePoint;
     float shootCooldown;
+    AudioSource audioSource;
 
-    void Start() => firePoint = transform.Find("FirePoint");
+    void Awake()
+    {
+        firePoint = transform.Find("FirePoint");
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public override void ItemEffect()
     {
@@ -24,6 +29,8 @@ public class Megaphone : Item
             rotation = Quaternion.LookRotation((hit.point - firePoint.position).normalized);
         
         Instantiate(bulletPrefab, firePoint.position, rotation != Quaternion.identity ? rotation : firePoint.rotation);
+
+        audioSource.Play();
         
         shootCooldown = 1 / bulletPerSecond; 
     }
