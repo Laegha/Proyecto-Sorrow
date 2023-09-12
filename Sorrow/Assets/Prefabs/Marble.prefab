@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1026384524683729530}
   m_Layer: 0
   m_Name: Marble
-  m_TagString: MegaphoneBullet
+  m_TagString: Marble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,4 +164,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumable: 1
-  throwForce: 11
+  throwForce: 100
