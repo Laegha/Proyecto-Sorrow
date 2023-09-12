@@ -164,4 +164,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumable: 1
-  throwForce: 100
+  throwForce: 11
