@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomScene.unity
     guid: 317f11177ece34c4786cc802bb21ee8c
+  - enabled: 1
+    path: Assets/Scenes/RythmGame.unity
+    guid: e60fbf191ccced748ae7b033f520da0e
+  - enabled: 1
+    path: Assets/Scenes/DebugPlayground.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
