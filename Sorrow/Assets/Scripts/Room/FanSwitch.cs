@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FanSwitch : HitableTarget
 {
+    [SerializeField] GameObject debugDepresion;
+    [SerializeField] Vector3 debugEndPosition;
     Transform playerTransform;
     Rigidbody rb;
     CapsuleCollider playerCollider;
@@ -33,5 +35,7 @@ public class FanSwitch : HitableTarget
         rb.isKinematic = false;
         playerMovement.enabled = true;
         enabled = false;
+        debugDepresion.transform.position = debugEndPosition;
+        Destroy(this);
     }
 }
