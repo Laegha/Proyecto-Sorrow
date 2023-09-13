@@ -22,12 +22,12 @@ public class RithmInteractable : Interactable
         
         HeadphoneController.rithmInteractables.Add(this);
 
-        CanBeInteracted = false;
+        enabled = false;
     }
 
     public override void Interaction()
     {
-        if (!CanBeInteracted)
+        if (!enabled)
         {
             print("No se puede interactuar");
             return;
@@ -36,7 +36,7 @@ public class RithmInteractable : Interactable
         CinematicManager.CameraChange(interactableCamera);
         CinematicManager.PlayerFreeze(true);
 
-        CanBeInteracted = false;
+        enabled = false;
         StartMinigame();
     }
 
@@ -44,7 +44,7 @@ public class RithmInteractable : Interactable
 
     public void SwitchCurrState(bool canBeInteracted)
     {
-        CanBeInteracted = canBeInteracted;
+        enabled = canBeInteracted;
         headphonesOnMaterial.SetTexture("_MainTex", canBeInteracted ? headphonesOnTexture : headphonesOffTexture);
     }
 }

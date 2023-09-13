@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,7 +37,7 @@ public class HeldObjectManager : MonoBehaviour
         Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, interactionDistance);
         if (hitObj.transform == null)
             return;
-        foreach(Interactable interactable in hitObj.transform.GetComponents<Interactable>())
+        foreach(Interactable interactable in hitObj.transform.GetComponents<Interactable>().Where(x => x.enabled))
             interactable.Interaction();
     }
 
