@@ -12,7 +12,7 @@ public class DoorClose : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            doorAnimator.Play("CloseDoor");
+            doorAnimator.Play("DoorClose");
     }
     
     public IEnumerator LoadNextScene()
