@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: cf3c54dc575f2f246acb8cd82db3b031, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 15093075968
+    m_Localized: Comenzar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 199000723456
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272564621312
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382535077888
+    m_Localized: Resumir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627520180224
+    m_Localized: "Sensibilidad de c\xE1mara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 928738316288
+    m_Localized: Effectos de sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1148301742080
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1585570516992
+    m_Localized: Volumen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2867840552960
+    m_Localized: "Calidad de gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
