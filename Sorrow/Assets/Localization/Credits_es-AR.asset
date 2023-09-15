@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Credits_es-AR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es-AR
+  m_SharedData: {fileID: 11400000, guid: 06b883b12879c53479a2a2f02a064612, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 161411371008
+    m_Localized: Desarrolladores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 220681080832
+    m_Localized: "Programaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 347143540736
+    m_Localized: Arte 3D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 557244616704
+    m_Localized: Interfaz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650530131968
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 723930451968
+    m_Localized: "Cinematograf\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 905220853760
+    m_Localized: Tutores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 968743587840
+    m_Localized: Organizaciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102936150016
+    m_Localized: Agradecimientos especiales
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
