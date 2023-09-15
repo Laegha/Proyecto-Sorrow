@@ -86,7 +86,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CellDensity: 7
+    - _CellDensity: 15
     - _CellSpeed: 10
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -100,8 +100,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientNoiseScale: 2
-    - _GradientWeight: 5
+    - _GradientNoiseScale: 16
+    - _GradientWeight: 4
     - _Metallic: 0
     - _NoiseScale: 500
     - _OcclusionStrength: 1
