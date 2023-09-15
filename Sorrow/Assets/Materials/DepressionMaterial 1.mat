@@ -86,7 +86,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CellDensity: 5
+    - _CellDensity: 7
     - _CellSpeed: 10
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -100,8 +100,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientNoiseScale: 5
-    - _GradientWeight: 7.5
+    - _GradientNoiseScale: 2
+    - _GradientWeight: 5
     - _Metallic: 0
     - _NoiseScale: 500
     - _OcclusionStrength: 1
@@ -111,7 +111,7 @@ Material:
     - _ReceiveShadows: 1
     - _RotateCenter: 1
     - _RotationScale: 0.1
-    - _SimpleNoiseScale: 500
+    - _SimpleNoiseScale: 1000
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -121,6 +121,7 @@ Material:
     - _TexSwitchTime: 0
     - _TwirlStrength: 0.01
     - _WorkflowMode: 1
+    - _WorldGradient: 0
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
