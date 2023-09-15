@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 199000723456
-    m_Localized: Opciones
+    m_Localized: "Configuraci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 272564621312
@@ -52,6 +52,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2867840552960
     m_Localized: "Calidad de gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 243521596506112
+    m_Localized: Lenguaje
     m_Metadata:
       m_Items: []
   references:

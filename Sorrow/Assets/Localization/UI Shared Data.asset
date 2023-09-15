@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: graphicsQuality
     m_Metadata:
       m_Items: []
+  - m_Id: 243521596506112
+    m_Key: lang
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
