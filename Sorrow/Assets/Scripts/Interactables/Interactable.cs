@@ -15,9 +15,19 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interaction() { }
 
-    void OnEnable() => interactionMaterial.SetFloat("_CanBeInteracted", 1);
+    void OnEnable()
+    {
+        Color color = interactionMaterial.GetColor("_Color");
+        color.a = 1;
+        interactionMaterial.SetColor("_Color", color);
+    }
 
-    void OnDisable() => interactionMaterial.SetFloat("_CanBeInteracted", 0);
+    void OnDisable()
+    {
+        Color color = interactionMaterial.GetColor("_Color");
+        color.a = 0;
+        interactionMaterial.SetColor("_Color", color);
+    }
 
     void OnMouseEnter()
     {
@@ -26,7 +36,7 @@ public class Interactable : MonoBehaviour
 
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
         if(distance < playerInteraction.interactionDistance)
-            interactionMaterial.SetColor("currentColor", Color.white);
+            interactionMaterial.SetColor("_Color", Color.white);
     }
 
     void OnMouseExit()

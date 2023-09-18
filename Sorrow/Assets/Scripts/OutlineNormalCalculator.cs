@@ -5,7 +5,7 @@ using UnityEngine;
 // This script, unfortunately, does not support skinned meshes
 [RequireComponent(typeof(MeshFilter))]
 [ExecuteInEditMode]
-public class OutlineNormalsCalculator : MonoBehaviour
+public class OutlineNormalCalculator : MonoBehaviour
 {
     // Store these outline normals in the specified UV/Texcoord channel
     // This corresponds to the TEXCOORD_ semantics in HLSL
@@ -25,7 +25,7 @@ public class OutlineNormalsCalculator : MonoBehaviour
     private void Start()
     {
         // Get the mesh
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
+        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
 
         // Copy the vertices and triangle arrays from the mesh
         Vector3[] vertices = mesh.vertices;

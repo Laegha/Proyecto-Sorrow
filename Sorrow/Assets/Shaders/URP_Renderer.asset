@@ -68,11 +68,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RenderObjects
+  m_Name: OutlineRendering
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: RenderObjects
+    passTag: OutlineRendering
     Event: 400
     filterSettings:
       RenderQueueType: 0
@@ -82,11 +82,11 @@ MonoBehaviour:
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: b9b4b7796bc91364ba062c5a77494921, type: 2}
     overrideMaterialPassIndex: 0
-    overrideShader: {fileID: 0}
+    overrideShader: {fileID: 4800000, guid: 51d7d928539b8cf4a9733958a1a01a9f, type: 3}
     overrideShaderPassIndex: 0
     overrideMode: 1
     overrideDepthState: 1
-    depthCompareFunction: 2
+    depthCompareFunction: 1
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
@@ -110,11 +110,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RenderObjects
+  m_Name: OutlinedObjectsRendering
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: RenderObjects
+    passTag: OutlinedObjectsRendering
     Event: 450
     filterSettings:
       RenderQueueType: 0
@@ -126,10 +126,10 @@ MonoBehaviour:
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
-    overrideMode: 1
-    overrideDepthState: 0
+    overrideMode: 0
+    overrideDepthState: 1
     depthCompareFunction: 4
-    enableWrite: 1
+    enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
       stencilReference: 0
