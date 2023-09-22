@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Outline
-    Event: 240
+    Event: 300
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -28,7 +28,7 @@ MonoBehaviour:
     overrideShaderPassIndex: 0
     overrideMode: 1
     overrideDepthState: 1
-    depthCompareFunction: 2
+    depthCompareFunction: 8
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: OutlinedObjects
-    Event: 250
+    Event: 300
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -128,7 +128,7 @@ MonoBehaviour:
     overrideShaderPassIndex: 0
     overrideMode: 0
     overrideDepthState: 1
-    depthCompareFunction: 7
+    depthCompareFunction: 0
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
