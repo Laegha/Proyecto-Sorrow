@@ -5,28 +5,32 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class VolumeSliderController : MonoBehaviour
 {
     [SerializeField] string parameterName;
+    [SerializeField] TMP_Text text;
     static AudioMixer mixer;
 
     void Awake()
     {
         if (mixer == null)
             mixer = Resources.Load<AudioMixer>("Mixer");
-        var value = PlayerPrefs.GetFloat(parameterName, 8);
+        var value = PlayerPrefs.GetFloat(parameterName, 8f);
         GetComponent<Slider>().value = value;
+        text.text = $"{value}";
         if (SceneManager.GetActiveScene().name == "MainMenu")
-            SetMixer(value);
+            SetVolume(value);
     }
 
     public void ChangeVolume(float value)
     {
-        SetMixer(value);
+        SetVolume(value);
+        text.text = $"{value}";
         PlayerPrefs.SetFloat(parameterName, value);
         PlayerPrefs.Save();
     }
 
-    void SetMixer(float value) => mixer.SetFloat(parameterName, Mathf.Log10(value) * 80f - 80f);
+    void SetVolume(float value) => mixer.SetFloat(parameterName, Mathf.Log10(value) * 80f - 80f);
 }
