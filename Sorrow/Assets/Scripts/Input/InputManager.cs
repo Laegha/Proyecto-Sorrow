@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
     public static Controller controller;
-    public float mouseSensitivity;
+    public static float cameraSensitivity;
 
     void Awake()
     {

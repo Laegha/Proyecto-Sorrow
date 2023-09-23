@@ -58,6 +58,10 @@ MonoBehaviour:
     m_Localized: Idioma
     m_Metadata:
       m_Items: []
+  - m_Id: 3226512578711552
+    m_Localized: "Atr\xE1s"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

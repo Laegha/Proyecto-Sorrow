@@ -19,8 +19,8 @@ public class CameraLook : MonoBehaviour
     void Update()
     {
         var delta = InputManager.controller.Camera.Look.ReadValue<Vector2>();
-        float mouseY = delta.y * InputManager.instance.mouseSensitivity;
-        float mouseX = delta.x * InputManager.instance.mouseSensitivity;
+        float mouseY = delta.y * InputManager.cameraSensitivity;
+        float mouseX = delta.x * InputManager.cameraSensitivity;
 
         if (mouseX is not 0f)
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, mouseX, 0f));
