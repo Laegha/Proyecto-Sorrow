@@ -100,7 +100,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientNoiseScale: 5
+    - _GradientNoiseScale: 30
     - _GradientWeight: 4
     - _Metallic: 0
     - _NoiseScale: 500
@@ -110,7 +110,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RotateCenter: 1
-    - _RotationScale: 0.1
+    - _RotationScale: 0.075
     - _SimpleNoiseScale: 1000
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
