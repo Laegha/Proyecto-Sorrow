@@ -14,6 +14,8 @@ public class CameraLook : MonoBehaviour
         player = transform.root;
         rb = player.GetComponent<Rigidbody>();
         currXRotation = transform.localRotation.eulerAngles.x;
+        if (currXRotation > 180f)
+            currXRotation -= 360f;
     }
 
     void Update()
