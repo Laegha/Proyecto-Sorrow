@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
 
         instance = this;
         controller = new Controller();
+        cameraSensitivity = PlayerPrefs.GetFloat("CS", 100f) * .001f;
     }
 
     void OnEnable()
