@@ -30170,6 +30170,7 @@ GameObject:
   - component: {fileID: 1344565590}
   - component: {fileID: 1344565589}
   - component: {fileID: 1344565593}
+  - component: {fileID: 1344565596}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -30320,6 +30321,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionMaterial: {fileID: 0}
+--- !u!114 &1344565596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344565588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1 &1377503194
 GameObject:
   m_ObjectHideFlags: 0
@@ -43572,6 +43587,7 @@ GameObject:
   - component: {fileID: 1955447263}
   - component: {fileID: 1955447262}
   - component: {fileID: 1955447261}
+  - component: {fileID: 1955447269}
   m_Layer: 0
   m_Name: Megaphone
   m_TagString: Untagged
@@ -43738,6 +43754,20 @@ MonoBehaviour:
   isConsumable: 0
   bulletPrefab: {fileID: 5451920008731461933, guid: 64004574387337945a10abf78e95c83c, type: 3}
   bulletPerSecond: 4
+--- !u!114 &1955447269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955447260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1 &1969104860
 GameObject:
   m_ObjectHideFlags: 0
