@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class GlassSoundController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var source = GetComponent<AudioSource>();
+        source.pitch = Random.Range(0.8f, 1.2f);
+        source.Play();
+        Invoke(nameof(Destroy), source.clip.length);
     }
 }
