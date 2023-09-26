@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class FakeDoorInteractable : Interactable
 {
@@ -10,6 +11,8 @@ public class FakeDoorInteractable : Interactable
     HeldObject heldObject;
     PickUpInteractable pickUpInteractable;
     int timesInteracted = 0;
+
+    [SerializeField] PlayableDirector timeline;
 
     protected override void Awake()
     {
@@ -34,8 +37,15 @@ public class FakeDoorInteractable : Interactable
             return;
         }
 
-        InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
+        StartCoroutine(StartChaseCinematic());
+    }
 
+    IEnumerator StartChaseCinematic()
+    {
+        CinematicManager.PlayerFreeze(true);
+        timeline.Play();
+
+        yield return new WaitForSeconds((float)timeline.duration);
         /*
         TIMELINE HERE:
 
@@ -49,10 +59,11 @@ public class FakeDoorInteractable : Interactable
         */
 
         // Final result
+        CinematicManager.PlayerFreeze(false);
+        InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
         InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
-        Destroy(debugWall);
+
         InputManager.instance.GetComponent<HeldObjectManager>().HoldObject(heldObject);
-        print("RUN");
         megaphoneComponent.enabled = true;
         chaseController.isMoving = true;
         enabled = false;

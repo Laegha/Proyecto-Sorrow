@@ -23,8 +23,8 @@ public static class CinematicManager
 
     public static void PlayerFreeze(bool isFreezed)
     {
+        GameObject.FindWithTag("Player").SetActive(!isFreezed);
         Camera.main.transform.SetParent(isFreezed ? null : GameObject.FindWithTag("Player").transform);
         //Camera.main.GetComponent<CameraLook>().enabled = !isFreezed;
-        GameObject.FindWithTag("Player").SetActive(!isFreezed);
     }
 }
