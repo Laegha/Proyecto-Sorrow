@@ -969,6 +969,8 @@ PlayableDirector:
     value: {fileID: 746919208}
   - key: {fileID: 3468109351948440565, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 1884336479}
+  - key: {fileID: -5043388986959919007, guid: 4fb7bef4201178349988524619321e40, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - be25236c738df00468a038d5ed6d0292: {fileID: 1498543802}
@@ -981,7 +983,7 @@ Transform:
   m_GameObject: {fileID: 74758085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.055112, y: 1.3217773, z: -0.65535}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63141,8 +63143,24 @@ PrefabInstance:
       value: -0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -70
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 359
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1245991158952017048, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -72227,6 +72245,7 @@ MonoBehaviour:
   interactionMaterial: {fileID: 0}
   debugWall: {fileID: 626184862}
   chaseController: {fileID: 890080251}
+  timeline: {fileID: 0}
 --- !u!54 &1591668251
 Rigidbody:
   m_ObjectHideFlags: 0
