@@ -1,41 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class FanSwitch : HitableTarget
 {
-    [SerializeField] GameObject debugDepresion;
-    [SerializeField] Vector3 debugEndPosition;
-    Transform playerTransform;
-    Rigidbody rb;
-    CapsuleCollider playerCollider;
-    PlayerMovement playerMovement;
-
-    void Awake()
-    {
-        var player = GameObject.FindGameObjectWithTag("Player");
-
-        playerTransform = player.transform;
-        rb = player.GetComponent<Rigidbody>();
-        playerCollider = player.GetComponent<CapsuleCollider>();
-        playerMovement = player.GetComponent<PlayerMovement>();
-
-    }
+    [SerializeField] PlayableDirector timeline;
 
     public override void Activate()
     {
-        //Iniciar timeline
-        EndResult();
-    }
-
-    void EndResult() // DEBUG
-    {
-        playerTransform.Translate(Vector3.up);
-        playerCollider.enabled = true;
-        rb.isKinematic = false;
-        playerMovement.enabled = true;
+        timeline.Play();
         enabled = false;
-        debugDepresion.transform.position = debugEndPosition;
         Destroy(this);
     }
 }
