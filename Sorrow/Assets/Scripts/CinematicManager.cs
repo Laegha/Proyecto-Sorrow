@@ -7,15 +7,16 @@ public class CinematicManager : MonoBehaviour
 {
     public static CinematicManager instance;
 
+    GameObject player;
     private void Awake()
     {
         if (instance != null)
-            Destroy(this);
-        instance = this;     
+            Destroy(instance);
+        instance = this;
+        player = GameObject.FindWithTag("Player");
     }
 
     CinemachineVirtualCamera currCamera;
-    
 
     public void CameraChange(CinemachineVirtualCamera newCamera)
     {
@@ -33,8 +34,8 @@ public class CinematicManager : MonoBehaviour
 
     public void PlayerFreeze(bool isFreezed)
     {
-        GameObject.FindWithTag("Player").SetActive(!isFreezed);
-        Camera.main.transform.SetParent(isFreezed ? null : GameObject.FindWithTag("Player").transform);
+        Camera.main.transform.SetParent(isFreezed ? null : player.transform);
+        player.SetActive(!isFreezed);
         //Camera.main.GetComponent<CameraLook>().enabled = !isFreezed;
     }
 
