@@ -10,7 +10,6 @@ public class FakeDoorInteractable : Interactable
     Megaphone megaphoneComponent;
     HeldObject heldObject;
     PickUpInteractable pickUpInteractable;
-    int timesInteracted = 0;
 
     [SerializeField] PlayableDirector timeline;
 
@@ -27,15 +26,8 @@ public class FakeDoorInteractable : Interactable
     public override void Interaction()
     {
         base.Interaction();
-        if (timesInteracted < 2)
-        {
-            timesInteracted++;
-            print($"Interacted {timesInteracted}");
-            if (timesInteracted == 2)
-                pickUpInteractable.enabled = true;
-            // Trying to open timeline
-            return;
-        }
+        
+        pickUpInteractable.enabled = true;
 
         StartCoroutine(StartChaseCinematic());
     }
