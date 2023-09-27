@@ -42,8 +42,8 @@ public class KeyPadInteractable : RithmInteractable
             if(!Camera.main.GetComponent<AudioSource>().isPlaying)
             {
                 waitingForEnd = false;
-                CinematicManager.ReturnPlayerCamera();
-                CinematicManager.PlayerFreeze(false);
+                CinematicManager.instance.ReturnPlayerCamera();
+                CinematicManager.instance.PlayerFreeze(false);
             }
         }
     }

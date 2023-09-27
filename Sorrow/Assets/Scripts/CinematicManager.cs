@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public static class CinematicManager
+public class CinematicManager : MonoBehaviour
 {
-    static CinemachineVirtualCamera currCamera;
+    public static CinematicManager instance;
 
-    public static void CameraChange(CinemachineVirtualCamera newCamera)
+    private void Awake()
+    {
+        if (instance != null)
+            Destroy(this);
+        instance = this;     
+    }
+
+    CinemachineVirtualCamera currCamera;
+    
+
+    public void CameraChange(CinemachineVirtualCamera newCamera)
     {
         if (currCamera != null)
             currCamera.Priority = 0;
@@ -15,16 +25,36 @@ public static class CinematicManager
         currCamera = newCamera;
     }
 
-    public static void ReturnPlayerCamera()
+    public void ReturnPlayerCamera()
     {
         currCamera.Priority = 0;
-        currCamera = null;
+        currCamera = FindObjectOfType<CameraLook>().GetComponent<CinemachineVirtualCamera>();
     }
 
-    public static void PlayerFreeze(bool isFreezed)
+    public void PlayerFreeze(bool isFreezed)
     {
         GameObject.FindWithTag("Player").SetActive(!isFreezed);
         Camera.main.transform.SetParent(isFreezed ? null : GameObject.FindWithTag("Player").transform);
         //Camera.main.GetComponent<CameraLook>().enabled = !isFreezed;
+    }
+
+    public void CameraShake(float newShakeScaleDecrease)
+    {
+        startPosition = currCamera.transform.localPosition;
+        shakeScaleDecrease = newShakeScaleDecrease;
+    }
+
+    bool shaking = false;
+    float shakeScaleDecrease;
+    Vector3 startPosition;
+
+    private void Update()
+    {
+        if(shaking)
+        {
+            currCamera.transform.localPosition = startPosition + Random.insideUnitSphere / shakeScaleDecrease;
+
+        }
+        
     }
 }

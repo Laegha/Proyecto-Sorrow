@@ -33,8 +33,8 @@ public class RithmInteractable : Interactable
             return;
         }
 
-        CinematicManager.CameraChange(interactableCamera);
-        CinematicManager.PlayerFreeze(true);
+        CinematicManager.instance.CameraChange(interactableCamera);
+        CinematicManager.instance.PlayerFreeze(true);
 
         enabled = false;
         StartMinigame();

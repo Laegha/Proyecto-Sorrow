@@ -42,7 +42,7 @@ public class FakeDoorInteractable : Interactable
 
     IEnumerator StartChaseCinematic()
     {
-        CinematicManager.PlayerFreeze(true);
+        CinematicManager.instance.PlayerFreeze(true);
         timeline.Play();
 
         yield return new WaitForSeconds((float)timeline.duration);
@@ -59,7 +59,7 @@ public class FakeDoorInteractable : Interactable
         */
 
         // Final result
-        CinematicManager.PlayerFreeze(false);
+        CinematicManager.instance.PlayerFreeze(false);
         InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
         InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
 
