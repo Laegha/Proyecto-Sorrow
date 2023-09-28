@@ -5,13 +5,9 @@ using UnityEngine.Playables;
 
 public class FanSwitch : HitableTarget
 {
-    [SerializeField] PlayableDirector director;
-    [SerializeField] PlayableAsset timeline;
-
     public override void Activate()
     {
-        director.playableAsset = timeline;
-        director.Play();
+        GetComponent<PlayableDirector>().Play();
         enabled = false;
         Destroy(this);
     }
