@@ -31,6 +31,7 @@ public class CinematicManager : MonoBehaviour
     public void ReturnPlayerCamera()
     {
         currCamera.Priority = 0;
+        PlayerFreeze(false);
         currCamera = FindObjectOfType<CameraLook>().GetComponent<CinemachineVirtualCamera>();
     }
 
