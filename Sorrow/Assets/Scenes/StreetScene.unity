@@ -970,7 +970,7 @@ PlayableDirector:
   - key: {fileID: 3468109351948440565, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 1884336479}
   - key: {fileID: -5043388986959919007, guid: 4fb7bef4201178349988524619321e40, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 890080254}
   - key: {fileID: -8041995375017419756, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 1148684597}
   m_ExposedReferences:
@@ -979,6 +979,7 @@ PlayableDirector:
     - f21cafaf2dab6224e861cd9eb2865716: {fileID: 550956488}
     - 654c8161ed4bc1f4abb3adab65592806: {fileID: 1498543802}
     - be25236c738df00468a038d5ed6d0292: {fileID: 1498543802}
+    - c08da0e6a7a6e264086202d4471bf787: {fileID: 1498543802}
 --- !u!4 &74758087
 Transform:
   m_ObjectHideFlags: 0
@@ -41258,7 +41259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 550956486}
   - component: {fileID: 550956488}
-  - component: {fileID: 550956487}
   m_Layer: 9
   m_Name: LookAtMonsterCamera
   m_TagString: Untagged
@@ -41282,18 +41282,6 @@ Transform:
   - {fileID: 779914905}
   m_Father: {fileID: 739958119}
   m_LocalEulerAnglesHint: {x: 4, y: 1, z: 359}
---- !u!114 &550956487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550956485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841b9f8df79aee341ad67167e26fe07b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &550956488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57621,6 +57609,7 @@ GameObject:
   - component: {fileID: 890080251}
   - component: {fileID: 890080252}
   - component: {fileID: 890080253}
+  - component: {fileID: 890080254}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -57772,6 +57761,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &890080254
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890080246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &916077902
 GameObject:
   m_ObjectHideFlags: 0
@@ -69564,9 +69574,67 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: adc84ab3c5aea55459dff039ed4e3d8d, type: 2}
+    - {fileID: 11400000, guid: 5f7b1858380718f42a90a9997382dca8, type: 2}
+    - {fileID: 11400000, guid: 445639e0f9b7f5546a71a0ec3e6894a7, type: 2}
+    - {fileID: 11400000, guid: a88ed887f083055439dced88e1ae70fc, type: 2}
     m_Events:
     - m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1148684594}
+          m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
+          m_MethodName: CameraShake
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 4
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1148684594}
+          m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
+          m_MethodName: StopCameraShake
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1148684594}
+          m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
+          m_MethodName: SetNewCamera
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 550956488}
+            m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
+              Cinemachine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1148684594}
+          m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
+          m_MethodName: ReturnPlayerCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1156710686
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,8 +23,10 @@ public class CinematicManager : MonoBehaviour
         if (currCamera != null)
             currCamera.Priority = 0;
         newCamera.Priority = 11;
-        currCamera = newCamera;
+        SetNewCamera(newCamera);
     }
+
+    public void SetNewCamera(CinemachineVirtualCamera newCamera) => currCamera = newCamera;
 
     public void ReturnPlayerCamera()
     {
@@ -42,9 +44,15 @@ public class CinematicManager : MonoBehaviour
     public void CameraShake(float newShakeScaleDecrease)
     {
         startPosition = currCamera.transform.localPosition;
+        shaking = true;
         shakeScaleDecrease = newShakeScaleDecrease;
     }
 
+    public void StopCameraShake()
+    {
+        shaking = false;
+        currCamera.transform.localPosition = startPosition;
+    }
     bool shaking = false;
     float shakeScaleDecrease;
     Vector3 startPosition;
