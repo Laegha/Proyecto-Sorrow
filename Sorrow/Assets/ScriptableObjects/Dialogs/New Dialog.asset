@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: New Dialog
   m_EditorClassIdentifier: 
   dialogTable: {fileID: 0}
-  components: []
+  colors: []
+  components:
+  - type: 1
+    from: 0
+    to: 0
+    timeline: {fileID: 0}
+  - type: 0
+    from: 0
+    to: 0
+    timeline: {fileID: 0}
