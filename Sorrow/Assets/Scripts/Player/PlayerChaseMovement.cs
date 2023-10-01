@@ -122,8 +122,6 @@ public class PlayerChaseMovement : MonoBehaviour
 
         if (grounded && jumpBuffer > 0f)
             Jump(default);
-
-        print(grounded + " " + slopeNormal);
     }
 
     public void OnCollisionExit(Collision collision)
@@ -138,8 +136,6 @@ public class PlayerChaseMovement : MonoBehaviour
 
         if (!grounded)
             coyoteBuffer = coyoteTime;
-
-        print(grounded + " " + slopeNormal);
     }
 
     bool CheckGround(Vector3 offset, Vector3 halfExtents)
