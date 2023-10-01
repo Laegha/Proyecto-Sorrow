@@ -6,17 +6,19 @@ using Cinemachine;
 public class CinematicManager : MonoBehaviour
 {
     public static CinematicManager instance;
-
+    CinemachineBrain cinemachineBrain;
+    CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
+    CinemachineVirtualCamera currCamera;
     GameObject player;
+
     private void Awake()
     {
         if (instance != null)
             Destroy(instance);
         instance = this;
         player = GameObject.FindWithTag("Player");
+        cinemachineBrain = player.GetComponentInChildren<CinemachineBrain>();
     }
-
-    CinemachineVirtualCamera currCamera;
 
     public void CameraChange(CinemachineVirtualCamera newCamera)
     {
@@ -24,6 +26,7 @@ public class CinematicManager : MonoBehaviour
             currCamera.Priority = 0;
         newCamera.Priority = 11;
         SetNewCamera(newCamera);
+        cinemachineBrain = FindObjectOfType<CinemachineBrain>();
     }
 
     public void SetNewCamera(CinemachineVirtualCamera newCamera) => currCamera = newCamera;
@@ -42,29 +45,39 @@ public class CinematicManager : MonoBehaviour
         //Camera.main.GetComponent<CameraLook>().enabled = !isFreezed;
     }
 
-    public void CameraShake(float newShakeScaleDecrease)
+    public void StartCameraShake(float shakeAmplitude)
     {
-        startPosition = currCamera.transform.localPosition;
+        CurrCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shakeAmplitude;
+
+        /*
+        startPosition = CurrCamera.transform.localPosition;
         shaking = true;
         shakeScaleDecrease = newShakeScaleDecrease;
+        */
     }
 
     public void StopCameraShake()
     {
+        CurrCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+
+        /*
         shaking = false;
-        currCamera.transform.localPosition = startPosition;
+        CurrCamera.transform.localPosition = startPosition;
+        */
     }
+    /*
     bool shaking = false;
     float shakeScaleDecrease;
     Vector3 startPosition;
 
-    private void Update()
+    void Update()
     {
         if(shaking)
         {
-            currCamera.transform.localPosition = startPosition + Random.insideUnitSphere / shakeScaleDecrease;
+            CurrCamera.transform.localPosition = startPosition + Random.insideUnitSphere / shakeScaleDecrease;
 
         }
         
     }
+    */
 }

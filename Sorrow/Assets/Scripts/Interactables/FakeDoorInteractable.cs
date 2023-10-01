@@ -34,7 +34,7 @@ public class FakeDoorInteractable : Interactable
 
     IEnumerator StartChaseCinematic()
     {
-        CinematicManager.instance.PlayerFreeze(true);
+        //CinematicManager.instance.PlayerFreeze(true);
         timeline.Play();
 
         yield return new WaitForSeconds((float)timeline.duration);
@@ -51,13 +51,13 @@ public class FakeDoorInteractable : Interactable
         */
 
         // Final result
-        CinematicManager.instance.PlayerFreeze(false);
-        InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
-        InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
+        //CinematicManager.instance.PlayerFreeze(false);
+        //InputManager.instance.GetComponent<PlayerMovement>().enabled = false;
+        //InputManager.instance.GetComponent<PlayerChaseMovement>().enabled = true;
 
-        InputManager.instance.GetComponent<HeldObjectManager>().HoldObject(heldObject);
-        megaphoneComponent.enabled = true;
-        chaseController.isMoving = true;
-        enabled = false;
+        //InputManager.instance.GetComponent<HeldObjectManager>().HoldObject(heldObject);
+        //megaphoneComponent.enabled = true;
+        //chaseController.isMoving = true;
+        //enabled = false;
     }
 }
