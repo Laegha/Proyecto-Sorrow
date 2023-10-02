@@ -15,8 +15,12 @@ MonoBehaviour:
   dialogTable: {fileID: 0}
   colors: []
   components:
-  - type: 1
+  - type: 0
     from: 0
+    to: 9
+    timeline: {fileID: 0}
+  - type: 1
+    from: -1
     to: 0
     timeline: {fileID: 0}
   - type: 0
