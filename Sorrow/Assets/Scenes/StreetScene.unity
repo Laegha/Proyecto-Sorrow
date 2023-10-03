@@ -973,6 +973,10 @@ PlayableDirector:
     value: {fileID: 1148684597}
   - key: {fileID: 5788588846784741136, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 990399249}
+  - key: {fileID: -8743800354153469143, guid: 4fb7bef4201178349988524619321e40, type: 2}
+    value: {fileID: 990399251}
+  - key: {fileID: -7117335726298900583, guid: 4fb7bef4201178349988524619321e40, type: 2}
+    value: {fileID: 990399250}
   m_ExposedReferences:
     m_References:
     - 6f4adc43f927c794c84c4289c5e4dc04: {fileID: 1148684593}
@@ -63290,6 +63294,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 359
       objectReference: {fileID: 0}
+    - target: {fileID: 8756317130587616132, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756317130587616132, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756317130587616132, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985884352256245997, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1245991158952017048, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
     - {fileID: 1445879719114208020, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -63336,6 +63356,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &990399250 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2386831169941667885, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+  m_PrefabInstance: {fileID: 990399246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &990399251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8985884352256245997, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+  m_PrefabInstance: {fileID: 990399246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &992489864
 GameObject:
   m_ObjectHideFlags: 0
@@ -71418,8 +71448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1290871, y: -0.627188, z: 0.10643268, w: 0.7606864}
-  m_LocalPosition: {x: -5, y: 1.65, z: 2.5}
+  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961448, w: 0.77692914}
+  m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
