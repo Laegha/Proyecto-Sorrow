@@ -8,11 +8,31 @@ public class BGMovingObject : MonoBehaviour
 
     [SerializeField] Transform startPoint;
     [SerializeField] Transform endPoint;
-    Vector2 direction => new Vector2(endPoint.position.x, endPoint.position.z) - new Vector2(startPoint.position.x, startPoint.position.z);
-    void Update()
+    Vector2 direction;
+    float distance;
+    float elapsedDistance;
+
+    private void Start()
     {
-        transform.Translate(direction * objectSpeed);
+        var delta = new Vector2(endPoint.position.x, endPoint.position.z) - new Vector2(startPoint.position.x, startPoint.position.z);
+        direction = delta.normalized;
+        distance = delta.magnitude;
 
     }
 
+    void Update()
+    {
+        var delta = objectSpeed * Time.deltaTime;
+        transform.Translate(new Vector3(direction.x, 0, direction.y) * delta);
+        elapsedDistance += delta;
+
+        if (elapsedDistance > distance)
+            ResetPosition();
+    }
+
+    void ResetPosition()
+    {
+        transform.position = startPoint.position;
+        elapsedDistance = 0;
+    }
 }
