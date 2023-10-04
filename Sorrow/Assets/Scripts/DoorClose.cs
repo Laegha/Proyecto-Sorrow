@@ -7,8 +7,10 @@ public class DoorClose : MonoBehaviour
 {
     [SerializeField] Animator doorAnimator;
 
-    [SerializeField] string nextSceneName;
+    [SerializeField] string sceneName;
     [SerializeField] int sceneLoadDelay;
+
+    [SerializeField] bool isAdditive;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,6 +21,16 @@ public class DoorClose : MonoBehaviour
     {
         yield return new WaitForSeconds(sceneLoadDelay);
 
-        SceneManager.LoadScene(nextSceneName);
+        switch(isAdditive)
+        {
+            case true:
+                SceneManager.UnloadSceneAsync(sceneName);
+                break;
+            case false:
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                break;
+        }
+
+        
     }
 }
