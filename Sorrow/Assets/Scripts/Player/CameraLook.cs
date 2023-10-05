@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
+    [SerializeField] Animator pointerAnimator;
     Transform player;
     float currXRotation;
     Rigidbody rb;
@@ -17,6 +18,9 @@ public class CameraLook : MonoBehaviour
         if (currXRotation > 180f)
             currXRotation -= 360f;
     }
+
+    void OnEnable() => pointerAnimator.SetBool("Show", true);
+    void OnDisable() => pointerAnimator.SetBool("Show", false);
 
     void Update()
     {
