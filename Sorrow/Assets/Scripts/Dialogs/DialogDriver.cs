@@ -5,12 +5,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Playables;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using TMPro;
 
 public class DialogDriver : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] TMP_Text speech;
+    [SerializeField] GameObject speechPanel;
+    [SerializeField] GameObject transcriptPanel;
+    TMP_Text speech;
+    ScrollRect transcript;
 
     [Header("Dialog")]
     [SerializeField] Dialog dialog;
@@ -28,12 +33,15 @@ public class DialogDriver : MonoBehaviour
 
     void Awake()
     {
+        dialog.SetLanguage();
         director = GetComponent<PlayableDirector>();
         letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
+        speech = speechPanel.GetComponentInChildren<TMP_Text>();
+        transcript = transcriptPanel.GetComponentInChildren<ScrollRect>();
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
         InputManager.controller.Dialog.Auto.performed += SetAuto;
         InputManager.controller.Dialog.Continue.performed += Continue;
-        // Suscribir abrir transcript
+        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
     }
 
     void OnDestroy()
@@ -41,7 +49,7 @@ public class DialogDriver : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
         InputManager.controller.Dialog.Auto.performed -= SetAuto;
         InputManager.controller.Dialog.Continue.performed -= Continue;
-        // Desuscribir abrir transcript
+        InputManager.controller.Dialog.ShowTranscript.performed -= OpenTranscript;
     }
 
     void Start() => StartCoroutine(StartingCoroutine());
@@ -53,7 +61,8 @@ public class DialogDriver : MonoBehaviour
             director.Play(dialog.preTimeline);
             yield return new WaitForSeconds((float)dialog.preTimeline.duration);
         }
-        // Open UI
+        // TODO: Open UI with animation
+        speechPanel.SetActive(true); // DEBUG
         yield return MainLoop();
     }
 
@@ -63,6 +72,7 @@ public class DialogDriver : MonoBehaviour
             StartCoroutine(AutoMode());
 
         auto ^= true;
+        // TODO: Change icon
     }
 
     void Continue(InputAction.CallbackContext _)
@@ -73,9 +83,18 @@ public class DialogDriver : MonoBehaviour
             StartCoroutine(MainLoop());
     }
 
+    void OpenTranscript(InputAction.CallbackContext _)
+    {
+        // TODO: Close Speech UI with animation
+        speechPanel.SetActive(false); // DEBUG
+        // TODO: Open Transcript UI with animation
+        transcript.verticalNormalizedPosition = 1;
+        transcriptPanel.SetActive(true); // DEBUG
+    }
+
     IEnumerator AutoMode()
     {
-        while (isSpeaking)
+        while (isSpeaking || director.state == PlayState.Playing)
             yield return new WaitForSeconds(periodTime);
         while (auto)
         {
@@ -92,18 +111,30 @@ public class DialogDriver : MonoBehaviour
             {
                 director.Play(timeline);
                 if (!dontStopText)
+                {
+                    // TODO: Close UI with animation
+                    speechPanel.SetActive(false); // DEBUG
                     yield return new WaitForSeconds((float)timeline.duration);
+                    // TODO: Open UI with animation
+                    speechPanel.SetActive(true); // DEBUG
+                }
                 wishToSkip = false;
             }
-            // Set speaker color
 
-            yield return Speak(dialog.GetLine(currentLine));
+            var textToSpeak = dialog.GetLine(currentLine, out var isPlayer);
+            speech.color = isPlayer ? playerColor : dialog.npcColor;
+            yield return Speak(textToSpeak);
             currentLine++;
         }
         else
         {
-            director.Play(dialog.postTimeline);
-            yield return new WaitForSeconds((float)dialog.postTimeline.duration);
+            // TODO: Close UI with animation
+            speechPanel.SetActive(false); // DEBUG
+            if (dialog.postTimeline)
+            {
+                director.Play(dialog.postTimeline);
+                yield return new WaitForSeconds((float)dialog.postTimeline.duration);
+            }
             Destroy(this);
         }
     }
@@ -111,7 +142,7 @@ public class DialogDriver : MonoBehaviour
     IEnumerator Speak(string finalString)
     {
         speech.text = string.Empty;
-        // Add current string to Transcript
+        // TODO: Add current string to Transcript
         isSpeaking = true;
         foreach (char c in finalString)
         {
@@ -122,7 +153,7 @@ public class DialogDriver : MonoBehaviour
                 break;
             }
             speech.text += c;
-            // Play sound
+            // TODO: Play sound
             yield return new WaitForSeconds(CharTimeFor(c));
         }
         isSpeaking = false;
@@ -134,6 +165,8 @@ public class DialogDriver : MonoBehaviour
         ',' => comaTime,
         ';' => semiColonTime,
         '.' => periodTime,
+        '?' => periodTime,
+        '!' => periodTime,
         _ => letterTime,
     };
 
@@ -146,5 +179,8 @@ public class DialogDriver : MonoBehaviour
     };
 
     void UpdateLocaleSpeed(Locale locale)
-        => letterTime = LetterTimeFor(locale.Identifier.Code);
+    {
+        dialog.SetLanguage();
+        letterTime = LetterTimeFor(locale.Identifier.Code);
+    }
 }

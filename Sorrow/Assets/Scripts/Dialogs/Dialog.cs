@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
@@ -11,7 +12,8 @@ using UnityEngine.Playables;
 public class Dialog : ScriptableObject
 {
     [Header("Dialog")]
-    [SerializeField] StringTable dialogTable;
+    [SerializeField] StringTableCollection dialogTables;
+    StringTable dialogTable;
     public Color npcColor;
 
     [Header("Timelines")]
@@ -21,8 +23,15 @@ public class Dialog : ScriptableObject
 
     public int Count => dialogTable.Count;
 
-    public string GetLine(int line)
-        => dialogTable.GetEntry(line).GetLocalizedString();
+    public void SetLanguage()
+        => dialogTable = dialogTables.GetTable(LocalizationSettings.SelectedLocale.Identifier.Code) as StringTable;
+
+    public string GetLine(int line, out bool isPlayer)
+    {
+        var entry = dialogTable.GetEntry(line);
+        isPlayer = entry.Key.StartsWith('-');
+        return entry.GetLocalizedString();
+    }
 
     public bool TryInterrupt(int line, out PlayableAsset timeline, out bool dontStopText)
     {

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: FirstInterlude_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 8d05246abd197aa4284eb28e0673983a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 301899583488
+    m_Localized: Oh, you're finally out! You don't know how much I wanted to see
+      you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 309684211712
+    m_Localized: Hi.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3453055012864
+    m_Localized: Oh, why the long face? Is everything alright?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3621712171008
+    m_Localized: Could be better I guess...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4109560057856
+    m_Localized: What's wrong? You know you can tell me anything.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4186747834368
+    m_Localized: I'm sure you won't believe it, but...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4255823826944
+    m_Localized: There's a monster bothering me no matter where I go.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4602969591808
+    m_Localized: I can't remember since when, or even why.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4840232980480
+    m_Localized: But I'm fed up, I just want to get rid of him.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5376214700032
+    m_Localized: "\xBFWhy wouldn't I believe that? You're not the only one who has
+      experienced this."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5490832445440
+    m_Localized: Furthermore, I know someone who can help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6041854939136
+    m_Localized: His place is not that far away from here, let's get going.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

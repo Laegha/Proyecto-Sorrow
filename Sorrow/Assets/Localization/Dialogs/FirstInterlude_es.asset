@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: FirstInterlude_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 8d05246abd197aa4284eb28e0673983a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 301899583488
+    m_Localized: "\xA1Ey, al fin sales, ten\xEDa ganas de verte!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 309684211712
+    m_Localized: Hola.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3453055012864
+    m_Localized: "Uy, te veo con cara larga... \xBFTe encuentras bien?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3621712171008
+    m_Localized: "No lo se, podr\xEDa estar mejor..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4109560057856
+    m_Localized: "\xBFQu\xE9 ocurre? Sabes que puedes contarme."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4186747834368
+    m_Localized: Seguramente no me creas, pero...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4255823826944
+    m_Localized: Un monstruo no para de molestarme.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4602969591808
+    m_Localized: "Ya no recuerdo desde cuando, ni por qu\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4840232980480
+    m_Localized: "Pero me hart\xF3; me lo quiero sacar de encima."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5376214700032
+    m_Localized: "Mhm, \xBFpor qu\xE9 no te creer\xEDa? No eres el \xFAnico al que
+      le ha pasado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5490832445440
+    m_Localized: "Es m\xE1s, conozco a alguien que puede ayudarte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6041854939136
+    m_Localized: "Su departamento no queda muy lejos de aqu\xED, vamos."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
