@@ -10,10 +10,16 @@ using UnityEngine.Playables;
 [CreateAssetMenu(fileName = "New Dialog", menuName = "Dialog")]
 public class Dialog : ScriptableObject
 {
-    public int Count => dialogTable.Count;
-    public Color npcColor;
-    [SerializeField] List<TimelineInterrupt> interrupts;
+    [Header("Dialog")]
     [SerializeField] StringTable dialogTable;
+    public Color npcColor;
+
+    [Header("Timelines")]
+    public PlayableAsset preTimeline;
+    [SerializeField] List<TimelineInterrupt> interrupts;
+    public PlayableAsset postTimeline;
+
+    public int Count => dialogTable.Count;
 
     public string GetLine(int line)
         => dialogTable.GetEntry(line).GetLocalizedString();

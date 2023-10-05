@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Playables;
+using TMPro;
 
 public class DialogDriver : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] TMP_Text speech;
+
+    [Header("Dialog")]
     [SerializeField] Dialog dialog;
     [SerializeField] Color playerColor;
     [SerializeField] float comaTime = 1f;
-    [SerializeField] float semiColonTime = 2f;
-    [SerializeField] float periodTime = 4f;
+    [SerializeField] float semiColonTime = 1.5f;
+    [SerializeField] float periodTime = 2f;
+
     int currentLine = 0;
     PlayableDirector director;
     float letterTime = 0.1f;
@@ -24,15 +31,57 @@ public class DialogDriver : MonoBehaviour
         director = GetComponent<PlayableDirector>();
         letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
-        // Set InputManager Inputs
+        InputManager.controller.Dialog.Auto.performed += SetAuto;
+        InputManager.controller.Dialog.Continue.performed += Continue;
+        // Suscribir abrir transcript
     }
 
-    void Start() => StartCoroutine(MainLoop());
+    void OnDestroy()
+    {
+        LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
+        InputManager.controller.Dialog.Auto.performed -= SetAuto;
+        InputManager.controller.Dialog.Continue.performed -= Continue;
+        // Desuscribir abrir transcript
+    }
+
+    void Start() => StartCoroutine(StartingCoroutine());
+
+    IEnumerator StartingCoroutine()
+    {
+        if (dialog.preTimeline)
+        {
+            director.Play(dialog.preTimeline);
+            yield return new WaitForSeconds((float)dialog.preTimeline.duration);
+        }
+        // Open UI
+        yield return MainLoop();
+    }
+
+    void SetAuto(InputAction.CallbackContext _)
+    {
+        if (!auto)
+            StartCoroutine(AutoMode());
+
+        auto ^= true;
+    }
+
+    void Continue(InputAction.CallbackContext _)
+    {
+        if (isSpeaking)
+            wishToSkip = true;
+        else if (director.state != PlayState.Playing)
+            StartCoroutine(MainLoop());
+    }
 
     IEnumerator AutoMode()
     {
-        while (currentLine < dialog.Count)
+        while (isSpeaking)
+            yield return new WaitForSeconds(periodTime);
+        while (auto)
+        {
             yield return MainLoop();
+            yield return new WaitForSeconds(5f);
+        }
     }
 
     IEnumerator MainLoop()
@@ -44,29 +93,35 @@ public class DialogDriver : MonoBehaviour
                 director.Play(timeline);
                 if (!dontStopText)
                     yield return new WaitForSeconds((float)timeline.duration);
+                wishToSkip = false;
             }
-
             // Set speaker color
 
             yield return Speak(dialog.GetLine(currentLine));
             currentLine++;
         }
+        else
+        {
+            director.Play(dialog.postTimeline);
+            yield return new WaitForSeconds((float)dialog.postTimeline.duration);
+            Destroy(this);
+        }
     }
 
     IEnumerator Speak(string finalString)
     {
-        // Clear UI string
+        speech.text = string.Empty;
         // Add current string to Transcript
         isSpeaking = true;
         foreach (char c in finalString)
         {
             if (wishToSkip)
             {
-                // Set UI string == finalString
+                speech.text = finalString;
                 yield return new WaitForSeconds(1f);
                 break;
             }
-            // Add character to UI string
+            speech.text += c;
             // Play sound
             yield return new WaitForSeconds(CharTimeFor(c));
         }
@@ -90,5 +145,6 @@ public class DialogDriver : MonoBehaviour
         _ => letterTime,
     };
 
-    void UpdateLocaleSpeed(Locale locale) => letterTime = LetterTimeFor(locale.Identifier.Code);
+    void UpdateLocaleSpeed(Locale locale)
+        => letterTime = LetterTimeFor(locale.Identifier.Code);
 }

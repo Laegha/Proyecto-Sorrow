@@ -120,15 +120,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Skip"",
-                    ""type"": ""Button"",
-                    ""id"": ""eb75302b-d0f8-40a9-af32-6c5475697fda"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Auto"",
                     ""type"": ""Button"",
                     ""id"": ""164119d4-f61e-420b-aff2-cb78c6ec7a2f"",
@@ -167,17 +158,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Continue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""71c8bdf7-7236-4381-bf24-d249c65daee1"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -579,7 +559,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         // Dialog
         m_Dialog = asset.FindActionMap("Dialog", throwIfNotFound: true);
         m_Dialog_Continue = m_Dialog.FindAction("Continue", throwIfNotFound: true);
-        m_Dialog_Skip = m_Dialog.FindAction("Skip", throwIfNotFound: true);
         m_Dialog_Auto = m_Dialog.FindAction("Auto", throwIfNotFound: true);
         m_Dialog_ShowTranscript = m_Dialog.FindAction("ShowTranscript", throwIfNotFound: true);
         // ChaseMovement
@@ -705,7 +684,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Dialog;
     private List<IDialogActions> m_DialogActionsCallbackInterfaces = new List<IDialogActions>();
     private readonly InputAction m_Dialog_Continue;
-    private readonly InputAction m_Dialog_Skip;
     private readonly InputAction m_Dialog_Auto;
     private readonly InputAction m_Dialog_ShowTranscript;
     public struct DialogActions
@@ -713,7 +691,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         private @Controller m_Wrapper;
         public DialogActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @Continue => m_Wrapper.m_Dialog_Continue;
-        public InputAction @Skip => m_Wrapper.m_Dialog_Skip;
         public InputAction @Auto => m_Wrapper.m_Dialog_Auto;
         public InputAction @ShowTranscript => m_Wrapper.m_Dialog_ShowTranscript;
         public InputActionMap Get() { return m_Wrapper.m_Dialog; }
@@ -728,9 +705,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Continue.started += instance.OnContinue;
             @Continue.performed += instance.OnContinue;
             @Continue.canceled += instance.OnContinue;
-            @Skip.started += instance.OnSkip;
-            @Skip.performed += instance.OnSkip;
-            @Skip.canceled += instance.OnSkip;
             @Auto.started += instance.OnAuto;
             @Auto.performed += instance.OnAuto;
             @Auto.canceled += instance.OnAuto;
@@ -744,9 +718,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Continue.started -= instance.OnContinue;
             @Continue.performed -= instance.OnContinue;
             @Continue.canceled -= instance.OnContinue;
-            @Skip.started -= instance.OnSkip;
-            @Skip.performed -= instance.OnSkip;
-            @Skip.canceled -= instance.OnSkip;
             @Auto.started -= instance.OnAuto;
             @Auto.performed -= instance.OnAuto;
             @Auto.canceled -= instance.OnAuto;
@@ -1003,7 +974,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     public interface IDialogActions
     {
         void OnContinue(InputAction.CallbackContext context);
-        void OnSkip(InputAction.CallbackContext context);
         void OnAuto(InputAction.CallbackContext context);
         void OnShowTranscript(InputAction.CallbackContext context);
     }

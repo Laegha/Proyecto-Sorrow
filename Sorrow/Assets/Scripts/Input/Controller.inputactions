@@ -98,15 +98,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skip",
-                    "type": "Button",
-                    "id": "eb75302b-d0f8-40a9-af32-6c5475697fda",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Auto",
                     "type": "Button",
                     "id": "164119d4-f61e-420b-aff2-cb78c6ec7a2f",
@@ -145,17 +136,6 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Continue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "71c8bdf7-7236-4381-bf24-d249c65daee1",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
