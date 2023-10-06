@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // Require a mesh filter component
 // This script, unfortunately, does not support skinned meshes
@@ -7,6 +8,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class OutlineNormalCalculator : MonoBehaviour
 {
+    [SerializeField] private int submeshIndex = 1;
     // Store these outline normals in the specified UV/Texcoord channel
     // This corresponds to the TEXCOORD_ semantics in HLSL
     [SerializeField] private int storeInTexcoordChannel = 1;
@@ -26,6 +28,7 @@ public class OutlineNormalCalculator : MonoBehaviour
     {
         // Get the mesh
         Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
+        //SubMeshDescriptor mesh = GetComponent<MeshFilter>().sharedMesh.GetSubMesh(submeshIndex);
 
         // Copy the vertices and triangle arrays from the mesh
         Vector3[] vertices = mesh.vertices;
