@@ -8,12 +8,28 @@ public class KeyPadInteractable : RithmInteractable
 
     [SerializeField] Beat[] beats;
 
+    int interactedTimes = 0;
+    [SerializeField] GameObject[] depressionPositions;
+
     protected override void Awake()
     {
         base.Awake();
 
         foreach(KeypadButton button in buttons) 
             button.keyPadInteractable = this;
+    }
+
+    public override void Interaction()
+    {
+        if (interactedTimes > depressionPositions.Length)
+            return;
+        
+        depressionPositions[interactedTimes].SetActive(false);
+        interactedTimes++;
+        depressionPositions[interactedTimes].SetActive(true);
+        
+        if(interactedTimes == depressionPositions.Length -1)
+            base.Interaction();
     }
 
     public override void StartMinigame()

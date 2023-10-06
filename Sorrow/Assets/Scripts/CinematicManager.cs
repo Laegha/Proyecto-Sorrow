@@ -9,6 +9,7 @@ public class CinematicManager : MonoBehaviour
     CinemachineBrain cinemachineBrain;
     CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
     CinemachineVirtualCamera currCamera;
+    CinemachineVirtualCamera playerCamera;
     GameObject player;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class CinematicManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         cinemachineBrain = player.GetComponentInChildren<CinemachineBrain>();
+        //playerCamera = GameObject.Find
     }
 
     public void CameraChange(CinemachineVirtualCamera newCamera)
