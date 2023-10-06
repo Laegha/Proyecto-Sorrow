@@ -19,7 +19,7 @@ public class CinematicManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         cinemachineBrain = player.GetComponentInChildren<CinemachineBrain>();
-        //playerCamera = GameObject.Find
+        playerCamera = GameObject.Find("PlayerVirtualCamera").GetComponent<CinemachineVirtualCamera>();
     }
 
     public void CameraChange(CinemachineVirtualCamera newCamera)
