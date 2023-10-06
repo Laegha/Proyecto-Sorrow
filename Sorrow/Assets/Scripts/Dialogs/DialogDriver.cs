@@ -8,6 +8,7 @@ using UnityEngine.Playables;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
+using System.Linq;
 
 public class DialogDriver : MonoBehaviour
 {
@@ -20,10 +21,10 @@ public class DialogDriver : MonoBehaviour
     [Header("Dialog")]
     [SerializeField] Dialog dialog;
     [SerializeField] Color playerColor;
-    [SerializeField] float comaTime = 1f;
-    [SerializeField] float semiColonTime = 1.5f;
-    [SerializeField] float periodTime = 2f;
 
+    const float comaTime = .25f;
+    const float semiColonTime = .5f;
+    const float periodTime = .75f;
     int currentLine = 0;
     PlayableDirector director;
     float letterTime = 0.1f;
@@ -78,12 +79,13 @@ public class DialogDriver : MonoBehaviour
 
     void SetAuto(InputAction.CallbackContext _)
     {
-        if (!auto)
-            StartCoroutine(AutoMode());
-
         auto ^= true;
         // TODO: Change icon
+
+        if (auto && !isSpeaking && director.state != PlayState.Playing)
+            StartCoroutine(MainLoop());
     }
+
 
     void Continue(InputAction.CallbackContext _)
     {
@@ -102,17 +104,6 @@ public class DialogDriver : MonoBehaviour
         transcriptPanel.SetActive(true); // DEBUG
     }
 
-    IEnumerator AutoMode()
-    {
-        while (isSpeaking || director.state == PlayState.Playing)
-            yield return new WaitForSeconds(periodTime);
-        while (auto)
-        {
-            yield return MainLoop();
-            yield return new WaitForSeconds(5f);
-        }
-    }
-
     IEnumerator MainLoop()
     {
         if (currentLine < dialog.Count)
@@ -128,13 +119,17 @@ public class DialogDriver : MonoBehaviour
                     // TODO: Open UI with animation
                     speechPanel.SetActive(true); // DEBUG
                 }
-                wishToSkip = false;
             }
 
             var textToSpeak = dialog.GetLine(currentLine, out var isPlayer);
             speech.color = isPlayer ? playerColor : dialog.npcColor;
             yield return Speak(textToSpeak);
             currentLine++;
+            if (auto)
+            {
+                yield return new WaitForSeconds(5f);
+                StartCoroutine(MainLoop());
+            }
         }
         else
         {
@@ -154,18 +149,21 @@ public class DialogDriver : MonoBehaviour
         speech.text = string.Empty;
         // TODO: Add current string to Transcript
         isSpeaking = true;
-        foreach (char c in finalString)
+        wishToSkip = false;
+        foreach (char c in finalString.Take(finalString.Length - 1))
         {
             if (wishToSkip)
             {
                 speech.text = finalString;
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(comaTime);
                 break;
             }
             speech.text += c;
             // TODO: Play sound
             yield return new WaitForSeconds(CharTimeFor(c));
         }
+        if (!wishToSkip)
+            speech.text += finalString.Last();
         isSpeaking = false;
         wishToSkip = false;
     }
@@ -182,9 +180,9 @@ public class DialogDriver : MonoBehaviour
 
     float LetterTimeFor(string code) => code switch
     {
-        "es" => 0.07f,
-        "es-AR" => 0.07f,
-        "en" => 0.09f,
+        "es" => .04f,
+        "es-AR" => .04f,
+        "en" => .05f,
         _ => letterTime,
     };
 

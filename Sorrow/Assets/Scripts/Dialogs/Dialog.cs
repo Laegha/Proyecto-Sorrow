@@ -28,8 +28,7 @@ public class Dialog : ScriptableObject
 
     public string GetLine(int line, out bool isPlayer)
     {
-        var entry = dialogTable.GetEntry(line);
-        Debug.Log(dialogTable);
+        var entry = dialogTable.GetEntry($"{line}") ?? dialogTable.GetEntry($"-{line}");
         isPlayer = entry.Key.StartsWith('-');
         return entry.GetLocalizedString();
     }
