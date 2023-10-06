@@ -39,20 +39,30 @@ public class DialogDriver : MonoBehaviour
         speech = speechPanel.GetComponentInChildren<TMP_Text>();
         transcript = transcriptPanel.GetComponentInChildren<ScrollRect>();
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
-        InputManager.controller.Dialog.Auto.performed += SetAuto;
-        InputManager.controller.Dialog.Continue.performed += Continue;
-        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
-        LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
         InputManager.controller.Dialog.Auto.performed -= SetAuto;
         InputManager.controller.Dialog.Continue.performed -= Continue;
         InputManager.controller.Dialog.ShowTranscript.performed -= OpenTranscript;
+        InputManager.controller.Dialog.Disable();
+        InputManager.controller.Movement.Enable();
+        InputManager.controller.Camera.Enable();
     }
 
-    void Start() => StartCoroutine(StartingCoroutine());
+    void OnEnable()
+    {
+        InputManager.controller.Camera.Disable();
+        InputManager.controller.Movement.Disable();
+        InputManager.controller.Dialog.Enable();
+        InputManager.controller.Dialog.Auto.performed += SetAuto;
+        InputManager.controller.Dialog.Continue.performed += Continue;
+        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
+        StartCoroutine(StartingCoroutine());
+    }
+
+    void OnDestroy() => LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
 
     IEnumerator StartingCoroutine()
     {
@@ -135,7 +145,7 @@ public class DialogDriver : MonoBehaviour
                 director.Play(dialog.postTimeline);
                 yield return new WaitForSeconds((float)dialog.postTimeline.duration);
             }
-            Destroy(this);
+            enabled = false;
         }
     }
 
