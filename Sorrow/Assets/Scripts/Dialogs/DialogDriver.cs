@@ -160,17 +160,13 @@ public class DialogDriver : MonoBehaviour
         foreach (char c in finalString.Take(finalString.Length - 1))
         {
             if (wishToSkip)
-            {
-                speech.text = finalString;
-                yield return new WaitForSeconds(comaTime);
                 break;
-            }
+
             speech.text += c;
             // TODO: Play sound
             yield return new WaitForSeconds(CharTimeFor(c));
         }
-        if (!wishToSkip)
-            speech.text += finalString.Last();
+        speech.text = finalString;
         isSpeaking = false;
         wishToSkip = false;
     }
