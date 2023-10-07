@@ -32,6 +32,10 @@ public class DialogDriver : MonoBehaviour
     bool isSpeaking = false;
     bool auto = false;
 
+    GameObject player;
+    PlayerMovement playerMovement;
+    CameraLook cameraLook;
+
     void Awake()
     {
         dialog.SetLanguage();
@@ -39,7 +43,21 @@ public class DialogDriver : MonoBehaviour
         letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
         speech = speechPanel.GetComponentInChildren<TMP_Text>();
         transcript = transcriptPanel.GetComponentInChildren<ScrollRect>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        cameraLook = player.GetComponentInChildren<CameraLook>();
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
+    }
+
+    void OnEnable()
+    {
+        playerMovement.enabled = false;
+        cameraLook.enabled = false;
+        InputManager.controller.Dialog.Enable();
+        InputManager.controller.Dialog.Auto.performed += SetAuto;
+        InputManager.controller.Dialog.Continue.performed += Continue;
+        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
+        StartCoroutine(StartingCoroutine());
     }
 
     void OnDisable()
@@ -48,19 +66,8 @@ public class DialogDriver : MonoBehaviour
         InputManager.controller.Dialog.Continue.performed -= Continue;
         InputManager.controller.Dialog.ShowTranscript.performed -= OpenTranscript;
         InputManager.controller.Dialog.Disable();
-        InputManager.controller.Movement.Enable();
-        InputManager.controller.Camera.Enable();
-    }
-
-    void OnEnable()
-    {
-        InputManager.controller.Camera.Disable();
-        InputManager.controller.Movement.Disable();
-        InputManager.controller.Dialog.Enable();
-        InputManager.controller.Dialog.Auto.performed += SetAuto;
-        InputManager.controller.Dialog.Continue.performed += Continue;
-        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
-        StartCoroutine(StartingCoroutine());
+        playerMovement.enabled = true;
+        cameraLook.enabled = true;
     }
 
     void OnDestroy() => LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
