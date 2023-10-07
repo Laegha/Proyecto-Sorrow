@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Outline
-    Event: 300
+    Event: 400
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -29,7 +29,7 @@ MonoBehaviour:
     overrideMode: 1
     overrideDepthState: 1
     depthCompareFunction: 4
-    enableWrite: 1
+    enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
       stencilReference: 0
@@ -83,10 +83,10 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 951
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 951
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: OutlinedObjects
-    Event: 300
+    Event: 450
     filterSettings:
-      RenderQueueType: 1
+      RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
         m_Bits: 64
@@ -127,7 +127,7 @@ MonoBehaviour:
     overrideShader: {fileID: -6465566751694194690, guid: 5d2ca7caa9209a8428189be98a75e897, type: 3}
     overrideShaderPassIndex: 0
     overrideMode: 0
-    overrideDepthState: 1
+    overrideDepthState: 0
     depthCompareFunction: 5
     enableWrite: 0
     stencilSettings:

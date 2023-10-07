@@ -63,7 +63,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _ButtonColor: {r: 0.7527145, g: 0.75669295, b: 0.8018868, a: 0}
+    - _ButtonColor: {r: 0.3137255, g: 0.35686275, b: 0.43529415, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmisionColor: {r: 1.294612, g: 0.22594646, b: 0.98604584, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

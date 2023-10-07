@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-//Podría hacer un shader para el sprite del círculo que se achica y desde un Update cambiar la variable del shader que controla el tamaño del círculo
 public class KeypadButton : MonoBehaviour
 {
     [HideInInspector] public KeyPadInteractable keyPadInteractable;
@@ -49,12 +48,13 @@ public class KeypadButton : MonoBehaviour
         //El botón queda presionado
         outerRingSR.material.SetColor("_RingColor", Color.red);
         waitingForBeat = false;
-        yield return new WaitForSeconds(ringDissapearTime);
-
         keyPadInteractable.buttons.Remove(this);
+
         //keypadInteractable.GetComponent<Renderer>().materials.First(m => m.name == "").SetVectorArray
         if(keyPadInteractable.buttons.Count == 0)
             //reiniciar el minijuego
+
+        yield return new WaitForSeconds(ringDissapearTime);
         WaitingForBeat = false;
     }
 

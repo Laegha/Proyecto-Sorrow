@@ -14,7 +14,7 @@ public class KeyPadInteractable : RithmInteractable
     protected override void Awake()
     {
         base.Awake();
-
+        enabled = true;
         foreach(KeypadButton button in buttons) 
             button.keyPadInteractable = this;
     }

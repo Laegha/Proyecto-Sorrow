@@ -19,8 +19,8 @@ public class CameraLook : MonoBehaviour
             currXRotation -= 360f;
     }
 
-    void OnEnable() => pointerAnimator.SetBool("Show", true);
-    void OnDisable() => pointerAnimator.SetBool("Show", false);
+    //void OnEnable() => pointerAnimator.SetBool("Show", true);
+    //void OnDisable() => pointerAnimator.SetBool("Show", false);
 
     void Update()
     {

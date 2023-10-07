@@ -10,7 +10,7 @@ public class RithmInteractable : Interactable
     [SerializeField] CinemachineVirtualCamera interactableCamera;
     [SerializeField] Texture3D headphonesOnTexture;
     [SerializeField] Texture3D headphonesOffTexture;
-    [SerializeField] string headphonesOnTextureName;
+    [SerializeField] string headphonesOnMaterialName;
 
     Material headphonesOnMaterial;
 
@@ -18,7 +18,7 @@ public class RithmInteractable : Interactable
     {
         base.Awake();
         
-        headphonesOnMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name == headphonesOnTextureName + " (Instance)");
+        headphonesOnMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name == headphonesOnMaterialName + " (Instance)");
         
         HeadphoneController.rithmInteractables.Add(this);
 
@@ -45,6 +45,7 @@ public class RithmInteractable : Interactable
     public void SwitchCurrState(bool canBeInteracted)
     {
         enabled = canBeInteracted;
+        print("El objeto " + name + " está " + enabled);
         headphonesOnMaterial.SetTexture("_MainTex", canBeInteracted ? headphonesOnTexture : headphonesOffTexture);
     }
 }

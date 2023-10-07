@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submeshIndex: 1
   storeInTexcoordChannel: 1
   cospatialVertexDistance: 0.01
 --- !u!1 &240513566
@@ -1741,6 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submeshIndex: 1
   storeInTexcoordChannel: 1
   cospatialVertexDistance: 0.01
 --- !u!1 &527666556
@@ -31982,8 +31984,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1208666694}
-  nextSceneName: DebugPlayground
+  sceneName: 
   sceneLoadDelay: 1
+  isAdditive: 0
 --- !u!65 &1208666699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32520,6 +32523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submeshIndex: 1
   storeInTexcoordChannel: 1
   cospatialVertexDistance: 0.01
 --- !u!43 &1376136555
@@ -64392,6 +64396,7 @@ MonoBehaviour:
   beats:
   - beatTime: 3
     beatDuration: 5
+  depressionPositions: []
 --- !u!65 &1674297412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64425,6 +64430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submeshIndex: 1
   storeInTexcoordChannel: 1
   cospatialVertexDistance: 0.01
 --- !u!1 &1693779810
@@ -65442,11 +65448,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.582
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
