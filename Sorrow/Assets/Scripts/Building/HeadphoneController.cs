@@ -9,23 +9,21 @@ public class HeadphoneController : MonoBehaviour
     [SerializeField] Image headphonesFilter;
     bool headphonesOn = false;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
             SwitchState();
     }
+
     void SwitchState()
     {
         headphonesOn = !headphonesOn;
         headphonesFilter.gameObject.SetActive(headphonesOn);
+
         foreach (RithmInteractable rithmInteractable in rithmInteractables)
-            rithmInteractable.SwitchCurrState(headphonesOn);
+        {
+            if(rithmInteractable.useHeadphones)
+                rithmInteractable.SwitchCurrState(headphonesOn);
+        }
     }
 }

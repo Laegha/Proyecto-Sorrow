@@ -9,6 +9,19 @@ public class KeyPadInteractable : RithmInteractable
     [SerializeField] Beat[] beats;
 
     int interactedTimes = 0;
+    int InteractedTimes
+    { 
+        get { return interactedTimes; }
+        set 
+        { 
+            depressionPositions[interactedTimes].SetActive(false);
+            interactedTimes = value; 
+            depressionPositions[interactedTimes].SetActive(true);
+            CinematicManager.instance.playerCamera.LookAt = depressionPositions[interactedTimes].transform;
+            CinematicManager.instance.playerCamera.LookAt = null;
+
+        }
+    }
     [SerializeField] GameObject[] depressionPositions;
 
     protected override void Awake()
@@ -24,12 +37,21 @@ public class KeyPadInteractable : RithmInteractable
         if (interactedTimes > depressionPositions.Length)
             return;
         
-        depressionPositions[interactedTimes].SetActive(false);
-        interactedTimes++;
-        depressionPositions[interactedTimes].SetActive(true);
+        if(interactedTimes == depressionPositions.Length -1)
+        {
+            base.Interaction();
+            interactedTimes++;
+            return;
+        
+        }
+        InteractedTimes++;
         
         if(interactedTimes == depressionPositions.Length -1)
-            base.Interaction();
+        {
+            enabled = false;
+            useHeadphones = true;
+        }
+
     }
 
     public override void StartMinigame()

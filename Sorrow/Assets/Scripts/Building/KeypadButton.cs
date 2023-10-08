@@ -50,8 +50,8 @@ public class KeypadButton : MonoBehaviour
         waitingForBeat = false;
         keyPadInteractable.buttons.Remove(this);
 
-        //keypadInteractable.GetComponent<Renderer>().materials.First(m => m.name == "").SetVectorArray
-        if(keyPadInteractable.buttons.Count == 0)
+        //keyPadInteractable.GetComponent<Renderer>().materials.First(m => m.name == "").SetColor("");
+        if (keyPadInteractable.buttons.Count == 0)
             //reiniciar el minijuego
 
         yield return new WaitForSeconds(ringDissapearTime);

@@ -14,6 +14,8 @@ public class RithmInteractable : Interactable
 
     Material headphonesOnMaterial;
 
+    [HideInInspector] public bool useHeadphones = false;
+
     protected override void Awake()
     {
         base.Awake();
