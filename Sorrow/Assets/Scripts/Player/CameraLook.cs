@@ -30,7 +30,7 @@ public class CameraLook : MonoBehaviour
 
         if (mouseX is not 0f)
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, mouseX, 0f));
-
+        print(mouseX);
         if (mouseY is 0f)
             return;
 

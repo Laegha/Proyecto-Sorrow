@@ -19,8 +19,16 @@ public class KeyPadInteractable : RithmInteractable
             depressionPositions[interactedTimes].SetActive(true);
 
             Transform player = CinematicManager.instance.player.transform;
+            print(player.rotation);
             var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
+            print(player.rotation);
             player.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
+            print(player.rotation); 
+
+            //Transform camera = CinematicManager.instance.playerCamera.transform;
+            //print(camera.name);
+            //var camDelta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.y) - new Vector2(camera.position.x, camera.position.y);
+            //camera.rotation = Quaternion.Euler(new Vector3(Mathf.Atan2(camDelta.y, camDelta.x) * Mathf.Rad2Deg, 0f, 0f));
         }
     }
     [SerializeField] GameObject[] depressionPositions;
