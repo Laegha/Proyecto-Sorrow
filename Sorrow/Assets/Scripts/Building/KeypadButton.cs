@@ -18,7 +18,6 @@ public class KeypadButton : MonoBehaviour
 
             ringSR.enabled = value;
             outerRingSR.enabled = value;
-                
         }
     }
     bool canHitBeat;
@@ -31,6 +30,7 @@ public class KeypadButton : MonoBehaviour
 
     [SerializeField] float ringDissapearTime;
 
+    [SerializeField] int materialIndex;
     ParticleSystem particleSystem => GetComponent<ParticleSystem>();
     private void OnMouseDown()
     {
@@ -50,9 +50,9 @@ public class KeypadButton : MonoBehaviour
         waitingForBeat = false;
         keyPadInteractable.buttons.Remove(this);
 
-        //keyPadInteractable.GetComponent<Renderer>().materials.First(m => m.name == "").SetColor("");
-        if (keyPadInteractable.buttons.Count == 0)
-            //reiniciar el minijuego
+        keyPadInteractable.GetComponent<Renderer>().materials[materialIndex].SetColor("_Color", Color.red);
+        //if (keyPadInteractable.buttons.Count == 0)
+        //reiniciar el minijuego
 
         yield return new WaitForSeconds(ringDissapearTime);
         WaitingForBeat = false;
@@ -81,6 +81,9 @@ public class KeypadButton : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
+            if (!waitingForBeat)
+                break;
+
             float currOuterRingScale = outerRingScale / (beatDuration * beatDuration) * ((timer - beatDuration) * (timer - beatDuration));
             outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
             timer += Time.deltaTime;
@@ -88,7 +91,7 @@ public class KeypadButton : MonoBehaviour
             if (canHitBeat)
                 continue;
 
-            if (outerRingSR.transform.localScale.magnitude <= transform.localScale.magnitude * clickSpareRange)
+            if (new Vector2(outerRingSR.transform.localScale.x, outerRingSR.transform.localScale.y).magnitude <= 2 * clickSpareRange)
             {
                 outerRingSR.material.SetColor("_RingColor", highlightedRingColor);
                 canHitBeat = true;

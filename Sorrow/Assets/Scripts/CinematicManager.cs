@@ -10,7 +10,7 @@ public class CinematicManager : MonoBehaviour
     CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
     CinemachineVirtualCamera currCamera;
     [HideInInspector] public CinemachineVirtualCamera playerCamera;
-    GameObject player;
+    [HideInInspector] public GameObject player;
 
     private void Awake()
     {

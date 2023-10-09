@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177929445}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5397532, y: 0.45680025, z: -0.5397532, w: 0.45680028}
+  m_LocalRotation: {x: 0.5397532, y: 0.4568003, z: -0.5397532, w: 0.4568003}
   m_LocalPosition: {x: 0.08600001, y: 8.550003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -396,11 +396,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1950806275}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 10
 --- !u!4 &270793677
 Transform:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.216
+      value: 12.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -551,6 +552,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a8d187e7d4b41e4280ecd8dd672b423, type: 2}
@@ -558,6 +563,46 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f08877a83980290499d48191441bc55e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[8]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[9]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[10]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      propertyPath: m_Materials.Array.data[11]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37d0606527a13304bb33e909b9c029df, type: 2}
     - target: {fileID: 919132149155446097, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_Name
       value: KeyPad
@@ -565,9 +610,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1041194871}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 177929447}
@@ -605,6 +647,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1278201385}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1278201390}
   m_SourcePrefab: {fileID: 100100000, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
 --- !u!1 &408283708
 GameObject:
@@ -1025,11 +1070,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1275981200}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 4
 --- !u!4 &593336417
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,11 +1316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1924482427}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 7
 --- !u!4 &736766806
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,11 +1573,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1617229602}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 3
 --- !u!4 &800330772
 Transform:
   m_ObjectHideFlags: 0
@@ -1653,11 +1701,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1223025185}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 5
 --- !u!4 &841990373
 Transform:
   m_ObjectHideFlags: 0
@@ -1831,37 +1880,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1212845873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1041194870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041194871}
-  m_Layer: 6
-  m_Name: CameraHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1041194871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041194870}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1278201389}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083136215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,11 +2018,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1602864231}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 6
 --- !u!4 &1134955345
 Transform:
   m_ObjectHideFlags: 0
@@ -2170,6 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1137690887
 Transform:
   m_ObjectHideFlags: 0
@@ -2218,11 +2238,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 866775091}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 8
 --- !u!4 &1212845873
 Transform:
   m_ObjectHideFlags: 0
@@ -2535,8 +2556,24 @@ MonoBehaviour:
   - {fileID: 270793676}
   - {fileID: 736766805}
   beats:
-  - beatTime: 0
-    beatDuration: 0
+  - beatTime: 1
+    beatDuration: 5
+  - beatTime: 7
+    beatDuration: 5
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
+  - beatTime: 10
+    beatDuration: 6
   depressionPositions:
   - {fileID: 1083136215}
   - {fileID: 191329506}
@@ -2547,6 +2584,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
   m_PrefabInstance: {fileID: 391208766}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1278201390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278201384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submeshIndex: 1
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1001 &1287357524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2929,11 +2981,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 432250882}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 2
 --- !u!4 &1428636420
 Transform:
   m_ObjectHideFlags: 0
@@ -3565,9 +3618,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5849819340115376872, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6011512070357781101, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: field of view
       value: 67.41759
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3808,11 +3893,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1906506054}
-  outerRingScale: 2
+  outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
   highlightedRingColor: {r: 0.17647058, g: 1, b: 0.85198003, a: 0}
-  ringDissapearTime: 0.5
+  ringDissapearTime: 1
+  materialIndex: 9
 --- !u!4 &2127608091
 Transform:
   m_ObjectHideFlags: 0

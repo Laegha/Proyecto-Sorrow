@@ -17,13 +17,13 @@ public class KeyPadInteractable : RithmInteractable
             depressionPositions[interactedTimes].SetActive(false);
             interactedTimes = value; 
             depressionPositions[interactedTimes].SetActive(true);
-            CinematicManager.instance.playerCamera.LookAt = depressionPositions[interactedTimes].transform;
-            CinematicManager.instance.playerCamera.LookAt = null;
 
+            Transform player = CinematicManager.instance.player.transform;
+            var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
+            player.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
         }
     }
     [SerializeField] GameObject[] depressionPositions;
-
     protected override void Awake()
     {
         base.Awake();
@@ -58,6 +58,8 @@ public class KeyPadInteractable : RithmInteractable
     {
         Cursor.lockState = CursorLockMode.Confined;
         //arrancar el tema
+        foreach (KeypadButton keypadButton in buttons)
+            keypadButton.gameObject.SetActive(true);
         StartCoroutine(BeatTimer());
     }
 
