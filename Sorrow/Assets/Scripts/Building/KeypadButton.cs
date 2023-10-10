@@ -77,7 +77,7 @@ public class KeypadButton : MonoBehaviour
 
         float timer = 0;
 
-        while (timer < beatDuration)
+        while (timer < beatDuration - beatDuration * 0.37)
         {
             yield return new WaitForEndOfFrame();
 
