@@ -8,6 +8,10 @@ public class InputManager : MonoBehaviour
     public static Controller controller;
     public static float cameraSensitivity;
 
+    PlayerMovement playerMovement;
+    CameraLook cameraLook;
+    HeldObjectManager heldObjectManager;
+
     void Awake()
     {
         if (instance != null && instance != this)
@@ -16,6 +20,9 @@ public class InputManager : MonoBehaviour
         instance = this;
         controller = new Controller();
         cameraSensitivity = PlayerPrefs.GetFloat("CS", 100f) * .001f;
+        playerMovement = GetComponent<PlayerMovement>();
+        cameraLook = GetComponent<CameraLook>();
+        heldObjectManager = GetComponent<HeldObjectManager>();
     }
 
     void OnEnable()
@@ -30,4 +37,18 @@ public class InputManager : MonoBehaviour
     }
 
     void OnDisable() => controller.Disable();
+
+    public void RemoveControl()
+    {
+        playerMovement.enabled = false;
+        cameraLook.enabled = false;
+        heldObjectManager.enabled = false;
+    }
+
+    public void RegainControl()
+    {
+        playerMovement.enabled = true;
+        cameraLook.enabled = true;
+        heldObjectManager.enabled = true;
+    }
 }
