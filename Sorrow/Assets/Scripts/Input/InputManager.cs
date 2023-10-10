@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         controller = new Controller();
         cameraSensitivity = PlayerPrefs.GetFloat("CS", 100f) * .001f;
         playerMovement = GetComponent<PlayerMovement>();
-        cameraLook = GetComponent<CameraLook>();
+        cameraLook = GetComponentInChildren<CameraLook>();
         heldObjectManager = GetComponent<HeldObjectManager>();
     }
 
