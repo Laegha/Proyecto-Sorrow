@@ -5,18 +5,18 @@ using System.Linq;
 
 public class KeyPadInteractable : RithmInteractable
 {
-    public List<KeypadButton> buttons;
+    [HideInInspector] public List<KeypadButton> buttons = new List<KeypadButton>();
 
     [SerializeField] Beat[] beats;
 
     int interactedTimes = 0;
     int InteractedTimes
-    { 
+    {
         get { return interactedTimes; }
-        set 
-        { 
+        set
+        {
             depressionPositions[interactedTimes].SetActive(false);
-            interactedTimes = value; 
+            interactedTimes = value;
             depressionPositions[interactedTimes].SetActive(true);
 
             Transform player = CinematicManager.instance.player.transform;
@@ -28,7 +28,6 @@ public class KeyPadInteractable : RithmInteractable
             float camRotation = Mathf.Atan2(camDelta.y, camDelta.x);
             camera.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
             camera.GetComponent<CameraLook>().ChangeRotation(camRotation);
-            print(camRotation);
         }
     }
     [SerializeField] GameObject[] depressionPositions;
@@ -36,7 +35,9 @@ public class KeyPadInteractable : RithmInteractable
     {
         base.Awake();
         enabled = true;
-        foreach(KeypadButton button in buttons) 
+        buttons = GetComponentsInChildren<KeypadButton>().ToList();
+        print(buttons.Count);
+        foreach (KeypadButton button in buttons)
             button.keyPadInteractable = this;
     }
 
@@ -44,17 +45,17 @@ public class KeyPadInteractable : RithmInteractable
     {
         if (interactedTimes > depressionPositions.Length)
             return;
-        
-        if(interactedTimes == depressionPositions.Length -1)
+
+        if (interactedTimes == depressionPositions.Length - 1)
         {
             base.Interaction();
             interactedTimes++;
             return;
-        
+
         }
         InteractedTimes++;
-        
-        if(interactedTimes == depressionPositions.Length -1)
+
+        if (interactedTimes == depressionPositions.Length - 1)
         {
             enabled = false;
             useHeadphones = true;
@@ -68,9 +69,23 @@ public class KeyPadInteractable : RithmInteractable
         //arrancar el tema
         foreach (KeypadButton keypadButton in buttons)
             keypadButton.gameObject.SetActive(true);
-        StartCoroutine(BeatTimer());
+        StartCoroutine("BeatTimer");
     }
 
+    public void RestartMinigame()
+    {
+        StopCoroutine("BeatTimer");
+        //fade out de la música
+        //devolver la camara al jugador
+        CinematicManager.instance.ReturnPlayerCamera();
+        CinematicManager.instance.PlayerFreeze(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        //los botones vuelven a ponerse en verde
+        buttons = GetComponentsInChildren<KeypadButton>().ToList();
+        foreach (Material material in GetComponent<Renderer>().materials)
+            if (material.name == "Button (Instance)")
+                material.SetColor("_Color", Color.green);
+    }
     IEnumerator BeatTimer()
     {
         int currBeat = 0;
@@ -80,7 +95,8 @@ public class KeyPadInteractable : RithmInteractable
             yield return new WaitForSeconds(deltaBeatTime);
 
             List<KeypadButton> availableButtons = buttons.Where(x => !x.waitingForBeat).ToList();
-            StartCoroutine(availableButtons[Random.Range(0, availableButtons.Count)].WaitForBeat(beats[currBeat].beatDuration));
+            if(availableButtons.Count > 0)
+                StartCoroutine(availableButtons[Random.Range(0, availableButtons.Count)].WaitForBeat(beats[currBeat].beatDuration));
             currBeat++;
         }
         bool waitingForEnd = true;
@@ -93,8 +109,10 @@ public class KeyPadInteractable : RithmInteractable
                 waitingForEnd = false;
                 CinematicManager.instance.ReturnPlayerCamera();
                 CinematicManager.instance.PlayerFreeze(false);
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
+        print("El minijuego se ejecuta entero");
     }
 }
 

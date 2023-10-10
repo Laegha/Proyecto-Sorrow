@@ -51,10 +51,11 @@ public class KeypadButton : MonoBehaviour
         keyPadInteractable.buttons.Remove(this);
 
         keyPadInteractable.GetComponent<Renderer>().materials[materialIndex].SetColor("_Color", Color.red);
-        //if (keyPadInteractable.buttons.Count == 0)
-        //reiniciar el minijuego
+        if (keyPadInteractable.buttons.Count == 0)
+            keyPadInteractable.RestartMinigame();
+            //reiniciar el minijuego
 
-        yield return new WaitForSeconds(ringDissapearTime);
+            yield return new WaitForSeconds(ringDissapearTime);
         WaitingForBeat = false;
     }
 
