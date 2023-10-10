@@ -38,17 +38,10 @@ public class InputManager : MonoBehaviour
 
     void OnDisable() => controller.Disable();
 
-    public void RemoveControl()
+    public void RemRegControl(bool enablement)
     {
-        playerMovement.enabled = false;
-        cameraLook.enabled = false;
-        heldObjectManager.enabled = false;
-    }
-
-    public void RegainControl()
-    {
-        playerMovement.enabled = true;
-        cameraLook.enabled = true;
-        heldObjectManager.enabled = true;
+        playerMovement.enabled = enablement;
+        cameraLook.enabled = enablement;
+        heldObjectManager.enabled = enablement;
     }
 }
