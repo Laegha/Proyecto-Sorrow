@@ -38,7 +38,7 @@ public class FakeDoorInteractable : Interactable
     {
         //CinematicManager.instance.PlayerFreeze(true);
         timeline.Play();
-
+        CinematicManager.instance.CameraChange(buttonMashing.buttonMashingVCam);
         yield return new WaitForSeconds((float)timeline.duration);
         /*
         TIMELINE HERE:
@@ -61,7 +61,6 @@ public class FakeDoorInteractable : Interactable
         //megaphoneComponent.enabled = true;
         //chaseController.isMoving = true;
         //enabled = false;
-        CinematicManager.instance.CameraChange(buttonMashing.buttonMashingVCam);
         buttonMashing.enabled = true;
     }
 }
