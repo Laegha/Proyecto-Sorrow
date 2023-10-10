@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1950806275}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1275981200}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -1316,6 +1318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1924482427}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -1573,6 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1617229602}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -1701,6 +1705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1223025185}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -2018,6 +2023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1602864231}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -2238,6 +2244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 866775091}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -2558,19 +2565,21 @@ MonoBehaviour:
   beats:
   - beatTime: 1
     beatDuration: 5
-  - beatTime: 7
+  - beatTime: 2
     beatDuration: 5
-  - beatTime: 10
+  - beatTime: 3
     beatDuration: 6
-  - beatTime: 10
+  - beatTime: 4
     beatDuration: 6
-  - beatTime: 10
+  - beatTime: 5
     beatDuration: 6
-  - beatTime: 10
+  - beatTime: 6
     beatDuration: 6
-  - beatTime: 10
+  - beatTime: 7
     beatDuration: 6
-  - beatTime: 10
+  - beatTime: 8
+    beatDuration: 6
+  - beatTime: 9
     beatDuration: 6
   - beatTime: 10
     beatDuration: 6
@@ -2981,6 +2990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 432250882}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}
@@ -3560,11 +3570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9986824
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.051318347
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3572,7 +3582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690832116543381571, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.0000000018626454
       objectReference: {fileID: 0}
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
@@ -3580,7 +3590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.2
+      value: -5.225
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3588,7 +3598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.19
+      value: 13.83
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3618,6 +3628,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5849819340115376872, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LookAt
       value: 
@@ -3628,23 +3654,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9986824
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.051318347
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0000000018626454
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 5.883
       objectReference: {fileID: 0}
     - target: {fileID: 8701056348236275051, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3893,6 +3919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPadInteractable: {fileID: 0}
   outerRingSR: {fileID: 1906506054}
+  waitingForBeat: 0
   outerRingScale: 3
   clickSpareRange: 1.2
   unhighlightedRingColor: {r: 0.9607843, g: 0.9254902, b: 0, a: 0}

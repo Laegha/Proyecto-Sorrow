@@ -9,7 +9,7 @@ public class KeypadButton : MonoBehaviour
 
     [SerializeField] SpriteRenderer outerRingSR;
     SpriteRenderer ringSR => GetComponent<SpriteRenderer>();
-    bool waitingForBeat;
+    [HideInInspector]public bool waitingForBeat;
     bool WaitingForBeat
     {
         set
@@ -99,7 +99,7 @@ public class KeypadButton : MonoBehaviour
         }
         if (waitingForBeat)
         {
-            BeatFailed();
+            StartCoroutine(BeatFailed());
             WaitingForBeat = false;
 
         }
