@@ -198,9 +198,9 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5554686409224422807}
+        - m_Target: {fileID: 6568050901902902347}
           m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+          m_MethodName: RemRegControl
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -236,9 +236,9 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5554686409224422807}
+        - m_Target: {fileID: 6568050901902902347}
           m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+          m_MethodName: RemRegControl
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
