@@ -984,7 +984,7 @@ PlayableDirector:
     - ed6193015a2181d4f880249a9b5fe4e1: {fileID: 1498543802}
     - 654c8161ed4bc1f4abb3adab65592806: {fileID: 1437670295}
     - be25236c738df00468a038d5ed6d0292: {fileID: 1498543802}
-    - c08da0e6a7a6e264086202d4471bf787: {fileID: 1498543802}
+    - c08da0e6a7a6e264086202d4471bf787: {fileID: 1437670295}
 --- !u!4 &74758087
 Transform:
   m_ObjectHideFlags: 0
@@ -63382,54 +63382,6 @@ PrefabInstance:
       propertyPath: pointerAnimator
       value: 
       objectReference: {fileID: 1373917767}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1373917766}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1373917766}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetPointerState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetPointerState
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PointerAnimatorController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PointerAnimatorController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704061190968233767, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5924118246493222248, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -63539,6 +63491,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 990399248}
+    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 990399261}
   m_SourcePrefab: {fileID: 100100000, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
 --- !u!1 &990399247 stripped
 GameObject:
@@ -63586,6 +63541,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8985884352256245997, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
   m_PrefabInstance: {fileID: 990399246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &990399261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990399247}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966aae9c303c88a4cb807905d916e82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mashCount: 0
+  mashMin: 20
+  timeToLoose1MashProgress: 0.5
+  fovIntencity: 3
+  buttonMashingVCam: {fileID: 1437670295}
+  endActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1148684594}
+        m_TargetAssemblyTypeName: CinematicManager, Assembly-CSharp
+        m_MethodName: CameraChange
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1498543802}
+          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
+            Cinemachine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &992489864
 GameObject:
   m_ObjectHideFlags: 0
@@ -69595,6 +69583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be802baa20234e448510e5b4a2e3127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1148684596
 Transform:
   m_ObjectHideFlags: 0
@@ -71350,7 +71340,6 @@ GameObject:
   - component: {fileID: 1373917763}
   - component: {fileID: 1373917765}
   - component: {fileID: 1373917764}
-  - component: {fileID: 1373917766}
   - component: {fileID: 1373917767}
   m_Layer: 5
   m_Name: Pointer
@@ -71416,19 +71405,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373917762}
   m_CullTransparentMesh: 1
---- !u!114 &1373917766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373917762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5cd364fc9cc184fbba997d7040f8e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!95 &1373917767
 Animator:
   serializedVersion: 5
@@ -72467,7 +72443,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 2100000, guid: b9b4b7796bc91364ba062c5a77494921, type: 2}
+      objectReference: {fileID: 2100000, guid: 5a8d187e7d4b41e4280ecd8dd672b423, type: 2}
     - target: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       propertyPath: m_Name
       value: Megafono

@@ -10,6 +10,7 @@ public class FakeDoorInteractable : Interactable
     Megaphone megaphoneComponent;
     HeldObject heldObject;
     PickUpInteractable pickUpInteractable;
+    ButtonMashing buttonMashing;
 
     [SerializeField] PlayableDirector timeline;
 
@@ -21,6 +22,7 @@ public class FakeDoorInteractable : Interactable
         heldObject = GetComponent<HeldObject>();
         pickUpInteractable = GetComponent<PickUpInteractable>();
         pickUpInteractable.enabled = false;
+        buttonMashing = GameObject.FindGameObjectWithTag("Player").GetComponent<ButtonMashing>();
     }
 
     public override void Interaction()
@@ -59,5 +61,7 @@ public class FakeDoorInteractable : Interactable
         //megaphoneComponent.enabled = true;
         //chaseController.isMoving = true;
         //enabled = false;
+        CinematicManager.instance.CameraChange(buttonMashing.buttonMashingVCam);
+        buttonMashing.enabled = true;
     }
 }

@@ -1,21 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class ButtonMashing : MonoBehaviour
 {
-    public float mashCount;
+    [HideInInspector] public float mashCount;
     public float mashMin;
-    [SerializeField] float disminutionMultiplier;
-    [SerializeField] float mashIntencity;
-    [SerializeField] Action action;
+    [SerializeField] float timeToLoose1MashProgress;
+    [SerializeField] float fovIntencity;
+    public CinemachineVirtualCamera buttonMashingVCam;
+    [SerializeField] UnityEvent endActions;
+    float minFov;
 
     void Awake() => mashCount = mashMin;
 
     void OnEnable()
     {
+        minFov = buttonMashingVCam.m_Lens.FieldOfView;
         InputManager.controller.ButtonMashing.Enable();
         InputManager.controller.ButtonMashing.Button.performed += Mash;
     }
@@ -28,7 +33,8 @@ public class ButtonMashing : MonoBehaviour
 
     void Mash(InputAction.CallbackContext _)
     {
-        mashCount -= mashIntencity;
+        mashCount -= 1f;
+        buttonMashingVCam.m_Lens.FieldOfView += fovIntencity;
 
         if (mashCount <= 0f)
             End();
@@ -36,14 +42,20 @@ public class ButtonMashing : MonoBehaviour
 
     void Update()
     {
-        mashCount += Time.deltaTime * disminutionMultiplier;
+        if (mashCount < mashMin)
+            mashCount += Time.deltaTime / timeToLoose1MashProgress;
+        if (mashCount > mashMin)
+            mashCount = mashMin;
+        if (buttonMashingVCam.m_Lens.FieldOfView > minFov)
+            buttonMashingVCam.m_Lens.FieldOfView -= Time.deltaTime / timeToLoose1MashProgress * fovIntencity;
+        if (buttonMashingVCam.m_Lens.FieldOfView < minFov)
+            buttonMashingVCam.m_Lens.FieldOfView = minFov;
         print(mashCount);
     }
 
     void End()
     {
-        action.Invoke();
-        InputManager.controller.ButtonMashing.Disable();
+        endActions.Invoke();
         enabled = false;
     }
 }
