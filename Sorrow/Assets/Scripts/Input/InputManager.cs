@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         if (instance != null && instance != this)
-            Destroy(this);
+            Destroy(gameObject);
 
         instance = this;
         controller = new Controller();
