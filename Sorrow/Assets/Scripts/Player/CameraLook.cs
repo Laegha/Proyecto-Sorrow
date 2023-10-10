@@ -21,7 +21,7 @@ public class CameraLook : MonoBehaviour
 
     //void OnEnable() => pointerAnimator.SetBool("Show", true);
     //void OnDisable() => pointerAnimator.SetBool("Show", false);
-
+    public void ChangeRotation(float newRotation) => currXRotation = newRotation;
     void Update()
     {
         var delta = InputManager.controller.Camera.Look.ReadValue<Vector2>();
@@ -30,7 +30,7 @@ public class CameraLook : MonoBehaviour
 
         if (mouseX is not 0f)
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, mouseX, 0f));
-        print(mouseX);
+
         if (mouseY is 0f)
             return;
 
