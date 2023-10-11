@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Cinemachine;
 
 public class KeyPadInteractable : RithmInteractable
 {
@@ -10,6 +11,9 @@ public class KeyPadInteractable : RithmInteractable
     [SerializeField] Beat[] beats;
 
     int interactedTimes = 0;
+
+    [SerializeField] GameObject[] depressionPositions;
+    [SerializeField] CinemachineVirtualCamera depressionCamera;
     int InteractedTimes
     {
         get { return interactedTimes; }
@@ -21,16 +25,31 @@ public class KeyPadInteractable : RithmInteractable
 
             Transform player = CinematicManager.instance.player.transform;
             var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
-            player.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
 
             Transform camera = CinematicManager.instance.playerCamera.transform;
             var camDelta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.y) - new Vector2(camera.position.x, camera.position.y);
             float camRotation = Mathf.Atan2(camDelta.y, camDelta.x);
+
+            depressionCamera.transform.position = camera.position;
+            depressionCamera.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
+            CinematicManager.instance.CameraChange(depressionCamera);
+
+            StartCoroutine(ChangePlayerRotation(player.GetComponent<Rigidbody>(), player, new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f)));
             camera.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
             camera.GetComponent<CameraLook>().ChangeRotation(camRotation);
+            //CinematicManager.instance.ReturnPlayerCamera();
         }
     }
-    [SerializeField] GameObject[] depressionPositions;
+    IEnumerator ChangePlayerRotation(Rigidbody rb, Transform player, Vector3 rotation)
+    {
+        rb.interpolation = RigidbodyInterpolation.None;
+        player.rotation = Quaternion.Euler(rotation);
+
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+    }
     protected override void Awake()
     {
         base.Awake();
