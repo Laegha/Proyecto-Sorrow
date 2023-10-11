@@ -6,7 +6,7 @@ using Cinemachine;
 public class CinematicManager : MonoBehaviour
 {
     public static CinematicManager instance;
-    CinemachineBrain cinemachineBrain;
+    [HideInInspector]public CinemachineBrain cinemachineBrain;
     CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
     CinemachineVirtualCamera currCamera;
     [HideInInspector] public CinemachineVirtualCamera playerCamera;
@@ -18,7 +18,7 @@ public class CinematicManager : MonoBehaviour
             Destroy(instance);
         instance = this;
         player = GameObject.FindWithTag("Player");
-        cinemachineBrain = player.GetComponentInChildren<CinemachineBrain>();
+        cinemachineBrain = FindObjectOfType<CinemachineBrain>();
         playerCamera = GameObject.Find("PlayerVirtualCamera").GetComponent<CinemachineVirtualCamera>();
     }
 
@@ -28,7 +28,6 @@ public class CinematicManager : MonoBehaviour
             currCamera.Priority = 0;
         newCamera.Priority = 11;
         SetNewCamera(newCamera);
-        cinemachineBrain = FindObjectOfType<CinemachineBrain>();
     }
 
     public void SetNewCamera(CinemachineVirtualCamera newCamera) => currCamera = newCamera;

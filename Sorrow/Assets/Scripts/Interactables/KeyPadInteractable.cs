@@ -14,42 +14,7 @@ public class KeyPadInteractable : RithmInteractable
 
     [SerializeField] GameObject[] depressionPositions;
     [SerializeField] CinemachineVirtualCamera depressionCamera;
-    int InteractedTimes
-    {
-        get { return interactedTimes; }
-        set
-        {
-            depressionPositions[interactedTimes].SetActive(false);
-            interactedTimes = value;
-            depressionPositions[interactedTimes].SetActive(true);
-
-            Transform player = CinematicManager.instance.player.transform;
-            var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
-
-            Transform camera = CinematicManager.instance.playerCamera.transform;
-            var camDelta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.y) - new Vector2(camera.position.x, camera.position.y);
-            float camRotation = Mathf.Atan2(camDelta.y, camDelta.x);
-
-            depressionCamera.transform.position = camera.position;
-            depressionCamera.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
-            CinematicManager.instance.CameraChange(depressionCamera);
-
-            StartCoroutine(ChangePlayerRotation(player.GetComponent<Rigidbody>(), player, new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f)));
-            camera.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
-            camera.GetComponent<CameraLook>().ChangeRotation(camRotation);
-            //CinematicManager.instance.ReturnPlayerCamera();
-        }
-    }
-    IEnumerator ChangePlayerRotation(Rigidbody rb, Transform player, Vector3 rotation)
-    {
-        rb.interpolation = RigidbodyInterpolation.None;
-        player.rotation = Quaternion.Euler(rotation);
-
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
-    }
+    
     protected override void Awake()
     {
         base.Awake();
@@ -72,7 +37,7 @@ public class KeyPadInteractable : RithmInteractable
             return;
 
         }
-        InteractedTimes++;
+        StartCoroutine(DepressionMove());
 
         if (interactedTimes == depressionPositions.Length - 1)
         {
@@ -81,7 +46,42 @@ public class KeyPadInteractable : RithmInteractable
         }
 
     }
+    IEnumerator DepressionMove()
+    {
+        depressionPositions[interactedTimes].SetActive(false);
+        interactedTimes++;
+        depressionPositions[interactedTimes].SetActive(true);
 
+        Transform player = CinematicManager.instance.player.transform;
+        var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
+
+        Transform camera = CinematicManager.instance.playerCamera.transform;
+        var camDelta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.y) - new Vector2(camera.position.x, camera.position.y);
+        float camRotation = Mathf.Atan2(camDelta.y, camDelta.x);
+
+        depressionCamera.transform.position = camera.position;
+        depressionCamera.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
+        CinematicManager.instance.CameraChange(depressionCamera);
+        while (!CinematicManager.instance.cinemachineBrain.IsBlending) //capaz sea isBlending
+            yield return new WaitForEndOfFrame();
+        //yield return new WaitForSeconds(FindObjectOfType<CinemachineBrain>().ActiveBlend.TimeInBlend); checkear si esto funciona
+        
+        Rigidbody rb = player.GetComponent<Rigidbody>();
+
+        rb.interpolation = RigidbodyInterpolation.None;
+        player.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
+
+        camera.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
+        camera.GetComponent<CameraLook>().ChangeRotation(camRotation);
+        CinematicManager.instance.ReturnPlayerCamera();
+
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+
+    }
     public override void StartMinigame()
     {
         Cursor.lockState = CursorLockMode.Confined;
