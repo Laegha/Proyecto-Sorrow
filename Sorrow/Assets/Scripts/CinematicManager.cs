@@ -26,6 +26,8 @@ public class CinematicManager : MonoBehaviour
     {
         if (currCamera != null)
             currCamera.Priority = 0;
+        else
+            print("Current camera was null, now is " + newCamera.name);
         newCamera.Priority = 11;
         SetNewCamera(newCamera);
     }
@@ -34,9 +36,11 @@ public class CinematicManager : MonoBehaviour
 
     public void ReturnPlayerCamera()
     {
+        print("Player cam returned");
         currCamera.Priority = 0;
-        PlayerFreeze(false);
-        currCamera = FindObjectOfType<CameraLook>().GetComponent<CinemachineVirtualCamera>();
+        playerCamera.gameObject.SetActive(true);
+        playerCamera.Priority= 11;
+        currCamera = playerCamera;
     }
 
     public void PlayerFreeze(bool isFreezed)

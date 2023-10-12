@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414738, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &227683194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &235624260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,10 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1505247110}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
@@ -1510,11 +1507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headphonesFilter: {fileID: 1270365494}
---- !u!4 &807163191 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 493952840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826368357
 GameObject:
   m_ObjectHideFlags: 3
@@ -1682,7 +1674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &912977121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &930532207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,7 +2437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1489695845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,12 +2613,12 @@ Transform:
   m_GameObject: {fileID: 1505247108}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24439429, y: -0.2395276, z: 0.06244239, w: 0.9375495}
-  m_LocalPosition: {x: -1.335249, y: 2.4697561, z: -3.7461185}
+  m_LocalPosition: {x: -7.027225, y: 1.46, z: 11.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 826368358}
-  m_Father: {fileID: 807163191}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 29.221, y: -28.663, z: 0}
 --- !u!1 &1517661823
 GameObject:
@@ -2646,7 +2638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1517661824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,7 +2767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1519494338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,7 +2896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1554928727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3293,7 +3285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1935309262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,3 +3598,4 @@ SceneRoots:
   - {fileID: 143226887}
   - {fileID: 493952840}
   - {fileID: 1369898776}
+  - {fileID: 1505247110}
