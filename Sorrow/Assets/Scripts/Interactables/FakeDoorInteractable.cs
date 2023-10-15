@@ -62,5 +62,6 @@ public class FakeDoorInteractable : Interactable
         //chaseController.isMoving = true;
         //enabled = false;
         buttonMashing.enabled = true;
+        Destroy(this);
     }
 }
