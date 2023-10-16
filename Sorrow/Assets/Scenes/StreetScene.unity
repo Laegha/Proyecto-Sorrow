@@ -46811,7 +46811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 569856246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73359,7 +73359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961448, w: 0.77692914}
+  m_LocalRotation: {x: 0.18533446, y: -0.58526915, z: 0.13961445, w: 0.77692926}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -74163,6 +74163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Megafono
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -74191,6 +74195,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591668261}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1591668262}
   m_SourcePrefab: {fileID: 100100000, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
 --- !u!4 &1538967344 stripped
 Transform:
@@ -74983,6 +74990,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1591668262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591668249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbbc4ee942b2ef4abdce27ae2e808a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submeshIndex: 1
+  storeInTexcoordChannel: 1
+  cospatialVertexDistance: 0.01
 --- !u!1 &1606699816
 GameObject:
   m_ObjectHideFlags: 0

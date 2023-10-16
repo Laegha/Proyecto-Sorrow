@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
+  m_Name: KeypadOutline
   m_Shader: {fileID: -6465566751694194690, guid: 6096f13d870ece04093bbbbb4add405e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -94,7 +94,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_460f060680af42059a3989246b0dc640: 0.05
+    - Vector1_460f060680af42059a3989246b0dc640: 0.01
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
