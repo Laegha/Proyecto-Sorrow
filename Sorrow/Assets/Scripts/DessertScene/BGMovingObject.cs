@@ -12,6 +12,8 @@ public class BGMovingObject : MonoBehaviour
     float distance;
     float elapsedDistance;
 
+    public bool isMoving = false;
+
     private void Start()
     {
         var delta = new Vector2(endPoint.position.x, endPoint.position.z) - new Vector2(startPoint.position.x, startPoint.position.z);
@@ -22,6 +24,8 @@ public class BGMovingObject : MonoBehaviour
 
     void Update()
     {
+        if (!isMoving)
+            return;
         var delta = objectSpeed * Time.deltaTime;
         transform.Translate(new Vector3(direction.x, 0, direction.y) * delta);
         elapsedDistance += delta;

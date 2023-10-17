@@ -106,7 +106,7 @@ public class KeyPadInteractable : RithmInteractable
 
         //devolver la camara al jugador
         CinematicManager.instance.ReturnPlayerCamera();
-        CinematicManager.instance.PlayerFreeze(false);
+        InputManager.instance.RemRegControl(true);
         Cursor.lockState = CursorLockMode.Locked;
 
         //los botones vuelven a ponerse en verde
@@ -137,7 +137,7 @@ public class KeyPadInteractable : RithmInteractable
             {
                 waitingForEnd = false;
                 CinematicManager.instance.ReturnPlayerCamera();
-                CinematicManager.instance.PlayerFreeze(false);
+                InputManager.instance.RemRegControl(true);
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }

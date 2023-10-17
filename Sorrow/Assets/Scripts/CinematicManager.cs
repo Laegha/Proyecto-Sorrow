@@ -28,6 +28,7 @@ public class CinematicManager : MonoBehaviour
             currCamera.Priority = 0;
         else
             print("Current camera was null, now is " + newCamera.name);
+
         newCamera.Priority = 11;
         SetNewCamera(newCamera);
     }
@@ -41,13 +42,6 @@ public class CinematicManager : MonoBehaviour
         playerCamera.gameObject.SetActive(true);
         playerCamera.Priority= 11;
         currCamera = playerCamera;
-    }
-
-    public void PlayerFreeze(bool isFreezed)
-    {
-        Camera.main.transform.SetParent(isFreezed ? null : player.transform);
-        player.SetActive(!isFreezed);
-        //Camera.main.GetComponent<CameraLook>().enabled = !isFreezed;
     }
 
     public void StartCameraShake(float shakeAmplitude)
