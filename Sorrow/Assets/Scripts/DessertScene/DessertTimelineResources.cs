@@ -21,6 +21,7 @@ public class DessertTimelineResources : MonoBehaviour
     {
         float x = 0;
         float oao = isStarting ? 0 : movingSandMaxSpeed;
+        float y = isStarting ? 0 : movingSandMaxSpeed;
         float a = movingSandMaxSpeed/1;
         if (!isStarting)
             a *= -1;
@@ -30,11 +31,11 @@ public class DessertTimelineResources : MonoBehaviour
             yield return new WaitForEndOfFrame();
             
             x += Time.deltaTime;
-            float y = a * (x * x) + oao;
-            print("X: " + x + " y: " + y + " a: " + a);
+            y = a * (x * x) + oao;
             sandMaterial.SetFloat("_Speed", y);
+            print("y: " + y + " Speed: " + sandMaterial.GetFloat("_Speed"));
         }
-        sandMaterial.SetFloat("_Speed", isStarting ? movingSandMaxSpeed : 0);
+        //sandMaterial.SetFloat("_Speed", isStarting ? movingSandMaxSpeed : 0);
     }
 
     bool sandMoving = false;
