@@ -31,29 +31,36 @@ public class DessertTimelineResources : MonoBehaviour
 
         currOffset = sandMoveDirection * speed * time;
         sandMaterial.SetVector("_TextureOffset", currOffset);
-        print(currOffset);
     }
 
     float time = 1;
 
     IEnumerator Timer()
     {
+        print("Empieza el timer");
+        time = 0;
         while(true)
         {
+            yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
-            if (time > 2)
-                time = 1;
+            if (time > 1/speed)
+            {
+                print("Time reset with time: " + time);
+                time = 0;
+            }
         }
     }
 
     public IEnumerator ChangeMovingSandSpeed(bool isStarting)
     {
-        sandMaterial.SetFloat("_AutoMove", 0);
+        //sandMaterial.SetFloat("_AutoMove", 0);
         float x = 0;
         float oao = isStarting ? 0 : movingSandMaxSpeed;
         float a = movingSandMaxSpeed/2;
+
         if (!isStarting)
             a *= -1;
+
         while (isStarting ? speed < movingSandMaxSpeed : speed > 0)
         {
             yield return new WaitForEndOfFrame();
@@ -65,6 +72,15 @@ public class DessertTimelineResources : MonoBehaviour
         speed = isStarting ? movingSandMaxSpeed : 0;
         yield return new WaitForEndOfFrame();
         sandMoving = isStarting;
+
+        if (isStarting)
+            StartCoroutine("Timer");
+        
+        else
+        {
+            StopCoroutine("Timer");
+            time = 1;
+        }
         //sandMaterial.SetFloat("_Speed", isStarting ? movingSandMaxSpeed : 0);
         //sandMaterial.SetFloat("_AutoMove", 1);
     }
