@@ -11,13 +11,6 @@ public class DessertTimelineResources : MonoBehaviour
 
     [SerializeField] BGMovingObject[] bgObjects;
 
-    public void ChangeWalkMode(bool isStarting)
-    {
-        StartCoroutine(ChangeMovingSandSpeed(isStarting));
-        foreach (BGMovingObject bgObject in bgObjects)
-            bgObject.isMoving = isStarting;
-    }
-
     bool sandMoving = false;
     Vector2 currOffset;
     float speed;
@@ -29,33 +22,22 @@ public class DessertTimelineResources : MonoBehaviour
             ChangeWalkMode(!sandMoving);
         }//PLACEHOLDER
 
-        currOffset = sandMoveDirection * speed * time;
+        currOffset += sandMoveDirection * speed * Time.deltaTime;
+        if (currOffset.magnitude > 1)
+            currOffset = Vector2.zero;
         sandMaterial.SetVector("_TextureOffset", currOffset);
     }
-
-    float time = 1;
-
-    IEnumerator Timer()
+    public void ChangeWalkMode(bool isStarting)
     {
-        print("Empieza el timer");
-        time = 0;
-        while(true)
-        {
-            yield return new WaitForEndOfFrame();
-            time += Time.deltaTime;
-            if (time > 1/speed)
-            {
-                print("Time reset with time: " + time);
-                time = 0;
-            }
-        }
+        StartCoroutine(ChangeMovingSandSpeed(isStarting));
+        foreach (BGMovingObject bgObject in bgObjects)
+            bgObject.isMoving = isStarting;
     }
 
     public IEnumerator ChangeMovingSandSpeed(bool isStarting)
     {
-        //sandMaterial.SetFloat("_AutoMove", 0);
         float x = 0;
-        float oao = isStarting ? 0 : movingSandMaxSpeed;
+        float oao = isStarting ? 0 : movingSandMaxSpeed; 
         float a = movingSandMaxSpeed/2;
 
         if (!isStarting)
@@ -65,25 +47,11 @@ public class DessertTimelineResources : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
-            //sandMaterial.SetFloat("_Speed", y);
             x += Time.deltaTime;
             speed = a * (x * x) + oao;
         }
         speed = isStarting ? movingSandMaxSpeed : 0;
         yield return new WaitForEndOfFrame();
         sandMoving = isStarting;
-
-        if (isStarting)
-            StartCoroutine("Timer");
-        
-        else
-        {
-            StopCoroutine("Timer");
-            time = 1;
-        }
-        //sandMaterial.SetFloat("_Speed", isStarting ? movingSandMaxSpeed : 0);
-        //sandMaterial.SetFloat("_AutoMove", 1);
     }
-
-
 }
