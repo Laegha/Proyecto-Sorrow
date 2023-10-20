@@ -45,4 +45,6 @@ public class ChaseController : MonoBehaviour
         traveled = 0f;
         transform.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
     }
+
+    public void StartChase() => isMoving = true;
 }
