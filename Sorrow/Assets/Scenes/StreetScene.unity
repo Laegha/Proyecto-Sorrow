@@ -799,6 +799,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (1)
@@ -861,6 +869,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54
@@ -9310,6 +9326,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54
@@ -10351,6 +10375,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (2)
@@ -41446,6 +41478,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (4)
@@ -57297,9 +57337,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: -8274133419916619345, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (1)
@@ -57631,6 +57675,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (1)
@@ -58638,6 +58690,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (5)
@@ -72257,6 +72317,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (1)
@@ -72750,6 +72818,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54
@@ -73376,7 +73452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533446, y: -0.58526915, z: 0.13961446, w: 0.77692926}
+  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.1396145, w: 0.7769292}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -86666,6 +86742,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (2)
@@ -87827,6 +87911,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e9154d20463be24989b737a6ad038b0, type: 2}
     - target: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
       propertyPath: m_Name
       value: EdificioResidencial54 (3)
