@@ -18,10 +18,11 @@ public class ActionInteractable : Interactable
     public override void Interaction()
     {
         onInteractEvent.Invoke();
+        FindObjectOfType<ActionCounter>().ActionDone();
     }
 
     public void ChangeCamera(CinemachineVirtualCamera cam)
     {
-
+        CinematicManager.instance.CameraChange(cam);
     }
 }
