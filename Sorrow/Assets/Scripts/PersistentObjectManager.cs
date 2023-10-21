@@ -15,13 +15,21 @@ public class PersistentObjectManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
     [HideInInspector] public List<PersistentObject> persistentObjects = new List<PersistentObject>();
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         foreach (PersistentObject persistentObject in persistentObjects)
-            if (scene.name == persistentObject.destroySceneName)
+            if (scene.name == persistentObject.destroySceneName && persistentObject.destroyOnLoad)
+                Destroy(persistentObject.gameObject);
+    }
+
+    void OnSceneUnloaded(Scene scene)
+    {
+        foreach (PersistentObject persistentObject in persistentObjects)
+            if (scene.name == persistentObject.destroySceneName && !persistentObject.destroyOnLoad)
                 Destroy(persistentObject.gameObject);
     }
 }

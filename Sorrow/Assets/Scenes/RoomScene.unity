@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySceneName: ReceptionScene
+  destroyOnLoad: 1
 --- !u!1 &679443759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,6 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroySceneName: ReceptionScene
+  destroyOnLoad: 1
 --- !u!1 &893942300
 GameObject:
   m_ObjectHideFlags: 0
