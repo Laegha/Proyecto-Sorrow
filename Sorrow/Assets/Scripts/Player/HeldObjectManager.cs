@@ -20,11 +20,16 @@ public class HeldObjectManager : MonoBehaviour
 
     void OnEnable()
     {
+        StartCoroutine(SubscribeEvents());
+    }
+    IEnumerator SubscribeEvents()
+    {
+        yield return new WaitForEndOfFrame();
+
         InputManager.controller.Camera.Click.performed += UseObject;
         InputManager.controller.Camera.Drop.performed += DropObject;
         InputManager.controller.Camera.Click.performed += CheckInteraction;
     }
-
     void OnDisable()
     {
         InputManager.controller.Camera.Click.performed -= UseObject;
