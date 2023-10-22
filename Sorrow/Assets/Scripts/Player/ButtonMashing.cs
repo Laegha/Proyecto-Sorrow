@@ -50,7 +50,6 @@ public class ButtonMashing : MonoBehaviour
             buttonMashingVCam.m_Lens.FieldOfView -= Time.deltaTime / timeToLoose1MashProgress * fovIntencity;
         if (buttonMashingVCam.m_Lens.FieldOfView < minFov)
             buttonMashingVCam.m_Lens.FieldOfView = minFov;
-        print(mashCount);
     }
 
     void End()
