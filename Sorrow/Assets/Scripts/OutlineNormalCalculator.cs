@@ -8,7 +8,6 @@ using UnityEngine.Rendering;
 [ExecuteInEditMode]
 public class OutlineNormalCalculator : MonoBehaviour
 {
-    [SerializeField] private int submeshIndex = 1;
     // Store these outline normals in the specified UV/Texcoord channel
     // This corresponds to the TEXCOORD_ semantics in HLSL
     [SerializeField] private int storeInTexcoordChannel = 1;
