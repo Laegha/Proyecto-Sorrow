@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using System.Linq;
 using Cinemachine;
 
@@ -14,6 +15,8 @@ public class KeyPadInteractable : RithmInteractable
 
     [SerializeField] GameObject[] depressionPositions;
     [SerializeField] CinemachineVirtualCamera depressionCamera;
+
+    [SerializeField] PlayableDirector endTimeline;
     
     protected override void Awake()
     {
@@ -134,14 +137,13 @@ public class KeyPadInteractable : RithmInteractable
             yield return new WaitForEndOfFrame();
 
             if(!Camera.main.GetComponent<AudioSource>().isPlaying)
-            {
                 waitingForEnd = false;
-                CinematicManager.instance.ReturnPlayerCamera();
-                InputManager.instance.RemRegControl(true);
-                Cursor.lockState = CursorLockMode.Locked;
-            }
         }
-        print("El minijuego se ejecuta entero");
+
+        CinematicManager.instance.ReturnPlayerCamera();
+        InputManager.instance.RemRegControl(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        endTimeline.Play();
     }
 }
 

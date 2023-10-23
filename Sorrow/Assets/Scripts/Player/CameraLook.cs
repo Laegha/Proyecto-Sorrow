@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraLook : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CameraLook : MonoBehaviour
     float currXRotation;
     Rigidbody rb;
 
+    private void Awake() => CinematicManager.instance.playerCamera = GetComponent<CinemachineVirtualCamera>();
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

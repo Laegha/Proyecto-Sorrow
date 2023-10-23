@@ -8,7 +8,6 @@ public class CinematicManager : MonoBehaviour
     public static CinematicManager instance;
     [HideInInspector]public CinemachineBrain cinemachineBrain;
     CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
-    CinemachineVirtualCamera currCamera;
     [HideInInspector] public CinemachineVirtualCamera playerCamera;
     [HideInInspector] public GameObject player;
 
@@ -19,29 +18,24 @@ public class CinematicManager : MonoBehaviour
         instance = this;
         player = GameObject.FindWithTag("Player");
         cinemachineBrain = FindObjectOfType<CinemachineBrain>();
-        playerCamera = GameObject.Find("PlayerVirtualCamera").GetComponent<CinemachineVirtualCamera>();
     }
 
     public void CameraChange(CinemachineVirtualCamera newCamera)
     {
-        if (currCamera != null)
-            currCamera.Priority = 0;
+        if (CurrCamera != null)
+            CurrCamera.Priority = 0;
         else
             print("Current camera was null, now is " + newCamera.name);
 
         newCamera.Priority = 11;
-        SetNewCamera(newCamera);
     }
-
-    public void SetNewCamera(CinemachineVirtualCamera newCamera) => currCamera = newCamera;
 
     public void ReturnPlayerCamera()
     {
         print("Player cam returned");
-        currCamera.Priority = 0;
+        CurrCamera.Priority = 0;
         playerCamera.gameObject.SetActive(true);
         playerCamera.Priority= 11;
-        currCamera = playerCamera;
     }
 
     public void StartCameraShake(float shakeAmplitude)
