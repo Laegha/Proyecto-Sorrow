@@ -18,10 +18,7 @@ public class HeldObjectManager : MonoBehaviour
         _camera = Camera.main;
     }
 
-    void OnEnable()
-    {
-        StartCoroutine(SubscribeEvents());
-    }
+    void OnEnable() => StartCoroutine(SubscribeEvents());
     IEnumerator SubscribeEvents()
     {
         yield return new WaitForEndOfFrame();

@@ -10,7 +10,7 @@ public class DoorClose : MonoBehaviour
     [SerializeField] string sceneName;
     [SerializeField] int sceneLoadDelay;
 
-    [SerializeField] bool isAdditive;
+    [SerializeField] bool unloadScene;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -21,7 +21,7 @@ public class DoorClose : MonoBehaviour
     {
         yield return new WaitForSeconds(sceneLoadDelay);
 
-        switch(isAdditive)
+        switch(unloadScene)
         {
             case true:
                 SceneManager.UnloadSceneAsync(sceneName);
@@ -30,7 +30,5 @@ public class DoorClose : MonoBehaviour
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
                 break;
         }
-
-        
     }
 }

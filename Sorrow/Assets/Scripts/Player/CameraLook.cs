@@ -10,7 +10,14 @@ public class CameraLook : MonoBehaviour
     float currXRotation;
     Rigidbody rb;
 
-    private void Awake() => CinematicManager.instance.playerCamera = GetComponent<CinemachineVirtualCamera>();
+    private void Awake() => StartCoroutine(AssignCamera());
+
+    IEnumerator AssignCamera()
+    {
+        yield return new WaitForEndOfFrame();
+        CinematicManager.instance.playerCamera = GetComponent<CinemachineVirtualCamera>();
+
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

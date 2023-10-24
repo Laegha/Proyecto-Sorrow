@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
-    void OnEnable()
+    void OnEnable() => StartCoroutine(SubscribeEvents());
+    
+    IEnumerator SubscribeEvents()
     {
+        yield return new WaitForEndOfFrame();
+
         InputManager.controller.Movement.Enable();
         InputManager.controller.Movement.Walk.performed += Walk;
         InputManager.controller.Movement.Walk.canceled += StopWalk;

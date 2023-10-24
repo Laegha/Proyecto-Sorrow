@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 using System.Linq;
 using Cinemachine;
 
@@ -15,15 +14,12 @@ public class KeyPadInteractable : RithmInteractable
 
     [SerializeField] GameObject[] depressionPositions;
     [SerializeField] CinemachineVirtualCamera depressionCamera;
-
-    [SerializeField] PlayableDirector endTimeline;
     
     protected override void Awake()
     {
         base.Awake();
         enabled = true;
         buttons = GetComponentsInChildren<KeypadButton>().ToList();
-        print(buttons.Count);
         foreach (KeypadButton button in buttons)
         {
             button.keyPadInteractable = this;
@@ -143,7 +139,7 @@ public class KeyPadInteractable : RithmInteractable
         CinematicManager.instance.ReturnPlayerCamera();
         InputManager.instance.RemRegControl(true);
         Cursor.lockState = CursorLockMode.Locked;
-        endTimeline.Play();
+        GetComponent<ElevatorArrival>().StartArrival();
     }
 }
 
