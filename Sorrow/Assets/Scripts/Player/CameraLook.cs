@@ -16,8 +16,8 @@ public class CameraLook : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         CinematicManager.instance.playerCamera = GetComponent<CinemachineVirtualCamera>();
-
     }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,6 +32,7 @@ public class CameraLook : MonoBehaviour
     void OnDisable() => pointerAnimator.SetBool("Show", false);
     
     public void ChangeRotation(float newRotation) => currXRotation = newRotation;
+
     void Update()
     {
         var delta = InputManager.controller.Camera.Look.ReadValue<Vector2>();
@@ -44,8 +45,7 @@ public class CameraLook : MonoBehaviour
         if (mouseY is 0f)
             return;
 
-        currXRotation -= mouseY;
-        currXRotation = Mathf.Clamp(currXRotation, -90f, 90f);
+        currXRotation = Mathf.Clamp(currXRotation - mouseY, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(currXRotation, 0f, 0f);
     }
