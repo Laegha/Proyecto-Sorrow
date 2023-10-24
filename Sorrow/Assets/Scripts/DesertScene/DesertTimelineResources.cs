@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DessertTimelineResources : MonoBehaviour
+public class DesertTimelineResources : MonoBehaviour
 {
     [SerializeField] float movingSandMaxSpeed;
     [SerializeField] Renderer sandRenderer;
