@@ -10,7 +10,6 @@ public class PortraitInspector : Interactable
     [SerializeField] Transform lookingTransform;
     [SerializeField] float transitionSpeed = 1f;
     [SerializeField] Vector2 rotationCaps;
-    CinemachineVirtualCamera playerCamera;
     Transform originalTransform;
     bool isLooking = false;
     float transitionTime = 1f;
@@ -30,7 +29,7 @@ public class PortraitInspector : Interactable
         isLooking ^= true;
         transitionTime = 0f;
         currRot = lookingTransform.eulerAngles;
-        CinematicManager.instance.CameraChange(isLooking ? portraitCamera : playerCamera);
+        CinematicManager.instance.CameraChange(isLooking ? portraitCamera : CinematicManager.instance.playerCamera);
     }
 
     void Update()
