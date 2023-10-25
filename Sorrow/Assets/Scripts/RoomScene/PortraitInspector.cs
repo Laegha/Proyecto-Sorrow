@@ -18,7 +18,7 @@ public class PortraitInspector : Interactable
     protected override void Awake()
     {
         base.Awake();
-        originalTransform = typeof(Transform).GetMethod("MemberwiseClone").Invoke(transform, Array.Empty<object>()) as Transform;
+        originalTransform = typeof(object).GetMethod("MemberwiseClone", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(transform, Array.Empty<object>()) as Transform;
         minRot = maxRot = lookingTransform.eulerAngles;
         minRot -= rotationCaps;
         maxRot += rotationCaps;
