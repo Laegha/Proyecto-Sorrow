@@ -2935,7 +2935,7 @@ MonoBehaviour:
   portraitCamera: {fileID: 391108748}
   lookingTransform: {fileID: 2005880320}
   transitionSpeed: 1
-  rotationCaps: {x: 22.5, y: 30}
+  rotationCaps: {x: 15, y: 30}
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
