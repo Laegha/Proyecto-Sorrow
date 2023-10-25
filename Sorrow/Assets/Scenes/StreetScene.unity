@@ -66293,7 +66293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1104887166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88644,7 +88644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.1396145, w: 0.7769292}
+  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.13961448, w: 0.7769292}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -103159,8 +103159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartTimeline: {fileID: 0}
-  darknessImage: {fileID: 0}
-  darknessDelay: 0
+  darknessImage: {fileID: 1174564362}
+  darknessDelay: 2
 --- !u!65 &2021389206
 BoxCollider:
   m_ObjectHideFlags: 0

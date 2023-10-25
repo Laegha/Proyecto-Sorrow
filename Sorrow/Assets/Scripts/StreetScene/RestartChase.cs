@@ -29,12 +29,12 @@ public class RestartChase : MonoBehaviour
     {
         float timer = 1;
         Material darknessMaterial = darknessImage.material;
-        while (timer >= 0)
+        while (timer > 0)
         {
             yield return new WaitForEndOfFrame();
             timer -= Time.deltaTime * 1/darknessDelay;
             timer = Mathf.Clamp01(timer);
-            darknessMaterial.SetFloat("_Scale", timer);
+            darknessMaterial.SetFloat("_DarknessScale", timer);
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
