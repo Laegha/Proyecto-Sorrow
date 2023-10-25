@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e2a4aa572b936e54e8504eb59372863e, type: 2}
     - target: {fileID: 919132149155446097, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
       propertyPath: m_Name
-      value: Marble2
+      value: Marble
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
       propertyPath: m_TagString
