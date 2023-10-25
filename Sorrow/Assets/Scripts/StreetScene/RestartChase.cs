@@ -18,6 +18,10 @@ public class RestartChase : MonoBehaviour
 
         BreakingBlock.RefreshPlayer();
 
+        ChaseController chaseController = GetComponent<ChaseController>();
+        if (chaseController)
+            chaseController.isMoving = false;
+
         // Start timeline clip
         if (restartTimeline != null)
             restartTimeline.Play();
