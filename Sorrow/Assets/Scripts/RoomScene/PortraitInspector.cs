@@ -29,6 +29,8 @@ public class PortraitInspector : Interactable
         isLooking ^= true;
         transitionTime = 0f;
         currRot = lookingTransform.eulerAngles;
+        if (!isLooking)
+            CinematicManager.instance.playerCamera.transform.rotation = Quaternion.identity;
         CinematicManager.instance.CameraChange(isLooking ? portraitCamera : CinematicManager.instance.playerCamera);
     }
 
