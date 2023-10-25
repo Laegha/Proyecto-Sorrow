@@ -7,7 +7,7 @@ public class CameraLook : MonoBehaviour
 {
     [SerializeField] Animator pointerAnimator;
     Transform player;
-    float currXRotation;
+    float CurrXRot => transform.localRotation.eulerAngles.x > 180f ? transform.localRotation.eulerAngles.x - 360f : transform.localRotation.eulerAngles.x;
     Rigidbody rb;
 
     private void Awake() => StartCoroutine(AssignCamera());
@@ -23,15 +23,12 @@ public class CameraLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player = transform.root;
         rb = player.GetComponent<Rigidbody>();
-        currXRotation = transform.localRotation.eulerAngles.x;
-        if (currXRotation > 180f)
-            currXRotation -= 360f;
     }
 
     void OnEnable() => pointerAnimator.SetBool("Show", true);
     void OnDisable() => pointerAnimator.SetBool("Show", false);
     
-    public void ChangeRotation(float newRotation) => currXRotation = newRotation;
+    public void ChangeRotation(float newRotation) => transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
     void Update()
     {
@@ -45,8 +42,6 @@ public class CameraLook : MonoBehaviour
         if (mouseY is 0f)
             return;
 
-        currXRotation = Mathf.Clamp(currXRotation - mouseY, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(currXRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(Mathf.Clamp(CurrXRot - mouseY, -90f, 90f), 0f, 0f);
     }
 }
