@@ -65,6 +65,7 @@ public class KeyPadInteractable : RithmInteractable
 
         depressionCamera.transform.position = camera.position;
         depressionCamera.transform.rotation = Quaternion.Euler(new Vector3(camRotation, playerRotation, 0f));
+        InputManager.instance.RemRegControl(false);
         CinematicManager.instance.CameraChange(depressionCamera);
 
         yield return new WaitForEndOfFrame();
@@ -81,6 +82,7 @@ public class KeyPadInteractable : RithmInteractable
         camera.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
         camera.GetComponent<CameraLook>().ChangeRotation(camRotation);
         CinematicManager.instance.ReturnPlayerCamera();
+        InputManager.instance.RemRegControl(true);
 
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();

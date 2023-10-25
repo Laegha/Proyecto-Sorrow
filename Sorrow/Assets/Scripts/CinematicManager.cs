@@ -23,23 +23,17 @@ public class CinematicManager : MonoBehaviour
     public void CameraChange(CinemachineVirtualCamera newCamera)
     {
         if (CurrCamera != null)
-        {
             CurrCamera.enabled = false;
-            CurrCamera.Priority = 0;
-        }
-        else
-            print("Current camera was null, now is " + newCamera.name);
 
         newCamera.enabled = true;
-        newCamera.Priority = 11;
     }
 
     public void ReturnPlayerCamera()
     {
         print("Player cam returned");
-        CurrCamera.Priority = 0;
+        CurrCamera.enabled = false;
         playerCamera.gameObject.SetActive(true);
-        playerCamera.Priority= 11;
+        playerCamera.enabled = true;
     }
 
     public void StartCameraShake(float shakeAmplitude)

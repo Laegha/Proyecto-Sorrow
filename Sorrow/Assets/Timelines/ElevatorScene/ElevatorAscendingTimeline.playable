@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_AvatarMask: {fileID: 0}
-  m_ApplyAvatarMask: 1
+  m_ApplyAvatarMask: 0
   m_TrackOffset: 0
   m_InfiniteClip: {fileID: 0}
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -135,7 +135,7 @@ MonoBehaviour:
     m_Start: 9.5
     m_ClipIn: 0
     m_Asset: {fileID: -2686290492634046952}
-    m_Duration: 5.083333333333
+    m_Duration: 1
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4729840537274075304}
     m_EaseInDuration: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
   m_ApplyFootIK: 1
-  m_Loop: 0
+  m_Loop: 2
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &-726960968870749300
