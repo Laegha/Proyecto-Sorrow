@@ -32,7 +32,9 @@ public class RestartChase : MonoBehaviour
     IEnumerator RestartScene()
     {
         float timer = 1;
-        Material darknessMaterial = darknessImage.material;
+        Material darknessMaterial = new Material(darknessImage.material.shader);
+        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessImage.material);
+        darknessImage.material = darknessMaterial;
         while (timer > 0)
         {
             yield return new WaitForEndOfFrame();
