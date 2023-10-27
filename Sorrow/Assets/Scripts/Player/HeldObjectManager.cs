@@ -53,6 +53,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject.transform.SetParent(heldObjectHolder);
 
         heldObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        heldObject._rigidbody.isKinematic = true;
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tama�o

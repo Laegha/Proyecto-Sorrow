@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class InfinitePickUpInteractable : Interactable
 {
-    [SerializeField] GameObject pickUpPrefab;
+    [SerializeField] GameObject pickUpHolder;
     HeldObjectManager heldObjectManager;
+    HeldObject[] pickups;
+    int lastPickedUp = 0;
 
     protected override void Awake()
     {
         base.Awake(); 
     
         heldObjectManager = FindObjectOfType<HeldObjectManager>();
+        pickups = pickUpHolder.GetComponentsInChildren<HeldObject>();
     }
 
     public override void Interaction()
     {
-        GameObject pickUp = Instantiate(pickUpPrefab, Vector3.zero, Quaternion.identity);
-        heldObjectManager.HoldObject(pickUp.GetComponent<HeldObject>());
+        heldObjectManager.HoldObject(pickups[lastPickedUp]);
+        lastPickedUp++;
+        if(lastPickedUp == pickups.Length)
+            lastPickedUp= 0;
     }
 }
