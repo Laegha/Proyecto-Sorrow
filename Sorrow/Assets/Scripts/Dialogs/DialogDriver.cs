@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
 using System.Linq;
+using UnityEngine.Events;
 
 public class DialogDriver : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class DialogDriver : MonoBehaviour
     [Header("Dialog")]
     [SerializeField] Dialog dialog;
     [SerializeField] Color playerColor;
+
+    [Header("Actions")]
+    [SerializeField] List<ActionInterrupt> actionInterrupts;
+    [SerializeField] UnityEvent endActions;
 
     const float comaTime = .25f;
     const float semiColonTime = .5f;
@@ -115,6 +120,8 @@ public class DialogDriver : MonoBehaviour
     {
         if (currentLine < dialog.Count)
         {
+            ActionInterrupt? actions = actionInterrupts.Find(x => x.at == currentLine);
+            actions?.actions.Invoke();
             if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText))
             {
                 director.Play(timeline);
@@ -147,6 +154,7 @@ public class DialogDriver : MonoBehaviour
                 director.Play(dialog.postTimeline);
                 yield return new WaitForSeconds((float)dialog.postTimeline.duration);
             }
+            endActions.Invoke();
             enabled = false;
         }
     }
