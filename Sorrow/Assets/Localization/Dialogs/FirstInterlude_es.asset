@@ -67,6 +67,14 @@ MonoBehaviour:
     m_Localized: "Su departamento no queda muy lejos de aqu\xED, vamos."
     m_Metadata:
       m_Items: []
+  - m_Id: 8960515531423744
+    m_Localized: Bueno, dime.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8960667205844992
+    m_Localized: "\xBFComo vas con la m\xFAsica? \xBFSigues tocando la guitarra?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
