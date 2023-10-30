@@ -14,7 +14,10 @@ public class CinematicManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
+        {
+            playerCamera = instance.playerCamera;
             Destroy(instance);
+        }
         instance = this;
         player = GameObject.FindWithTag("Player");
         cinemachineBrain = FindObjectOfType<CinemachineBrain>();
