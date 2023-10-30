@@ -13,6 +13,7 @@ public class ElevatorArrival : MonoBehaviour
     {
         GameObject.FindWithTag("Player").transform.SetParent(elevator);
         elevator.position = newElevatorPosition;
+        elevator.rotation = Quaternion.Euler(0, 180, 0);
         GameObject.FindWithTag("Player").transform.SetParent(null);
 
         endTimeline.Play();
