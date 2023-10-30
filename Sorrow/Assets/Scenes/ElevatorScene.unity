@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414738, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1318,6 +1318,7 @@ MonoBehaviour:
   headphonesOffTexture: {fileID: 11700000, guid: 47ba5e04c6af41440ae6832b16787172, type: 3}
   headphonesOnMaterialName: KeypadMaterial
   useHeadphones: 0
+  customBlends: {fileID: 11400000, guid: a9b4798dc573f2d4c9f12953a9ac08b0, type: 2}
   buttons:
   - {fileID: 235624260}
   - {fileID: 930532207}
