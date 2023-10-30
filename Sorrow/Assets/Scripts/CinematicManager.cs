@@ -18,9 +18,10 @@ public class CinematicManager : MonoBehaviour
             playerCamera = instance.playerCamera;
             Destroy(instance);
         }
+        DontDestroyOnLoad(this);
         instance = this;
         player = GameObject.FindWithTag("Player");
-        cinemachineBrain = FindObjectOfType<CinemachineBrain>();
+        cinemachineBrain = GetComponent<CinemachineBrain>();
     }
 
     public void CameraChange(CinemachineVirtualCamera newCamera)

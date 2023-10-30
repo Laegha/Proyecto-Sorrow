@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b9f8df79aee341ad67167e26fe07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerAnimator: {fileID: 0}
 --- !u!81 &696285123
 AudioListener:
   m_ObjectHideFlags: 0
@@ -750,8 +751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1667e09efa6364f9a3f8c75f6a78e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  empanadas: 0
-  botoneraCamera: {fileID: 1633229023}
+  interactionMaterial: {fileID: 0}
+  interactableCamera: {fileID: 0}
+  headphonesOnTexture: {fileID: 0}
+  headphonesOffTexture: {fileID: 0}
+  headphonesOnMaterialName: 
+  useHeadphones: 0
 --- !u!65 &1297356351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -822,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b9f8df79aee341ad67167e26fe07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerAnimator: {fileID: 0}
 --- !u!114 &1345806787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,11 +1226,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 67.41759
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1249,7 +1255,7 @@ Transform:
   m_GameObject: {fileID: 1824598977}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19538784, y: 0.5, z: -3.66}
+  m_LocalPosition: {x: 0.19538784, y: 0.65, z: -3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
