@@ -68,6 +68,16 @@ MonoBehaviour:
     m_Localized: His place is not that far away from here, let's get going.
     m_Metadata:
       m_Items: []
+  - m_Id: 8960515531423744
+    m_Localized: So, tell me.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8960667205844992
+    m_Localized: 'How''s it going with your music?
+
+      Do you still play the guitar?'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
