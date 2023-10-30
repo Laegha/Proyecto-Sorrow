@@ -218,7 +218,7 @@ MonoBehaviour:
   doorAnimator: {fileID: 166032798}
   sceneName: ReceptionScene
   sceneLoadDelay: 1
-  unloadScene: 0
+  unloadScene: 1
 --- !u!114 &166032802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,6 +3680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineBrain: {fileID: 0}
+  playerCamera: {fileID: 0}
   player: {fileID: 0}
 --- !u!4 &1598849056
 Transform:
