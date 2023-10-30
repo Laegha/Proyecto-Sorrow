@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276965, g: 0.21589315, b: 0.29782748, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276952, g: 0.21589284, b: 0.29782704, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1355,7 +1355,7 @@ Transform:
   m_GameObject: {fileID: 485943868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -71.240005, y: 0, z: 4.739999}
+  m_LocalPosition: {x: 3.5, y: 1.65, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1370,9 +1370,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 485943868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5144a16509d213447bb8018f0a067f5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &487428489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3071,7 @@ PlayableDirector:
   - key: {fileID: 303927604042274937, guid: ba018fa56366ba847b55094e2f1994c4, type: 2}
     value: {fileID: 1660265836}
   - key: {fileID: -3638682474942595276, guid: ba018fa56366ba847b55094e2f1994c4, type: 2}
-    value: {fileID: 1660265838}
+    value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 807534497}
   m_ExposedReferences:
@@ -4728,6 +4750,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1245991158952017048, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
     - {fileID: 1445879719114208020, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+    - {fileID: 1459624746662582198, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4769,17 +4792,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1660265838 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1459624746662582198, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 1660265832}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1660265853 stripped
