@@ -19,7 +19,6 @@ public class BGMovingObject : MonoBehaviour
         var delta = new Vector2(endPoint.position.x, endPoint.position.z) - new Vector2(startPoint.position.x, startPoint.position.z);
         direction = delta.normalized;
         distance = delta.magnitude;
-
     }
 
     void Update()
