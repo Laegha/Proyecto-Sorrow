@@ -78,6 +78,19 @@ MonoBehaviour:
       Do you still play the guitar?'
     m_Metadata:
       m_Items: []
+  - m_Id: 9117730122633216
+    m_Localized: I haven't been playing that much lately, but now that you say it,
+      i'd like to get back to it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9120658992533504
+    m_Localized: It's just that music is...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9121906516955136
+    m_Localized: It's just magic.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -75,6 +75,19 @@ MonoBehaviour:
     m_Localized: "\xBFComo vas con la m\xFAsica? \xBFSeguis tocando la guitarra?"
     m_Metadata:
       m_Items: []
+  - m_Id: 9117730122633216
+    m_Localized: "\xDAltimamente la tengo medio dejada, pero no estar\xEDa mal volver
+      a tocarla m\xE1s seguido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9120658992533504
+    m_Localized: "Es que la m\xFAsica..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9121906516955136
+    m_Localized: "Es que la m\xFAsica es m\xE1gica."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
