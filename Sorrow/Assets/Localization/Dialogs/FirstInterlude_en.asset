@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4255823826944
-    m_Localized: There's a monster bothering me no matter where I go.
+    m_Localized: There's an entity bothering me no matter where I go.
     m_Metadata:
       m_Items: []
   - m_Id: 4602969591808
@@ -52,7 +52,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4840232980480
-    m_Localized: But I'm fed up, I just want to get rid of him.
+    m_Localized: But I'm fed up, I just want to get rid of it.
     m_Metadata:
       m_Items: []
   - m_Id: 5376214700032
@@ -89,6 +89,73 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9121906516955136
     m_Localized: It's just magic.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9400846041092096
+    m_Localized: I'm not able to describe the feeling with words, but it just makes
+      me feel so good.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9408088345808896
+    m_Localized: Wow! I'm glad it brings you that much joy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9411292026507264
+    m_Localized: It's always good to have a shelter of comfort, everyone should have
+      one.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412382558130176
+    m_Localized: I guess that's true.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412680848642048
+    m_Localized: While we're on the subject, here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9413145292312576
+    m_Localized: If the entity bothers you again, use them; they'll help you concentrate.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414088251543552
+    m_Localized: Thanks, I'll have it in mind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414280950452224
+    m_Localized: Well, we're here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414550518370304
+    m_Localized: You know what floor to go to, right?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415006527295488
+    m_Localized: Yes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415084981751808
+    m_Localized: Ok.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415188031606784
+    m_Localized: Before you go, remember that I'm here for you whenever you need
+      me.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415676609302528
+    m_Localized: You're not alone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415883359129600
+    m_Localized: Thanks, really.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9416032063983616
+    m_Localized: No need to thank, now go, see you later!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9416427716874240
+    m_Localized: Bye.
     m_Metadata:
       m_Items: []
   references:
