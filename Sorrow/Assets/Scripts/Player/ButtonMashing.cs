@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class ButtonMashing : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ButtonMashing : MonoBehaviour
     public float mashMin;
     [SerializeField] float timeToLoose1MashProgress;
     [SerializeField] float fovIntencity;
+    [SerializeField] PlayableDirector director;
+    [SerializeField] PlayableAsset timeline;
     public CinemachineVirtualCamera buttonMashingVCam;
     [SerializeField] UnityEvent endActions;
     float minFov;
@@ -23,6 +26,7 @@ public class ButtonMashing : MonoBehaviour
         minFov = buttonMashingVCam.m_Lens.FieldOfView;
         InputManager.controller.ButtonMashing.Enable();
         InputManager.controller.ButtonMashing.Button.performed += Mash;
+        director.playableAsset = timeline;
     }
 
     void OnDisable()
@@ -35,6 +39,7 @@ public class ButtonMashing : MonoBehaviour
     {
         mashCount -= 1f;
         buttonMashingVCam.m_Lens.FieldOfView += fovIntencity;
+        director.Play();
 
         if (mashCount <= 0f)
             End();
