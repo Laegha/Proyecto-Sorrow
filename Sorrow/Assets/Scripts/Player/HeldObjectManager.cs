@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class HeldObjectManager : MonoBehaviour
 {
-    Camera _camera;
     public float interactionDistance;
     Transform heldObjectHolder;
     [HideInInspector] public HeldObject heldObject;
@@ -15,7 +14,6 @@ public class HeldObjectManager : MonoBehaviour
     void Start()
     {
         heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
-        _camera = Camera.main;
     }
 
     void OnEnable() => StartCoroutine(SubscribeEvents());
@@ -36,7 +34,7 @@ public class HeldObjectManager : MonoBehaviour
 
     void CheckInteraction(InputAction.CallbackContext context)
     {
-        Physics.Raycast(_camera.ScreenToWorldPoint(Input.mousePosition), _camera.transform.forward, out RaycastHit hitObj, interactionDistance);
+        Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, out RaycastHit hitObj, interactionDistance);
         if (hitObj.transform == null)
             return;
         foreach(Interactable interactable in hitObj.transform.GetComponents<Interactable>().Where(x => x.enabled))

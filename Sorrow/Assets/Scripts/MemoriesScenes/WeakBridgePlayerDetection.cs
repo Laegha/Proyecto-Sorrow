@@ -32,9 +32,10 @@ public class WeakBridgePlayerDetection : MonoBehaviour
         lookAtMonsterCamera.transform.position = CinematicManager.instance.playerCamera.transform.position;
         lookAtMonsterCamera.transform.SetParent(CinematicManager.instance.player.transform);
 
-        //playerCameraSustitute.transform.position = CinematicManager.instance.playerCamera.transform.position;
-        //playerCameraSustitute.transform.rotation = CinematicManager.instance.playerCamera.transform.rotation;
-        //CinematicManager.instance.CameraChange(playerCameraSustitute);
+        print(CinematicManager.instance.playerCamera);
+        playerCameraSustitute.transform.position = CinematicManager.instance.playerCamera.transform.position;
+        playerCameraSustitute.transform.rotation = CinematicManager.instance.playerCamera.transform.rotation;
+        CinematicManager.instance.CameraChange(playerCameraSustitute);
 
         fallTimeline.Play();
     }
