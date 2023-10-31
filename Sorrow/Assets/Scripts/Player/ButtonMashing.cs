@@ -39,6 +39,7 @@ public class ButtonMashing : MonoBehaviour
     {
         mashCount -= 1f;
         buttonMashingVCam.m_Lens.FieldOfView += fovIntencity;
+        director.Stop();
         director.Play();
 
         if (mashCount <= 0f)
