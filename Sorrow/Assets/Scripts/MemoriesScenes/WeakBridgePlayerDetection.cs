@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 
 public class WeakBridgePlayerDetection : MonoBehaviour
 {
-    [SerializeField] Image darknessImage;
+    [SerializeField] Renderer darknessSphere;
     [SerializeField] float darknessDelay;
     [SerializeField] CinemachineVirtualCamera lookAtMonsterCamera;
     [SerializeField] CinemachineVirtualCamera playerCameraSustitute;
@@ -43,9 +43,9 @@ public class WeakBridgePlayerDetection : MonoBehaviour
     IEnumerator FallToDarkness()
     {
         float timer = 1;
-        Material darknessMaterial = new Material(darknessImage.material.shader);
-        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessImage.material);
-        darknessImage.material = darknessMaterial;
+        Material darknessMaterial = new Material(darknessSphere.material.shader);
+        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessSphere.material);
+        darknessSphere.material = darknessMaterial;
         while (timer > 0)
         {
             yield return new WaitForEndOfFrame();
