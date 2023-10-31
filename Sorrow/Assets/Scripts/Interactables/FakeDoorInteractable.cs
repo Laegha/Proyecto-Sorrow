@@ -28,8 +28,8 @@ public class FakeDoorInteractable : Interactable
     public override void Interaction()
     {
         base.Interaction();
-        
-        pickUpInteractable.enabled = true;
+
+        enabled = false;
 
         StartCoroutine(StartChaseCinematic());
     }
