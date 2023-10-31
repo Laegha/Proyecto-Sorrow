@@ -2132,6 +2132,7 @@ GameObject:
   - component: {fileID: 679443760}
   - component: {fileID: 679443761}
   - component: {fileID: 679443762}
+  - component: {fileID: 679443763}
   m_Layer: 0
   m_Name: Depresion Placeholder
   m_TagString: Untagged
@@ -2169,6 +2170,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededActions: 0
+  completedActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 679443763}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &679443762
 Animator:
   serializedVersion: 5
@@ -2190,6 +2206,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &679443763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679443759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b533103bd159e11439e13bef33eee061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadOnStart: 0
+  isAdditive: 1
+  sceneToLoad: DesertScene
 --- !u!1 &710752399
 GameObject:
   m_ObjectHideFlags: 0
