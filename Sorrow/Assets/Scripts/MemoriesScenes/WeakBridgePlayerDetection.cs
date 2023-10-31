@@ -10,23 +10,33 @@ public class WeakBridgePlayerDetection : MonoBehaviour
     [SerializeField] Image darknessImage;
     [SerializeField] float darknessDelay;
     [SerializeField] CinemachineVirtualCamera lookAtMonsterCamera;
-    [SerializeField] PlayableDirector lookAtMonsterTimeline;//remove controls activate monster and blend between cameras
+    [SerializeField] CinemachineVirtualCamera playerCameraSustitute;
+    //[SerializeField] CinemachineBlenderSettings customBlends;
+    [SerializeField] PlayableDirector fallTimeline;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(transform.root.gameObject);//PLACEHOLDER debería haber una animacion del puente rompiendose
+            GameObject bridge = transform.root.gameObject;
+            transform.SetParent(null);
+            Destroy(bridge);//PLACEHOLDER debería haber una animacion del puente rompiendose
             LookAtMonster();
             StartCoroutine(FallToDarkness());
         }
     }
-
+    
     void LookAtMonster()
     {
+        //InputManager.instance.RemRegControl(false);
         lookAtMonsterCamera.transform.position = CinematicManager.instance.playerCamera.transform.position;
         lookAtMonsterCamera.transform.SetParent(CinematicManager.instance.player.transform);
-        lookAtMonsterTimeline.Play();
+
+        //playerCameraSustitute.transform.position = CinematicManager.instance.playerCamera.transform.position;
+        //playerCameraSustitute.transform.rotation = CinematicManager.instance.playerCamera.transform.rotation;
+        //CinematicManager.instance.CameraChange(playerCameraSustitute);
+
+        fallTimeline.Play();
     }
 
     IEnumerator FallToDarkness()
