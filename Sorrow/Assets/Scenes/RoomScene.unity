@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 485943869}
   - component: {fileID: 485943872}
   m_Layer: 0
-  m_Name: CinematicManager
+  m_Name: '[CinematicManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5138,7 +5138,7 @@ GameObject:
   - component: {fileID: 1977552522}
   - component: {fileID: 1977552521}
   m_Layer: 0
-  m_Name: '[GAMEMANGER]'
+  m_Name: '[PersistentObjectManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
