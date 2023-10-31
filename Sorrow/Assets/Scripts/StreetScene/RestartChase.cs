@@ -32,6 +32,7 @@ public class RestartChase : MonoBehaviour
     IEnumerator RestartScene()
     {
         float timer = 1;
+        darknessSphere.transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         Material darknessMaterial = new Material(darknessSphere.material.shader);
         darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessSphere.material);
         darknessSphere.material = darknessMaterial;
