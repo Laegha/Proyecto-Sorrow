@@ -8,7 +8,7 @@ using UnityEngine.Playables;
 public class RestartChase : MonoBehaviour
 {
     [SerializeField] PlayableDirector restartTimeline;
-    [SerializeField] Image darknessImage;
+    [SerializeField] Renderer darknessSphere;
     [SerializeField] float darknessDelay;
 
     void OnTriggerEnter(Collider col)
@@ -32,9 +32,9 @@ public class RestartChase : MonoBehaviour
     IEnumerator RestartScene()
     {
         float timer = 1;
-        Material darknessMaterial = new Material(darknessImage.material.shader);
-        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessImage.material);
-        darknessImage.material = darknessMaterial;
+        Material darknessMaterial = new Material(darknessSphere.material.shader);
+        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessSphere.material);
+        darknessSphere.material = darknessMaterial;
         while (timer > 0)
         {
             yield return new WaitForEndOfFrame();
