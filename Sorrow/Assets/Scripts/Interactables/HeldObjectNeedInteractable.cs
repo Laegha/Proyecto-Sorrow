@@ -7,6 +7,8 @@ public class HeldObjectNeedInteractable : Interactable
     HeldObjectManager heldObjectManager;
 
     [SerializeField] string neededObjectName;
+
+    public bool neededObjectHeld;
     protected override void Awake()
     {
         base.Awake();
@@ -16,10 +18,12 @@ public class HeldObjectNeedInteractable : Interactable
 
     public override void Interaction()
     {
-        base.Interaction();
+        if (heldObjectManager.heldObject == null)
+            return;
 
-        if (heldObjectManager.heldObject != null)
-            if (heldObjectManager.heldObject.objectName == neededObjectName)
-                print("Se interactúa efectivamente con " + transform.name);
+        if (heldObjectManager.heldObject.objectName != neededObjectName)
+            return;
+
+        neededObjectHeld = true;
     }
 }
