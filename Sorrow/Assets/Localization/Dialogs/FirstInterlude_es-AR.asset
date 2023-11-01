@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4255823826944
-    m_Localized: Un monstruo no para de molestarme.
+    m_Localized: Un ente no para de molestarme.
     m_Metadata:
       m_Items: []
   - m_Id: 4602969591808
@@ -86,6 +86,72 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9121906516955136
     m_Localized: "Es que la m\xFAsica es m\xE1gica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9400846041092096
+    m_Localized: No lo puedo describir con palabras, pero me hace sentir realmente
+      bien.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9408088345808896
+    m_Localized: "\xA1Hm! Que suerte que tengas algo que te de tanta satisfacci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9411292026507264
+    m_Localized: "Siempre es bueno tener un refugio donde sentirse bien, todos deber\xEDan
+      tener uno."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412382558130176
+    m_Localized: Supongo que si.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412680848642048
+    m_Localized: "Ya que estabamos en el tema, tom\xE1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9413145292312576
+    m_Localized: Si el ente te vuelve a molestar, usalos; te van a ayudar a concentrarte.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414088251543552
+    m_Localized: Gracias, lo tengo en cuenta.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414280950452224
+    m_Localized: Bueno, llegamos.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9414550518370304
+    m_Localized: "Sab\xE9s que piso es, \xBFno?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415006527295488
+    m_Localized: Si.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415084981751808
+    m_Localized: Ok.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415188031606784
+    m_Localized: Antes de que te vayas, sabe que estoy para vos cuando me necesites.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415676609302528
+    m_Localized: "No est\xE1s solo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415883359129600
+    m_Localized: Gracias, realmente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9416032063983616
+    m_Localized: "No hay de que, ahora and\xE1, \xA1nos vemos!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9416427716874240
+    m_Localized: Chau.
     m_Metadata:
       m_Items: []
   references:

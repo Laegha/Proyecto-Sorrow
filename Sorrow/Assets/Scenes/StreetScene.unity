@@ -57636,7 +57636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774999247}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18655898, y: -0.55207413, z: 0.12834884, w: 0.8024566}
+  m_LocalRotation: {x: 0.18655899, y: -0.5520741, z: 0.12834887, w: 0.80245656}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58972,7 +58972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartTimeline: {fileID: 890080255}
-  darknessImage: {fileID: 1174564362}
+  darknessSphere: {fileID: 0}
   darknessDelay: 6
 --- !u!54 &890080253
 Rigidbody:
@@ -65093,16 +65093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &990399250 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2386831169941667885, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 990399246}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &990399251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8985884352256245997, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 990399246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &990399261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71288,9 +71278,9 @@ PlayableDirector:
   - key: {fileID: 5788588846784741136, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 990399249}
   - key: {fileID: -8743800354153469143, guid: 4fb7bef4201178349988524619321e40, type: 2}
-    value: {fileID: 990399251}
+    value: {fileID: 6455685934016209853}
   - key: {fileID: -7117335726298900583, guid: 4fb7bef4201178349988524619321e40, type: 2}
-    value: {fileID: 990399250}
+    value: {fileID: 6455685934016209854}
   - key: {fileID: 2952783438973571535, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
     value: {fileID: 1591668265}
   m_ExposedReferences:
@@ -71362,17 +71352,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2007368798}
   m_SourcePrefab: {fileID: 100100000, guid: ae912eed30b149f4b83c199bca654c83, type: 3}
---- !u!114 &1174564362 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8956947890027227439, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-  m_PrefabInstance: {fileID: 6744851148952644100}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1179379685
 GameObject:
   m_ObjectHideFlags: 0
@@ -88284,7 +88263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.1396145, w: 0.7769292}
+  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961448, w: 0.77692914}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -103031,7 +103010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartTimeline: {fileID: 0}
-  darknessImage: {fileID: 1174564362}
+  darknessSphere: {fileID: 0}
   darknessDelay: 2
 --- !u!65 &2021389206
 BoxCollider:
@@ -109130,6 +109109,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
+--- !u!1 &6455685934016209853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7025807960080390241, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
+  m_PrefabInstance: {fileID: 6455685934016209852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6455685934016209854 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7703837751930382748, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
+  m_PrefabInstance: {fileID: 6455685934016209852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6744851148952644100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109141,6 +109130,10 @@ PrefabInstance:
     - target: {fileID: 882204936977626685, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 882204936977626685, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3225933877783650339, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
