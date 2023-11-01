@@ -30,6 +30,7 @@ public class FakeDoorInteractable : Interactable
         base.Interaction();
 
         enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("PP");
 
         StartCoroutine(StartChaseCinematic());
     }
