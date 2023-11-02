@@ -9,10 +9,10 @@ public class RithmInteractable : Interactable
     //public int empanadas;//esto es un meme
     [SerializeField] CinemachineVirtualCamera interactableCamera;
     [SerializeField] Texture3D headphonesOnTexture;
-    [SerializeField] Texture3D headphonesOffTexture;
+    public Texture3D[] headphonesOffTextures;
     [SerializeField] string headphonesOnMaterialName;
 
-    Material headphonesOnMaterial;
+    [HideInInspector] public Material headphonesOnMaterial;
 
     [HideInInspector] public bool useHeadphones = false;
 
@@ -49,6 +49,6 @@ public class RithmInteractable : Interactable
     {
         enabled = canBeInteracted;
         print("El objeto " + name + " está " + enabled);
-        headphonesOnMaterial.SetTexture("_MainTex", canBeInteracted ? headphonesOnTexture : headphonesOffTexture);
+        headphonesOnMaterial.SetTexture("_MainTex", canBeInteracted ? headphonesOnTexture : headphonesOffTextures[0]);
     }
 }

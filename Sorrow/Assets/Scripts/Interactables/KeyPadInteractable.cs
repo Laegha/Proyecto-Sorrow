@@ -46,7 +46,14 @@ public class KeyPadInteractable : RithmInteractable
             return;
 
         }
-        StartCoroutine(DepressionMove());
+
+        depressionPositions[interactedTimes].SetActive(false);
+        interactedTimes++;
+        depressionPositions[interactedTimes].SetActive(true);
+        if(interactedTimes < headphonesOffTextures.Length)
+            headphonesOnMaterial.SetTexture("_MainTex", headphonesOffTextures[interactedTimes]);
+
+        StartCoroutine(LookAtDepression());
 
         if (interactedTimes == depressionPositions.Length - 1)
         {
@@ -56,13 +63,8 @@ public class KeyPadInteractable : RithmInteractable
         }
 
     }
-    IEnumerator DepressionMove()
+    IEnumerator LookAtDepression()
     {
-        //Freezear al jugador pero bien
-        depressionPositions[interactedTimes].SetActive(false);
-        interactedTimes++;
-        depressionPositions[interactedTimes].SetActive(true);
-
         Transform player = CinematicManager.instance.player.transform;
         var delta = new Vector2(depressionPositions[interactedTimes].transform.position.x, depressionPositions[interactedTimes].transform.position.z) - new Vector2(player.position.x, player.position.z);
         float playerRotation = Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg;
