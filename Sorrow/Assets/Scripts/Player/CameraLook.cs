@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CameraLook : MonoBehaviour
 {
-    [SerializeField] Animator pointerAnimator;
+    Animator pointerAnimator => GameObject.Find("Pointer").GetComponent<Animator>();
     Transform player;
     float CurrXRot => transform.localRotation.eulerAngles.x > 180f ? transform.localRotation.eulerAngles.x - 360f : transform.localRotation.eulerAngles.x;
     Rigidbody rb;
