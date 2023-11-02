@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589169, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -698,16 +698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &65064343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8985884352256245997, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 65064336}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &65064344 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2386831169941667885, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 65064336}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &65064346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,6 +714,8 @@ MonoBehaviour:
   mashMin: 20
   timeToLoose1MashProgress: 0.5
   fovIntencity: 3
+  director: {fileID: 0}
+  timeline: {fileID: 0}
   buttonMashingVCam: {fileID: 0}
   endActions:
     m_PersistentCalls:
@@ -2588,6 +2580,147 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &426882979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426882980}
+  - component: {fileID: 426882985}
+  - component: {fileID: 426882984}
+  - component: {fileID: 426882983}
+  - component: {fileID: 426882982}
+  - component: {fileID: 426882981}
+  m_Layer: 5
+  m_Name: Bright
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &426882980
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 569929248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 449.67}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &426882981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35973af71f8fee45885eeeeadb83f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingsToDo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 426882983}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BrightDisappear
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &426882982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b533103bd159e11439e13bef33eee061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadOnStart: 0
+  isAdditive: 0
+  sceneToLoad: BridgeScene
+--- !u!95 &426882983
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 318b88718d927cf428d1503fba5c27e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &426882984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &426882985
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426882979}
+  m_CullTransparentMesh: 1
 --- !u!1001 &459683239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3345,6 +3478,34 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 65064338}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: BrightDisappear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859677531919213920, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: thingsToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5081608754895910883, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3432,12 +3593,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4151564523744977942, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-    m_AddedGameObjects: []
+    - {fileID: 1989260507887582318, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5081608754895910883, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 426882980}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
 --- !u!95 &569929247 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3944675308883270907, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 569929246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &569929248 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5081608754895910883, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
   m_PrefabInstance: {fileID: 569929246}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &656229419
@@ -4025,6 +4195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionMaterial: {fileID: 0}
   loadedSceneName: BridgeScene
+  brightAnimator: {fileID: 0}
 --- !u!114 &711009407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4323,9 +4494,9 @@ PlayableDirector:
   - key: {fileID: 5788588846784741136, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 65064338}
   - key: {fileID: -8743800354153469143, guid: 4fb7bef4201178349988524619321e40, type: 2}
-    value: {fileID: 65064343}
+    value: {fileID: 0}
   - key: {fileID: -7117335726298900583, guid: 4fb7bef4201178349988524619321e40, type: 2}
-    value: {fileID: 65064344}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 6f4adc43f927c794c84c4289c5e4dc04: {fileID: 1155906415}
@@ -13021,6 +13192,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 569929246}
   - {fileID: 536848872}
   - {fileID: 682838100}
   - {fileID: 993444219}
@@ -13029,7 +13201,6 @@ SceneRoots:
   - {fileID: 315635927}
   - {fileID: 744124102}
   - {fileID: 1267296823}
-  - {fileID: 569929246}
   - {fileID: 65064336}
   - {fileID: 1195786715}
   - {fileID: 1620599960}
