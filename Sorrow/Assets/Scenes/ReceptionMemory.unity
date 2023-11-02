@@ -834,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadOnStart: 0
   isAdditive: 0
-  sceneToLoad: BridgeScene
+  sceneToLoad: LockedDoorScene
 --- !u!95 &763941559
 Animator:
   serializedVersion: 5

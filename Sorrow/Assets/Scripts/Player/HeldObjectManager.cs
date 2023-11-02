@@ -54,7 +54,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject._rigidbody.isKinematic = true;
         heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         
-        float objectLength = heldObject.meshRenderer.bounds.extents.z; //falta que se ajuste al tama�o
+        float objectLength = heldObject.meshRenderer.bounds.extents.z; 
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
         heldObjectCollider = heldObject.GetComponent<Collider>();
         heldObjectCollider.enabled = false;
