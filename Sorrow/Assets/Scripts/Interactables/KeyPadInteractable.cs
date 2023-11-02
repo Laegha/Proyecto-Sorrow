@@ -6,8 +6,6 @@ using Cinemachine;
 
 public class KeyPadInteractable : RithmInteractable
 {
-    [SerializeField] CinemachineBlenderSettings customBlends;
-    CinemachineBlenderSettings previousBlends;
 
     [HideInInspector] public List<KeypadButton> buttons = new List<KeypadButton>();
 
@@ -23,9 +21,6 @@ public class KeyPadInteractable : RithmInteractable
         base.Awake();
         enabled = true;
         buttons = GetComponentsInChildren<KeypadButton>().ToList();
-
-        previousBlends = CinematicManager.instance.cinemachineBrain.m_CustomBlends;
-        CinematicManager.instance.cinemachineBrain.m_CustomBlends = customBlends;
         
         foreach (KeypadButton button in buttons)
         {
@@ -59,7 +54,6 @@ public class KeyPadInteractable : RithmInteractable
         {
             enabled = false;
             useHeadphones = true;
-            CinematicManager.instance.cinemachineBrain.m_CustomBlends = previousBlends;
         }
 
     }

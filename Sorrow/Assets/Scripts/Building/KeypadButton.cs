@@ -31,7 +31,7 @@ public class KeypadButton : MonoBehaviour
     [SerializeField] float ringDissapearTime;
 
     [SerializeField] int materialIndex;
-    ParticleSystem particleSystem => GetComponent<ParticleSystem>();
+    //ParticleSystem particleSystem => GetComponent<ParticleSystem>();
     private void OnMouseDown()
     {
         if (!waitingForBeat)
