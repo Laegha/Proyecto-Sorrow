@@ -65316,6 +65316,18 @@ MonoBehaviour:
           m_StringArgument: Fall
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 890080251}
+        m_TargetAssemblyTypeName: ChaseController, Assembly-CSharp
+        m_MethodName: StartChase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fall
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &990399263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7238555324295211407, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -71525,14 +71537,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179379685}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -130.1, y: 2, z: -130.98001}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -130.1, y: 2, z: -135.14}
   m_LocalScale: {x: 8, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138947644}
   m_Father: {fileID: 1678847457}
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1179379687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77168,14 +77180,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263069259}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -126.46999, y: -0.5, z: -135.1}
   m_LocalScale: {x: 5, y: 1, z: 5.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1132355340}
   m_Father: {fileID: 1678847457}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1263069261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88490,7 +88502,7 @@ Transform:
   m_GameObject: {fileID: 1453723293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.5, y: -0.5, z: -26.5}
+  m_LocalPosition: {x: -28.5, y: -0.5, z: -24.52}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89975,7 +89987,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionMaterial: {fileID: 0}
-  debugWall: {fileID: 626184862}
   chaseController: {fileID: 890080251}
   timeline: {fileID: 1148684598}
 --- !u!54 &1591668251
@@ -90065,7 +90076,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591668249}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8a97d5b73df419449917c02064d7e90, type: 3}
   m_Name: 
@@ -109341,7 +109352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 882204936977626685, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3225933877783650339, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_SceneBindings.Array.data[1].value
