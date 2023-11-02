@@ -60,6 +60,7 @@ public class ButtonMashing : MonoBehaviour
 
     void End()
     {
+        director.Stop();
         endActions.Invoke();
         enabled = false;
     }

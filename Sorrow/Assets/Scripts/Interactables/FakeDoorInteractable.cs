@@ -5,10 +5,7 @@ using UnityEngine.Playables;
 
 public class FakeDoorInteractable : Interactable
 {
-    [SerializeField] GameObject debugWall;
     [SerializeField] ChaseController chaseController;
-    Megaphone megaphoneComponent;
-    HeldObject heldObject;
     PickUpInteractable pickUpInteractable;
     ButtonMashing buttonMashing;
 
@@ -18,8 +15,6 @@ public class FakeDoorInteractable : Interactable
     {
         base.Awake();
 
-        megaphoneComponent = GetComponent<Megaphone>();
-        heldObject = GetComponent<HeldObject>();
         pickUpInteractable = GetComponent<PickUpInteractable>();
         pickUpInteractable.enabled = false;
         buttonMashing = GameObject.FindGameObjectWithTag("Player").GetComponent<ButtonMashing>();
@@ -30,7 +25,7 @@ public class FakeDoorInteractable : Interactable
         base.Interaction();
 
         enabled = false;
-        gameObject.layer = LayerMask.NameToLayer("PP");
+        //gameObject.layer = LayerMask.NameToLayer("PP");
 
         StartCoroutine(StartChaseCinematic());
     }

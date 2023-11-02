@@ -51,13 +51,14 @@ public class HeldObjectManager : MonoBehaviour
         heldObject.transform.SetParent(heldObjectHolder);
 
         heldObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        heldObject._rigidbody.isKinematic = true;
-        heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; 
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
         heldObjectCollider = heldObject.GetComponent<Collider>();
         heldObjectCollider.enabled = false;
+
+        heldObject._rigidbody.isKinematic = true;
+        heldObject._rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
     }
 
     public void UseObject(InputAction.CallbackContext _)
