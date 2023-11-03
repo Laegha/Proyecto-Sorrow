@@ -20,7 +20,7 @@ public class DoorClose : MonoBehaviour
     public IEnumerator LoadNextScene()
     {
         yield return new WaitForSeconds(sceneLoadDelay);
-
+        print("Unloaded " + sceneName + ". GameObject: " + gameObject.name );
         switch(unloadScene)
         {
             case true:
