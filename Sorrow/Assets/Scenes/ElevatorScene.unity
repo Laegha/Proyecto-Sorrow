@@ -1322,6 +1322,7 @@ MonoBehaviour:
   headphonesOffTextures:
   - {fileID: 11700000, guid: 47ba5e04c6af41440ae6832b16787172, type: 3}
   - {fileID: 11700000, guid: ec44da47f68d9a54cb1fe1526b2e474a, type: 3}
+  - {fileID: 11700000, guid: 47ba5e04c6af41440ae6832b16787172, type: 3}
   headphonesOnMaterialName: KeypadMaterial
   headphonesOnMaterial: {fileID: 0}
   useHeadphones: 0
@@ -1466,6 +1467,10 @@ PrefabInstance:
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.x
