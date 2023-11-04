@@ -27,6 +27,8 @@ public class ButtonMashing : MonoBehaviour
         InputManager.controller.ButtonMashing.Enable();
         InputManager.controller.ButtonMashing.Button.performed += Mash;
         director.playableAsset = timeline;
+        director.time = director.duration;
+        director.Evaluate();
     }
 
     void OnDisable()

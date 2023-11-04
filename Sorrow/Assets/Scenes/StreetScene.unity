@@ -42060,7 +42060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550956485}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.048849903, y: 0.7054174, z: 0.048849903, w: 0.7054174}
+  m_LocalRotation: {x: -0.0488499, y: 0.7054174, z: 0.0488499, w: 0.7054174}
   m_LocalPosition: {x: -4, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58306,7 +58306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774999247}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20679258, y: -0.5761974, z: 0.15361711, w: 0.7756515}
+  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.1396145, w: 0.7769292}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65859,6 +65859,18 @@ MonoBehaviour:
           m_StringArgument: Fall
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 599102627}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Fall
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &990399263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7238555324295211407, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -71949,7 +71961,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 4fb7bef4201178349988524619321e40, type: 2}
   m_InitialState: 0
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -71973,10 +71985,6 @@ PlayableDirector:
     value: {fileID: 270950323}
   - key: {fileID: -3027685235365641594, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
     value: {fileID: 599102628}
-  - key: {fileID: 123529684596350162, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
-    value: {fileID: 599102627}
-  - key: {fileID: -3845366498902389330, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
-    value: {fileID: 330482768}
   m_ExposedReferences:
     m_References:
     - 6f4adc43f927c794c84c4289c5e4dc04: {fileID: 1148684593}
@@ -89066,7 +89074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533447, y: -0.58526915, z: 0.13961448, w: 0.7769292}
+  m_LocalRotation: {x: 0.18533446, y: -0.58526915, z: 0.13961446, w: 0.77692926}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -90634,6 +90642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionMaterial: {fileID: 0}
   chaseController: {fileID: 890080251}
+  hands1: {fileID: 270950321}
+  hands2: {fileID: 599102627}
   timeline: {fileID: 1148684598}
 --- !u!54 &1591668251
 Rigidbody:

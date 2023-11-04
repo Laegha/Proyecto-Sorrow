@@ -6,6 +6,8 @@ using UnityEngine.Playables;
 public class FakeDoorInteractable : Interactable
 {
     [SerializeField] ChaseController chaseController;
+    [SerializeField] GameObject hands1;
+    [SerializeField] GameObject hands2;
     PickUpInteractable pickUpInteractable;
     ButtonMashing buttonMashing;
 
@@ -57,6 +59,8 @@ public class FakeDoorInteractable : Interactable
         //megaphoneComponent.enabled = true;
         //chaseController.isMoving = true;
         //enabled = false;
+        Destroy(hands1);
+        hands2.SetActive(true);
         buttonMashing.enabled = true;
         Destroy(this);
     }
