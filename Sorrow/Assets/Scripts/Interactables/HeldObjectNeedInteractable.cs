@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HeldObjectNeedInteractable : Interactable
 {
-    HeldObjectManager heldObjectManager;
+    [HideInInspector] public HeldObjectManager heldObjectManager;
 
     [SerializeField] string neededObjectName;
 
-    public bool neededObjectHeld;
+    [HideInInspector] public bool neededObjectHeld;
     protected override void Awake()
     {
         base.Awake();
