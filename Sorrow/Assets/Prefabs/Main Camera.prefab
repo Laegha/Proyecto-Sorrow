@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 519291587994423961}
   - component: {fileID: 3509983086368748229}
   - component: {fileID: 204990552940392731}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ Camera:
   m_GameObject: {fileID: 5299068130747650884}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -199,7 +199,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 67.41759
+  field of view: 71.821976
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
