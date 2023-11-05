@@ -5,6 +5,7 @@ using UnityEngine;
 public class MegaphonePicaporte : HeldObjectNeedInteractable
 {
     [SerializeField] GameObject megaphonePicaporte;
+    [SerializeField] Animator doorAnim;
     public override void Interaction()
     {
         base.Interaction();
@@ -12,5 +13,10 @@ public class MegaphonePicaporte : HeldObjectNeedInteractable
             return;
         heldObjectManager.heldObject.gameObject.SetActive(false);
         megaphonePicaporte.SetActive(true);
+        GetComponent<Animator>().Play("MegaphoneInteracted");
+        foreach(SoundBullet bullet in FindObjectsOfType<SoundBullet>())
+            Destroy(bullet.gameObject);
     }
+
+    public void OpenDoor() => doorAnim.Play("DoorOpen");
 }
