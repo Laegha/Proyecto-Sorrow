@@ -11,9 +11,12 @@ public class KeyNeededDoorInteractable : HeldObjectNeedInteractable
     {
         base.Interaction();
         if (neededObjectHeld)
+        {
+            Destroy(heldObjectManager.heldObject.gameObject);
             doorAnim.Play("DoorOpen");
+            Destroy(this);
+        }
         else
             doorAnim.Play("CantOpen");
-        Destroy(this);
     }
 }
