@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.575
+      value: -14.63
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd4c7c018575eb4492c9ec95ec0f644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: Guitar
   _rigidbody: {fileID: 0}
   meshRenderer: {fileID: 0}
   thisItem: {fileID: 0}
@@ -1137,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978938116331237002, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.575
+      value: -14.63
       objectReference: {fileID: 0}
     - target: {fileID: 4978938116331237002, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   heldObjectManager: {fileID: 0}
   neededObjectName: Guitar
   neededObjectHeld: 0
-  doorAnim: {fileID: 0}
+  doorAnim: {fileID: 1002348186}
 --- !u!114 &1002348188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,6 +1979,10 @@ PrefabInstance:
     - target: {fileID: 6834405811215474410, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823436526943643784, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+      propertyPath: sceneName
+      value: LastScene
       objectReference: {fileID: 0}
     - target: {fileID: 8823436526943643784, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: sceneLoadDelay
