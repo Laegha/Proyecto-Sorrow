@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FogFading : MonoBehaviour
+public class FogController : MonoBehaviour
 {
     [SerializeField] float fadeTime;
 
@@ -17,4 +17,5 @@ public class FogFading : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    
 }
