@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CameraLook : MonoBehaviour
 {
-    Animator pointerAnimator => GameObject.Find("Pointer").GetComponent<Animator>();
+    Animator PointerAnimator => GameObject.Find("Pointer").GetComponent<Animator>();
     Transform player;
     float CurrXRot => transform.localRotation.eulerAngles.x > 180f ? transform.localRotation.eulerAngles.x - 360f : transform.localRotation.eulerAngles.x;
     Rigidbody rb;
@@ -25,8 +25,8 @@ public class CameraLook : MonoBehaviour
         rb = player.GetComponent<Rigidbody>();
     }
 
-    void OnEnable() => pointerAnimator.SetBool("Show", true);
-    void OnDisable() => pointerAnimator.SetBool("Show", false);
+    void OnEnable() => PointerAnimator.SetBool("Show", true);
+    void OnDisable() => PointerAnimator.SetBool("Show", false);
     
     public void ChangeRotation(float newRotation) => transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
