@@ -12,7 +12,7 @@ public class ActionInteractable : Interactable
     {
         base.Awake();
 
-        FindObjectOfType<ActionCounter>().neededActions ++;
+        FindObjectOfType<ActionCounter>().neededActions++;
     }
 
     public override void Interaction()
