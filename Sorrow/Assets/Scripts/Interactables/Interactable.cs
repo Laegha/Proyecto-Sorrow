@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
         interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "Outline (Instance)");
+        if (!enabled) interactionMaterial.SetFloat("_CanBeInteracted", 0);
     }
 
     public virtual void Interaction() { }
