@@ -815,6 +815,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8823436526943643784, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+      propertyPath: sceneName
+      value: HallwayScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823436526943643784, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+      propertyPath: unloadScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823436526943643784, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+      propertyPath: sceneLoadDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8468155901676632187, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
     - {fileID: 533045444373959223, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
@@ -824,13 +836,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4370465265727891816, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1614853930}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6063586270049137732, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654278800}
   m_SourcePrefab: {fileID: 100100000, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
 --- !u!95 &654278798 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8406268118880575061, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
   m_PrefabInstance: {fileID: 654278797}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &654278799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6063586270049137732, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
+  m_PrefabInstance: {fileID: 654278797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &654278800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654278799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6ca8d7536edaf4a8c25d35adf6117e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySceneName: ProfessionalScene
+  destroyOnLoad: 0
 --- !u!1001 &836087354
 PrefabInstance:
   m_ObjectHideFlags: 0
