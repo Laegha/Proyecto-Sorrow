@@ -19,7 +19,7 @@ public class FanSwitch : HitableTarget
 
     public override void Activate()
     {
-        button.transform.Rotate(0f, -button.transform.rotation.eulerAngles.y, 0f);
+        button.transform.rotation = Quaternion.Euler(0f, -button.transform.rotation.eulerAngles.y, 0f);
         buttonMR.material.DisableKeyword("_EMISSION");
         StartCoroutine(PlayTimeline());
     }
