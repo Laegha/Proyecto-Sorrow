@@ -17,5 +17,6 @@ public class FogController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-    
+
+    public void FogTurner(bool isEnabled) => RenderSettings.fog = isEnabled;
 }
