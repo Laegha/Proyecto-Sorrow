@@ -19,9 +19,11 @@ public class InfinitePickUpInteractable : Interactable
 
     public override void Interaction()
     {
+        if (heldObjectManager.heldObject != null)
+            return;
         heldObjectManager.HoldObject(pickups[lastPickedUp]);
         lastPickedUp++;
         if(lastPickedUp == pickups.Length)
-            lastPickedUp= 0;
+            lastPickedUp = 0;
     }
 }
