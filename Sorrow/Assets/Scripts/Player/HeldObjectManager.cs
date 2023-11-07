@@ -71,8 +71,14 @@ public class HeldObjectManager : MonoBehaviour
         if (!heldObject.thisItem.isConsumable)
             return;
 
-        heldObject = null;
+        StartCoroutine(ClearHeldObject());
         heldObjectCollider.enabled = true;
+    }
+
+    IEnumerator ClearHeldObject()
+    {
+        yield return new WaitForEndOfFrame();
+        heldObject = null;
     }
 
     void DropObject(InputAction.CallbackContext _)
