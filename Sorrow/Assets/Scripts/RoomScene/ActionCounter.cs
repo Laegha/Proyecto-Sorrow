@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ActionCounter : MonoBehaviour
 {
     int doneActions = 0;
-    [HideInInspector] public int neededActions;
+    [SerializeField] int neededActions;
     [SerializeField] UnityEvent completedActions;
 
     public void ActionDone()
