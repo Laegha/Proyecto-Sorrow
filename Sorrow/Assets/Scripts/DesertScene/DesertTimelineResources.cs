@@ -6,7 +6,7 @@ public class DesertTimelineResources : MonoBehaviour
 {
     [SerializeField] float movingSandMaxSpeed;
     [SerializeField] Renderer sandRenderer;
-    Material sandMaterial => sandRenderer.material;
+    Material SandMaterial => sandRenderer.material;
     [SerializeField] Vector2 sandMoveDirection;
 
     [SerializeField] BGMovingObject[] bgObjects;
@@ -22,10 +22,10 @@ public class DesertTimelineResources : MonoBehaviour
             ChangeWalkMode(!sandMoving);
         }//PLACEHOLDER
 
-        currOffset += sandMoveDirection * speed * Time.deltaTime;
+        currOffset += speed * Time.deltaTime * sandMoveDirection;
         if (currOffset.magnitude > 1)
             currOffset = Vector2.zero;
-        sandMaterial.SetVector("_TextureOffset", currOffset);
+        SandMaterial.SetVector("_TextureOffset", currOffset);
     }
     public void ChangeWalkMode(bool isStarting)
     {
