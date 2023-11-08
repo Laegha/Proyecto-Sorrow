@@ -22,6 +22,11 @@ public class FakeDoorInteractable : Interactable
         buttonMashing = GameObject.FindGameObjectWithTag("Player").GetComponent<ButtonMashing>();
     }
 
+    void Start() {
+        enabled = false;
+        enabled = true;
+    }
+
     public override void Interaction()
     {
         base.Interaction();
