@@ -47575,13 +47575,14 @@ MonoBehaviour:
       m_Calls: []
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148684599}
-        m_TargetAssemblyTypeName: TimelineUtils, Assembly-CSharp
-        m_MethodName: SkipTo
-        m_Mode: 4
+      - m_Target: {fileID: 1148684598}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: set_playableAsset
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableAsset,
+            UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 13.5
           m_StringArgument: 
@@ -53834,6 +53835,16 @@ PlayableDirector:
     value: {fileID: 270950323}
   - key: {fileID: -3027685235365641594, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
     value: {fileID: 599102628}
+  - key: {fileID: 3468109351948440565, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+    value: {fileID: 330482768}
+  - key: {fileID: -8041995375017419756, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+    value: {fileID: 1148684597}
+  - key: {fileID: -8743800354153469143, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+    value: {fileID: 270950321}
+  - key: {fileID: -7117335726298900583, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+    value: {fileID: 270950322}
+  - key: {fileID: -7762306504581815019, guid: 469890a0f84feed42a64ef609893150b, type: 2}
+    value: {fileID: 990399249}
   m_ExposedReferences:
     m_References:
     - 6f4adc43f927c794c84c4289c5e4dc04: {fileID: 1148684593}
@@ -70971,7 +70982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961448, w: 0.77692914}
+  m_LocalRotation: {x: 0.1853345, y: -0.58526915, z: 0.1396145, w: 0.77692926}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
