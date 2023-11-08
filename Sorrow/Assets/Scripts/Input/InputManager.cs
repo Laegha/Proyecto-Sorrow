@@ -15,8 +15,12 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         if (instance != null && instance != this)
+        {
             Destroy(gameObject);
+            return;
+        }
 
+        print("Survived Awake");
         instance = this;
         controller = new Controller();
         cameraSensitivity = PlayerPrefs.GetFloat("CS", 100f) * .001f;
@@ -27,6 +31,9 @@ public class InputManager : MonoBehaviour
 
     void OnEnable()
     {
+        if (!gameObject || instance != this)
+            return;
+
         controller.Enable();
         controller.Movement.Enable();
         controller.Camera.Enable();
@@ -36,7 +43,11 @@ public class InputManager : MonoBehaviour
         controller.LockRythm.Disable();
     }
 
-    void OnDisable() => controller.Disable();
+    void OnDisable()
+    {
+        if (gameObject && instance == this)
+            controller.Disable();
+    }
 
     public void RemRegControl(bool enablement)
     {
