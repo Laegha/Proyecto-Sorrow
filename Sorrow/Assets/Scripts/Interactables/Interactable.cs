@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [HideInInspector] public Material interactionMaterial;
+    //[HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
+    Outline outline;
+    Color hoverColor = Color.white;
+    Color outsideColor = Color.black;
+
 
     protected virtual void Awake()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
-        interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "Outline (Instance)");
-        if (!enabled) interactionMaterial.SetFloat("_CanBeInteracted", 0);
+        //interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "Outline (Instance)");
+        //if (!enabled) interactionMaterial.SetFloat("_CanBeInteracted", 0);
+        outline = GetComponent<Outline>();
+        outline.OutlineColor = outsideColor;
     }
 
     public virtual void Interaction() { }
 
-    void OnEnable() => interactionMaterial.SetFloat("_CanBeInteracted", 1);
+    void OnEnable() => outline.enabled = true;
 
-    void OnDisable() => interactionMaterial.SetFloat("_CanBeInteracted", 0);
+    void OnDisable() => outline.enabled = false;
 
     void OnMouseEnter()
     {
@@ -26,8 +32,9 @@ public class Interactable : MonoBehaviour
             return;
 
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
-        if(distance < playerInteraction.interactionDistance)
-            interactionMaterial.SetColor("_Color", Color.white);
+        if (distance < playerInteraction.interactionDistance)
+            outline.OutlineColor = hoverColor;
+        //interactionMaterial.SetColor("_Color", Color.white);
     }
 
     void OnMouseExit()
@@ -35,7 +42,8 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        interactionMaterial.SetColor("_Color", Color.black);
+        //interactionMaterial.SetColor("_Color", Color.black);
+        outline.OutlineColor = outsideColor;
     }
 
     private void OnMouseOver()
@@ -43,9 +51,15 @@ public class Interactable : MonoBehaviour
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
 
         if (distance > playerInteraction.interactionDistance)
+            outline.OutlineColor = outsideColor;
+        else
+            outline.OutlineColor = hoverColor;
+
+        /*
+        if (distance > playerInteraction.interactionDistance)
             interactionMaterial.SetColor("_Color", Color.black);
         else
             interactionMaterial.SetColor("_Color", Color.white);
-
+        */
     }
 }
