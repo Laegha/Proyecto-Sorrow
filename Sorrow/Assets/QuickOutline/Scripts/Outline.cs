@@ -54,7 +54,7 @@ public class Outline : MonoBehaviour {
   }
 
   [SerializeField]
-  private Mode outlineMode;
+  private Mode outlineMode = Mode.OutlineVisible;
 
   [SerializeField]
   private Color outlineColor = Color.white;
