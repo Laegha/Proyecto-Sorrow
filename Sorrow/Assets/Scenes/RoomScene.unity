@@ -11249,6 +11249,7 @@ GameObject:
   - component: {fileID: 1872057557}
   - component: {fileID: 1872057556}
   - component: {fileID: 1872057560}
+  - component: {fileID: 1872057561}
   m_Layer: 0
   m_Name: Picaporte
   m_TagString: Untagged
@@ -11291,6 +11292,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: FogController, Assembly-CSharp
         m_MethodName: FogTurner
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1872057561}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: ModifyFieldValue
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11387,6 +11400,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0
+--- !u!114 &1872057561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872057554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionRA: []
+  fieldRA:
+  - objectName: NPC
+    componentName: DialogDriver
+    componentSubclass: MonoBehaviour
+    lookingFor: enabled
+    fieldType: Boolean
+    newValue: true
 --- !u!1 &1873261561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7271449666460269675, guid: ecd177bbb499ca8419fecc86d829d65d, type: 3}
