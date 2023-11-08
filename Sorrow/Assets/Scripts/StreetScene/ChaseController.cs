@@ -47,4 +47,6 @@ public class ChaseController : MonoBehaviour
     }
 
     public void StartChase() => isMoving = true;
+    
+    public void ChangeSpeed(float newSpeed) => speed = newSpeed;
 }
