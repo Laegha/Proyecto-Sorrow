@@ -60,7 +60,7 @@ public class Outline : MonoBehaviour {
   private Color outlineColor = Color.white;
 
   [SerializeField, Range(0f, 32f)]
-  private float outlineWidth = 2f;
+  private float outlineWidth = 16f;
 
   [Header("Optional")]
 
@@ -273,7 +273,6 @@ public class Outline : MonoBehaviour {
 
     // Apply properties according to mode
     outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
-    print("a");
 
     switch (outlineMode) {
       case Mode.OutlineAll:
