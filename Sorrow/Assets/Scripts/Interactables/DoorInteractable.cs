@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorInteractable : Interactable
+public class DoorInteractable : ActionInteractable
 {
     [SerializeField] Animator doorAnim;
     [SerializeField] string loadedSceneName;
@@ -11,6 +11,7 @@ public class DoorInteractable : Interactable
 
     public override void Interaction()
     {
+        base.Interaction();
         if(loadScene)
             SceneManager.LoadScene(loadedSceneName, LoadSceneMode.Additive);
         
