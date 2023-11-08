@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
         //if (!enabled) interactionMaterial.SetFloat("_CanBeInteracted", 0);
         outline = GetComponent<Outline>();
         outline.OutlineColor = outsideColor;
+        outline.enabled = enabled;
     }
 
     public virtual void Interaction() { }
