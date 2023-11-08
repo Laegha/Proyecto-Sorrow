@@ -7,8 +7,8 @@ public class Interactable : MonoBehaviour
     //[HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
     Outline outline;
-    Color hoverColor = Color.white;
-    Color outsideColor = Color.black;
+    [SerializeField] Color hoverColor = Color.white;
+    [SerializeField] Color outsideColor = Color.black;
 
 
     protected virtual void Awake()
