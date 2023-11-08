@@ -457,7 +457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &19940285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10651,7 +10650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &258705186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12856,7 +12854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &359793557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29203,7 +29200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &623368241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40528,7 +40524,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &788153226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47122,7 +47117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &977922085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47953,7 +47947,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &992489867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54660,7 +54653,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1239112392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65466,7 +65458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1311532609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72138,11 +72129,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1520545490}
   m_SourcePrefab: {fileID: 100100000, guid: c78b735336041e04ebb28c5ce4d4a5f9, type: 3}
---- !u!1 &1520545488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1282530469663075079, guid: c78b735336041e04ebb28c5ce4d4a5f9, type: 3}
-  m_PrefabInstance: {fileID: 1520545487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1520545489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6087855639543762777, guid: c78b735336041e04ebb28c5ce4d4a5f9, type: 3}
@@ -72162,7 +72148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 1520545488}
 --- !u!64 &1520545491
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72343,9 +72328,6 @@ PrefabInstance:
       addedObject: {fileID: 1591668253}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1591668252}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1591668251}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       insertIndex: -1
@@ -72356,6 +72338,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591668266}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1591668267}
   m_SourcePrefab: {fileID: 100100000, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
 --- !u!1 &1533721227
 GameObject:
@@ -72913,7 +72898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1573858102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73140,28 +73124,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1591668252
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591668249}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 212370497460711607, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
 --- !u!114 &1591668253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73342,6 +73304,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storeInTexcoordChannel: 1
   cospatialVertexDistance: 0.01
+--- !u!64 &1591668267
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591668249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1095874373227559717, guid: 290742d671c3f9248ba7aae76dd6765b, type: 3}
 --- !u!1 &1606699816
 GameObject:
   m_ObjectHideFlags: 0
@@ -78933,7 +78917,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1693517987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79055,7 +79038,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1699084767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79797,7 +79779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1751314126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85149,7 +85130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1829780428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85369,7 +85349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1885061118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85714,7 +85693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &1952198579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86249,7 +86227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &2016293054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86830,7 +86807,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &2045512442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87194,7 +87170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &2108473397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87321,7 +87296,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incomingProyectileTag: MegaphoneBullet
   fillMultiplier: 5
-  wireframe: {fileID: 0}
 --- !u!65 &2126684585
 BoxCollider:
   m_ObjectHideFlags: 0
