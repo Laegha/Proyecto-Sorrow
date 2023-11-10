@@ -107,6 +107,7 @@ Material:
     - _GlossyReflections: 0
     - _GradientNoiseScale: 30
     - _GradientWeight: 4
+    - _MetalicOffset: 1
     - _MetalicSubstraction: 1
     - _Metallic: 0
     - _NoiseScale: 500
