@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GlassSoundController : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         var source = GetComponent<AudioSource>();
         source.pitch = Random.Range(0.8f, 1.2f);
         source.Play();
-        Invoke(nameof(Destroy), source.clip.length);
+        Destroy(gameObject, source.clip.length);
     }
 }
