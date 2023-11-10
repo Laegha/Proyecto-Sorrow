@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class CrossReferenceHelper : MonoBehaviour
@@ -10,6 +11,7 @@ public class CrossReferenceHelper : MonoBehaviour
     {
         public string objectName;
         public string componentName;
+        public string componentSubclassNamespace;
         public string componentSubclass;
         public string lookingFor;
     }
@@ -25,8 +27,9 @@ public class CrossReferenceHelper : MonoBehaviour
     [Serializable]
     public class FieldReferenceArguments : ReferenceArguments
     {
-        public string fieldType;
+        public bool isProperty;
         public string newValue;
+        public string fieldType;
         public object convertedValue;
     }
 
@@ -36,8 +39,11 @@ public class CrossReferenceHelper : MonoBehaviour
     void Awake()
     {
         foreach (var r in functionRA)
+        {
+            r.convertedArguments = new object[r.arguments.Length];
             foreach (var (a, t) in r.arguments.Zip(r.argumentTypes, (a, t) => (a, t)))
                 r.convertedArguments.Append(Convert.ChangeType(a, Type.GetType(t)));
+        }
 
         foreach (var r in fieldRA)
             r.convertedValue = Convert.ChangeType(r.newValue, Type.GetType(r.fieldType));
@@ -46,7 +52,7 @@ public class CrossReferenceHelper : MonoBehaviour
     public void CallFunction(int index)
     {
         var component = ComponentGetter(functionRA[index]);
-        var type = TypeGetter(component, fieldRA[index]);
+        var type = TypeGetter(component, functionRA[index]);
         type.GetMethod(functionRA[index].lookingFor).Invoke(component, functionRA[index].convertedArguments);
     }
 
@@ -54,7 +60,19 @@ public class CrossReferenceHelper : MonoBehaviour
     {
         var component = ComponentGetter(fieldRA[index]);
         var type = TypeGetter(component, fieldRA[index]);
-        type.GetField(fieldRA[index].lookingFor).SetValue(component, fieldRA[index].convertedValue);
+        print(component);
+        print(type);
+        print(fieldRA[index].lookingFor);
+        print(fieldRA[index].convertedValue);
+        if (fieldRA[index].isProperty)
+        {
+            var property = type.GetProperty(fieldRA[index].lookingFor);
+            property.SetValue(component, fieldRA[index].convertedValue);
+            return;
+        }
+        
+        var field = type.GetField(fieldRA[index].lookingFor);
+        field.SetValue(component, fieldRA[index].convertedValue);
     }
 
     Component ComponentGetter(ReferenceArguments ra)
@@ -63,7 +81,7 @@ public class CrossReferenceHelper : MonoBehaviour
     Type TypeGetter(Component component, ReferenceArguments ra)
     {
         if (ra.componentSubclass != string.Empty && ra.componentSubclass != null)
-            return Type.GetType(ra.componentSubclass);
+            return Assembly.Load(ra.componentSubclassNamespace).GetType(ra.componentSubclass);
         
         return component.GetType();
     }
