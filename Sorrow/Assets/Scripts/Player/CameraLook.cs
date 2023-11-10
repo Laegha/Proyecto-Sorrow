@@ -26,8 +26,12 @@ public class CameraLook : MonoBehaviour
     }
 
     void OnEnable() => PointerAnimator.SetBool("Show", true);
-    void OnDisable() => PointerAnimator.SetBool("Show", false);
-    
+    void OnDisable()
+    {
+        if (gameObject.scene.isLoaded)
+            PointerAnimator.SetBool("Show", false);
+    }
+
     public void ChangeRotation(float newRotation) => transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
     void Update()
