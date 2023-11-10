@@ -1447,6 +1447,7 @@ GameObject:
   - component: {fileID: 1212153631}
   - component: {fileID: 1212153630}
   - component: {fileID: 1212153629}
+  - component: {fileID: 1212153633}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1544,6 +1545,19 @@ Transform:
   - {fileID: 1307941782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212153633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212153628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &1284089151
 GameObject:
   m_ObjectHideFlags: 0

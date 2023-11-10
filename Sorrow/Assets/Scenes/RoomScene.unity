@@ -12850,7 +12850,6 @@ GameObject:
   - component: {fileID: 1872057558}
   - component: {fileID: 1872057557}
   - component: {fileID: 1872057556}
-  - component: {fileID: 1872057560}
   - component: {fileID: 1872057561}
   - component: {fileID: 1872057562}
   m_Layer: 0
@@ -12892,10 +12891,10 @@ MonoBehaviour:
   onInteractEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1872057560}
-        m_TargetAssemblyTypeName: FogController, Assembly-CSharp
-        m_MethodName: FogTurner
-        m_Mode: 6
+      - m_Target: {fileID: 1872057561}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: CallFunction
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12990,19 +12989,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872057554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1872057560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872057554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0
 --- !u!114 &1872057561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13015,14 +13001,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  functionRA: []
+  functionRA:
+  - objectName: NPC
+    componentName: FogController
+    componentSubclassNamespace: 
+    componentSubclass: 
+    lookingFor: FogTurner
+    arguments:
+    - true
+    argumentTypes:
+    - System.Boolean
   fieldRA:
   - objectName: NPC
     componentName: DialogDriver
-    componentSubclass: MonoBehaviour
+    componentSubclassNamespace: UnityEngine
+    componentSubclass: UnityEngine.Behaviour
     lookingFor: enabled
-    fieldType: Boolean
+    isProperty: 1
     newValue: true
+    fieldType: System.Boolean
 --- !u!114 &1872057562
 MonoBehaviour:
   m_ObjectHideFlags: 0
