@@ -9,6 +9,7 @@ public class AppearingBox : HitableTarget
     bool isFilling;
     [SerializeField] float fillMultiplier;
     [SerializeField] GameObject wireframe;
+    [SerializeField] GameObject bullseye;
 
     void Start() => boxMaterial = GetComponent<Renderer>().material;
     
@@ -17,7 +18,7 @@ public class AppearingBox : HitableTarget
         isFilling = true;
         gameObject.layer = 0;
         gameObject.tag = "Untagged";
-        Destroy(this);
+        Destroy(bullseye);
     }
 
     void Update()
@@ -32,6 +33,7 @@ public class AppearingBox : HitableTarget
         }
 
         fillAmount += Time.deltaTime * fillMultiplier;
+        Mathf.Clamp01(fillAmount);
         boxMaterial.SetFloat("_FillAmount", fillAmount);
     }
 }

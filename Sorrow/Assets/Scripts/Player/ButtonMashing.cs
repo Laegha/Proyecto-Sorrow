@@ -45,7 +45,7 @@ public class ButtonMashing : MonoBehaviour
         director.Play();
 
         if (mashCount <= 0f)
-            End();
+           StartCoroutine(End());
     }
 
     void Update()
@@ -60,10 +60,15 @@ public class ButtonMashing : MonoBehaviour
             buttonMashingVCam.m_Lens.FieldOfView = minFov;
     }
 
-    void End()
+    IEnumerator End()
     {
+        enabled = false;
+        CinematicManager.instance.ReturnPlayerCamera();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(CinematicManager.instance.cinemachineBrain.ActiveBlend.Duration);
+
         director.Stop();
         endActions.Invoke();
-        enabled = false;
+
     }
 }
