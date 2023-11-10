@@ -1471,7 +1471,7 @@ MonoBehaviour:
   speechPanel: {fileID: 1352346254}
   transcriptPanel: {fileID: 569090092}
   dialog: {fileID: 11400000, guid: 73ffdcf0bd49f334e9a94629e128e9a6, type: 2}
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  playerColor: {r: 0, g: 0, b: 0, a: 1}
   actionInterrupts:
   - at: 0
     actions:
