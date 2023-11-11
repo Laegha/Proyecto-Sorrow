@@ -20,7 +20,6 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        print("Survived Awake");
         instance = this;
         controller = new Controller();
         cameraSensitivity = PlayerPrefs.GetFloat("CS", 100f) * .001f;

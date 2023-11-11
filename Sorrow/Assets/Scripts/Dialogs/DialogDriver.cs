@@ -120,8 +120,9 @@ public class DialogDriver : MonoBehaviour
     {
         if (currentLine < dialog.Count)
         {
-            ActionInterrupt? actions = actionInterrupts.Find(x => x.at == currentLine);
-            actions?.actions.Invoke();
+            ActionInterrupt actions = actionInterrupts.FirstOrDefault(x => x.at == currentLine);
+            if (actions.actions != default)
+                actions.actions.Invoke();
             if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText))
             {
                 director.Play(timeline);

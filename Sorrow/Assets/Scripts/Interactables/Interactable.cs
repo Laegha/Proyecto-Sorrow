@@ -9,6 +9,10 @@ public class Interactable : MonoBehaviour
     Outline outline;
     [SerializeField] Color hoverColor = Color.white;
     [SerializeField] Color outsideColor = Color.black;
+    Vector3 playerStillPlacement;
+    Vector3 thisStillPlacement;
+    [SerializeField] float distanceMultiplier = 0.1f;
+    [SerializeField] float distanceOffset = 10f;
 
 
     protected virtual void Awake()
@@ -19,6 +23,8 @@ public class Interactable : MonoBehaviour
         outline = GetComponent<Outline>();
         outline.OutlineColor = outsideColor;
         outline.enabled = enabled;
+        playerStillPlacement = playerInteraction.transform.position;
+        thisStillPlacement = transform.position;
     }
 
     public virtual void Interaction() { }
@@ -47,7 +53,7 @@ public class Interactable : MonoBehaviour
         outline.OutlineColor = outsideColor;
     }
 
-    private void OnMouseOver()
+    void OnMouseOver()
     {
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
 
@@ -62,5 +68,23 @@ public class Interactable : MonoBehaviour
         else
             interactionMaterial.SetColor("_Color", Color.white);
         */
+    }
+
+    void Update()
+    {
+        if (playerStillPlacement == playerInteraction.transform.position && thisStillPlacement == transform.position)
+            return;
+
+        playerStillPlacement = playerInteraction.transform.position;
+        thisStillPlacement = transform.position;
+
+        float distance = (playerInteraction.transform.position - transform.position).magnitude - distanceOffset;
+        
+        // Color solution
+        distance *= distanceMultiplier;
+        distance = Mathf.Clamp(distance, 0f, 1f);
+        Color color = outline.OutlineColor;
+        color.a = 1f - distance;
+        outline.OutlineColor = color;
     }
 }
