@@ -18,8 +18,6 @@ public class Interactable : MonoBehaviour
     protected virtual void Awake()
     {
         playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
-        //interactionMaterial = GetComponent<MeshRenderer>().materials.First(m => m.name is "Outline (Instance)");
-        //if (!enabled) interactionMaterial.SetFloat("_CanBeInteracted", 0);
         outline = GetComponent<Outline>();
         outline.OutlineColor = outsideColor;
         outline.enabled = enabled;
@@ -41,7 +39,6 @@ public class Interactable : MonoBehaviour
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
         if (distance < playerInteraction.interactionDistance)
             outline.OutlineColor = hoverColor;
-        //interactionMaterial.SetColor("_Color", Color.white);
     }
 
     void OnMouseExit()
@@ -49,25 +46,22 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        //interactionMaterial.SetColor("_Color", Color.black);
-        outline.OutlineColor = outsideColor;
+        float distance = (playerInteraction.transform.position - transform.position).magnitude;
+        if (distance <= distanceOffset)
+            outline.OutlineColor = outsideColor;
     }
 
     void OnMouseOver()
     {
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
 
+        if (distance > distanceOffset)
+            return;
+
         if (distance > playerInteraction.interactionDistance)
             outline.OutlineColor = outsideColor;
         else
             outline.OutlineColor = hoverColor;
-
-        /*
-        if (distance > playerInteraction.interactionDistance)
-            interactionMaterial.SetColor("_Color", Color.black);
-        else
-            interactionMaterial.SetColor("_Color", Color.white);
-        */
     }
 
     void Update()
