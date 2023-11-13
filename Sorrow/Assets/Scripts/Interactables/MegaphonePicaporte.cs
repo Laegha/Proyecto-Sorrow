@@ -16,6 +16,7 @@ public class MegaphonePicaporte : HeldObjectNeedInteractable
         GetComponent<Animator>().Play("MegaphoneInteracted");
         foreach(SoundBullet bullet in FindObjectsOfType<SoundBullet>())
             Destroy(bullet.gameObject);
+        enabled = false;
     }
 
     public void OpenDoor() => doorAnim.Play("DoorOpen");

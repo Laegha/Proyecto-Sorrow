@@ -13874,7 +13874,7 @@ MonoBehaviour:
   neededObjectName: Megaphone
   neededObjectHeld: 0
   megaphonePicaporte: {fileID: 691915731}
-  doorAnim: {fileID: 326480499}
+  doorAnim: {fileID: 1179723528}
 --- !u!136 &326480496
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34281,6 +34281,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1179723529}
   - component: {fileID: 1179723528}
+  - component: {fileID: 1179723531}
+  - component: {fileID: 1179723530}
   m_Layer: 0
   m_Name: DoorFrame
   m_TagString: Untagged
@@ -34325,6 +34327,48 @@ Transform:
   - {fileID: 1996506375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1179723530
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179723527}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24739075, y: 2.5634315, z: 2.6058044}
+  m_Center: {x: -1.3763046, y: 0.7817155, z: -0.8029022}
+--- !u!65 &1179723531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179723527}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6771498, y: 2.6183906, z: 0.21258545}
+  m_Center: {x: 0, y: 0.80919576, z: -2.13}
 --- !u!1001 &1186763326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69269,7 +69313,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35444993, y: 0.35444993, z: 0.35444993}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.35444993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1206401463}
