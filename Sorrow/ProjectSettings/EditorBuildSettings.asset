@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProfessionalScene.unity
     guid: 40071f0b07e6f3d4282268f93e89d509
+  - enabled: 1
+    path: Assets/Scenes/BridgePreMemoryScene.unity
+    guid: 02259b945f208ca44986091221f35b43
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 71015aee360576645a57995221374b0f, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: ad4f032bcaaa67f4082382aef8b175ec, type: 2}
