@@ -359,6 +359,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
+--- !u!1 &26962885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1282530469663075079, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+  m_PrefabInstance: {fileID: 1273269264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &28091856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7218,6 +7223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -7232,6 +7241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 196557955}
+    - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 196557959}
   m_SourcePrefab: {fileID: 100100000, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
 --- !u!4 &196557953 stripped
 Transform:
@@ -7264,6 +7276,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &196557959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196557954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incomingProyectileTag: MegaphoneBullet
+  fillMultiplier: 5
+  wireframe: {fileID: 1231934730}
+  bullseye: {fileID: 458081488}
 --- !u!1 &203209581
 GameObject:
   m_ObjectHideFlags: 0
@@ -18731,6 +18759,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -18745,6 +18777,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 706023582}
+    - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 706023586}
   m_SourcePrefab: {fileID: 100100000, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
 --- !u!4 &706023580 stripped
 Transform:
@@ -18777,6 +18812,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &706023586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706023581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incomingProyectileTag: MegaphoneBullet
+  fillMultiplier: 5
+  wireframe: {fileID: 1786854412}
+  bullseye: {fileID: 502168454}
 --- !u!1001 &719320959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39393,6 +39444,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2429074412474542439, guid: c78b735336041e04ebb28c5ce4d4a5f9, type: 3}
+--- !u!1 &1231934730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1282530469663075079, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+  m_PrefabInstance: {fileID: 196557952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1232116023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
@@ -40119,6 +40175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -40133,6 +40193,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1273269267}
+    - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1273269271}
   m_SourcePrefab: {fileID: 100100000, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
 --- !u!4 &1273269265 stripped
 Transform:
@@ -40165,6 +40228,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1273269271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273269266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incomingProyectileTag: MegaphoneBullet
+  fillMultiplier: 5
+  wireframe: {fileID: 26962885}
+  bullseye: {fileID: 253721571}
 --- !u!1 &1282968576
 GameObject:
   m_ObjectHideFlags: 0
@@ -45419,6 +45498,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323274448}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1331296547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1282530469663075079, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+  m_PrefabInstance: {fileID: 2146961429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1336819403
 GameObject:
   m_ObjectHideFlags: 0
@@ -69619,6 +69703,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
   m_PrefabInstance: {fileID: 1703442206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1786854412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1282530469663075079, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+  m_PrefabInstance: {fileID: 706023579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1787748076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91591,6 +91680,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 62c0aa95410fbaf4391f9127f57815a1, type: 2}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -91613,6 +91706,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2146961432}
+    - targetCorrespondingSourceObject: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146961436}
   m_SourcePrefab: {fileID: 100100000, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
 --- !u!4 &2146961430 stripped
 Transform:
@@ -91645,6 +91741,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2.0000002, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2146961436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146961431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fb3087b0c9c24186da85bcc7bea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incomingProyectileTag: MegaphoneBullet
+  fillMultiplier: 5
+  wireframe: {fileID: 1331296547}
+  bullseye: {fileID: 853431790}
 --- !u!1001 &6455685934016209852
 PrefabInstance:
   m_ObjectHideFlags: 0
