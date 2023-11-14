@@ -7227,6 +7227,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_TagString
+      value: BulletReactable
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -18763,6 +18767,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_TagString
+      value: BulletReactable
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -20607,7 +20615,7 @@ GameObject:
   - component: {fileID: 853431792}
   m_Layer: 0
   m_Name: Bullseye
-  m_TagString: Untagged
+  m_TagString: BulletReactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40178,6 +40186,10 @@ PrefabInstance:
     - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 232268346662047545, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
+      propertyPath: m_TagString
+      value: BulletReactable
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05ae552f84a5a964b9551b7babc3faa0, type: 3}
       propertyPath: m_Name
