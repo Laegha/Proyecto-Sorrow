@@ -27633,17 +27633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17a24f8cdb01c14f99abbc612d7d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &990399269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3557720236902609924, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-  m_PrefabInstance: {fileID: 990399246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990399247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c05a537e0fe6f46aeaa5cfba4c75dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &990399273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27712,18 +27701,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 990399248}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 890080251}
         m_TargetAssemblyTypeName: ChaseController, Assembly-CSharp
         m_MethodName: StartChase
@@ -27760,13 +27737,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 990399269}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 990399248}
+        m_TargetAssemblyTypeName: PlayerChaseMovement, Assembly-CSharp
+        m_MethodName: DelayedEnable
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 6d08664a8f34da0478dc6403cf941940, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableAsset,
+            UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 5
           m_StringArgument: 

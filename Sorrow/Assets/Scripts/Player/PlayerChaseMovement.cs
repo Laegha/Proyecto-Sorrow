@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class PlayerChaseMovement : MonoBehaviour
 {
@@ -37,6 +38,14 @@ public class PlayerChaseMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         heldObjectManager = GetComponent<HeldObjectManager>();
         playerMovement = GetComponent<PlayerMovement>();
+    }
+
+    public void DelayedEnable(PlayableAsset waitTimeline) => StartCoroutine(DelayedEnabler((float)waitTimeline.duration));
+
+    IEnumerator DelayedEnabler(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        enabled = true;
     }
 
     void OnEnable()
