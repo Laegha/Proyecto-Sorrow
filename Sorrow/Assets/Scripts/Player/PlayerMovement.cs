@@ -12,19 +12,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
-    void OnEnable()
-    {
-        if (gameObject && InputManager.instance.gameObject == gameObject)
-            StartCoroutine(SubscribeEvents());
-    }
+    void OnEnable() => StartCoroutine(SubscribeEvents());
 
     IEnumerator SubscribeEvents()
     {
-        yield return new WaitForEndOfFrame();
+        if (gameObject && InputManager.instance.gameObject == gameObject)
+        {
+            yield return new WaitForEndOfFrame();
 
-        InputManager.controller.Movement.Enable();
-        InputManager.controller.Movement.Walk.performed += Walk;
-        InputManager.controller.Movement.Walk.canceled += StopWalk;
+            InputManager.controller.Movement.Enable();
+            InputManager.controller.Movement.Walk.performed += Walk;
+            InputManager.controller.Movement.Walk.canceled += StopWalk;
+
+        }
     }
 
     void OnDisable()
