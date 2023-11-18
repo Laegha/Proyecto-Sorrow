@@ -8,6 +8,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField] Transform endPoint;
     [SerializeField] float speed;
     [SerializeField] PlayableDirector timeline;
+    public Animator monsterAN;
 
     public void MoveMonster() => StartCoroutine(MoveToWall());
 
@@ -16,16 +17,26 @@ public class MonsterController : MonoBehaviour
         timeline.Pause();
 
         transform.SetParent(null);
-        float distance = Vector3.Distance(transform.position, endPoint.position);
-        Vector3 direction = (transform.position- endPoint.position).normalized;
+
+        var posDelta = new Vector2(endPoint.position.x, endPoint.position.z) - new Vector2(transform.position.x, transform.position.z);
+        float distance = posDelta.magnitude;
         float elapsedDistance = 0;
-        while(elapsedDistance < distance)
+
+        float oao = transform.rotation.z;
+        float y = Mathf.Atan2(posDelta.x, posDelta.y) * Mathf.Rad2Deg;
+        while (elapsedDistance < distance)
         {
             float delta = Time.deltaTime * speed;
-            transform.Translate(direction * delta);
+            transform.rotation = Quaternion.Euler(new Vector3(0f, y, oao + ((180 - oao) / distance) * elapsedDistance));
+            transform.Translate(Vector3.forward * delta);
             elapsedDistance += delta;
             yield return new WaitForEndOfFrame();
         }
+        transform.position = endPoint.position;
+        monsterAN.Play("Bonk");
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
         timeline.Resume();
     }
+
 }
