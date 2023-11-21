@@ -146,6 +146,7 @@ public class KeyPadInteractable : RithmInteractable
         InputManager.instance.RemRegControl(true);
         Cursor.lockState = CursorLockMode.Locked;
         GetComponent<ElevatorArrival>().StartArrival();
+        Destroy(depressionPositions[depressionPositions.Length - 1]);
     }
 }
 
