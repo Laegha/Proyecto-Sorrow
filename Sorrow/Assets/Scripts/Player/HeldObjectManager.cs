@@ -34,11 +34,12 @@ public class HeldObjectManager : MonoBehaviour
 
     void CheckInteraction(InputAction.CallbackContext context)
     {
-        Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, out RaycastHit hitObj, interactionDistance);
+        Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward, out RaycastHit hitObj);
         if (hitObj.transform == null)
             return;
         foreach(Interactable interactable in hitObj.transform.GetComponents<Interactable>().Where(x => x.enabled))
-            interactable.Interaction();
+            if(interactable.interactionDistance > hitObj.distance)
+                interactable.Interaction();
     }
 
     public void HoldObject(HeldObject newHeldObject)

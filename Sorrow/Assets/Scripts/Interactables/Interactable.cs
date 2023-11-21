@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
 {
     //[HideInInspector] public Material interactionMaterial;
     HeldObjectManager playerInteraction;
+    public float interactionDistance = 1.0f;
     Outline outline;
     [SerializeField] Color hoverColor = Color.white;
     [SerializeField] Color outsideColor = Color.black;
@@ -13,7 +14,6 @@ public class Interactable : MonoBehaviour
     Vector3 thisStillPlacement;
     [SerializeField] float distanceMultiplier = 0.1f;
     [SerializeField] float distanceOffset = 10f;
-
 
     protected virtual void Awake()
     {
@@ -37,7 +37,7 @@ public class Interactable : MonoBehaviour
             return;
 
         float distance = (playerInteraction.transform.position - transform.position).magnitude;
-        if (distance < playerInteraction.interactionDistance)
+        if (distance < interactionDistance)
             outline.OutlineColor = hoverColor;
     }
 
@@ -58,7 +58,7 @@ public class Interactable : MonoBehaviour
         if (distance > distanceOffset)
             return;
 
-        if (distance > playerInteraction.interactionDistance)
+        if (distance > interactionDistance)
             outline.OutlineColor = outsideColor;
         else
             outline.OutlineColor = hoverColor;
