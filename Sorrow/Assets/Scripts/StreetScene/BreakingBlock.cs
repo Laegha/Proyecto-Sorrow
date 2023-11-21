@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakingBlock : HitableTarget
 {
     [SerializeField] Transform particleSystemHolder;
+    [SerializeField] GameObject bullseye;
     static PlayerChaseMovement playerChaseMovement;
     static GameObject glassBreakSound;
 
@@ -29,6 +30,7 @@ public class BreakingBlock : HitableTarget
 
         Instantiate(glassBreakSound, transform.position, Quaternion.identity);
 
+        Destroy(bullseye);
         Destroy(gameObject);
     }
 
