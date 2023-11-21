@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SubscribeEvents()
     {
+        yield return new WaitForEndOfFrame();
+
         if (gameObject && InputManager.instance.gameObject == gameObject)
         {
-            yield return new WaitForEndOfFrame();
 
             InputManager.controller.Movement.Enable();
             InputManager.controller.Movement.Walk.performed += Walk;
