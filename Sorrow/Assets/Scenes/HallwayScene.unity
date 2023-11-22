@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 132008603}
   - component: {fileID: 132008602}
   - component: {fileID: 132008601}
+  - component: {fileID: 132008604}
   m_Layer: 0
   m_Name: DepressionAnnoyTimeline
   m_TagString: Untagged
@@ -306,6 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5235f89c99f71d44a74647977a547cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: {fileID: 0}
+  lightObjects: []
+  lightsOffColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!320 &132008602
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -315,14 +319,16 @@ PlayableDirector:
   m_GameObject: {fileID: 132008600}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 0cf1e3fd0b798ec468fd2cd28e36632c, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - ad2d953e16f9fb244914aad09463956e: {fileID: 291128834}
+    - 1e6127c1cb37d67498efc0acbce7e01f: {fileID: 1745332532}
 --- !u!4 &132008603
 Transform:
   m_ObjectHideFlags: 0
@@ -339,6 +345,36 @@ Transform:
   - {fileID: 652101374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132008604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132008600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: a99707b8f4896e74abb7ecd6645b2230, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 132008601}
+          m_TargetAssemblyTypeName: ElevatorCloser, Assembly-CSharp
+          m_MethodName: CloseElevator
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &200859432
 GameObject:
   m_ObjectHideFlags: 0
