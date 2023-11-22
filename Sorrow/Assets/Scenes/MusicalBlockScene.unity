@@ -151,8 +151,8 @@ Transform:
   m_GameObject: {fileID: 7988883}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.149, y: 1.1862, z: 3.4557}
-  m_LocalScale: {x: 0.23724955, y: 1, z: 0.69099534}
+  m_LocalPosition: {x: 1.3068078, y: 1.304, z: 3.3179073}
+  m_LocalScale: {x: 0.27018937, y: 1, z: 0.69099534}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1222674125}
@@ -659,8 +659,8 @@ Transform:
   m_GameObject: {fileID: 653617980}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.149, y: 1.1862999, z: 3.4551}
-  m_LocalScale: {x: 0.23724955, y: 1, z: 0.69099534}
+  m_LocalPosition: {x: -1.3548, y: 1.304, z: 3.3179083}
+  m_LocalScale: {x: 0.27018937, y: 1, z: 0.69099534}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1222674125}
@@ -1235,7 +1235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c469ed495aad31d44b956157d74bc21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMaterial: {fileID: 0}
+  interactionDistance: 1
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  outsideColor: {r: 0, g: 0, b: 0, a: 1}
+  distanceMultiplier: 0.1
+  distanceOffset: 10
   heldObjectManager: {fileID: 0}
   neededObjectName: Guitar
   neededObjectHeld: 0
@@ -1335,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 1002348185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.433, y: 1.34, z: -17.55}
+  m_LocalPosition: {x: 1.01, y: 1.3124286, z: -17.549826}
   m_LocalScale: {x: 1.7161696, y: 1.7161696, z: 1.7161696}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1686,7 +1690,7 @@ Transform:
   m_GameObject: {fileID: 1222674124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.43, y: 0.16101405, z: -14.741688}
+  m_LocalPosition: {x: 1.0438256, y: 0.13344261, z: -14.741514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1724,7 +1728,7 @@ Transform:
   m_GameObject: {fileID: 1289995958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.1818, y: 2.372548, z: 3.4551}
+  m_LocalPosition: {x: -0.024, y: 2.654964, z: 3.3179083}
   m_LocalScale: {x: 0.26616153, y: 1, z: 0.69099534}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1830,8 +1834,8 @@ Transform:
   m_GameObject: {fileID: 1383377880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1818, y: 0.000052005053, z: 3.4551}
-  m_LocalScale: {x: 0.26616153, y: 1, z: 0.69099534}
+  m_LocalPosition: {x: 0.21821962, y: 0.027626306, z: 3.455102}
+  m_LocalScale: {x: 0.34180462, y: 1, z: 0.69099534}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1222674125}
@@ -1922,15 +1926,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1830854312727074667, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3188771
+      value: 0.9327027
       objectReference: {fileID: 0}
     - target: {fileID: 1830854312727074667, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16106842
+      value: 0.13349698
       objectReference: {fileID: 0}
     - target: {fileID: 1830854312727074667, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.583172
+      value: -21.582998
       objectReference: {fileID: 0}
     - target: {fileID: 1830854312727074667, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2061,7 +2065,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f381d66d6ad1654e951e7553bbd7852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMaterial: {fileID: 0}
+  interactionDistance: 1
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  outsideColor: {r: 0, g: 0, b: 0, a: 1}
+  distanceMultiplier: 0.1
+  distanceOffset: 10
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
   doorAnim: {fileID: 1417500060}
   loadedSceneName: 
   loadScene: 0
@@ -2483,7 +2494,11 @@ PrefabInstance:
       value: CuartoProfesional (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -2874765826992384646, guid: d0facfc135336894b9ebdd6b57774457, type: 3}
+    - {fileID: -3540495426589365078, guid: d0facfc135336894b9ebdd6b57774457, type: 3}
+    - {fileID: -5754060345647867467, guid: d0facfc135336894b9ebdd6b57774457, type: 3}
+    - {fileID: -3410185793394415013, guid: d0facfc135336894b9ebdd6b57774457, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0facfc135336894b9ebdd6b57774457, type: 3}
