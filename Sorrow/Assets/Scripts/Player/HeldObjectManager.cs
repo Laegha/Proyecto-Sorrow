@@ -51,7 +51,7 @@ public class HeldObjectManager : MonoBehaviour
 
         heldObject.transform.SetParent(heldObjectHolder);
 
-        heldObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        heldObject.transform.localRotation = Quaternion.identity;
         
         float objectLength = heldObject.meshRenderer.bounds.extents.z; 
         heldObject.transform.localPosition = new Vector3(0.01f, 0.01f, objectLength);
