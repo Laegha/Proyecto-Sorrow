@@ -4017,7 +4017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e765b87ad5422684e9a304357eddcdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 1
+  interactionDistance: 4
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
   outsideColor: {r: 0, g: 0, b: 0, a: 1}
   distanceMultiplier: 0.1
