@@ -801,7 +801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 166032798}
   sceneName: ElevatorScene
-  sceneLoadDelay: 0
+  sceneLoadDelay: 1
   unloadScene: 1
 --- !u!1 &235624259
 GameObject:
@@ -1177,7 +1177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.244995
+      value: -2.302666
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c71a357f619371a4aa6dc1c186acfae5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8502,10 +8502,6 @@ PrefabInstance:
     - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3742086473862652645, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       propertyPath: m_LocalPosition.x
