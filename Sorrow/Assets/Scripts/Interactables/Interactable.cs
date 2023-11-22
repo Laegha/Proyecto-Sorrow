@@ -27,9 +27,16 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interaction() { }
 
-    void OnEnable() => outline.enabled = true;
+    void OnEnable() => StartCoroutine(OutlineEnable(true));
 
-    void OnDisable() => outline.enabled = false;
+    void OnDisable() => StartCoroutine(OutlineEnable(false));
+
+    IEnumerator OutlineEnable(bool enabled)
+    {
+        yield return new WaitForEndOfFrame();
+
+        outline.enabled = enabled;
+    }
 
     void OnMouseEnter()
     {
