@@ -6,7 +6,7 @@ public class HeldObjectNeedInteractable : Interactable
 {
     [HideInInspector] public HeldObjectManager heldObjectManager;
 
-    [SerializeField] string neededObjectName;
+    public string neededObjectName;
 
     [HideInInspector] public bool neededObjectHeld;
     protected override void Awake()

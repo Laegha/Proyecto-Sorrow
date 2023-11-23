@@ -16,6 +16,7 @@ public class DoorInteractable : ActionInteractable
             SceneManager.LoadScene(loadedSceneName, LoadSceneMode.Additive);
         
         doorAnim.Play("DoorOpen");
+        enabled = false;
         Destroy(this);
     }
 }

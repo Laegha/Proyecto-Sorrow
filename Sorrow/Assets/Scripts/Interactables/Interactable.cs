@@ -88,4 +88,6 @@ public class Interactable : MonoBehaviour
         color.a = 1f - distance;
         outline.OutlineColor = color;
     }
+
+    public void ChangeOutlineHoverColor(Color newColor) => hoverColor = newColor;
 }

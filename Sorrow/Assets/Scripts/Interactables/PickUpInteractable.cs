@@ -6,7 +6,16 @@ public class PickUpInteractable : Interactable
 {
     public override void Interaction()
     {
-        if (enabled)
-            FindObjectOfType<HeldObjectManager>().HoldObject(GetComponent<HeldObject>());
+        if (!enabled)
+            return;
+
+        enabled = false;
+        gameObject.layer = 11;
+        FindObjectOfType<HeldObjectManager>().HoldObject(GetComponent<HeldObject>());
+
+        HeldObjectNeedInteractable[] locks = FindObjectsOfType<HeldObjectNeedInteractable>();
+        foreach (HeldObjectNeedInteractable _lock in locks)
+            if (_lock.neededObjectName == GetComponent<HeldObject>().objectName)
+                _lock.ChangeOutlineHoverColor(Color.white);
     }
 }
