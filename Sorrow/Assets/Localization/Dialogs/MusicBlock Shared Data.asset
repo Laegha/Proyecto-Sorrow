@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: MusicBlock Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: MusicBlock
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: e466b0774cd11ec41bb1a242e8513076
+  m_Entries:
+  - m_Id: 10905198592
+    m_Key: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84896915456
+    m_Key: -1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144816742400
+    m_Key: 2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

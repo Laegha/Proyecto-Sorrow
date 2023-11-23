@@ -54,16 +54,7 @@ public class DialogDriver : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
     }
 
-    void OnEnable()
-    {
-        playerMovement.enabled = false;
-        cameraLook.enabled = false;
-        InputManager.controller.Dialog.Enable();
-        InputManager.controller.Dialog.Auto.performed += SetAuto;
-        InputManager.controller.Dialog.Continue.performed += Continue;
-        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
-        StartCoroutine(StartingCoroutine());
-    }
+    void OnEnable() => StartCoroutine(Initialize());
 
     void OnDisable()
     {
@@ -73,6 +64,18 @@ public class DialogDriver : MonoBehaviour
         InputManager.controller.Dialog.Disable();
         playerMovement.enabled = true;
         cameraLook.enabled = true;
+    }
+
+    IEnumerator Initialize()
+    {
+        yield return new WaitForEndOfFrame();
+        playerMovement.enabled = false;
+        cameraLook.enabled = false;
+        InputManager.controller.Dialog.Enable();
+        InputManager.controller.Dialog.Auto.performed += SetAuto;
+        InputManager.controller.Dialog.Continue.performed += Continue;
+        InputManager.controller.Dialog.ShowTranscript.performed += OpenTranscript;
+        StartCoroutine(StartingCoroutine());
     }
 
     void OnDestroy() => LocalizationSettings.SelectedLocaleChanged -= UpdateLocaleSpeed;
@@ -116,6 +119,7 @@ public class DialogDriver : MonoBehaviour
         transcriptPanel.SetActive(true); // DEBUG
     }
 
+    int currInterrupt = 0;
     IEnumerator MainLoop()
     {
         if (currentLine < dialog.Count)
@@ -123,9 +127,10 @@ public class DialogDriver : MonoBehaviour
             ActionInterrupt actions = actionInterrupts.FirstOrDefault(x => x.at == currentLine);
             if (actions.actions != default)
                 actions.actions.Invoke();
-            if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText))
+            if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText, currInterrupt))
             {
                 director.Play(timeline);
+                currInterrupt++;
                 if (!dontStopText)
                 {
                     // TODO: Close UI with animation

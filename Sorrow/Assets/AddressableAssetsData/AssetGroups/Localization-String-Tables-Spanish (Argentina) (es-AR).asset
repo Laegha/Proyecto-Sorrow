@@ -29,8 +29,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-es-AR
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 598597fd96e6f8549ba42351791d9ff1
-    m_Address: FirstInterlude_es-AR
+  - m_GUID: 70a4705503bea904891635ac22441a32
+    m_Address: DarkRoomScene_es-AR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es-AR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d948cd5296a018744953d99013efde17
+    m_Address: ProfessionalInterlude_es-AR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es-AR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8615862726a37a6409372a243202419c
+    m_Address: LockedDoor_es-AR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es-AR
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dff8d9407d491442b1c193ea5a38772
+    m_Address: MusicBlock_es-AR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es-AR

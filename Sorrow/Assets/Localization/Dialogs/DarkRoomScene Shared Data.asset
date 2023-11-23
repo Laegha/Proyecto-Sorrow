@@ -13,8 +13,56 @@ MonoBehaviour:
   m_Name: DarkRoomScene Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: DarkRoomScene
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: eb1975e5494b52e41b785dad4e5837c4
+  m_Entries:
+  - m_Id: 18148761600
+    m_Key: -0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 210835087360
+    m_Key: -1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 261720383488
+    m_Key: -2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 315248091136
+    m_Key: -3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395535458304
+    m_Key: -4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 473062973440
+    m_Key: -5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 711127474176
+    m_Key: 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 865289117696
+    m_Key: 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 976253624320
+    m_Key: -8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1020495142912
+    m_Key: 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1187298418688
+    m_Key: -10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1257120997376
+    m_Key: 11
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

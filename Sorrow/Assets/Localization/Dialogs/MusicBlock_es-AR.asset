@@ -17,7 +17,19 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: e466b0774cd11ec41bb1a242e8513076, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 10905198592
+    m_Localized: Eso es un bloque musical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84896915456
+    m_Localized: Me ayudas a mover esto?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144816742400
+    m_Localized: "Sab\xE9s tocar alg\xFAn instrumento?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

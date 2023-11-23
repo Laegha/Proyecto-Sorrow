@@ -17,7 +17,16 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 9caee8f71b3c2c64793f14a172ce54fb, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 168858492928
+    m_Localized: No puedo abrir esta puerta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225833918464
+    m_Localized: Fijate en la forma de la cerradura. No te recuerda a algo que te
+      guste?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

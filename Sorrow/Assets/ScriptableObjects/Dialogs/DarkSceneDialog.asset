@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7e0b63f9295c94e8bcf8c324b26133, type: 3}
   m_Name: DarkSceneDialog
   m_EditorClassIdentifier: 
-  dialogTables: {fileID: 11400000, guid: 984629ecc2032d24780f42d95db02081, type: 2}
-  npcColor: {r: 0, g: 0, b: 0, a: 0}
+  dialogTables: {fileID: 11400000, guid: 6d52f68e171816740bf100b988d6df15, type: 2}
+  npcColor: {r: 0.9019608, g: 0.09803922, b: 0.5372549, a: 0}
   preTimeline: {fileID: 0}
   interrupts: []
   postTimeline: {fileID: 0}

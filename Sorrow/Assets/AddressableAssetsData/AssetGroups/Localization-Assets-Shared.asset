@@ -32,6 +32,26 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb1975e5494b52e41b785dad4e5837c4
+    m_Address: Assets/Localization/Dialogs/DarkRoomScene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ac21bcc173d564418b271a43135abb3
+    m_Address: Assets/Localization/Dialogs/ProfessionalInterlude Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9caee8f71b3c2c64793f14a172ce54fb
+    m_Address: Assets/Localization/Dialogs/LockedDoor Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e466b0774cd11ec41bb1a242e8513076
+    m_Address: Assets/Localization/Dialogs/MusicBlock Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f663867ad8d4b8d49ab6bdf5cdc7ad8f, type: 2}
   m_SchemaSet:

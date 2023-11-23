@@ -33,20 +33,22 @@ public class Dialog : ScriptableObject
         return entry.GetLocalizedString();
     }
 
-    public bool TryInterrupt(int line, out PlayableAsset timeline, out bool dontStopText)
+    public bool TryInterrupt(int line, out PlayableAsset timeline, out bool dontStopText, int currInterrupt)
     {
         dontStopText = false;
         timeline = null;
         if (interrupts.Count is 0)
             return false;
 
-        var firstInterrupt = interrupts.First();
+        //var firstInterrupt = interrupts.First();
+        var firstInterrupt = interrupts[currInterrupt];
         if (firstInterrupt.atLine != line)
             return false;
-        
+
+        currInterrupt++;
         timeline = firstInterrupt.timeline;
         dontStopText = firstInterrupt.dontStopText;
-        interrupts.RemoveAt(0);
+        //interrupts.RemoveAt(0);
         return true;
     }
 }

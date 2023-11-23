@@ -52,7 +52,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _FresnelPower: 1
+    - _FresnelPower: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
