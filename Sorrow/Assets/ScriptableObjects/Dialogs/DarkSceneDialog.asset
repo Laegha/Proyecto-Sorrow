@@ -13,7 +13,19 @@ MonoBehaviour:
   m_Name: DarkSceneDialog
   m_EditorClassIdentifier: 
   dialogTables: {fileID: 11400000, guid: 6d52f68e171816740bf100b988d6df15, type: 2}
-  npcColor: {r: 0.9019608, g: 0.09803922, b: 0.5372549, a: 0}
+  npcColor: {r: 0.9019608, g: 0.09803922, b: 0.5372549, a: 1}
   preTimeline: {fileID: 0}
-  interrupts: []
+  interrupts:
+  - atLine: 3
+    timeline: {fileID: 11400000, guid: e2f6504a16ea62447b804f27b64eccae, type: 2}
+    dontStopText: 0
+  - atLine: 4
+    timeline: {fileID: 11400000, guid: e7610ce517e993245a91e3b3cf18b433, type: 2}
+    dontStopText: 1
+  - atLine: 6
+    timeline: {fileID: 11400000, guid: ebe88b6ddc3ac754ba1a295bd97ad710, type: 2}
+    dontStopText: 1
+  - atLine: 90
+    timeline: {fileID: 11400000, guid: ebe88b6ddc3ac754ba1a295bd97ad710, type: 2}
+    dontStopText: 1
   postTimeline: {fileID: 0}
