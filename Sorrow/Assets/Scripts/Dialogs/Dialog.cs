@@ -45,7 +45,6 @@ public class Dialog : ScriptableObject
         if (firstInterrupt.atLine != line)
             return false;
 
-        currInterrupt++;
         timeline = firstInterrupt.timeline;
         dontStopText = firstInterrupt.dontStopText;
         //interrupts.RemoveAt(0);

@@ -106,52 +106,8 @@ MonoBehaviour:
     m_Localized: Supongo que eso es verdad.
     m_Metadata:
       m_Items: []
-  - m_Id: 9412680848642048
-    m_Localized: Ya que estabamos en el tema, ten.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9413145292312576
-    m_Localized: "Si el ente te vuelve a molestar, \xFAsalos; te ayudar\xE1n a concentrarte."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9414088251543552
-    m_Localized: "Gracias, lo tendr\xE9 en cuenta."
-    m_Metadata:
-      m_Items: []
   - m_Id: 9414280950452224
     m_Localized: "Bueno, aqu\xED estamos."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9414550518370304
-    m_Localized: "Sabes que piso es, \xBFno?"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9415006527295488
-    m_Localized: Si.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9415084981751808
-    m_Localized: Ok.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9415188031606784
-    m_Localized: Antes de que te vayas, sabe que estoy para vos cuando me necesites.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9415676609302528
-    m_Localized: "No est\xE1s solo."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9415883359129600
-    m_Localized: Gracias, realmente.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9416032063983616
-    m_Localized: "No hay de que, ahora ve, \xA1nos vemos!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9416427716874240
-    m_Localized: Hasta luego.
     m_Metadata:
       m_Items: []
   references:

@@ -101,7 +101,6 @@ public class DialogDriver : MonoBehaviour
             StartCoroutine(MainLoop());
     }
 
-
     void Continue(InputAction.CallbackContext _)
     {
         if (isSpeaking)

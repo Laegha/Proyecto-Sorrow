@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4255823826944
-    m_Localized: Un ente no para de molestarme.
+    m_Localized: El Monstruo no para de molestarme.
     m_Metadata:
       m_Items: []
   - m_Id: 4602969591808
@@ -106,52 +106,41 @@ MonoBehaviour:
     m_Localized: Supongo que si.
     m_Metadata:
       m_Items: []
-  - m_Id: 9412680848642048
-    m_Localized: "Ya que estabamos en el tema, tom\xE1."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9413145292312576
-    m_Localized: Si el ente te vuelve a molestar, usalos; te van a ayudar a concentrarte.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 9414088251543552
-    m_Localized: Gracias, lo tengo en cuenta.
-    m_Metadata:
-      m_Items: []
   - m_Id: 9414280950452224
     m_Localized: Bueno, llegamos.
     m_Metadata:
       m_Items: []
-  - m_Id: 9414550518370304
-    m_Localized: "Sab\xE9s que piso es, \xBFno?"
+  - m_Id: 17859278626889728
+    m_Localized: Chau, cuidate!
     m_Metadata:
       m_Items: []
-  - m_Id: 9415006527295488
-    m_Localized: Si.
+  - m_Id: 17859172649410560
+    m_Localized: Dale, nos vemos. Y gracias denuevo
     m_Metadata:
       m_Items: []
-  - m_Id: 9415084981751808
-    m_Localized: Ok.
+  - m_Id: 17859068819415040
+    m_Localized: "Cualquier cosa que necesites, sab\xE9 que podes hablar conmigo"
     m_Metadata:
       m_Items: []
-  - m_Id: 9415188031606784
-    m_Localized: Antes de que te vayas, sabe que estoy para vos cuando me necesites.
+  - m_Id: 17858960346324992
+    m_Localized: No hay problema, no te voy a dejar solo
     m_Metadata:
       m_Items: []
-  - m_Id: 9415676609302528
-    m_Localized: "No est\xE1s solo."
+  - m_Id: 17858827156201472
+    m_Localized: "Gracias, realmente aprecio que hagas esto por m\xED"
     m_Metadata:
       m_Items: []
-  - m_Id: 9415883359129600
-    m_Localized: Gracias, realmente.
+  - m_Id: 17858713981296640
+    m_Localized: Estos te ayudan a concentrarte, ponetelos cuando El Monstruo te
+      moleste
     m_Metadata:
       m_Items: []
-  - m_Id: 9416032063983616
-    m_Localized: "No hay de que, ahora and\xE1, \xA1nos vemos!"
+  - m_Id: 17858661439250432
+    m_Localized: Ah, antes de que me olvide
     m_Metadata:
       m_Items: []
-  - m_Id: 9416427716874240
-    m_Localized: Chau.
+  - m_Id: 17858363945656320
+    m_Localized: "Es el piso siete, la \xFAltima puerta a la derecha del ascensor"
     m_Metadata:
       m_Items: []
   references:

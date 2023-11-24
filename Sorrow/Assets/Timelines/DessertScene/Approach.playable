@@ -26,18 +26,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: ApproachTimeline
+  m_Name: Approach
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
   - {fileID: 7060657996963246805}
   - {fileID: 2781777973591824441}
+  - {fileID: 22461671947919024}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: 0}
+--- !u!114 &22461671947919024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track (1)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 4132449397721824151}
 --- !u!114 &2781777973591824441
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,16 +85,16 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0.016666666666666666
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 6175970257812896969}
-    m_Duration: 1.7
+    m_Duration: 2.5608856938779354
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2781777973591824441}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 1.7
+    m_BlendOutDuration: 2.1942190272112687
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -127,17 +152,17 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: PlayerVirtualCamera
+    m_DisplayName: PlayerSustituteCamera
   - m_Version: 1
-    m_Start: 0.016666666666666666
+    m_Start: 0.36666666666666664
     m_ClipIn: 0
     m_Asset: {fileID: -4160884714238121268}
-    m_Duration: 6.266666666666667
+    m_Duration: 2.25
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2781777973591824441}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.7
+    m_BlendInDuration: 2.1942190272112687
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -199,6 +224,22 @@ MonoBehaviour:
     m_DisplayName: DialogCamera
   m_Markers:
     m_Objects: []
+--- !u!114 &4132449397721824151
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 2.5833333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 445639e0f9b7f5546a71a0ec3e6894a7, type: 2}
 --- !u!114 &6175970257812896969
 MonoBehaviour:
   m_ObjectHideFlags: 1

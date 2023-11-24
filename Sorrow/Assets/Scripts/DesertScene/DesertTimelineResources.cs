@@ -54,4 +54,6 @@ public class DesertTimelineResources : MonoBehaviour
         yield return new WaitForEndOfFrame();
         sandMoving = isStarting;
     }
+
+    public void MovePlayer(Transform copiedPosition) => CinematicManager.instance.player.transform.position = new Vector3(copiedPosition.position.x, CinematicManager.instance.player.transform.position.y, copiedPosition.position.z);
 }
