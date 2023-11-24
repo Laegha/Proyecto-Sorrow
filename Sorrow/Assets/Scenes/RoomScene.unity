@@ -3354,9 +3354,6 @@ PrefabInstance:
       addedObject: {fileID: 784331980}
     - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 784331979}
-    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 784331978}
     - targetCorrespondingSourceObject: {fileID: 5788466507339464006, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
@@ -3417,18 +3414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headphonesFilter: {fileID: 0}
---- !u!114 &784331979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784331972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5144a16509d213447bb8018f0a067f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &784331980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5415,6 +5400,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355379093}
+    - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355379094}
   m_SourcePrefab: {fileID: 100100000, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
 --- !u!4 &1355379087 stripped
 Transform:
@@ -5585,6 +5573,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1355379094}
+        m_TargetAssemblyTypeName: FogController, Assembly-CSharp
+        m_MethodName: FogTurner
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   doorAnim: {fileID: 1362673405}
   loadedSceneName: DesertScene
   loadScene: 1
@@ -5603,6 +5603,19 @@ MonoBehaviour:
   loadOnStart: 0
   isAdditive: 1
   sceneToLoad: DesertScene
+--- !u!114 &1355379094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355379088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &1362673403
 GameObject:
   m_ObjectHideFlags: 0
