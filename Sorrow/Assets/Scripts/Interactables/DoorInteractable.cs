@@ -11,12 +11,12 @@ public class DoorInteractable : ActionInteractable
 
     public override void Interaction()
     {
-        base.Interaction();
         if(loadScene)
             SceneManager.LoadScene(loadedSceneName, LoadSceneMode.Additive);
         
         doorAnim.Play("DoorOpen");
         enabled = false;
+        base.Interaction();
         Destroy(this);
     }
 }

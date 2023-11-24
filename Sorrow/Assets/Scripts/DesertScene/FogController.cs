@@ -18,5 +18,9 @@ public class FogController : MonoBehaviour
         }
     }
 
-    public void FogTurner(bool isEnabled) => RenderSettings.fog = isEnabled;
+    public void FogTurner(bool isEnabled)
+    {
+        print("");
+        RenderSettings.fog = isEnabled;
+    }
 }
