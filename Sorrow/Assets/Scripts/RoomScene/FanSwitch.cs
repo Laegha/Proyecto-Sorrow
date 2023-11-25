@@ -21,13 +21,12 @@ public class FanSwitch : HitableTarget
     {
         button.transform.rotation = Quaternion.Euler(0f, -button.transform.rotation.eulerAngles.y, 0f);
         buttonMR.material.DisableKeyword("_EMISSION");
-        StartCoroutine(PlayTimeline());
+        playableDirector.Play();
+        playableDirector.stopped += End;
     }
 
-    IEnumerator PlayTimeline()
+    void End(PlayableDirector _)
     {
-        playableDirector.Play();
-        yield return new WaitForSeconds((float)playableDirector.duration);
         endActions.Invoke();
         Destroy(this);
     }
