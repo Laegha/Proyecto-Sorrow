@@ -644,6 +644,92 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3169486, y: 0.1358727, z: 0.58954346}
   m_Center: {x: 0, y: 0.06793635, z: -0.000000014901161}
+--- !u!114 &107661273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107661265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e765b87ad5422684e9a304357eddcdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 4
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  outsideColor: {r: 0, g: 0, b: 0, a: 1}
+  distanceMultiplier: 0.1
+  distanceOffset: 10
+  pickUpHolder: {fileID: 1147036330}
+--- !u!114 &107661274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107661265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 16
+  precomputeOutline: 1
+  bakeKeys:
+  - {fileID: 1890910595786045333, guid: 68f60fec49117264e90c92f647904615, type: 3}
+  bakeValues:
+  - data:
+    - {x: 0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: 0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: 0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: 0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: 0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: -0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: -0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: 0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: -0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: -0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: -0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: -0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: -0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: 0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: 0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: -0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: 0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: 0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: -0.57735026, y: -0.57735044, z: 0.57735014}
+    - {x: -0.57735026, y: -0.5773502, z: -0.5773504}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: -0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: 0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: -0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: -0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: 0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: 0.5773503}
+    - {x: -0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: -0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: 0.5773503, y: 0.5773503, z: -0.5773502}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: -0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: 0.5773503, z: -0.57735026}
+    - {x: 0.5773503, y: 0.57735014, z: 0.5773503}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
 --- !u!4 &131971742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: feb4f4eceb376cc48863d44662810981, type: 3}
@@ -942,94 +1028,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1306780969}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &216590780 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -987344924090702721, guid: 68f60fec49117264e90c92f647904615, type: 3}
-  m_PrefabInstance: {fileID: 832390166}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &216590782
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216590780}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.25205544, y: 0.13102998, z: 0.4725489}
-  m_Center: {x: -0.00072319806, y: 0.065381296, z: -0.008828454}
---- !u!114 &216590783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216590780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 16
-  precomputeOutline: 1
-  bakeKeys:
-  - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  bakeValues:
-  - data:
-    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
-    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
-    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
---- !u!114 &216590784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216590780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e765b87ad5422684e9a304357eddcdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionDistance: 4
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  outsideColor: {r: 0, g: 0, b: 0, a: 1}
-  distanceMultiplier: 0.1
-  distanceOffset: 10
-  pickUpHolder: {fileID: 1147036330}
 --- !u!1001 &254206396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3864,15 +3862,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8578709097331664583, guid: 68f60fec49117264e90c92f647904615, type: 3}
       insertIndex: -1
       addedObject: {fileID: 107661269}
-    - targetCorrespondingSourceObject: {fileID: -987344924090702721, guid: 68f60fec49117264e90c92f647904615, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8578709097331664583, guid: 68f60fec49117264e90c92f647904615, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216590784}
-    - targetCorrespondingSourceObject: {fileID: -987344924090702721, guid: 68f60fec49117264e90c92f647904615, type: 3}
+      addedObject: {fileID: 107661274}
+    - targetCorrespondingSourceObject: {fileID: 8578709097331664583, guid: 68f60fec49117264e90c92f647904615, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216590783}
-    - targetCorrespondingSourceObject: {fileID: -987344924090702721, guid: 68f60fec49117264e90c92f647904615, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 216590782}
+      addedObject: {fileID: 107661273}
   m_SourcePrefab: {fileID: 100100000, guid: 68f60fec49117264e90c92f647904615, type: 3}
 --- !u!1001 &840988323
 PrefabInstance:
