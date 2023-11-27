@@ -26,6 +26,8 @@ public class PlayerChaseMovement : MonoBehaviour
     readonly Vector3 rayCastOffset = new(0f, -1f, 0f);
     readonly Vector3 halfExtentsEnter = new(.45f, .05f, .45f);
     readonly Vector3 halfExtentsExit = new(.1f, .025f, .1f);
+    readonly float checkWallOffset = .55f;
+    readonly float checkWallHalfExtents = .25f;
     readonly LayerMask maskToIgnore = ~(1 << 7);
     //readonly LayerMask slopeMask = 1 << 9;
     Rigidbody rb;
@@ -110,6 +112,10 @@ public class PlayerChaseMovement : MonoBehaviour
     {
         Vector3 finalVelocity = transform.TransformDirection(input);
 
+        Vector3 wallCheckOffset = finalVelocity * checkWallOffset;
+        wallCheckOffset.y = checkWallHalfExtents;
+        if (CheckWall(wallCheckOffset)) return;
+
         if (!grounded)
             finalVelocity *= airControl;
         else if (slopeNormal != Vector3.up && slopeNormal != Vector3.zero)
@@ -149,6 +155,9 @@ public class PlayerChaseMovement : MonoBehaviour
 
     bool CheckGround(Vector3 offset, Vector3 halfExtents)
         => Physics.OverlapBoxNonAlloc(transform.position + offset, halfExtents, new Collider[16], Quaternion.identity, maskToIgnore) is not 0;
+    
+    bool CheckWall(Vector3 offset)
+        => Physics.Raycast(transform.position + offset, Vector3.down, checkWallHalfExtents * 2f, maskToIgnore);
 
     void CheckSlope()
     {
