@@ -42,10 +42,10 @@ public class ButtonMashing : MonoBehaviour
         mashCount -= 1f;
         buttonMashingVCam.m_Lens.FieldOfView += fovIntencity;
         director.Stop();
-        director.Play();
-
         if (mashCount <= 0f)
            StartCoroutine(End());
+
+        director.Play();
     }
 
     void Update()
@@ -63,11 +63,11 @@ public class ButtonMashing : MonoBehaviour
     IEnumerator End()
     {
         enabled = false;
+        director.Stop();
         CinematicManager.instance.ReturnPlayerCamera();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(CinematicManager.instance.cinemachineBrain.ActiveBlend.Duration);
 
-        director.Stop();
         endActions.Invoke();
 
     }
