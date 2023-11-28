@@ -63,8 +63,8 @@ public class FakeDoorInteractable : Interactable
 
         //InputManager.instance.GetComponent<HeldObjectManager>().HoldObject(heldObject);
         //megaphoneComponent.enabled = true;
-        //chaseController.isMoving = true;
         //enabled = false;
+        chaseController.enabled = true;
         Destroy(hands1);
         hands2.SetActive(true);
         buttonMashing.enabled = true;
