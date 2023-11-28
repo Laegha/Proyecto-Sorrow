@@ -1117,6 +1117,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headphonesFilter: {fileID: 0}
+--- !u!1001 &1249258854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -77.40614
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3125218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.556
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
+      propertyPath: m_Name
+      value: LlaveLoca
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc5dcf2dbbdad2f45ad4463a20fb0a5c, type: 3}
 --- !u!1 &2011638292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1771c683248efea4097e5561f069fbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMaterial: {fileID: 0}
+  interactionDistance: 1
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  outsideColor: {r: 0, g: 0, b: 0, a: 1}
+  distanceMultiplier: 0.1
+  distanceOffset: 10
   loadedSceneName: LockedDoorScene
   brightAnimator: {fileID: 0}
 --- !u!65 &2011638294
@@ -1294,3 +1355,4 @@ SceneRoots:
   - {fileID: 541039956}
   - {fileID: 2011638297}
   - {fileID: 387155300}
+  - {fileID: 1249258854}
