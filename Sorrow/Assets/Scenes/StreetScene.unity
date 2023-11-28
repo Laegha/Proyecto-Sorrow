@@ -41251,7 +41251,8 @@ MonoBehaviour:
   - {fileID: 1810368791}
   - {fileID: 1920824571}
   isMoving: 0
-  speed: 1
+  speed: 5
+  turnSpeed: 0.5
 --- !u!95 &1236298523
 Animator:
   serializedVersion: 5

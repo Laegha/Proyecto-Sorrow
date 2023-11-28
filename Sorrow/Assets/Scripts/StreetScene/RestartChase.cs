@@ -20,7 +20,7 @@ public class RestartChase : MonoBehaviour
 
         ChaseController chaseController = GetComponent<ChaseController>();
         if (chaseController)
-            chaseController.isMoving = false;
+            chaseController.enabled = false;
 
         // Start timeline clip
         if (restartTimeline != null)

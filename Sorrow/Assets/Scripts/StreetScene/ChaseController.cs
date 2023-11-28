@@ -7,20 +7,23 @@ public class ChaseController : MonoBehaviour
     [SerializeField] Transform[] waypoints;
 
     int trackedWayPoint = 0;
-
-    /*[HideInInspector]*/ public bool isMoving;
-
-    [SerializeField] float speed;
-
-    float magnitude;
-    float traveled;
+    [SerializeField] float speed, turnSpeed;
+    float magnitude, traveled, turned;
+    Quaternion initRotation, finalRotation;
+    bool isRotating;
 
     void Start() => TrackWaypoint();
 
     void Update()
     {
-        if (!isMoving)
+        if (isRotating)
+        {
+            transform.rotation = Quaternion.Lerp(initRotation, finalRotation, turned);
+            turned += turnSpeed * Time.deltaTime;
+            if (turned >= 1f)
+                isRotating = false;
             return;
+        }
 
         var delta = speed * Time.deltaTime;
         transform.Translate(delta * Vector3.forward);
@@ -30,9 +33,9 @@ public class ChaseController : MonoBehaviour
             return;
 
         trackedWayPoint++;
-        if (trackedWayPoint > waypoints.Length - 1)
+        if (trackedWayPoint >= waypoints.Length)
         {
-            isMoving = false;
+            enabled = false;
             return;
         }
         TrackWaypoint();
@@ -40,13 +43,15 @@ public class ChaseController : MonoBehaviour
 
     void TrackWaypoint()
     {
+        print("Tracking waypoint " + trackedWayPoint);
         var delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
         magnitude = delta.magnitude;
         traveled = 0f;
-        transform.rotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
+        initRotation = transform.rotation;
+        finalRotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
+        turned = 0f;
+        isRotating = true;
     }
-
-    public void StartChase() => isMoving = true;
     
     public void ChangeSpeed(float newSpeed) => speed = newSpeed;
 }
