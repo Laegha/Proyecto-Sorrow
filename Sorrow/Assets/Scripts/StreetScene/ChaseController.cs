@@ -8,7 +8,7 @@ public class ChaseController : MonoBehaviour
 
     int trackedWayPoint = 0;
     [SerializeField] float speed, turnSpeed;
-    float distance, traveled, turned;
+    float distance, traveled, deltaRot, turned;
     Quaternion initRotation, finalRotation;
     Vector3 initPosition, finalPosition;
     bool isRotating;
@@ -23,21 +23,11 @@ public class ChaseController : MonoBehaviour
         if (isRotating)
         {
             rb.MoveRotation(Quaternion.Lerp(initRotation, finalRotation, turned));
-            turned += turnSpeed * Time.deltaTime;
+            turned += turnSpeed * Time.deltaTime / deltaRot;
             if (turned >= 1f)
                 isRotating = false;
             return;
         }
-
-        /*
-        // Delta method
-        var delta = speed * Time.deltaTime;
-        rb.MovePosition(transform.position + delta * transform.forward);
-        traveled += delta;
-
-        if (traveled < distance)
-            return;
-        */
 
         // Lerp method
         rb.MovePosition(Vector3.Lerp(initPosition, finalPosition, traveled));
@@ -59,15 +49,17 @@ public class ChaseController : MonoBehaviour
         print("Tracking waypoint " + trackedWayPoint);
         var horizontalWaypoint = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z);
         var horizontalPosition = new Vector2(transform.position.x, transform.position.z);
+
         var delta = horizontalWaypoint - horizontalPosition;
         distance = Vector2.Distance(horizontalWaypoint, horizontalPosition);
 
-        traveled = 0f;
         initPosition = transform.position;
         finalPosition = waypoints[trackedWayPoint].position;
+        traveled = 0f;
         initRotation = transform.rotation;
         finalRotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
         turned = 0f;
+        deltaRot = Mathf.Abs(Mathf.DeltaAngle(initRotation.eulerAngles.y, finalRotation.eulerAngles.y));
         isRotating = true;
     }
     
