@@ -29064,14 +29064,14 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1236298522}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: ChaseController, Assembly-CSharp
+        m_MethodName: ChangeSpeed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5
           m_StringArgument: Fall
           m_BoolArgument: 1
         m_CallState: 2
@@ -41250,7 +41250,7 @@ MonoBehaviour:
   - {fileID: 339897424}
   - {fileID: 1810368791}
   - {fileID: 1920824571}
-  speed: 5
+  speed: 4
   turnSpeed: 0.5
 --- !u!95 &1236298523
 Animator:
@@ -41296,10 +41296,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1236298525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41319,8 +41319,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 11.10708, z: 20}
-  m_Center: {x: -1.2772365e-13, y: 5.0535374, z: 3.0075643}
+  m_Size: {x: 20, y: 12, z: 20}
+  m_Center: {x: 0, y: 0.5, z: 2.5}
 --- !u!4 &1236298526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44b4c65f491618f4aa06b7f0114f90d6, type: 3}
@@ -65029,7 +65029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44b4c65f491618f4aa06b7f0114f90d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44b4c65f491618f4aa06b7f0114f90d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65087,6 +65087,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 32e8f9f28444f0541a4768ada859a34c, type: 2}
+    - target: {fileID: 8879528566716807029, guid: 44b4c65f491618f4aa06b7f0114f90d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: 44b4c65f491618f4aa06b7f0114f90d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
