@@ -8,8 +8,9 @@ public class ChaseController : MonoBehaviour
 
     int trackedWayPoint = 0;
     [SerializeField] float speed, turnSpeed;
-    float magnitude, traveled, turned;
+    float distance, traveled, turned;
     Quaternion initRotation, finalRotation;
+    Vector3 initPosition, finalPosition;
     bool isRotating;
     Rigidbody rb;
 
@@ -28,15 +29,24 @@ public class ChaseController : MonoBehaviour
             return;
         }
 
+        /*
+        // Delta method
         var delta = speed * Time.deltaTime;
         rb.MovePosition(transform.position + delta * transform.forward);
         traveled += delta;
 
-        if (traveled < magnitude)
+        if (traveled < distance)
+            return;
+        */
+
+        // Lerp method
+        rb.MovePosition(Vector3.Lerp(initPosition, finalPosition, traveled));
+        traveled += speed * Time.deltaTime / distance;
+
+        if (traveled < 1f)
             return;
 
-        trackedWayPoint++;
-        if (trackedWayPoint >= waypoints.Length)
+        if (++trackedWayPoint >= waypoints.Length)
         {
             enabled = false;
             return;
@@ -48,8 +58,10 @@ public class ChaseController : MonoBehaviour
     {
         print("Tracking waypoint " + trackedWayPoint);
         var delta = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z) - new Vector2(transform.position.x, transform.position.z);
-        magnitude = delta.magnitude;
+        distance = Vector2.Distance(new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z), new Vector2(transform.position.x, transform.position.z));
         traveled = 0f;
+        initPosition = transform.position;
+        finalPosition = waypoints[trackedWayPoint].position;
         initRotation = transform.rotation;
         finalRotation = Quaternion.Euler(new Vector3(0f, Mathf.Atan2(delta.x, delta.y) * Mathf.Rad2Deg, 0f));
         turned = 0f;
