@@ -28894,7 +28894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fForce: 3
-  airDrag: 0.1
+  airDrag: 0.35
   groundDrag: 10
   jumpForce: 5.75
   jumpBufferTime: 0.1
@@ -71576,6 +71576,9 @@ MonoBehaviour:
   distanceTo: {fileID: 1236298526}
   distanceMultiplier: 1
   minFresnelPower: 1
+  material: {fileID: 0}
+  lastFromPos: {x: 0, y: 0, z: 0}
+  lastToPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1636993956
 MonoBehaviour:
   m_ObjectHideFlags: 0
