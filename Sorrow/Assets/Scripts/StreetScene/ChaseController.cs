@@ -11,6 +11,9 @@ public class ChaseController : MonoBehaviour
     float magnitude, traveled, turned;
     Quaternion initRotation, finalRotation;
     bool isRotating;
+    Rigidbody rb;
+
+    void Awake() => rb = GetComponent<Rigidbody>();
 
     void Start() => TrackWaypoint();
 
@@ -18,7 +21,7 @@ public class ChaseController : MonoBehaviour
     {
         if (isRotating)
         {
-            transform.rotation = Quaternion.Lerp(initRotation, finalRotation, turned);
+            rb.MoveRotation(Quaternion.Lerp(initRotation, finalRotation, turned));
             turned += turnSpeed * Time.deltaTime;
             if (turned >= 1f)
                 isRotating = false;
@@ -26,7 +29,7 @@ public class ChaseController : MonoBehaviour
         }
 
         var delta = speed * Time.deltaTime;
-        transform.Translate(delta * Vector3.forward);
+        rb.MovePosition(transform.position + delta * transform.forward);
         traveled += delta;
 
         if (traveled < magnitude)
