@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class FakeDoorInteractable : Interactable
+public class FakeDoorInteractable : TimelineInteractable
 {
     [SerializeField] ChaseController chaseController;
     [SerializeField] GameObject hands1;
