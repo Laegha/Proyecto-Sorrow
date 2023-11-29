@@ -320,15 +320,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Drop"",
-                    ""type"": ""Button"",
-                    ""id"": ""2e469879-41bd-460a-ad02-80a856a3fe28"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -373,28 +364,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""19069e76-4c14-40d0-aa0e-99cb76936bf9"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d273ddef-01fa-4bd3-858d-ce483633a930"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -569,7 +538,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
         m_Camera_Click = m_Camera.FindAction("Click", throwIfNotFound: true);
-        m_Camera_Drop = m_Camera.FindAction("Drop", throwIfNotFound: true);
         // ButtonMashing
         m_ButtonMashing = asset.FindActionMap("ButtonMashing", throwIfNotFound: true);
         m_ButtonMashing_Button = m_ButtonMashing.FindAction("Button", throwIfNotFound: true);
@@ -801,14 +769,12 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
     private readonly InputAction m_Camera_Look;
     private readonly InputAction m_Camera_Click;
-    private readonly InputAction m_Camera_Drop;
     public struct CameraActions
     {
         private @Controller m_Wrapper;
         public CameraActions(@Controller wrapper) { m_Wrapper = wrapper; }
         public InputAction @Look => m_Wrapper.m_Camera_Look;
         public InputAction @Click => m_Wrapper.m_Camera_Click;
-        public InputAction @Drop => m_Wrapper.m_Camera_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -824,9 +790,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Click.started += instance.OnClick;
             @Click.performed += instance.OnClick;
             @Click.canceled += instance.OnClick;
-            @Drop.started += instance.OnDrop;
-            @Drop.performed += instance.OnDrop;
-            @Drop.canceled += instance.OnDrop;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
@@ -837,9 +800,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             @Click.started -= instance.OnClick;
             @Click.performed -= instance.OnClick;
             @Click.canceled -= instance.OnClick;
-            @Drop.started -= instance.OnDrop;
-            @Drop.performed -= instance.OnDrop;
-            @Drop.canceled -= instance.OnDrop;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -986,7 +946,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     {
         void OnLook(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
-        void OnDrop(InputAction.CallbackContext context);
     }
     public interface IButtonMashingActions
     {

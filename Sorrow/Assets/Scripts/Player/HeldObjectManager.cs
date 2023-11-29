@@ -22,13 +22,11 @@ public class HeldObjectManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         InputManager.controller.Camera.Click.performed += UseObject;
-        InputManager.controller.Camera.Drop.performed += DropObject;
         InputManager.controller.Camera.Click.performed += CheckInteraction;
     }
     void OnDisable()
     {
         InputManager.controller.Camera.Click.performed -= UseObject;
-        InputManager.controller.Camera.Drop.performed -= DropObject;
         InputManager.controller.Camera.Click.performed -= CheckInteraction;
     }
 
@@ -82,6 +80,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject = null;
     }
 
+    /*
     void DropObject(InputAction.CallbackContext _)
     {
         if (heldObject == null || heldObject.thisItem == null)
@@ -93,4 +92,5 @@ public class HeldObjectManager : MonoBehaviour
         heldObjectCollider = null;
         heldObject = null;
     }
+    */
 }
