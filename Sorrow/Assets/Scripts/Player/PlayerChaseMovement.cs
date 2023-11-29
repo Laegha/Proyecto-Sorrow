@@ -34,7 +34,6 @@ public class PlayerChaseMovement : MonoBehaviour
     HeldObjectManager heldObjectManager;
     PlayerMovement playerMovement;
 
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -125,7 +124,7 @@ public class PlayerChaseMovement : MonoBehaviour
     }
 
     // 2) Al entrar en colisión con algo, fijarse si es el piso o no. Eso determinará si puede saltar o no.
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision _)
     {
         if (!enabled) return;
 
@@ -139,7 +138,7 @@ public class PlayerChaseMovement : MonoBehaviour
             Jump(default);
     }
 
-    public void OnCollisionExit(Collision collision)
+    public void OnCollisionExit(Collision _)
     {
         if (!grounded || !enabled) return;
 
