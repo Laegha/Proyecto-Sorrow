@@ -28975,9 +28975,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fForce: 3
-  airDrag: 0
+  airDrag: 0.1
   groundDrag: 10
-  jumpForce: 6
+  jumpForce: 5.75
   jumpBufferTime: 0.1
   coyoteTime: 0.2
   airControl: 0.15
