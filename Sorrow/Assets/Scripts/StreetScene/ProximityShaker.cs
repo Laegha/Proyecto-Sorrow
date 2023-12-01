@@ -6,10 +6,13 @@ using UnityEngine;
 public class ProximityShaker : MonoBehaviour
 {
     [SerializeField] Transform distanceTo;
-    [SerializeField] float distanceMultiplier = 1f;
     [SerializeField] float minDistance = 60f;
+    [SerializeField] float maxShake = 2f;
+    float distanceMultiplier;
     Vector3 lastSelfPos;
     Vector3 lastToPos;
+
+    void Awake() => RecalculateDistanceMultiplier();
 
     void OnDisable() => CinematicManager.instance.StopCameraShake();
 
@@ -26,6 +29,20 @@ public class ProximityShaker : MonoBehaviour
         if (distance > minDistance)
             CinematicManager.instance.StopCameraShake();
         else
-            CinematicManager.instance.StartCameraShake(distanceMultiplier * (minDistance - distance));
+            CinematicManager.instance.StartCameraShake(distanceMultiplier * Mathf.Pow(minDistance - distance, 2));
     }
+
+    void ChangeMinDistance(float newMinDistance)
+    {
+        minDistance = newMinDistance;
+        RecalculateDistanceMultiplier();
+    }
+
+    void ChangeMaxShake(float newMaxShake)
+    {
+        maxShake = newMaxShake;
+        RecalculateDistanceMultiplier();
+    }
+
+    void RecalculateDistanceMultiplier() => distanceMultiplier = maxShake / Mathf.Pow(minDistance - 10f, 2);
 }
