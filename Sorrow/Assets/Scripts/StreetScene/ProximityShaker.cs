@@ -32,13 +32,13 @@ public class ProximityShaker : MonoBehaviour
             CinematicManager.instance.StartCameraShake(distanceMultiplier * Mathf.Pow(minDistance - distance, 2));
     }
 
-    void ChangeMinDistance(float newMinDistance)
+    public void ChangeMinDistance(float newMinDistance)
     {
         minDistance = newMinDistance;
         RecalculateDistanceMultiplier();
     }
 
-    void ChangeMaxShake(float newMaxShake)
+    public void ChangeMaxShake(float newMaxShake)
     {
         maxShake = newMaxShake;
         RecalculateDistanceMultiplier();
