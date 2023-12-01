@@ -13,8 +13,17 @@ public class ChaseController : MonoBehaviour
     Vector3 initPosition, finalPosition;
     bool isRotating;
     Rigidbody rb;
+    ProximityShaker proximityShaker;
 
-    void Awake() => rb = GetComponent<Rigidbody>();
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        proximityShaker = GetComponent<ProximityShaker>();
+    }
+
+    void OnEnable() => proximityShaker.enabled = true;
+
+    void OnDisable() => proximityShaker.enabled = false;
 
     void Start() => TrackWaypoint();
 
