@@ -22,6 +22,11 @@ public class RestartChase : MonoBehaviour
         if (chaseController)
             chaseController.enabled = false;
 
+        // Disable player movement
+        InputManager inputManager = col.GetComponent<InputManager>();
+        if (inputManager)
+            inputManager.enabled = false;
+
         // Start timeline clip
         if (restartTimeline != null)
             restartTimeline.Play();
