@@ -6,8 +6,9 @@ using UnityEngine.Playables;
 
 public class TimelineInteractable : ActionInteractable
 {
-    [SerializeField] PlayableDirector timeline;
+    [SerializeField] internal PlayableDirector timeline;
     [SerializeField] UnityEvent onTimelineEnd;
+    [SerializeField] bool unsubscribeOnEnd = true;
     
     protected override void Awake()
     {
@@ -21,5 +22,10 @@ public class TimelineInteractable : ActionInteractable
         timeline.Play();
     }
 
-    void TimelineEnd(PlayableDirector _) => onTimelineEnd.Invoke();
+    void TimelineEnd(PlayableDirector _)
+    {
+        if (unsubscribeOnEnd)
+            timeline.stopped -= TimelineEnd;
+        onTimelineEnd.Invoke();
+    }
 }
