@@ -52,7 +52,9 @@ public class CinematicManager : MonoBehaviour
 
     public void StopCameraShake()
     {
-        CurrCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+        var noiseChannel = CurrCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        if (noiseChannel)
+            noiseChannel.m_AmplitudeGain = 0f;
 
         /*
         shaking = false;
