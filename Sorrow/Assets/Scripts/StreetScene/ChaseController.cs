@@ -73,4 +73,10 @@ public class ChaseController : MonoBehaviour
     }
     
     public void ChangeSpeed(float newSpeed) => speed = newSpeed;
+
+    public void CheckpointTp()
+    {
+        transform.position = new(75f, 22.5f, 2.5f);
+        TrackWaypoint();
+    }
 }
