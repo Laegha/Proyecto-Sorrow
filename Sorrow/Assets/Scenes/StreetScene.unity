@@ -29118,6 +29118,18 @@ MonoBehaviour:
           m_StringArgument: Fall
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1236298528}
+        m_TargetAssemblyTypeName: ProximityShaker, Assembly-CSharp
+        m_MethodName: ChangeMinDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 35
+          m_StringArgument: Fall
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &990399263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7238555324295211407, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -29154,7 +29166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1591668270}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1148684598}
@@ -29169,6 +29193,18 @@ MonoBehaviour:
           m_FloatArgument: 13.5
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1591668270}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 13.5
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
@@ -29256,6 +29292,42 @@ MonoBehaviour:
           m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1591668270}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1236298528}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 35
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1236298528}
+        m_TargetAssemblyTypeName: ProximityShaker, Assembly-CSharp
+        m_MethodName: ChangeMinDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 35
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1001 &1000324669
 PrefabInstance:
@@ -30443,6 +30515,38 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1141424172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 1009547590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1141424173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 1009547590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1141424176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141424172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6745081194495780140, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
 --- !u!1 &1141762581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
@@ -41319,8 +41423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceTo: {fileID: 1996496198}
-  distanceMultiplier: 0.1
-  minDistance: 50
+  minDistance: 60
+  maxShake: 2
 --- !u!1001 &1238049662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47593,6 +47697,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
   m_PrefabInstance: {fileID: 1310183742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1312472329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 451550093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1312472330 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 451550093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1312472333
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312472329}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6745081194495780140, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
 --- !u!4 &1320747971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
@@ -72270,6 +72406,9 @@ Transform:
   - {fileID: 613128151}
   - {fileID: 1761219797}
   - {fileID: 1090363327}
+  - {fileID: 1775681621}
+  - {fileID: 1312472330}
+  - {fileID: 1141424173}
   m_Father: {fileID: 1849814221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682580751 stripped
@@ -73406,6 +73545,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773245123}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1775681618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 1349462578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1775681621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
+  m_PrefabInstance: {fileID: 1349462578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1775681622
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775681618}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6745081194495780140, guid: 36ca8a5d636df3c4190fba19b1129201, type: 3}
 --- !u!4 &1783772992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4ce5577fe97f04db34bb28e5840631, type: 3}
