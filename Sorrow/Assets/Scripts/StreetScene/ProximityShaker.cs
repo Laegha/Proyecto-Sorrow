@@ -44,5 +44,5 @@ public class ProximityShaker : MonoBehaviour
         RecalculateDistanceMultiplier();
     }
 
-    void RecalculateDistanceMultiplier() => distanceMultiplier = maxShake / Mathf.Pow(minDistance - 10f, 2);
+    void RecalculateDistanceMultiplier() => distanceMultiplier = maxShake / Mathf.Pow(minDistance - 22.5f, 2);
 }
