@@ -7929,7 +7929,7 @@ Transform:
   m_GameObject: {fileID: 203209581}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.5, y: 2.25, z: -15.5}
+  m_LocalPosition: {x: -27.5, y: 2.05, z: -15.5}
   m_LocalScale: {x: 25, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8723,6 +8723,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc80917bbb997944e8c3905a30cedc8e, type: 3}
   m_PrefabInstance: {fileID: 242733381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &243410172 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 287237401259765628, guid: ed969c3db047cf64bb8cb6365c2f7002, type: 3}
+  m_PrefabInstance: {fileID: 1747355177}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &253721571
 GameObject:
@@ -29844,6 +29849,18 @@ MonoBehaviour:
           m_StringArgument: Fall
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1855823297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 42.5
+          m_StringArgument: Fall
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &990399263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7238555324295211407, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
@@ -30080,6 +30097,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1058437681}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 42.5
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1855823297}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -43188,7 +43217,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -138.76358
+      value: -139
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43234,6 +43263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: npc_sin_manos
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -43244,6 +43277,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1855823298}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1855823304}
   m_SourcePrefab: {fileID: 100100000, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
 --- !u!1001 &1273269264
 PrefabInstance:
@@ -55697,6 +55733,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474793609}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1475338086 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4648566864800117561, guid: ed969c3db047cf64bb8cb6365c2f7002, type: 3}
+  m_PrefabInstance: {fileID: 1747355177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1492470866
 GameObject:
   m_ObjectHideFlags: 0
@@ -95561,6 +95602,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d03a2e5e1df3d14b8f2860101a0d8f8, type: 3}
   m_PrefabInstance: {fileID: 1266571596}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855823304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855823297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e89831159e5a845af396708f8b4f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 30
+  minDistance: 5
+  handR: {fileID: 1475338086}
+  handL: {fileID: 243410172}
 --- !u!1001 &1904574066
 PrefabInstance:
   m_ObjectHideFlags: 0
