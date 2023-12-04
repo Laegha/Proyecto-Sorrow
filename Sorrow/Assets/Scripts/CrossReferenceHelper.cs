@@ -60,10 +60,12 @@ public class CrossReferenceHelper : MonoBehaviour
     {
         var component = ComponentGetter(fieldRA[index]);
         var type = TypeGetter(component, fieldRA[index]);
+        /*
         print(component);
         print(type);
         print(fieldRA[index].lookingFor);
         print(fieldRA[index].convertedValue);
+        */
         if (fieldRA[index].isProperty)
         {
             var property = type.GetProperty(fieldRA[index].lookingFor);
