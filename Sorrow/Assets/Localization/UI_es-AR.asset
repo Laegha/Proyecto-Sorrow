@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15093075968
-    m_Localized: Empezar
+    m_Localized: Jugar
     m_Metadata:
       m_Items: []
   - m_Id: 199000723456
-    m_Localized: "Configuraci\xF3n"
+    m_Localized: Opciones
     m_Metadata:
       m_Items: []
   - m_Id: 272564621312
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 928738316288
-    m_Localized: Effectos de sonido
+    m_Localized: Efectos de sonido
     m_Metadata:
       m_Items: []
   - m_Id: 1148301742080

@@ -23,11 +23,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 84896915456
-    m_Localized: Me ayudas a mover esto?
+    m_Localized: "\xBFMe ayudas a mover esto?"
     m_Metadata:
       m_Items: []
   - m_Id: 144816742400
-    m_Localized: "Sab\xE9s tocar alg\xFAn instrumento?"
+    m_Localized: "\xBFSab\xE9s tocar alg\xFAn instrumento?"
     m_Metadata:
       m_Items: []
   references:

@@ -19,27 +19,28 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 25941778432
-    m_Localized: Hola, es usted El Profesional?
+    m_Localized: "Hola, \xBFes usted el Profesional?"
     m_Metadata:
       m_Items: []
   - m_Id: 74847363072
-    m_Localized: "As\xED es. Que te trae por ac\xE1?"
+    m_Localized: "As\xED es. \xBFQu\xE9 te trae por ac\xE1?"
     m_Metadata:
       m_Items: []
   - m_Id: 132305133568
-    m_Localized: El Monstruo me persigue... no se que hacer
+    m_Localized: El Ente me persigue... No se que hacer.
     m_Metadata:
       m_Items: []
   - m_Id: 1045073764352
-    m_Localized: "Tranquilo, est\xE1s en el lugar indicado. Yo te voy a ayudar"
+    m_Localized: "Tranquilo, est\xE1s en el lugar indicado. Yo te voy a ayudar."
     m_Metadata:
       m_Items: []
   - m_Id: 1144269053952
-    m_Localized: Antes que nada, vamos a sentarnos
+    m_Localized: Antes que nada, vamos a sentarnos.
     m_Metadata:
       m_Items: []
   - m_Id: 1212648792064
-    m_Localized: Decime, cuales fueron tus encuentros con El Monstruo hasta ahora?
+    m_Localized: "Decime, \xBFcuales fueron tus encuentros con El Monstruo hasta
+      ahora?"
     m_Metadata:
       m_Items: []
   - m_Id: 1365644419072
@@ -48,47 +49,47 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1658478141440
-    m_Localized: "Despu\xE9s de eso despert\xE9 en mi cuarto y El Monstruo estaba
-      ah\xED, aunque ya no era peligroso, tan solo me imped\xEDa levantarme. Cuando
-      me lo saqu\xE9 de encima me bloque\xF3 la puerta, pero se fue en cuanto me
-      prepar\xE9 para salir"
+    m_Localized: "Despu\xE9s de eso despert\xE9 en mi cuarto y el Ente estaba ah\xED,
+      aunque ya no era peligroso, tan solo me imped\xEDa levantarme. Cuando me lo
+      saqu\xE9 de encima me bloque\xF3 la puerta, pero se fue en cuanto me prepar\xE9
+      para salir."
     m_Metadata:
       m_Items: []
   - m_Id: 2198754828288
     m_Localized: "Tambi\xE9n me lo encontr\xE9 en el ascensor y en el pasillo, me
       imped\xEDa hacer cosas b\xE1sicas como marcar el piso o poner un c\xF3digo.
       Me puse este visor que me prestaron y la m\xFAsica me ayud\xF3 a concentrarme
-      para seguir adelante"
+      para seguir adelante."
     m_Metadata:
       m_Items: []
   - m_Id: 2824020697088
-    m_Localized: "Por lo que me cont\xE1s, El Monstruo fue perdiendo poder con cada
-      aparici\xF3n. De casualidad esos momentos coincidieron con tu interacci\xF3n
-      con otras personas?"
+    m_Localized: "Por lo que me cont\xE1s, el Ente fue perdiendo poder con cada aparici\xF3n.
+      \xBFDe casualidad esos momentos coincidieron con tu interacci\xF3n con otras
+      personas?"
     m_Metadata:
       m_Items: []
   - m_Id: 3495142891520
-    m_Localized: "As\xED es, y tambi\xE9n cambiaba de aspecto"
+    m_Localized: "As\xED es, y tambi\xE9n cambiaba de aspecto."
     m_Metadata:
       m_Items: []
   - m_Id: 3564403433472
     m_Localized: "Eso es bueno. Quiere decir que la ayuda de los dem\xE1s te est\xE1
-      volviendo m\xE1s fuerte, y eso debilita a El Monstruo. De momento segu\xED
-      por este camino, y sab\xE9 que para cualquier cosa que necesites cont\xE1s
-      conmigo, pod\xE9s volver ac\xE1 cuando quieras"
+      volviendo m\xE1s fuerte, y eso debilita a El Ente. De momento segu\xED por
+      este camino, y sab\xE9 que para cualquier cosa que necesites cont\xE1s conmigo,
+      pod\xE9s volver ac\xE1 cuando quieras"
     m_Metadata:
       m_Items: []
   - m_Id: 4024896069632
-    m_Localized: "Vos cre\xE9s que pueda superarlo?"
+    m_Localized: "...\xBFVos cre\xE9s que pueda superarlo?"
     m_Metadata:
       m_Items: []
   - m_Id: 4092545998848
     m_Localized: Claro, lo importante es que no lo intentes solo, y sepas que estoy
-      para vos
+      para vos.
     m_Metadata:
       m_Items: []
   - m_Id: 4354492866560
-    m_Localized: Entiendo. Muchas gracias!
+    m_Localized: "Entiendo. \xA1Muchas gracias!"
     m_Metadata:
       m_Items: []
   references:
