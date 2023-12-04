@@ -76,7 +76,7 @@ public class Interactable : MonoBehaviour
         
         // Color solution
         distance *= distanceMultiplier;
-        distance = Mathf.Clamp(distance, 0f, 1f);
+        distance = Mathf.Clamp01(distance);
         Color color = outline.OutlineColor;
         color.a = 1f - distance;
         outline.OutlineColor = color;
