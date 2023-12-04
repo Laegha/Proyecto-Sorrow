@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 387155300}
   - component: {fileID: 387155299}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: PostProccesingURP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
