@@ -4,12 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
+using Cinemachine;
+using UnityEngine.PlayerLoop;
 
 public class RestartChase : MonoBehaviour
 {
-    [SerializeField] PlayableDirector restartTimeline;
-    [SerializeField] Renderer darknessSphere;
-    [SerializeField] float darknessDelay;
+    [SerializeField] CinemachineVirtualCamera monsterCamera;
+    [SerializeField] float darknessSpeed;
+    [SerializeField] float darknessDelay = 2f;
+    [SerializeField] Image blackScreen;
+    bool isRestarting = false;
+    float timer = 0f;
 
     void OnTriggerEnter(Collider col)
     {
@@ -27,27 +32,29 @@ public class RestartChase : MonoBehaviour
         if (inputManager)
             inputManager.enabled = false;
 
-        // Start timeline clip
-        if (restartTimeline != null)
-            restartTimeline.Play();
+        // Change camera
+        if (monsterCamera)
+            CinematicManager.instance.CameraChange(monsterCamera);
 
-        StartCoroutine(RestartScene()); // DEBUG
+        // Fade to black
+        blackScreen.gameObject.SetActive(true);
+        isRestarting = true;
     }
 
-    IEnumerator RestartScene()
+    void Update()
     {
-        float timer = 1;
-        darknessSphere.transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-        Material darknessMaterial = new Material(darknessSphere.material.shader);
-        darknessMaterial.CopyMatchingPropertiesFromMaterial(darknessSphere.material);
-        darknessSphere.material = darknessMaterial;
-        while (timer > 0)
-        {
-            yield return new WaitForEndOfFrame();
-            timer -= Time.deltaTime * 1/darknessDelay;
-            timer = Mathf.Clamp01(timer);
-            darknessMaterial.SetFloat("_DarknessScale", timer);
-        }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (!isRestarting)
+            return;
+
+        timer += Time.deltaTime * darknessSpeed;
+        blackScreen.color = new(0f, 0f, 0f, Mathf.Clamp01(timer));
+
+        if (timer < 1f)
+            return;
+
+        isRestarting = false;
+        Invoke(nameof(ReloadScene), darknessDelay);
     }
+
+    void ReloadScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
