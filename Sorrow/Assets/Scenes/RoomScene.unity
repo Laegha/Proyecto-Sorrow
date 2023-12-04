@@ -5857,13 +5857,6 @@ MonoBehaviour:
     - true
     argumentTypes:
     - System.Boolean
-  - objectName: PlayerSustituteCamera
-    componentName: PlayerCameraSustitute
-    componentSubclassNamespace: 
-    componentSubclass: 
-    lookingFor: RecolocateCamera
-    arguments: []
-    argumentTypes: []
   fieldRA:
   - objectName: NPC
     componentName: DialogDriver
@@ -5939,7 +5932,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   doorAnim: {fileID: 1362673405}
   loadedSceneName: DesertScene
@@ -7197,6 +7190,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4254118925143958338, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254118925143958338, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5081608754895910883, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7294,8 +7295,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8969680877627220749, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969680877627220749, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.666626
+      value: 16.666748
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
