@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 301899583488
-    m_Localized: "\xA1Ey, al fin sales, ten\xEDa ganas de verte!"
+    m_Localized: "\xA1Ey, al fin sales, ansiaba verte!"
     m_Metadata:
       m_Items: []
   - m_Id: 309684211712
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4840232980480
-    m_Localized: "Pero me hart\xF3; me lo quiero sacar de encima."
+    m_Localized: "Pero me cans\xE9; me lo quiero quitar de encima."
     m_Metadata:
       m_Items: []
   - m_Id: 5376214700032
@@ -64,11 +64,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6041854939136
-    m_Localized: "Su departamento no queda muy lejos de aqu\xED, vamos."
+    m_Localized: "Su apartamento no queda muy lejos de aqu\xED, vamos."
     m_Metadata:
       m_Items: []
   - m_Id: 8960515531423744
-    m_Localized: Bueno, dime.
+    m_Localized: Entonces, dime...
     m_Metadata:
       m_Items: []
   - m_Id: 8960667205844992
@@ -76,8 +76,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9117730122633216
-    m_Localized: "\xDAltimamente no la toco tanto, pero no es mala idea volver a
-      hacerlo m\xE1s seguido."
+    m_Localized: "\xDAltimamente no, pero no es mala idea volver a hacerlo m\xE1s
+      seguido."
     m_Metadata:
       m_Items: []
   - m_Id: 9120658992533504
@@ -94,11 +94,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9408088345808896
-    m_Localized: "\xA1Oh! Me alegra oir que tengas algo que te traiga tanta satisfacci\xF3n."
+    m_Localized: "\xA1Oh! Me alegra oir que tengas algo que te de tanta satisfacci\xF3n."
     m_Metadata:
       m_Items: []
   - m_Id: 9411292026507264
-    m_Localized: "Siempre es bueno tener un refugio donde sentirse bien, todos deber\xEDan
+    m_Localized: "Siempre es bueno tener un refugio donde sentirse bien; todos deber\xEDan
       tener uno."
     m_Metadata:
       m_Items: []

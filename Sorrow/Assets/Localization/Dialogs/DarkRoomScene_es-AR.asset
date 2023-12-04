@@ -23,50 +23,50 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 210835087360
-    m_Localized: Ayuda.....
+    m_Localized: Ayuda...
     m_Metadata:
       m_Items: []
   - m_Id: 261720383488
-    m_Localized: Ayuda............
+    m_Localized: Ayuda...
     m_Metadata:
       m_Items: []
   - m_Id: 315248091136
-    m_Localized: "Tranquilo, no est\xE1s solo"
+    m_Localized: "Tranquilo, no est\xE1s solo."
     m_Metadata:
       m_Items: []
   - m_Id: 395535458304
-    m_Localized: "Quer\xE9s contarnos que pas\xF3?"
+    m_Localized: "\xBFEst\xE1s bien?"
     m_Metadata:
       m_Items: []
   - m_Id: 473062973440
     m_Localized: "Todo est\xE1 mal. Soy tan inutil que ni siquiera pude cruzar ese
-      puente. El Monstruo volvi\xF3, y ahora es fuerte denuevo"
+      puente. El Monstruo volvi\xF3, y ahora es fuerte de nuevo."
     m_Metadata:
       m_Items: []
   - m_Id: 711127474176
     m_Localized: "No te preocupes, nada de eso es tu culpa. El puente era d\xE9bil,
-      cualquiera pudo haber ca\xEDdo"
+      cualquiera pudo haber ca\xEDdo."
     m_Metadata:
       m_Items: []
   - m_Id: 865289117696
-    m_Localized: "Lo que ten\xE9s que hacer ahora es recordar c\xF3mo cruzar"
+    m_Localized: "Lo que ten\xE9s que hacer ahora es recordar c\xF3mo cruzar."
     m_Metadata:
       m_Items: []
   - m_Id: 976253624320
-    m_Localized: "Que quer\xE9s decir?"
+    m_Localized: "\xBFQue quer\xE9s decir?"
     m_Metadata:
       m_Items: []
   - m_Id: 1020495142912
     m_Localized: "El monstruo va a estar impidiendote avanzar constantemente, as\xED
-      que vas a tener que buscar en tus memorias algo que te ayude a seguir adelante"
+      que vas a tener que buscar en tus memorias algo que te ayude a seguir adelante."
     m_Metadata:
       m_Items: []
   - m_Id: 1187298418688
-    m_Localized: "Y c\xF3mo hago eso?"
+    m_Localized: "\xBFY c\xF3mo hago eso?"
     m_Metadata:
       m_Items: []
   - m_Id: 1257120997376
-    m_Localized: "Yo te ayudo. Durante tu infancia, record\xE1s con qu\xE9 jugabas?"
+    m_Localized: "Yo te ayudo. Durante tu infancia, \xBFrecord\xE1s con qu\xE9 jugabas?"
     m_Metadata:
       m_Items: []
   references:
