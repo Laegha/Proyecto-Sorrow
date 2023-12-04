@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 using TMPro;
 using System.Linq;
 using UnityEngine.Events;
+using Cinemachine;
 
 public class DialogDriver : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class DialogDriver : MonoBehaviour
     [Header("Dialog")]
     [SerializeField] Dialog dialog;
     [SerializeField] Color playerColor;
+    [SerializeField] CinemachineVirtualCamera defaultCamera;
 
     [Header("Actions")]
     [SerializeField] List<ActionInterrupt> actionInterrupts;
@@ -71,6 +73,8 @@ public class DialogDriver : MonoBehaviour
         yield return new WaitForEndOfFrame();
         playerMovement.enabled = false;
         cameraLook.enabled = false;
+        if (defaultCamera)
+            CinematicManager.instance.CameraChange(defaultCamera);
         InputManager.controller.Dialog.Enable();
         InputManager.controller.Dialog.Auto.performed += SetAuto;
         InputManager.controller.Dialog.Continue.performed += Continue;
