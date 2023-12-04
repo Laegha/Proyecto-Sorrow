@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogTables: {fileID: 11400000, guid: 984629ecc2032d24780f42d95db02081, type: 2}
   npcColor: {r: 0.71053714, g: 0.244305, b: 0.801, a: 1}
-  preTimeline: {fileID: 11400000, guid: 30df19e8976c20b4e8aea0811b49efaa, type: 2}
+  preTimeline: {fileID: 0}
   interrupts:
   - atLine: 11
     timeline: {fileID: 11400000, guid: 3c67e6b4c6b469744b3faadcc05a3269, type: 2}
