@@ -20,9 +20,6 @@
         },
         {
             "m_Id": "50a5b642e6914054a9e6fd250250d5ce"
-        },
-        {
-            "m_Id": "587fdd60211c4cf1b137c62b50d002dc"
         }
     ],
     "m_Keywords": [],
@@ -1904,34 +1901,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "587fdd60211c4cf1b137c62b50d002dc",
-    "m_Guid": {
-        "m_GuidSerialized": "b6f8d9c2-185e-43ac-a4fc-6333388e1c5c"
-    },
-    "m_Name": "FresnelPower",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "FresnelPower",
-    "m_DefaultReferenceName": "_FresnelPower",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 1.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector2Node",
     "m_ObjectId": "5d4d126ce3664854a5bb442dfcd51632",
@@ -2307,9 +2276,6 @@
         },
         {
             "m_Id": "50a5b642e6914054a9e6fd250250d5ce"
-        },
-        {
-            "m_Id": "587fdd60211c4cf1b137c62b50d002dc"
         }
     ]
 }
