@@ -482,8 +482,7 @@ Transform:
   m_LocalPosition: {x: -3.3720446, y: 1.4, z: 3.983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1353947197}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -89.568, z: 0}
 --- !u!1001 &70526025
@@ -3525,6 +3524,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 784331978}
+    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784331991}
     - targetCorrespondingSourceObject: {fileID: 5788466507339464006, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 784331981}
@@ -3610,6 +3612,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0
+--- !u!114 &784331991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784331972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5144a16509d213447bb8018f0a067f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &785572432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
@@ -4232,6 +4246,11 @@ PrefabInstance:
 --- !u!4 &840988324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7124307392382317812, guid: f8c7daffc69a0ca479d513331bad5c65, type: 3}
+  m_PrefabInstance: {fileID: 840988323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &840988326 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2840815797121053434, guid: f8c7daffc69a0ca479d513331bad5c65, type: 3}
   m_PrefabInstance: {fileID: 840988323}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &881591035
@@ -5561,50 +5580,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
---- !u!1 &1353947196
-GameObject:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1353947197}
-  - component: {fileID: 1353947198}
-  m_Layer: 0
-  m_Name: cm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1353947197
-Transform:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353947196}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 58837216}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1353947198
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353947196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1355379086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5753,12 +5728,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355379089}
-    - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1355379093}
-    - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1355379094}
   m_SourcePrefab: {fileID: 100100000, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
 --- !u!4 &1355379087 stripped
 Transform:
@@ -5857,13 +5826,6 @@ MonoBehaviour:
     - true
     argumentTypes:
     - System.Boolean
-  - objectName: PlayerSustituteCamera
-    componentName: PlayerCameraSustitute
-    componentSubclassNamespace: 
-    componentSubclass: 
-    lookingFor: RecolocateCamera
-    arguments: []
-    argumentTypes: []
   fieldRA:
   - objectName: NPC
     componentName: DialogDriver
@@ -5907,32 +5869,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1355379091}
         m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: CallFunction
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1355379091}
-        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
         m_MethodName: ModifyFieldValue
         m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1355379094}
-        m_TargetAssemblyTypeName: FogController, Assembly-CSharp
-        m_MethodName: FogTurner
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5944,34 +5882,6 @@ MonoBehaviour:
   doorAnim: {fileID: 1362673405}
   loadedSceneName: DesertScene
   loadScene: 1
---- !u!114 &1355379093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355379088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b533103bd159e11439e13bef33eee061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadOnStart: 0
-  isAdditive: 1
-  sceneToLoad: DesertScene
---- !u!114 &1355379094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355379088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0
 --- !u!1 &1362673403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8545,10 +8455,10 @@ PrefabInstance:
       addedObject: {fileID: 1825822534}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eafc23fde73a1e644a768bd76b824161, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1825822533}
+      addedObject: {fileID: 1825822532}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eafc23fde73a1e644a768bd76b824161, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1825822532}
+      addedObject: {fileID: 1825822538}
   m_SourcePrefab: {fileID: 100100000, guid: eafc23fde73a1e644a768bd76b824161, type: 3}
 --- !u!1 &1825822531 stripped
 GameObject:
@@ -9648,7 +9558,28 @@ MonoBehaviour:
     - {x: -0.07871348, y: -0.447572, z: -0.89077693}
     - {x: -0.07314311, y: 0.00000023348736, z: -0.9973214}
     - {x: -0.021687914, y: 0.00000021135362, z: -0.9997648}
---- !u!114 &1825822533
+--- !u!65 &1825822534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825822531}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4965242, y: 0.19312364, z: 0.33789968}
+  m_Center: {x: 0.007090099, y: 0.09656121, z: -0.08948064}
+--- !u!114 &1825822538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9657,7 +9588,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825822531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd79713ec3d93b4c91ac172a506bd69, type: 3}
+  m_Script: {fileID: 11500000, guid: eacde48a82ef13f4893cd56c75fa5d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 2
@@ -9716,8 +9647,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 30028510}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+      - m_Target: {fileID: 840988326}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -9727,6 +9658,22 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+  timeline: {fileID: 30028510}
+  onTimelineEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 840988326}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1846847118}
         m_TargetAssemblyTypeName: ActionCounter, Assembly-CSharp
@@ -9738,29 +9685,9 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
---- !u!65 &1825822534
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825822531}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4965242, y: 0.19312364, z: 0.33789968}
-  m_Center: {x: 0.007090099, y: 0.09656121, z: -0.08948064}
+  unsubscribeOnEnd: 1
 --- !u!4 &1844186811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 5539a0c7aab98d04ca455934df755a23, type: 3}
@@ -9782,6 +9709,7 @@ GameObject:
   - component: {fileID: 1846847115}
   - component: {fileID: 1846847114}
   - component: {fileID: 1846847118}
+  - component: {fileID: 1846847119}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -9978,6 +9906,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1846847119}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1846847119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846847109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b533103bd159e11439e13bef33eee061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadOnStart: 0
+  isAdditive: 1
+  sceneToLoad: DesertScene
 --- !u!1 &1856286198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11013,6 +10968,6 @@ SceneRoots:
   - {fileID: 3023292}
   - {fileID: 1638046629}
   - {fileID: 993028980}
-  - {fileID: 58837216}
   - {fileID: 791303116}
   - {fileID: 140512217}
+  - {fileID: 58837216}
