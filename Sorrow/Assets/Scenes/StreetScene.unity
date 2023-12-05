@@ -31652,6 +31652,10 @@ PlayableDirector:
     value: {fileID: 1236298523}
   - key: {fileID: 3395134842387291355, guid: 4fb7bef4201178349988524619321e40, type: 2}
     value: {fileID: 1236298529}
+  - key: {fileID: 5386236249607219203, guid: 4fb7bef4201178349988524619321e40, type: 2}
+    value: {fileID: 1591668261}
+  - key: {fileID: 6121035812807317126, guid: 420a16f8e98b4a649a47fc9002df0a88, type: 2}
+    value: {fileID: 1591668261}
   m_ExposedReferences:
     m_References:
     - 6f4adc43f927c794c84c4289c5e4dc04: {fileID: 1148684593}
@@ -50187,7 +50191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437670293}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961446, w: 0.77692914}
+  m_LocalRotation: {x: 0.18533449, y: -0.5852691, z: 0.13961448, w: 0.77692914}
   m_LocalPosition: {x: -5.5, y: 1.65, z: 2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
