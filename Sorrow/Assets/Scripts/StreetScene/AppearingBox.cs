@@ -10,15 +10,21 @@ public class AppearingBox : HitableTarget
     [SerializeField] float fillMultiplier;
     [SerializeField] GameObject wireframe;
     [SerializeField] GameObject bullseye;
+    AudioSource audioSource;
 
-    void Start() => boxMaterial = GetComponent<Renderer>().material;
-    
+    void Start()
+    {
+        boxMaterial = GetComponent<Renderer>().material;
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public override void Activate()
     {
         isFilling = true;
         gameObject.layer = 0;
         gameObject.tag = "Untagged";
         Destroy(bullseye);
+        audioSource.Play();
     }
 
     void Update()
