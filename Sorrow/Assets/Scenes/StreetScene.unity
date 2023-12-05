@@ -42833,6 +42833,8 @@ MonoBehaviour:
   distanceTo: {fileID: 1996496198}
   minDistance: 60
   maxShake: 2
+  volume: {fileID: 220509398}
+  maxVignette: 0.8
 --- !u!82 &1236298529
 AudioSource:
   m_ObjectHideFlags: 0
