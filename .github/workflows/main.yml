@@ -22,9 +22,9 @@ jobs:
       - name: Cache Unity Library
         uses: actions/cache@v3
         with:
-          path: Sorrow
-          key: Sorrow-${{ matrix.targetPlatform }}
-          restore-keys: Sorrow-
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
 
       - name: Unity - Builder
         id: buildStep
