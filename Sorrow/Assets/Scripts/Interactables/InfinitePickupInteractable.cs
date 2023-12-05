@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfinitePickUpInteractable : Interactable
+public class InfinitePickUpInteractable : ActionInteractable
 {
     [SerializeField] GameObject pickUpHolder;
     HeldObjectManager heldObjectManager;
@@ -19,6 +19,8 @@ public class InfinitePickUpInteractable : Interactable
 
     public override void Interaction()
     {
+        base.Interaction();
+
         if (heldObjectManager.heldObject != null)
             return;
         heldObjectManager.HoldObject(pickups[lastPickedUp]);
