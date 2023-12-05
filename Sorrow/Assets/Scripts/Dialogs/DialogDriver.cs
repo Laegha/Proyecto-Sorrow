@@ -71,7 +71,7 @@ public class DialogDriver : MonoBehaviour
         playerMovement.enabled = true;
         cameraLook.enabled = true;
         if (oldCamera)
-            CinematicManager.instance.AdditiveCameraChange(oldCamera);
+            CinematicManager.instance.CameraChange(oldCamera);
     }
 
     IEnumerator Initialize()
@@ -82,7 +82,7 @@ public class DialogDriver : MonoBehaviour
         if (defaultCamera)
         {
             oldCamera = CinematicManager.instance.CurrCamera;
-            CinematicManager.instance.AdditiveCameraChange(defaultCamera);
+            CinematicManager.instance.CameraChange(defaultCamera);
         }
         InputManager.controller.Dialog.Enable();
         InputManager.controller.Dialog.Auto.performed += SetAuto;
