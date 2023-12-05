@@ -5745,6 +5745,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355379089}
+    - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355379096}
   m_SourcePrefab: {fileID: 100100000, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
 --- !u!4 &1355379087 stripped
 Transform:
@@ -5833,16 +5836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  functionRA:
-  - objectName: NPC
-    componentName: FogController
-    componentSubclassNamespace: 
-    componentSubclass: 
-    lookingFor: FogTurner
-    arguments:
-    - true
-    argumentTypes:
-    - System.Boolean
+  functionRA: []
   fieldRA:
   - objectName: NPC
     componentName: DialogDriver
@@ -5874,7 +5868,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1355379091}
         m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: CallFunction
+        m_MethodName: ModifyFieldValue
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5884,10 +5878,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1355379091}
-        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: ModifyFieldValue
-        m_Mode: 3
+      - m_Target: {fileID: 1355379096}
+        m_TargetAssemblyTypeName: FogController, Assembly-CSharp
+        m_MethodName: FogTurner
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5899,6 +5893,19 @@ MonoBehaviour:
   doorAnim: {fileID: 1362673405}
   loadedSceneName: DesertScene
   loadScene: 0
+--- !u!114 &1355379096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355379088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0
 --- !u!1 &1362673403
 GameObject:
   m_ObjectHideFlags: 0

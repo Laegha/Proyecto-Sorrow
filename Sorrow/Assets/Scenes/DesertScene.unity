@@ -1679,7 +1679,6 @@ GameObject:
   - component: {fileID: 978153647}
   - component: {fileID: 978153646}
   - component: {fileID: 978153645}
-  - component: {fileID: 978153644}
   - component: {fileID: 978153643}
   - component: {fileID: 978153649}
   m_Layer: 0
@@ -1744,19 +1743,6 @@ PlayableDirector:
     - 239e814212eb70f4197d10a6695443b2: {fileID: 506490960}
     - d4e137b59f68c12409889c3f3a6ae0c2: {fileID: 506490960}
     - a20070150c185564d82c1979637f5276: {fileID: 879409246}
---- !u!114 &978153644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978153642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21c805ab1d92214eb7aac054645f4c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0
 --- !u!114 &978153645
 MonoBehaviour:
   m_ObjectHideFlags: 0

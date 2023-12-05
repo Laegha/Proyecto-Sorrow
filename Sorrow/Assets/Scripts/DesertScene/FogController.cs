@@ -5,7 +5,11 @@ using UnityEngine;
 public class FogController : MonoBehaviour
 {
     [SerializeField] float fadeTime;
+    float fogStartDistance, fogEndDistance, fogDensity;
+    Color fogColor;
+    FogMode fogMode;
 
+    /*
     private void OnTriggerEnter(Collider other) => StartCoroutine(FogFade());
 
     IEnumerator FogFade()
@@ -17,10 +21,25 @@ public class FogController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    */
+
+    void Start()
+    {
+        RenderSettings.fog = false;
+        fogStartDistance = RenderSettings.fogStartDistance;
+        fogEndDistance = RenderSettings.fogEndDistance;
+        fogDensity = RenderSettings.fogDensity;
+        fogColor = RenderSettings.fogColor;
+        fogMode = RenderSettings.fogMode;
+    }
 
     public void FogTurner(bool isEnabled)
     {
-        print("");
         RenderSettings.fog = isEnabled;
+        RenderSettings.fogStartDistance = fogStartDistance;
+        RenderSettings.fogEndDistance = fogEndDistance;
+        RenderSettings.fogDensity = fogDensity;
+        RenderSettings.fogColor = fogColor;
+        RenderSettings.fogMode = fogMode;
     }
 }
