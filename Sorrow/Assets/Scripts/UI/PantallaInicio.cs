@@ -37,7 +37,7 @@ public class PantallaInicio : MonoBehaviour
         blackScreen.color = new(0f, 0f, 0f, Mathf.Clamp01(timer));
         timer += Time.deltaTime * fadeSpeed;
 
-        if (timer <= 1f)
+        if (timer <= 1.1f)
             return;
         
         starting = false;
