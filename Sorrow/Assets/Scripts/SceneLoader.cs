@@ -16,5 +16,19 @@ public class SceneLoader : MonoBehaviour
             LoadScene();
     }
 
-    public void LoadScene() => SceneManager.LoadScene(sceneToLoad, isAdditive ? LoadSceneMode.Additive : LoadSceneMode.Single);
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(sceneToLoad, isAdditive ? LoadSceneMode.Additive : LoadSceneMode.Single);
+        if (isAdditive)
+            SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != sceneToLoad) 
+            return;
+            
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.SetActiveScene(scene);
+    }
 }
