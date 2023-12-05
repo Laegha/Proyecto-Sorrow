@@ -6,6 +6,17 @@ public class MegaphonePicaporte : HeldObjectNeedInteractable
 {
     [SerializeField] GameObject megaphonePicaporte;
     [SerializeField] Animator doorAnim;
+    [SerializeField] AudioClip clickSound;
+    [SerializeField] float delay;
+    [SerializeField] AudioClip doorHandleSound;
+    AudioSource[] audioSource;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        audioSource = GetComponents<AudioSource>();
+    }
+
     public override void Interaction()
     {
         base.Interaction();
@@ -17,7 +28,11 @@ public class MegaphonePicaporte : HeldObjectNeedInteractable
         foreach(SoundBullet bullet in FindObjectsOfType<SoundBullet>())
             Destroy(bullet.gameObject);
         enabled = false;
+        audioSource[0].PlayOneShot(clickSound);
+        Invoke(nameof(PlayDoorHandleSound), delay);
     }
+    
+    public void PlayDoorHandleSound() => audioSource[1].PlayOneShot(doorHandleSound);
 
     public void OpenDoor() => doorAnim.Play("DoorOpen");
 }
