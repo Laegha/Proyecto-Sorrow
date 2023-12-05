@@ -7,7 +7,6 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] bool loadOnStart;
     [SerializeField] bool isAdditive;
-
     [SerializeField] string sceneToLoad;
 
     private void Start()
@@ -15,6 +14,9 @@ public class SceneLoader : MonoBehaviour
         if (loadOnStart)
             LoadScene();
     }
+
+    public void UnloadScene(string sceneName) => SceneManager.UnloadSceneAsync(sceneName);
+
 
     public void LoadScene()
     {
