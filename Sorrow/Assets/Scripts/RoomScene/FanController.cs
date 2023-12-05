@@ -10,29 +10,37 @@ public class FanController : MonoBehaviour
     [SerializeField] PlayableDirector timeline;
     [SerializeField] Animator armShrinkAnimator;
     [HideInInspector] public bool lapDone = false;
+    AudioSource audioSource;
+
+    void Awake() => audioSource = GetComponent<AudioSource>();
 
     public void StartSpinning() => StartCoroutine(Spin());
 
     IEnumerator Spin()
     {
         timeline.Pause();
-        float spinCheckpoint = transform.rotation.eulerAngles.y;
+        //float spinCheckpoint = transform.rotation.eulerAngles.y;
         //int spinsDone = 0;
 
         Animator animator = GetComponent<Animator>();
         animator.Play("Spin");
-        float speed = 0;
+        audioSource.Play();
+        audioSource.volume = 0f;
+        float speed = 0f;
 
         armShrinkAnimator.Play("Shrink");
-        while(speed < 1)
+        while(speed < 1f)
         {
             speed += Time.deltaTime * acceleration;
             animator.SetFloat("SpinSpeed", speed);
+            audioSource.volume = speed;
 
             yield return new WaitForEndOfFrame();
         }
         
-        float prevRotation = transform.rotation.eulerAngles.y;
+        audioSource.volume = .5f;
+
+        //float prevRotation = transform.rotation.eulerAngles.y;
         while(!lapDone)
         {
             yield return new WaitForEndOfFrame();
