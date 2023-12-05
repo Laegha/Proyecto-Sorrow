@@ -7,7 +7,7 @@ public class CinematicManager : MonoBehaviour
 {
     public static CinematicManager instance;
     [HideInInspector]public CinemachineBrain cinemachineBrain;
-    CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
+    public CinemachineVirtualCamera CurrCamera => cinemachineBrain.ActiveVirtualCamera as CinemachineVirtualCamera;
     [HideInInspector] public CinemachineVirtualCamera playerCamera;
     [HideInInspector] public GameObject player;
 
