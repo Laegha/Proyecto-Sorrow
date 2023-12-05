@@ -3426,10 +3426,10 @@ PrefabInstance:
     - target: {fileID: 3509983086368748229, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
       propertyPath: m_CustomBlends
       value: 
-      objectReference: {fileID: 11400000, guid: f38bf8077ce499441af779fa9badada2, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3509983086368748229, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
       propertyPath: m_DefaultBlend.m_Time
-      value: 0.01
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4978938116331237002, guid: 4208c4492d70d8d4ca4e263a1a9f4739, type: 3}
       propertyPath: m_LocalPosition.x
