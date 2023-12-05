@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b533103bd159e11439e13bef33eee061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadOnStart: 1
+  loadOnStart: 0
   isAdditive: 1
   sceneToLoad: ElevatorScene
 --- !u!4 &1327392012
