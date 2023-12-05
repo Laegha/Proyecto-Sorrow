@@ -18,6 +18,8 @@ public class ButtonMashing : MonoBehaviour
     public CinemachineVirtualCamera buttonMashingVCam;
     [SerializeField] UnityEvent endActions;
     float minFov;
+    [SerializeField] ParticleSystem slamParticles;
+    [SerializeField] float particleDelay;
 
     void Awake() => mashCount = mashMin;
 
@@ -70,5 +72,7 @@ public class ButtonMashing : MonoBehaviour
 
         endActions.Invoke();
 
+        yield return new WaitForSeconds(particleDelay);
+        slamParticles.Play();
     }
 }
