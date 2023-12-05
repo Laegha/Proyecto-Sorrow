@@ -36,7 +36,7 @@ public class BreakingBlock : HitableTarget
 
     void OnDestroy()
     {
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && playerChaseMovement)
             playerChaseMovement.OnCollisionExit(default);
     }
 }
