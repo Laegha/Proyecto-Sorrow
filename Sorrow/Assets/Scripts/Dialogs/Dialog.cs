@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Localization;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 using UnityEngine.Playables;
 
@@ -12,7 +11,7 @@ using UnityEngine.Playables;
 public class Dialog : ScriptableObject
 {
     [Header("Dialog")]
-    [SerializeField] StringTableCollection dialogTables;
+    [SerializeField] LocalizedStringTable dialogTables;
     StringTable dialogTable;
     public Color npcColor;
 
@@ -24,7 +23,7 @@ public class Dialog : ScriptableObject
     public int Count => dialogTable.Count;
 
     public void SetLanguage()
-        => dialogTable = dialogTables.GetTable(LocalizationSettings.SelectedLocale.Identifier.Code) as StringTable;
+        => dialogTable = dialogTables.GetTable();
 
     public string GetLine(int line, out bool isPlayer)
     {
