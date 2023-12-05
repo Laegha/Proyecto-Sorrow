@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CinematicManager : MonoBehaviour
 {
@@ -29,6 +30,18 @@ public class CinematicManager : MonoBehaviour
             CurrCamera.enabled = false;
 
         newCamera.enabled = true;
+    }
+
+    public void AdditiveCameraChange(CinemachineVirtualCamera newCamera)
+    {
+        if (CurrCamera == null)
+            return;
+        
+        var oldCamera = CurrCamera;
+        var oldScene = oldCamera.gameObject.scene;
+        SceneManager.MoveGameObjectToScene(CurrCamera.gameObject, SceneManager.GetActiveScene());
+        CameraChange(newCamera);
+        SceneManager.MoveGameObjectToScene(oldCamera.gameObject, oldScene);
     }
 
     public void ReturnPlayerCamera()
