@@ -16,6 +16,8 @@ public class ButtonMashing : MonoBehaviour
     [SerializeField] PlayableDirector director;
     [SerializeField] PlayableAsset timeline;
     public CinemachineVirtualCamera buttonMashingVCam;
+    [SerializeField] AudioClip crackSound;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] UnityEvent endActions;
     float minFov;
     [SerializeField] ParticleSystem slamParticles;
@@ -64,6 +66,7 @@ public class ButtonMashing : MonoBehaviour
 
     IEnumerator End()
     {
+        audioSource.PlayOneShot(crackSound);
         enabled = false;
         director.Stop();
         CinematicManager.instance.ReturnPlayerCamera();
