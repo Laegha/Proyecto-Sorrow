@@ -76,6 +76,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6761489081038191244}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6480738110203088976}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2392660746327092611}
   m_SourcePrefab: {fileID: 100100000, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
 --- !u!1 &650184466617871057 stripped
 GameObject:
@@ -160,3 +166,121 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.065
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6480738110203088976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650184466617871057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5f7b7678168544498f345fde6369fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 85200d46c5ce9744691fe192a5719ec1, type: 3}
+  - {fileID: 8300000, guid: 892b11d2a0c47fd4e94480fb4510595c, type: 3}
+  - {fileID: 8300000, guid: 65e6d1628bea063488e0f719ba3be686, type: 3}
+  - {fileID: 8300000, guid: a97516f54fa31c1488a791921bbc8f26, type: 3}
+  - {fileID: 8300000, guid: 4185227b87ec13943ac5cb19936d7e42, type: 3}
+  - {fileID: 8300000, guid: 0f50192aa38ab4b4c9068854b04bd7ed, type: 3}
+  - {fileID: 8300000, guid: 5deafff3ca0107842b819bd54ce576f7, type: 3}
+  - {fileID: 8300000, guid: 02546f22283543743a4d5e24d7d16aae, type: 3}
+  - {fileID: 8300000, guid: fe28cd2235a346f4f9be622a30c92f8d, type: 3}
+--- !u!82 &2392660746327092611
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650184466617871057}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 2636857871085560678, guid: 81e9acc09a157bb419953747341f97f8, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
