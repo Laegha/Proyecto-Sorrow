@@ -42,6 +42,7 @@ public class DialogDriver : MonoBehaviour
     GameObject player;
     PlayerMovement playerMovement;
     CameraLook cameraLook;
+    CinemachineVirtualCamera oldCamera;
 
     void Awake()
     {
@@ -50,13 +51,16 @@ public class DialogDriver : MonoBehaviour
         letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
         speech = speechPanel.GetComponentInChildren<TMP_Text>();
         transcript = transcriptPanel.GetComponentInChildren<ScrollRect>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerMovement = player.GetComponent<PlayerMovement>();
-        cameraLook = player.GetComponentInChildren<CameraLook>();
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
     }
 
-    void OnEnable() => StartCoroutine(Initialize());
+    void OnEnable()
+    {   
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        cameraLook = player.GetComponentInChildren<CameraLook>();
+        StartCoroutine(Initialize());
+    }
 
     void OnDisable()
     {
@@ -66,6 +70,8 @@ public class DialogDriver : MonoBehaviour
         InputManager.controller.Dialog.Disable();
         playerMovement.enabled = true;
         cameraLook.enabled = true;
+        if (oldCamera)
+            CinematicManager.instance.CameraChange(oldCamera);
     }
 
     IEnumerator Initialize()
@@ -74,7 +80,10 @@ public class DialogDriver : MonoBehaviour
         playerMovement.enabled = false;
         cameraLook.enabled = false;
         if (defaultCamera)
+        {
+            oldCamera = CinematicManager.instance.CurrCamera;
             CinematicManager.instance.CameraChange(defaultCamera);
+        }
         InputManager.controller.Dialog.Enable();
         InputManager.controller.Dialog.Auto.performed += SetAuto;
         InputManager.controller.Dialog.Continue.performed += Continue;
