@@ -55,7 +55,6 @@ public class ChaseController : MonoBehaviour
 
     void TrackWaypoint()
     {
-        print("Tracking waypoint " + trackedWayPoint);
         var horizontalWaypoint = new Vector2(waypoints[trackedWayPoint].position.x, waypoints[trackedWayPoint].position.z);
         var horizontalPosition = new Vector2(transform.position.x, transform.position.z);
 
