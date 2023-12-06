@@ -11,12 +11,10 @@ public class HeldObjectManager : MonoBehaviour
     [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
 
-    void Start()
-    {
-        heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
-    }
+    void Awake() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
 
     void OnEnable() => StartCoroutine(SubscribeEvents());
+
     IEnumerator SubscribeEvents()
     {
         yield return new WaitForEndOfFrame();
@@ -24,6 +22,7 @@ public class HeldObjectManager : MonoBehaviour
         InputManager.controller.Camera.Click.performed += UseObject;
         InputManager.controller.Camera.Click.performed += CheckInteraction;
     }
+    
     void OnDisable()
     {
         InputManager.controller.Camera.Click.performed -= UseObject;
