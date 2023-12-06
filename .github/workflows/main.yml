@@ -1,9 +1,13 @@
 name: "Auto-Build Game"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+    paths:
+      - 'Sorrow/**'
+        
 
 jobs:
   build_for_all_platforms:
@@ -17,10 +21,10 @@ jobs:
           - StandaloneLinux64 # Build a Linux 64-bit standalone.
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.1.1
 
       - name: Cache Unity Library
-        uses: actions/cache@v3
+        uses: actions/cache@v3.3.2
         with:
           path: Sorrow/Library
           key: Library-${{ matrix.targetPlatform }}
