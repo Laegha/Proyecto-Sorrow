@@ -28,7 +28,7 @@ public class CameraLook : MonoBehaviour
     void OnEnable() => PointerAnimator.SetBool("Show", true);
     void OnDisable()
     {
-        if (gameObject.scene.isLoaded)
+        if (gameObject.scene.isLoaded && PointerAnimator)
             PointerAnimator.SetBool("Show", false);
     }
 
