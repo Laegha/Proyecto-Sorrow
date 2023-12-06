@@ -2305,7 +2305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1025164ae3dc99d46bce8c27679664b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectSpeed: 3
+  objectSpeed: 5
   startPoint: {fileID: 1567610892}
   endPoint: {fileID: 1481569952}
   isMoving: 0
