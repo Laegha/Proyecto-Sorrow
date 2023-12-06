@@ -2,12 +2,12 @@ name: "Auto-Build Game"
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'Sorrow/**'
-        
+  #push:
+    #branches:
+      #- main
+    #paths:
+      #- 'Sorrow/**'
+      
 
 jobs:
   build_for_all_platforms:
