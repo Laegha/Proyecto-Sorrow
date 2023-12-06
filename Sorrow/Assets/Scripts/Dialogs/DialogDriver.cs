@@ -29,12 +29,12 @@ public class DialogDriver : MonoBehaviour
     [SerializeField] List<ActionInterrupt> actionInterrupts;
     [SerializeField] UnityEvent endActions;
 
-    const float comaTime = .25f;
-    const float semiColonTime = .5f;
-    const float periodTime = .75f;
+    const float comaTime = .2f;
+    const float semiColonTime = .35f;
+    const float periodTime = .5f;
+    const float letterTime = 0.03f;
     int currentLine = 0;
     PlayableDirector director;
-    float letterTime = 0.1f;
     bool wishToSkip = false;
     bool isSpeaking = false;
     bool auto = false;
@@ -48,7 +48,7 @@ public class DialogDriver : MonoBehaviour
     {
         dialog.SetLanguage();
         director = GetComponent<PlayableDirector>();
-        letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
+        //letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
         speech = speechPanel.GetComponentInChildren<TMP_Text>();
         transcript = transcriptPanel.GetComponentInChildren<ScrollRect>();
         LocalizationSettings.SelectedLocaleChanged += UpdateLocaleSpeed;
@@ -207,17 +207,17 @@ public class DialogDriver : MonoBehaviour
         _ => letterTime,
     };
 
-    float LetterTimeFor(string code) => code switch
+    /*float LetterTimeFor(string code) => code switch
     {
         "es" => .04f,
         "es-AR" => .04f,
         "en" => .05f,
         _ => letterTime,
-    };
+    };*/
 
     void UpdateLocaleSpeed(Locale locale)
     {
         dialog.SetLanguage();
-        letterTime = LetterTimeFor(locale.Identifier.Code);
+        //letterTime = LetterTimeFor(locale.Identifier.Code);
     }
 }
