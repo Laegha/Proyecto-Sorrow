@@ -17,6 +17,8 @@ public class DialogDriver : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject speechPanel;
     [SerializeField] GameObject transcriptPanel;
+    [SerializeField] Animator clickAnimator;
+    [SerializeField] Animator autoAnimator;
     TMP_Text speech;
     ScrollRect transcript;
 
@@ -108,7 +110,9 @@ public class DialogDriver : MonoBehaviour
     void SetAuto(InputAction.CallbackContext _)
     {
         auto ^= true;
-        // TODO: Change icon
+        autoAnimator.SetBool("isOn", auto);
+        if (!isSpeaking && director.state != PlayState.Playing)
+            clickAnimator.SetBool("isOn", auto);
 
         if (auto && !isSpeaking && director.state != PlayState.Playing)
             StartCoroutine(MainLoop());
@@ -136,6 +140,7 @@ public class DialogDriver : MonoBehaviour
     {
         if (currentLine < dialog.Count)
         {
+            clickAnimator.SetBool("isOn", false);
             ActionInterrupt actions = actionInterrupts.FirstOrDefault(x => x.at == currentLine);
             if (actions.actions != default)
                 actions.actions.Invoke();
@@ -161,7 +166,9 @@ public class DialogDriver : MonoBehaviour
             {
                 yield return new WaitForSeconds(5f);
                 StartCoroutine(MainLoop());
-            }
+            }  
+            else
+                clickAnimator.SetBool("isOn", true);
         }
         else
         {
