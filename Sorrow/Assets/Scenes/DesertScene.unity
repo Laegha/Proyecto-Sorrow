@@ -738,6 +738,11 @@ Transform:
   - {fileID: 743333767}
   m_Father: {fileID: 978153648}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!95 &328396283 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4934807979501552396, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 1054016265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350447589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechPanel: {fileID: 1054016267}
   transcriptPanel: {fileID: 1054016266}
+  clickAnimator: {fileID: 328396283}
+  autoAnimator: {fileID: 1578939656}
   dialog: {fileID: 11400000, guid: 73ffdcf0bd49f334e9a94629e128e9a6, type: 2}
   playerColor: {r: 0, g: 0, b: 0, a: 1}
   defaultCamera: {fileID: 506490960}
@@ -3670,6 +3677,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1616280608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1578939656 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6440264693805127193, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 1054016265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616280607
 GameObject:
   m_ObjectHideFlags: 0
