@@ -6362,17 +6362,17 @@ MonoBehaviour:
   onInteractEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1355379091}
-        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: ModifyFieldValue
-        m_Mode: 3
+      - m_Target: {fileID: 1761977194}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1355379096}
         m_TargetAssemblyTypeName: FogController, Assembly-CSharp
@@ -6390,6 +6390,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1355379091}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: ModifyFieldValue
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8939,6 +8951,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16, y: 4.5, z: 12.5}
   m_Center: {x: 3.2, y: 2.25, z: 0.5}
+--- !u!1 &1761977194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 882204936977626685, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 1612126441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1775647805
 MeshCollider:
   m_ObjectHideFlags: 0
