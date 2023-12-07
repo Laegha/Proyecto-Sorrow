@@ -135,7 +135,6 @@ public class DialogDriver : MonoBehaviour
         transcriptPanel.SetActive(true); // DEBUG
     }
 
-    int currInterrupt = 0;
     IEnumerator MainLoop()
     {
         if (currentLine < dialog.Count)
@@ -144,10 +143,9 @@ public class DialogDriver : MonoBehaviour
             ActionInterrupt actions = actionInterrupts.FirstOrDefault(x => x.at == currentLine);
             if (actions.actions != default)
                 actions.actions.Invoke();
-            if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText, currInterrupt))
+            if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText))
             {
                 director.Play(timeline);
-                currInterrupt++;
                 if (!dontStopText)
                 {
                     // TODO: Close UI with animation
