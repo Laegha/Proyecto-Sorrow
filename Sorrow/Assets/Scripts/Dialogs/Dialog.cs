@@ -19,6 +19,7 @@ public class Dialog : ScriptableObject
     public PlayableAsset preTimeline;
     [SerializeField] List<TimelineInterrupt> interrupts;
     public PlayableAsset postTimeline;
+    int currIndex = 0;
 
     public int Count => dialogTable.Count;
 
@@ -39,13 +40,13 @@ public class Dialog : ScriptableObject
         if (interrupts.Count is 0)
             return false;
 
-        var firstInterrupt = interrupts.First();
-        if (firstInterrupt.atLine != line)
+        var currInterrupt = interrupts[currIndex];
+        if (currInterrupt.atLine != line)
             return false;
 
-        timeline = firstInterrupt.timeline;
-        dontStopText = firstInterrupt.dontStopText;
-        interrupts.RemoveAt(0);
+        currIndex++;
+        timeline = currInterrupt.timeline;
+        dontStopText = currInterrupt.dontStopText;
         return true;
     }
 }
