@@ -37,7 +37,7 @@ public class Dialog : ScriptableObject
     {
         dontStopText = false;
         timeline = null;
-        if (interrupts.Count is 0)
+        if (currIndex >= interrupts.Count)
             return false;
 
         var currInterrupt = interrupts[currIndex];
