@@ -24,7 +24,7 @@ MonoBehaviour:
   - atLine: 21
     timeline: {fileID: 11400000, guid: d1da7f53b9d4a624091bb04eae09044c, type: 2}
     dontStopText: 1
-  - atLine: 23
+  - atLine: 24
     timeline: {fileID: 11400000, guid: 2219ba066578cb446a8bcadbe946a5ba, type: 2}
-    dontStopText: 1
+    dontStopText: 0
   postTimeline: {fileID: 0}
