@@ -3083,6 +3083,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 166136203761709163, guid: fa0bf821ffabebb4cb2c6828c35d2661, type: 3}
   m_PrefabInstance: {fileID: 626077806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685764514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2902435399022558951, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
+  m_PrefabInstance: {fileID: 1355379086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &685764518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685764514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.0324514, y: 2.2122836, z: 2.000001}
+  m_Center: {x: 1.5162238, y: 1.1061399, z: 0.015182376}
 --- !u!1001 &692102323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6215,6 +6241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1206459123895843280, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355379097}
+    - targetCorrespondingSourceObject: {fileID: -2902435399022558951, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 685764518}
   m_SourcePrefab: {fileID: 100100000, guid: 0f5d59cbd6de56e468c155a7e153a4f0, type: 3}
 --- !u!4 &1355379087 stripped
 Transform:
@@ -6490,10 +6519,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362673410}
-  - component: {fileID: 1362673409}
-  - component: {fileID: 1362673408}
-  - component: {fileID: 1362673407}
-  - component: {fileID: 1362673406}
   - component: {fileID: 1362673405}
   m_Layer: 0
   m_Name: DoorFrame
@@ -6523,85 +6548,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1362673406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362673403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1603a28cef980624abed80f529828b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 1362673405}
-  sceneName: RoomScene
-  sceneLoadDelay: 1
-  unloadScene: 1
---- !u!65 &1362673407
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362673403}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.28451872, y: 2.9849808, z: 1.9038925}
-  m_Center: {x: -2.6159909, y: 0.33372343, z: 0.021523952}
---- !u!65 &1362673408
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362673403}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.6648588, y: 2.9849808, z: 0.12461591}
-  m_Center: {x: -1.2341423, y: 0.33372343, z: -0.91116226}
---- !u!65 &1362673409
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362673403}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.6154423, y: 2.9849808, z: 0.112289906}
-  m_Center: {x: -1.209434, y: 0.33372343, z: 0.91732526}
 --- !u!4 &1362673410
 Transform:
   m_ObjectHideFlags: 0
