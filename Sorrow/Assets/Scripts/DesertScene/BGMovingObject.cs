@@ -5,7 +5,7 @@ using UnityEngine;
 public class BGMovingObject : MonoBehaviour
 {
     [SerializeField] float objectSpeed;
-
+    [SerializeField] float chanceOfSpawningPerFrame;
     [SerializeField] Transform startPoint;
     [SerializeField] Transform endPoint;
     Vector2 direction;
@@ -13,6 +13,7 @@ public class BGMovingObject : MonoBehaviour
     float elapsedDistance;
 
     public bool isMoving = false;
+    bool isDespawned = false;
 
     private void Start()
     {
@@ -30,11 +31,15 @@ public class BGMovingObject : MonoBehaviour
         elapsedDistance += delta;
 
         if (elapsedDistance > distance)
+            isDespawned = true;
+
+        if (isDespawned && Random.Range(0f, 1f) < chanceOfSpawningPerFrame)
             ResetPosition();
     }
 
     void ResetPosition()
     {
+        isDespawned = false;
         transform.position = startPoint.position;
         elapsedDistance = 0;
     }
