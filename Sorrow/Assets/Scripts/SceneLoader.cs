@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
@@ -8,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] bool loadOnStart;
     [SerializeField] bool isAdditive;
     [SerializeField] string sceneToLoad;
+    [SerializeField] UnityEvent onSceneLoaded;
 
     private void Start()
     {
@@ -20,9 +22,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(sceneToLoad, isAdditive ? LoadSceneMode.Additive : LoadSceneMode.Single);
-        if (isAdditive)
-            SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -32,5 +33,6 @@ public class SceneLoader : MonoBehaviour
             
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.SetActiveScene(scene);
+        onSceneLoaded.Invoke();
     }
 }
