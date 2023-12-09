@@ -17,16 +17,12 @@ public class DesertTimelineResources : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ChangeWalkMode(!sandMoving);
-        }//PLACEHOLDER
-
         currOffset += speed * Time.deltaTime * sandMoveDirection;
         if (currOffset.magnitude > 1)
             currOffset = Vector2.zero;
         SandMaterial.SetVector("_TextureOffset", currOffset);
     }
+
     public void ChangeWalkMode(bool isStarting)
     {
         StartCoroutine(ChangeMovingSandSpeed(isStarting));
