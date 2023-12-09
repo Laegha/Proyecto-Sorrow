@@ -7,7 +7,7 @@ public class PersistentObject : MonoBehaviour
     public string destroySceneName;
     public bool destroyOnLoad;
 
-    private void OnEnable()
+    private void Start()
     {
         transform.parent = null;
         DontDestroyOnLoad(this);
