@@ -3306,6 +3306,7 @@ GameObject:
   - component: {fileID: 797859767}
   - component: {fileID: 797859769}
   - component: {fileID: 797859768}
+  - component: {fileID: 797859770}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -3377,6 +3378,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797859766}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2fcfb711250caf24086e343827fc747c, type: 3}
+--- !u!64 &797859770
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797859766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2fcfb711250caf24086e343827fc747c, type: 3}
 --- !u!1 &813314803
 GameObject:
@@ -4439,7 +4462,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a8d187e7d4b41e4280ecd8dd672b423, type: 2}
     - target: {fileID: 6063586270049137732, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_Name
-      value: ManteinanceDoor (1)
+      value: MaintenanceDoor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6834405811215474410, guid: 03eadb5e6f0b2c54cbeb996b9973d3c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4897,6 +4920,7 @@ GameObject:
   - component: {fileID: 1713900543}
   - component: {fileID: 1713900545}
   - component: {fileID: 1713900544}
+  - component: {fileID: 1713900546}
   m_Layer: 0
   m_Name: Lid
   m_TagString: Untagged
@@ -4968,6 +4992,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713900542}
+  m_Mesh: {fileID: -257278029260952120, guid: 2fcfb711250caf24086e343827fc747c, type: 3}
+--- !u!64 &1713900546
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713900542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: -257278029260952120, guid: 2fcfb711250caf24086e343827fc747c, type: 3}
 --- !u!1 &1737620181
 GameObject:
