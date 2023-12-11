@@ -14,13 +14,11 @@ public class CodePaperInteractable : OnPickupActionInteractable
     void Start()
     {
         for (int i = 0; i < 4; i++)
+        {
+            codeTexts[i].text = "";
             for (int j = 0; j < 8; j++)
                 codeTexts[i].text += LockRhythmController.finalPin.GetValue(i, j).ToString();
-                
-        print(codeTexts[0].text);
-        print(codeTexts[1].text);
-        print(codeTexts[2].text);
-        print(codeTexts[3].text);
+        }
     }
 
     public void PlayerRotate() => StartCoroutine(RotatePlayer());
