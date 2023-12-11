@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LockRythmController : MonoBehaviour
+public class LockRhythmController : MonoBehaviour
 {
-    const int totalNums = 32;
     [SerializeField] float bpm;
     [SerializeField] float bpmIncrease;
     [SerializeField] float accuracyRange;
-    readonly int[] finalPin = new int[totalNums];
-    readonly int[] currentPin = new int[totalNums];
+    public static readonly int[,] finalPin = new int[4, 8];
+    readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
+    int lockPhase = 0;
     int lockedNums = 0;
     float lockBeatDuration;
     float rotateBeatDuration;
@@ -37,18 +38,18 @@ public class LockRythmController : MonoBehaviour
 
     void Awake()
     {
-        for (int i = 0; i < totalNums; i++)
-        {
-            finalPin[i] = Random.Range(minInclusive: 1, maxExclusive: 5);
-            currentPin[i] = 1;
-        }
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 8; j++)
+            {
+                finalPin[i, j] = Random.Range(minInclusive: 1, maxExclusive: 5);
+            }
     }
 
     IEnumerator MetronomeCoroutine()
     {
         while (enabled)
         {
-            for (int i = lockedNums; i < totalNums; i++)
+            for (int i = lockedNums; i < 8; i++)
                 currentPin[i] = currentBeat;
             print(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
             yield return new WaitForSeconds(lockBeatDuration);
@@ -67,23 +68,24 @@ public class LockRythmController : MonoBehaviour
         if (!canLock || hasLocked || !enabled)
             return;
 
-        if (currentPin[lockedNums] == finalPin[lockedNums])
+        if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
         {
-            lockedNums++;
             hasLocked = true;
-            if (lockedNums % 8 is 0)
+            if (++lockedNums is 8)
             {
                 bpm += bpmIncrease;
                 RecalculateHalfBeatDuration();
+                lockPhase++;
+                lockedNums = 0;
             }
         }
         else
         {
-            lockedNums -= lockedNums % 8;
+            lockedNums = 0;
             OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, lockBeatDuration, currentBeat));
         }
 
-        if (lockedNums is not totalNums)
+        if (lockPhase is not 4 && lockedNums is not 0)
             return;
 
         StopCoroutine(MetronomeCoroutine());
