@@ -36,8 +36,7 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        float distance = (playerInteraction.transform.position - transform.position).magnitude;
-        if (distance < interactionDistance)
+        if (Vector3.Distance(playerInteraction.transform.position, transform.position) < interactionDistance)
             outline.OutlineColor = hoverColor;
     }
 
@@ -46,14 +45,13 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        float distance = (playerInteraction.transform.position - transform.position).magnitude;
-        if (distance <= distanceOffset)
+        if (Vector3.Distance(playerInteraction.transform.position, transform.position) <= distanceOffset)
             outline.OutlineColor = outsideColor;
     }
 
     void OnMouseOver()
     {
-        float distance = (playerInteraction.transform.position - transform.position).magnitude;
+        float distance = Vector3.Distance(playerInteraction.transform.position, transform.position);
 
         if (distance > distanceOffset)
             return;
@@ -72,7 +70,7 @@ public class Interactable : MonoBehaviour
         playerStillPlacement = playerInteraction.transform.position;
         thisStillPlacement = transform.position;
 
-        float distance = (playerInteraction.transform.position - transform.position).magnitude - distanceOffset;
+        float distance = Vector3.Distance(playerInteraction.transform.position, transform.position) - distanceOffset;
         
         // Color solution
         distance *= distanceMultiplier;
