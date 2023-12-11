@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    //[HideInInspector] public Material interactionMaterial;
-    HeldObjectManager playerInteraction;
     public float interactionDistance = 1.0f;
     Outline outline;
     [SerializeField] Color hoverColor = Color.white;
@@ -17,11 +15,10 @@ public class Interactable : MonoBehaviour
 
     protected virtual void Awake()
     {
-        playerInteraction = GameObject.FindWithTag("Player").GetComponent<HeldObjectManager>();
         outline = GetComponent<Outline>();
         outline.OutlineColor = outsideColor;
         outline.enabled = enabled;
-        playerStillPlacement = playerInteraction.transform.position;
+        playerStillPlacement = Camera.main.transform.position;
         thisStillPlacement = transform.position;
     }
 
@@ -36,7 +33,7 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        if (Vector3.Distance(playerInteraction.transform.position, transform.position) < interactionDistance)
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) < interactionDistance)
             outline.OutlineColor = hoverColor;
     }
 
@@ -45,13 +42,13 @@ public class Interactable : MonoBehaviour
         if (!enabled)
             return;
 
-        if (Vector3.Distance(playerInteraction.transform.position, transform.position) <= distanceOffset)
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) <= distanceOffset)
             outline.OutlineColor = outsideColor;
     }
 
     void OnMouseOver()
     {
-        float distance = Vector3.Distance(playerInteraction.transform.position, transform.position);
+        float distance = Vector3.Distance(Camera.main.transform.position, transform.position);
 
         if (distance > distanceOffset)
             return;
@@ -64,13 +61,13 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if (playerStillPlacement == playerInteraction.transform.position && thisStillPlacement == transform.position)
+        if (playerStillPlacement == Camera.main.transform.position && thisStillPlacement == transform.position)
             return;
 
-        playerStillPlacement = playerInteraction.transform.position;
+        playerStillPlacement = Camera.main.transform.position;
         thisStillPlacement = transform.position;
 
-        float distance = Vector3.Distance(playerInteraction.transform.position, transform.position) - distanceOffset;
+        float distance = Vector3.Distance(Camera.main.transform.position, transform.position) - distanceOffset;
         
         // Color solution
         distance *= distanceMultiplier;
