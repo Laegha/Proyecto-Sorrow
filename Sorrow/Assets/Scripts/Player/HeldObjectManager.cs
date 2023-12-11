@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class HeldObjectManager : MonoBehaviour
 {
-    public float interactionDistance;
     Transform heldObjectHolder;
     [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
