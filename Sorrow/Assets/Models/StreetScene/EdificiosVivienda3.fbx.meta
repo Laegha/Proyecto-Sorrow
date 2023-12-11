@@ -3,7 +3,57 @@ guid: 1b7c71f408230864680bd080c67dba9c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: ccbbc32f604a9754cb5165580969be12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.010
+    second: {fileID: 2100000, guid: d3942ff4f9c6a1e4db33cf62c21cc156, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madera.003
+    second: {fileID: 2100000, guid: b1e294108be0b7c47ab2d0c6190ac8b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pared edificio.005
+    second: {fileID: 2100000, guid: 6b68059cc96a2d24b8bb308b36a665d8, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BricksDragfacedRunning008_COL_2K
+    second: {fileID: 2800000, guid: 33b5ea7bca3b28142ab3706b56f39b6f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BricksDragfacedRunning008_NRM_2K
+    second: {fileID: 2800000, guid: 10e292648ffafd04bac78a5e31d6f53a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Various_EnergyPole_2K_albedo
+    second: {fileID: 2800000, guid: 26c36469171241a4d85944afc46d29eb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_Various_EnergyPole_2K_normal
+    second: {fileID: 2800000, guid: 49da84394727a7249a5fd664108f8904, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: plywood_diff_2k
+    second: {fileID: 2800000, guid: 0758cd2b598d65042b8a0729d8f35810, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: plywood_nor_gl_2k
+    second: {fileID: 2800000, guid: 8336734bf9513c84f976ed0f5718f55f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

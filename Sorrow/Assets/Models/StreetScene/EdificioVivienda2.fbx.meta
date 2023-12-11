@@ -3,7 +3,42 @@ guid: a3aebb937f8641c44813aca0cbc41711
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 008d41e66bd4f634996dd296af51f5e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 3c5bb9aaa46679b4c9e942cdd3fa0ed4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pared edificio.001
+    second: {fileID: 2100000, guid: 69fb029b5770cae4eb25a092cb482906, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BricksDragfacedRunning008_COL_2K
+    second: {fileID: 2800000, guid: 31806285b3c862140897554b9b0d3309, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BricksDragfacedRunning008_NRM_2K
+    second: {fileID: 2800000, guid: 8247ee31ddf550e47b135d2ce90882f6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_wall_007_diff_2k
+    second: {fileID: 2800000, guid: 753ed43a1a49d2744ad588affc0d9534, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_wall_007_nor_gl_2k
+    second: {fileID: 2800000, guid: 96b4ffd919e249243a306908e1338dcc, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
