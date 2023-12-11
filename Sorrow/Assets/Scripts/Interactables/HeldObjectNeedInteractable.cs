@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeldObjectNeedInteractable : Interactable
+public class HeldObjectNeedInteractable : ActionInteractable
 {
     [HideInInspector] public HeldObjectManager heldObjectManager;
 
@@ -25,5 +25,7 @@ public class HeldObjectNeedInteractable : Interactable
             return;
 
         neededObjectHeld = true;
+
+        base.Interaction();
     }
 }
