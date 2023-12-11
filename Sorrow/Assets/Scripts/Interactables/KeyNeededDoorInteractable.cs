@@ -14,6 +14,7 @@ public class KeyNeededDoorInteractable : HeldObjectNeedInteractable
         {
             Destroy(heldObjectManager.heldObject.gameObject);
             doorAnim.Play("DoorOpen");
+            GetComponent<AudioSource>().Play();
             Destroy(this);
         }
         else
