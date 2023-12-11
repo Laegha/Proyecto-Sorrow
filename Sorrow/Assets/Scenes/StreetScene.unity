@@ -15355,6 +15355,9 @@ MonoBehaviour:
   outsideColor: {r: 0, g: 0, b: 0, a: 1}
   distanceMultiplier: 0.1
   distanceOffset: 10
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
   heldObjectManager: {fileID: 0}
   neededObjectName: Megaphone
   neededObjectHeld: 0
@@ -68056,7 +68059,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 982ca779200289a499063695a3e980ff, type: 2}
-  - {fileID: 2819774572246290386, guid: 438fcf078ec763544910c73db000542b, type: 3}
+  - {fileID: 2100000, guid: b1e294108be0b7c47ab2d0c6190ac8b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90034,6 +90037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2473424575180118478, guid: 4fc5a86d474e0cb4281cbebce4109a43, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1e97961f699ae145811a3991b9a5091, type: 2}
     - target: {fileID: 919132149155446097, guid: 4fc5a86d474e0cb4281cbebce4109a43, type: 3}
       propertyPath: m_Name
       value: ParedPuerta
