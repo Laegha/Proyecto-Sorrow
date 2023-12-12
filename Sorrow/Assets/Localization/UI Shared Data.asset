@@ -59,6 +59,10 @@ MonoBehaviour:
     m_Key: back
     m_Metadata:
       m_Items: []
+  - m_Id: 32193894005215232
+    m_Key: passCode
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
