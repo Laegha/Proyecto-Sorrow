@@ -18,7 +18,8 @@ public class LockRhythmController : MonoBehaviour
     bool hasLocked, rotateEventSent = false;
     AudioSource audioSource;
     public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock;
-    public static event System.EventHandler<int> OnPhase;
+    public static event System.EventHandler<int> OnLock;
+    public static event System.EventHandler<float> OnPhase;
 
     void OnEnable()
     {
@@ -55,11 +56,13 @@ public class LockRhythmController : MonoBehaviour
         if (!rotateEventSent && currentBeatTimer >= accuracyDuration)
         {
             rotateEventSent = true;
-            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
+            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
         }
         else if (currentBeatTimer < beatDuration) 
             return;
         
+        hasLocked = false;
+        rotateEventSent = false;
         currentBeat += currentBeat is not 4 ? 1 : -3;
         for (int i = 0; i < 8; i++)
             currentPin[i] = currentBeat;
@@ -76,6 +79,7 @@ public class LockRhythmController : MonoBehaviour
         if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
         {
             hasLocked = true;
+            OnLock?.Invoke(this, lockedNums);
             if (++lockedNums is 8)
             {
                 bpm += bpmIncrease;
@@ -83,6 +87,7 @@ public class LockRhythmController : MonoBehaviour
                 audioSource.clip = audioClips[++lockPhase];
                 audioSource.time *= (bpm - bpmIncrease) / bpm;
                 lockedNums = 0;
+                OnPhase?.Invoke(this, beatDuration - currentBeatTimer);
             }
         }
         else
@@ -91,7 +96,7 @@ public class LockRhythmController : MonoBehaviour
             OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
         }
 
-        if (lockPhase is not 4 && lockedNums is not 0)
+        if (lockPhase is not 4 || lockedNums is not 0)
             return;
 
         print("Unlocked");
