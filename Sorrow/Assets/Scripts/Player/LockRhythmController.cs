@@ -9,8 +9,8 @@ public class LockRhythmController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera lockCamera;
     [SerializeField] float bpm, bpmIncrease;
+    [SerializeField] bool continuousLockingFeature = false;
     [SerializeField] AudioClip[] audioClips;
-    [SerializeField] 
     public static readonly int[,] finalPin = new int[3, 8];
     readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
     int lockPhase, lockedNums = 0;
@@ -78,7 +78,7 @@ public class LockRhythmController : MonoBehaviour
 
         if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
         {
-            hasLocked = true;
+            hasLocked = !continuousLockingFeature;
             if (++lockedNums is 8)
             {
                 eventSent = true;
