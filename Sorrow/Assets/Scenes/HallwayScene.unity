@@ -5229,7 +5229,6 @@ MonoBehaviour:
   - {fileID: 1002108678}
   - {fileID: 1231702884}
   - {fileID: 1355207546}
-  - {fileID: 1678182012}
 --- !u!23 &275050545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17622,7 +17621,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 25cab8d59b9621443bec7ceeb7f4ce72, type: 3}
   - {fileID: 8300000, guid: a0d404833c015424bb775a4a9744f937, type: 3}
   - {fileID: 8300000, guid: 04b4d6759a150274fa8e0a0ea2812d5a, type: 3}
-  - {fileID: 8300000, guid: ebad65fbeed24804991a291c6ffcab2a, type: 3}
   - {fileID: 0}
 --- !u!82 &1992799794
 AudioSource:
