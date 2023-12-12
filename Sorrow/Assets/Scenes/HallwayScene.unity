@@ -3643,6 +3643,8 @@ MonoBehaviour:
   - {fileID: 2051168061}
   - {fileID: 425635764}
   - {fileID: 1234956366}
+  volume: {fileID: 1519278762}
+  offPostExposure: -1
   lightsOffColor: {r: 0.12941177, g: 0.05882353, b: 0, a: 0}
 --- !u!4 &217788155
 Transform:
