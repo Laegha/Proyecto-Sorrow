@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CodePaperInteractable : OnPickupActionInteractable
+public class CodePaper : MonoBehaviour
 {
     [SerializeField] TextMeshPro[] codeTexts;
 
