@@ -10,7 +10,8 @@ public class LockRhythmController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera lockCamera;
     [SerializeField] float bpm, bpmIncrease, accuracyRange;
     [SerializeField] AudioClip[] audioClips;
-    public static readonly int[,] finalPin = new int[4, 8];
+    [SerializeField] 
+    public static readonly int[,] finalPin = new int[3, 8];
     readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
     int lockPhase, lockedNums = 0;
     float beatDuration, accuracyDuration, currentBeatTimer;
@@ -42,7 +43,7 @@ public class LockRhythmController : MonoBehaviour
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
             for (int j = 0; j < 8; j++)
             {
                 finalPin[i, j] = Random.Range(minInclusive: 1, maxExclusive: 5);
@@ -96,7 +97,7 @@ public class LockRhythmController : MonoBehaviour
             OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
         }
 
-        if (lockPhase is not 4 || lockedNums is not 0)
+        if (lockPhase is not 3 || lockedNums is not 0)
             return;
 
         print("Unlocked");

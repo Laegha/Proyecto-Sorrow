@@ -15,7 +15,7 @@ public class CodePaper : MonoBehaviour
     {
         heldObjectManager = FindObjectOfType<HeldObjectManager>();
         LockRhythmController.OnPhase += SetupRotation;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             codeTexts[i].text = "";
             for (int j = 0; j < 8; j++)
