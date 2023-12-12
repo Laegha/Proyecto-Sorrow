@@ -69,11 +69,11 @@ public class LockManager : MonoBehaviour
         if (material.color == lockedColor)
             material.color = wrongColor;
 
-        var rotated = transform.eulerAngles;
-        rotated.z = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
-        transform.eulerAngles = rotated;
         audioSource.PlayOneShot(unlockSound);
-        // Animate
+        timer = 0f;
+        timeMultiplier = 1f / e.InTime;
+        initRotation = transform.eulerAngles.z;
+        finalRotation = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat + 1);
     }
 
     void LockNum(object _, int lockedNums)
@@ -95,7 +95,7 @@ public class LockManager : MonoBehaviour
         timer = 0f;
         timeMultiplier = 1f / e.InTime;
         initRotation = transform.eulerAngles.z;
-        finalRotation = initRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
+        finalRotation = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat + 1);
     }
 
     public static float EaseInExpo(float start, float end, float value)
