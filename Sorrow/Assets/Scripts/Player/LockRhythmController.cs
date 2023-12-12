@@ -1,43 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class LockRhythmController : MonoBehaviour
 {
-    [SerializeField] float bpm;
-    [SerializeField] float bpmIncrease;
-    [SerializeField] float accuracyRange;
+    [SerializeField] CinemachineVirtualCamera lockCamera;
+    [SerializeField] float bpm, bpmIncrease, accuracyRange;
+    [SerializeField] AudioClip[] audioClips;
     public static readonly int[,] finalPin = new int[4, 8];
     readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
-    int lockPhase = 0;
-    int lockedNums = 0;
-    float lockBeatDuration;
-    float rotateBeatDuration;
+    int lockPhase, lockedNums = 0;
+    float beatDuration, accuracyDuration, currentBeatTimer;
     int currentBeat = 1;
-    bool hasLocked = false;
-    bool canLock = true;
-    public static event System.EventHandler<LockEventArgs> OnRotate;
-    public static event System.EventHandler<LockEventArgs> OnUnlock;
+    bool hasLocked, rotateEventSent = false;
+    AudioSource audioSource;
+    public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock;
+    public static event System.EventHandler<int> OnPhase;
 
     void OnEnable()
     {
+        CinematicManager.instance.CameraChange(lockCamera);
+        InputManager.instance.RemRegControl(false);
         InputManager.controller.LockRythm.Enable();
         InputManager.controller.LockRythm.LockNum.performed += Lock;
         RecalculateHalfBeatDuration();
-        StartCoroutine(MetronomeCoroutine());
+        audioSource.Play();
     }
 
     void OnDisable()
     {
+        audioSource.Stop();
+        CinematicManager.instance.ReturnPlayerCamera();
+        InputManager.instance.RemRegControl(true);
         InputManager.controller.LockRythm.LockNum.performed -= Lock;
         InputManager.controller.LockRythm.Disable();
-        StopCoroutine(MetronomeCoroutine());
     }
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 8; j++)
             {
@@ -45,27 +49,28 @@ public class LockRhythmController : MonoBehaviour
             }
     }
 
-    IEnumerator MetronomeCoroutine()
+    void Update()
     {
-        while (enabled)
+        currentBeatTimer += Time.deltaTime;
+        if (!rotateEventSent && currentBeatTimer >= accuracyDuration)
         {
-            for (int i = lockedNums; i < 8; i++)
-                currentPin[i] = currentBeat;
-            print(string.Join("", currentPin) + "\n" + string.Join("", finalPin));
-            yield return new WaitForSeconds(lockBeatDuration);
-            canLock = false;
-            print("rotating\n" + string.Join("", finalPin));
-            yield return new WaitForSeconds(rotateBeatDuration);
-            currentBeat += currentBeat != 4 ? 1 : -3;
-            hasLocked = false;
-            canLock = true;
-            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, lockBeatDuration, currentBeat));
+            rotateEventSent = true;
+            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
         }
+        else if (currentBeatTimer < beatDuration) 
+            return;
+        
+        currentBeat += currentBeat is not 4 ? 1 : -3;
+        for (int i = 0; i < 8; i++)
+            currentPin[i] = currentBeat;
+
+        currentBeatTimer -= beatDuration;
+        //OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
     }
 
     void Lock(InputAction.CallbackContext _)
     {
-        if (!canLock || hasLocked || !enabled)
+        if (currentBeatTimer > accuracyDuration || hasLocked || !enabled)
             return;
 
         if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
@@ -75,28 +80,38 @@ public class LockRhythmController : MonoBehaviour
             {
                 bpm += bpmIncrease;
                 RecalculateHalfBeatDuration();
-                lockPhase++;
+                audioSource.clip = audioClips[++lockPhase];
+                audioSource.time *= (bpm - bpmIncrease) / bpm;
                 lockedNums = 0;
             }
         }
         else
         {
             lockedNums = 0;
-            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, lockBeatDuration, currentBeat));
+            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
         }
 
         if (lockPhase is not 4 && lockedNums is not 0)
             return;
 
-        StopCoroutine(MetronomeCoroutine());
         print("Unlocked");
+        enabled = false;
     }
 
     void RecalculateHalfBeatDuration()
     {
-        lockBeatDuration = 60 / bpm * accuracyRange;
-        rotateBeatDuration = 60 / bpm * (1 - accuracyRange);
+        beatDuration = 60 / bpm;
+        accuracyDuration = beatDuration * accuracyRange;
     }
+
+    public static float CalcRotate(int beat) => beat switch
+    {
+        1 => 0f,
+        2 => -90f,
+        3 => -180f,
+        4 => -270f,
+        _ => 0f
+    };
 
     public class LockEventArgs : System.EventArgs
     {
