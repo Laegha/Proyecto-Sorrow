@@ -6,12 +6,14 @@ using UnityEngine;
 public class LockManager : MonoBehaviour
 {
     [SerializeField] Color lockedColor, wrongColor;
+    [SerializeField] AudioClip lockSound, unlockSound, phaseSound;
     Color unlockedColor;
     int selfPosition;
     float timer = 1.1f;
     float timeMultiplier, initRotation, finalRotation;
     float baseRotation = 0f;
     Material material;
+    AudioSource audioSource;
 
     void Awake()
     {
@@ -19,6 +21,7 @@ public class LockManager : MonoBehaviour
         baseRotation = transform.eulerAngles.z;
         material = GetComponent<MeshRenderer>().material;
         unlockedColor = material.color;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -26,6 +29,7 @@ public class LockManager : MonoBehaviour
         LockRhythmController.OnRotate += SetupRotation;
         LockRhythmController.OnUnlock += UnlockNum;
         LockRhythmController.OnLock += LockNum;
+        LockRhythmController.OnPhase += Phase;
     }
 
     void OnDisable()
@@ -33,6 +37,7 @@ public class LockManager : MonoBehaviour
         LockRhythmController.OnRotate -= SetupRotation;
         LockRhythmController.OnUnlock -= UnlockNum;
         LockRhythmController.OnLock -= LockNum;
+        LockRhythmController.OnPhase -= Phase;
     }
 
     void Update()
@@ -41,9 +46,9 @@ public class LockManager : MonoBehaviour
             return;
 
         timer += Time.deltaTime * timeMultiplier;
-        var rotation = transform.eulerAngles;
-        rotation.z = EaseInExpo(initRotation, finalRotation, timer);
-        transform.eulerAngles = rotation;
+        var rotated = transform.eulerAngles;
+        rotated.z = EaseInExpo(initRotation, finalRotation, timer);
+        transform.eulerAngles = rotated;
     }
 
     void SetupRotation(object _, LockRhythmController.LockEventArgs e)
@@ -67,16 +72,24 @@ public class LockManager : MonoBehaviour
         var rotated = transform.eulerAngles;
         rotated.z = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
         transform.eulerAngles = rotated;
+        audioSource.PlayOneShot(unlockSound);
         // Animate
     }
 
     void LockNum(object _, int lockedNums)
     {
-        if (lockedNums < selfPosition)
+        if (lockedNums != selfPosition)
             return;
         
         material.color = lockedColor;
+        timer = 1.1f;
+        var rotated = transform.eulerAngles;
+        rotated.z = finalRotation;
+        transform.eulerAngles = rotated;
+        audioSource.PlayOneShot(lockSound);
     }
+
+    void Phase(object _, float __) => audioSource.PlayOneShot(phaseSound); 
 
     public static float EaseInExpo(float start, float end, float value)
     {
