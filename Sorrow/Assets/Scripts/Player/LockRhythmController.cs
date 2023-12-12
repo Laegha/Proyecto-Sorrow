@@ -15,7 +15,7 @@ public class LockRhythmController : MonoBehaviour
     int lockPhase, lockedNums = 0;
     float beatDuration, accuracyDuration, currentBeatTimer;
     int currentBeat = 1;
-    bool hasLocked, rotateEventSent = false;
+    bool hasLocked, eventSent = false;
     AudioSource audioSource;
     public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock, OnPhase;
     public static event System.EventHandler<int> OnLock;
@@ -52,16 +52,16 @@ public class LockRhythmController : MonoBehaviour
     void Update()
     {
         currentBeatTimer += Time.deltaTime;
-        if (!rotateEventSent && currentBeatTimer >= accuracyDuration)
+        if (!eventSent && currentBeatTimer >= accuracyDuration)
         {
-            rotateEventSent = true;
+            eventSent = true;
             OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
         }
         else if (currentBeatTimer < beatDuration) 
             return;
         
         hasLocked = false;
-        rotateEventSent = false;
+        eventSent = false;
         currentBeat += currentBeat is not 4 ? 1 : -3;
         for (int i = 0; i < 8; i++)
             currentPin[i] = currentBeat;
@@ -79,19 +79,21 @@ public class LockRhythmController : MonoBehaviour
             hasLocked = true;
             if (++lockedNums is 8)
             {
+                eventSent = true;
                 bpm += bpmIncrease;
                 RecalculateHalfBeatDuration();
                 audioSource.clip = audioClips[++lockPhase];
                 audioSource.Play();
                 lockedNums = 0;
                 OnPhase?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
-            }
-            OnLock?.Invoke(this, lockedNums);
+            } else
+                OnLock?.Invoke(this, lockedNums);
         }
         else
         {
             lockedNums = 0;
-            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
+            eventSent = true;
+            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
         }
 
         if (lockPhase is not 4 || lockedNums is not 0)
