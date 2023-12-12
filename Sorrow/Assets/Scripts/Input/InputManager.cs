@@ -50,6 +50,9 @@ public class InputManager : MonoBehaviour
 
     public void RemRegControl(bool enablement)
     {
+        if (!playerMovement || !cameraLook || !heldObjectManager)
+            return;
+
         playerMovement.enabled = enablement;
         cameraLook.enabled = enablement;
         heldObjectManager.enabled = enablement;
