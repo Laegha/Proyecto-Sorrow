@@ -89,7 +89,14 @@ public class LockManager : MonoBehaviour
         audioSource.PlayOneShot(lockSound);
     }
 
-    void Phase(object _, float __) => audioSource.PlayOneShot(phaseSound); 
+    void Phase(object _, LockRhythmController.LockEventArgs e)
+    {
+        audioSource.PlayOneShot(phaseSound);
+        timer = 0f;
+        timeMultiplier = 1f / e.InTime;
+        initRotation = transform.eulerAngles.z;
+        finalRotation = initRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
+    }
 
     public static float EaseInExpo(float start, float end, float value)
     {

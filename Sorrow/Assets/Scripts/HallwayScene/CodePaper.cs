@@ -44,10 +44,10 @@ public class CodePaper : MonoBehaviour
         transform.localScale = t.localScale;
     }
 
-    void SetupRotation(object _, float inTime)
+    void SetupRotation(object _, LockRhythmController.LockEventArgs e)
     {
         timer = 0f;
-        timeMultiplier = 1f / inTime;
+        timeMultiplier = 1f / e.InTime;
         initRotation = transform.eulerAngles.z;
         finalRotation = initRotation - 90f;
     }

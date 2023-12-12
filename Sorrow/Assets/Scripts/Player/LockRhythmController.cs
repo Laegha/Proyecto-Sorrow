@@ -17,9 +17,8 @@ public class LockRhythmController : MonoBehaviour
     int currentBeat = 1;
     bool hasLocked, rotateEventSent = false;
     AudioSource audioSource;
-    public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock;
+    public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock, OnPhase;
     public static event System.EventHandler<int> OnLock;
-    public static event System.EventHandler<float> OnPhase;
 
     void OnEnable()
     {
@@ -68,7 +67,6 @@ public class LockRhythmController : MonoBehaviour
             currentPin[i] = currentBeat;
 
         currentBeatTimer -= beatDuration;
-        //OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration, currentBeat));
     }
 
     void Lock(InputAction.CallbackContext _)
@@ -84,9 +82,9 @@ public class LockRhythmController : MonoBehaviour
                 bpm += bpmIncrease;
                 RecalculateHalfBeatDuration();
                 audioSource.clip = audioClips[++lockPhase];
-                audioSource.time *= (bpm - bpmIncrease) / bpm;
+                audioSource.Play();
                 lockedNums = 0;
-                OnPhase?.Invoke(this, beatDuration - currentBeatTimer);
+                OnPhase?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
             }
             OnLock?.Invoke(this, lockedNums);
         }
