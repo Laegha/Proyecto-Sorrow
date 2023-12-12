@@ -10,13 +10,13 @@ public class LockManager : MonoBehaviour
     int selfPosition;
     float timer = 1.1f;
     float timeMultiplier, initRotation, finalRotation;
-    float accRotation = 0f;
+    float baseRotation = 0f;
     Material material;
 
     void Awake()
     {
         selfPosition = name[^2] - 48;
-        accRotation = transform.eulerAngles.z;
+        baseRotation = transform.eulerAngles.z;
         material = GetComponent<MeshRenderer>().material;
         unlockedColor = material.color;
     }
@@ -64,9 +64,8 @@ public class LockManager : MonoBehaviour
         if (material.color == lockedColor)
             material.color = wrongColor;
 
-        accRotation = 0f;
         var rotated = transform.eulerAngles;
-        rotated.z = accRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
+        rotated.z = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
         transform.eulerAngles = rotated;
         // Animate
     }
