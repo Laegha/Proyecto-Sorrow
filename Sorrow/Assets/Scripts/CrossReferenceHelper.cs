@@ -53,7 +53,7 @@ public class CrossReferenceHelper : MonoBehaviour
     {
         var component = ComponentGetter(functionRA[index]);
         var type = TypeGetter(component, functionRA[index]);
-        type.GetMethod(functionRA[index].lookingFor).Invoke(component, functionRA[index].convertedArguments);
+        type.GetMethod(functionRA[index].lookingFor, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.InvokeMethod).Invoke(component, functionRA[index].convertedArguments);
     }
 
     public void ModifyFieldValue(int index)
@@ -68,12 +68,12 @@ public class CrossReferenceHelper : MonoBehaviour
         */
         if (fieldRA[index].isProperty)
         {
-            var property = type.GetProperty(fieldRA[index].lookingFor);
+            var property = type.GetProperty(fieldRA[index].lookingFor, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty);
             property.SetValue(component, fieldRA[index].convertedValue);
             return;
         }
         
-        var field = type.GetField(fieldRA[index].lookingFor);
+        var field = type.GetField(fieldRA[index].lookingFor, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField);
         field.SetValue(component, fieldRA[index].convertedValue);
     }
 
