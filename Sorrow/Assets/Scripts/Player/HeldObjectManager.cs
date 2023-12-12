@@ -9,6 +9,8 @@ public class HeldObjectManager : MonoBehaviour
     Transform heldObjectHolder;
     [HideInInspector] public HeldObject heldObject;
     Collider heldObjectCollider;
+    int oldLayer;
+    readonly Dictionary<GameObject, int> oldLayers = new();
 
     void Awake() => heldObjectHolder = transform.GetChild(0).Find("HeldObjectHolder");
 
@@ -46,6 +48,13 @@ public class HeldObjectManager : MonoBehaviour
         heldObject = newHeldObject;
 
         heldObject.transform.SetParent(heldObjectHolder);
+        oldLayer = heldObject.gameObject.layer;
+        heldObject.gameObject.layer = 11;
+        foreach (Transform child in heldObject.transform)
+        {
+            oldLayers.Add(child.gameObject, child.gameObject.layer);
+            child.gameObject.layer = 11;
+        }
 
         heldObject.transform.localRotation = Quaternion.identity;
         
@@ -83,6 +92,10 @@ public class HeldObjectManager : MonoBehaviour
         if (heldObject == null || heldObject.thisItem == null)
             return;
 
+        heldObject.gameObject.layer = oldLayer;
+        foreach (Transform child in heldObject.transform)
+            child.gameObject.layer = oldLayers[child.gameObject];
+        oldLayers.Clear();
         heldObject.transform.SetParent(null);
         heldObject._rigidbody.constraints = RigidbodyConstraints.None;
         heldObjectCollider.enabled = true;

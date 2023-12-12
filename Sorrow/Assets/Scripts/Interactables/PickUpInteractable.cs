@@ -10,7 +10,6 @@ public class PickUpInteractable : Interactable
             return;
 
         enabled = false;
-        gameObject.layer = 11;
         FindObjectOfType<HeldObjectManager>().HoldObject(GetComponent<HeldObject>());
 
         HeldObjectNeedInteractable[] locks = FindObjectsOfType<HeldObjectNeedInteractable>();
