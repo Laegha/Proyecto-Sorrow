@@ -79,7 +79,6 @@ public class LockRhythmController : MonoBehaviour
         if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
         {
             hasLocked = true;
-            OnLock?.Invoke(this, lockedNums);
             if (++lockedNums is 8)
             {
                 bpm += bpmIncrease;
@@ -89,6 +88,7 @@ public class LockRhythmController : MonoBehaviour
                 lockedNums = 0;
                 OnPhase?.Invoke(this, beatDuration - currentBeatTimer);
             }
+            OnLock?.Invoke(this, lockedNums);
         }
         else
         {
