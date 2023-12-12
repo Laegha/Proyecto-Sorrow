@@ -78,8 +78,7 @@ public class HeldObjectManager : MonoBehaviour
         heldObject = null;
     }
 
-    /*
-    void DropObject(InputAction.CallbackContext _)
+    public void ReleaseObject()
     {
         if (heldObject == null || heldObject.thisItem == null)
             return;
@@ -90,5 +89,4 @@ public class HeldObjectManager : MonoBehaviour
         heldObjectCollider = null;
         heldObject = null;
     }
-    */
 }
