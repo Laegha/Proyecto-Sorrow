@@ -5,28 +5,34 @@ using UnityEngine;
 
 public class LockManager : MonoBehaviour
 {
-
+    [SerializeField] Color lockedColor, wrongColor;
+    Color unlockedColor;
     int selfPosition;
     float timer = 1.1f;
     float timeMultiplier, initRotation, finalRotation;
     float accRotation = 0f;
+    Material material;
 
     void Awake()
     {
         selfPosition = name[^2] - 48;
         accRotation = transform.eulerAngles.z;
+        material = GetComponent<MeshRenderer>().material;
+        unlockedColor = material.color;
     }
 
     void OnEnable()
     {
         LockRhythmController.OnRotate += SetupRotation;
         LockRhythmController.OnUnlock += UnlockNum;
+        LockRhythmController.OnLock += LockNum;
     }
 
     void OnDisable()
     {
         LockRhythmController.OnRotate -= SetupRotation;
         LockRhythmController.OnUnlock -= UnlockNum;
+        LockRhythmController.OnLock -= LockNum;
     }
 
     void Update()
@@ -46,20 +52,31 @@ public class LockManager : MonoBehaviour
         if (selfPosition <= e.LockedNums)
             return;
 
+        material.color = unlockedColor;
         timer = 0f;
         timeMultiplier = 1f / e.InTime;
         initRotation = transform.eulerAngles.z;
-        finalRotation = initRotation - 90f; //LockRhythmController.CalcRotate(e.CurrentBeat) + accRotation;
-        //print($"Init: {initRotation}, Final: {finalRotation}");
+        finalRotation = initRotation - 90f;
     }
 
     void UnlockNum(object _, LockRhythmController.LockEventArgs e)
     {
+        if (material.color == lockedColor)
+            material.color = wrongColor;
+
         accRotation = 0f;
         var rotated = transform.eulerAngles;
         rotated.z = accRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
         transform.eulerAngles = rotated;
         // Animate
+    }
+
+    void LockNum(object _, int lockedNums)
+    {
+        if (lockedNums < selfPosition)
+            return;
+        
+        material.color = lockedColor;
     }
 
     public static float EaseInExpo(float start, float end, float value)
