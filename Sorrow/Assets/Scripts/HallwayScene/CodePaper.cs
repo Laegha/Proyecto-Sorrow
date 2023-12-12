@@ -7,7 +7,8 @@ using UnityEngine.Playables;
 public class CodePaper : MonoBehaviour
 {
     [SerializeField] TextMeshPro[] codeTexts;
-    float timer, timeMultiplier, initRotation, finalRotation = 0f;
+    float timer = 1.1f;
+    float timeMultiplier, initRotation, finalRotation = 0f;
     HeldObjectManager heldObjectManager;
 
     void Start()
