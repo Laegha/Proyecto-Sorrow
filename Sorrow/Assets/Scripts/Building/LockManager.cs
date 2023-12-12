@@ -66,7 +66,7 @@ public class LockManager : MonoBehaviour
 
     void UnlockNum(object _, LockRhythmController.LockEventArgs e)
     {
-        if (material.color == lockedColor)
+        if (material.color == lockedColor || e.LockedNums + 1 == selfPosition)
             material.color = wrongColor;
 
         audioSource.PlayOneShot(unlockSound);
@@ -76,15 +76,15 @@ public class LockManager : MonoBehaviour
         finalRotation = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat + 1);
     }
 
-    void LockNum(object _, int lockedNums)
+    void LockNum(object _, LockRhythmController.LockEventArgs e)
     {
-        if (lockedNums != selfPosition)
+        if (e.LockedNums != selfPosition)
             return;
         
         material.color = lockedColor;
         timer = 1.1f;
         var rotated = transform.eulerAngles;
-        rotated.z = finalRotation;
+        rotated.z = baseRotation + LockRhythmController.CalcRotate(e.CurrentBeat);
         transform.eulerAngles = rotated;
         audioSource.PlayOneShot(lockSound);
     }

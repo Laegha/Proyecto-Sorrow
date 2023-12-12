@@ -8,18 +8,18 @@ using UnityEngine.InputSystem;
 public class LockRhythmController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera lockCamera;
-    [SerializeField] float bpm, bpmIncrease, accuracyRange;
+    [SerializeField] float bpm, bpmIncrease;
     [SerializeField] AudioClip[] audioClips;
     [SerializeField] 
     public static readonly int[,] finalPin = new int[3, 8];
     readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
     int lockPhase, lockedNums = 0;
-    float beatDuration, accuracyDuration, currentBeatTimer;
+    float beatDuration, stillDuration, tfsBeatDuration, currentBeatTimer;
     int currentBeat = 1;
     bool hasLocked, eventSent = false;
     AudioSource audioSource;
-    public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock, OnPhase;
-    public static event System.EventHandler<int> OnLock;
+    public static event System.EventHandler<LockEventArgs> OnRotate, OnUnlock, OnPhase, OnLock;
+    LockEventArgs CurrentLockEventArgs => new(lockedNums, beatDuration - currentBeatTimer, currentBeat);
 
     void OnEnable()
     {
@@ -53,12 +53,13 @@ public class LockRhythmController : MonoBehaviour
     void Update()
     {
         currentBeatTimer += Time.deltaTime;
-        if (!eventSent && currentBeatTimer >= accuracyDuration)
+        if (!eventSent && currentBeatTimer >= stillDuration)
         {
             eventSent = true;
-            OnRotate?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
+            OnRotate?.Invoke(this, CurrentLockEventArgs);
+            return;
         }
-        else if (currentBeatTimer < beatDuration) 
+        else if (currentBeatTimer < tfsBeatDuration) 
             return;
         
         hasLocked = false;
@@ -72,7 +73,7 @@ public class LockRhythmController : MonoBehaviour
 
     void Lock(InputAction.CallbackContext _)
     {
-        if (currentBeatTimer > accuracyDuration || hasLocked || !enabled)
+        if (hasLocked || !enabled)
             return;
 
         if (currentPin[lockedNums] == finalPin[lockPhase, lockedNums])
@@ -86,15 +87,15 @@ public class LockRhythmController : MonoBehaviour
                 audioSource.clip = audioClips[++lockPhase];
                 audioSource.Play();
                 lockedNums = 0;
-                OnPhase?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
+                OnPhase?.Invoke(this, CurrentLockEventArgs);
             } else
-                OnLock?.Invoke(this, lockedNums);
+                OnLock?.Invoke(this, CurrentLockEventArgs);
         }
         else
         {
-            lockedNums = 0;
             eventSent = true;
-            OnUnlock?.Invoke(this, new LockEventArgs(lockedNums, beatDuration - currentBeatTimer, currentBeat));
+            OnUnlock?.Invoke(this, CurrentLockEventArgs);
+            lockedNums = 0;
         }
 
         if (lockPhase is not 3 || lockedNums is not 0)
@@ -107,7 +108,8 @@ public class LockRhythmController : MonoBehaviour
     void RecalculateHalfBeatDuration()
     {
         beatDuration = 60 / bpm;
-        accuracyDuration = beatDuration * accuracyRange;
+        stillDuration = beatDuration * 0.5f;
+        tfsBeatDuration = beatDuration * 0.75f;
     }
 
     public static float CalcRotate(int beat) => beat switch
