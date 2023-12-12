@@ -5,43 +5,57 @@ using UnityEngine;
 
 public class LockManager : MonoBehaviour
 {
+
     int selfPosition;
+    float timer = 1.1f;
+    float timeMultiplier, initRotation, finalRotation;
 
     void Awake() => selfPosition = name[^2] - 48;
 
     void OnEnable()
     {
-        LockRhythmController.OnRotate += Rotate;
+        LockRhythmController.OnRotate += SetupRotation;
         LockRhythmController.OnUnlock += UnlockNums;
     }
 
     void OnDisable()
     {
-        LockRhythmController.OnRotate -= Rotate;
+        LockRhythmController.OnRotate -= SetupRotation;
         LockRhythmController.OnUnlock -= UnlockNums;
     }
 
-    void Rotate(object _, LockRhythmController.LockEventArgs e)
+    void Update()
     {
-        if (e.CurrentBeat >= selfPosition)
+        if (timer >= 1.1f)
             return;
-            
-        transform.eulerAngles = new(0f, 0f, CalcRotate(e.CurrentBeat));
-        // Activate the animation
+
+        timer += Time.deltaTime * timeMultiplier;
+        var rotation = transform.eulerAngles;
+        rotation.z = EaseInExpo(initRotation, finalRotation, timer);
+        transform.eulerAngles = rotation;
+    }
+
+    void SetupRotation(object _, LockRhythmController.LockEventArgs e)
+    {
+        
+        if (selfPosition <= e.CurrentBeat)
+            return;
+
+        timer = 0f;
+        timeMultiplier = 1f / e.InTime;
+        initRotation = transform.eulerAngles.z;
+        finalRotation = LockRhythmController.CalcRotate(e.CurrentBeat);
     }
 
     void UnlockNums(object _, LockRhythmController.LockEventArgs e)
     {
-        transform.eulerAngles = new(0f, 0f, CalcRotate(e.CurrentBeat));
+        transform.eulerAngles = new(0f, 0f, LockRhythmController.CalcRotate(e.CurrentBeat));
         // Animate
     }
 
-    float CalcRotate(int beat) => beat switch
+    public static float EaseInExpo(float start, float end, float value)
     {
-        1 => 0f,
-        2 => -90f,
-        3 => -180f,
-        4 => -270f,
-        _ => 0f
-    };
+        end -= start;
+        return end * Mathf.Pow(2, 10 * (value - 1)) + start;
+    }
 }
