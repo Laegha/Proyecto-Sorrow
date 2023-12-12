@@ -4703,8 +4703,49 @@ MonoBehaviour:
   - {fileID: 2051168061}
   - {fileID: 425635764}
   - {fileID: 1234956366}
+  textObjects:
+  - {fileID: 1002108679}
+  - {fileID: 1231702885}
+  - {fileID: 1355207547}
+  - {fileID: 1678182013}
+  - {fileID: 258643387}
+  - {fileID: 97709936}
+  - {fileID: 800668981}
+  - {fileID: 318539918}
+  - {fileID: 181188076}
+  - {fileID: 2069340114}
+  - {fileID: 1305606292}
+  - {fileID: 631821945}
+  - {fileID: 1138116502}
+  - {fileID: 440766141}
+  - {fileID: 462316540}
+  - {fileID: 1628496145}
+  - {fileID: 352950388}
+  - {fileID: 1374290953}
+  - {fileID: 1928397490}
+  - {fileID: 174052939}
+  - {fileID: 602728830}
+  - {fileID: 1937381466}
+  - {fileID: 126876466}
+  - {fileID: 123066866}
+  - {fileID: 1066264957}
+  - {fileID: 1699883646}
+  - {fileID: 1729951941}
+  - {fileID: 1981402934}
+  - {fileID: 1217544932}
+  - {fileID: 1960755803}
+  - {fileID: 1396200866}
+  - {fileID: 1266592100}
+  - {fileID: 671260255}
+  - {fileID: 304528639}
+  - {fileID: 596081469}
+  - {fileID: 2121514371}
   volume: {fileID: 1519278762}
   offPostExposure: -1
+  onOffDirector: {fileID: 960150121}
+  minRandomSpeed: 0.5
+  maxRandomSpeed: 2
+  offTextMultiplier: 0.5
   lightsOffColor: {r: 0.12941177, g: 0.05882353, b: 0, a: 0}
 --- !u!4 &217788155
 Transform:
