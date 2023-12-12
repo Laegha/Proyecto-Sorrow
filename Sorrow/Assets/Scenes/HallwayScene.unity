@@ -3950,38 +3950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d58bfbafdf287247bcbf5e2e066ec2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 2
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  outsideColor: {r: 0, g: 0, b: 0, a: 1}
-  distanceMultiplier: 10
-  distanceOffset: 5
-  onInteractEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 960150118}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 960150121}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   codeTexts:
   - {fileID: 1002108678}
   - {fileID: 1678182012}
@@ -7401,7 +7369,6 @@ Transform:
   m_Children:
   - {fileID: 977774370}
   - {fileID: 1853799698}
-  - {fileID: 1139165760}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715826018
@@ -8498,6 +8465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977774370}
+  - component: {fileID: 977774371}
   m_Layer: 0
   m_Name: Sources
   m_TagString: Untagged
@@ -8518,7 +8486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1519278763}
+  - {fileID: 1139165760}
   - {fileID: 469592796}
   - {fileID: 1934778679}
   - {fileID: 316552245}
@@ -8898,7 +8866,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 624972583}
+  m_Father: {fileID: 977774370}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1231702883
 GameObject:
@@ -10166,11 +10134,11 @@ Transform:
   m_GameObject: {fileID: 1519278758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.06291, y: -2.0108776, z: -0.31084633}
+  m_LocalPosition: {x: -5.5070896, y: 17.210123, z: 7.9691534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 977774370}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532187672
 GameObject:
@@ -11660,5 +11628,6 @@ SceneRoots:
   - {fileID: 841367862}
   - {fileID: 199284748}
   - {fileID: 1429859209}
+  - {fileID: 1519278763}
   - {fileID: 1621720088}
   - {fileID: 966801834}
