@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -10549,7 +10549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -11331,7 +11331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -12814,7 +12814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -29909,7 +29909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -30226,7 +30226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -30428,7 +30428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
@@ -33389,7 +33389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  lockedColor: {r: 0.24932739, g: 0.100000024, b: 1, a: 1}
   wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
