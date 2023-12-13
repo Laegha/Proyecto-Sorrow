@@ -2777,8 +2777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -4964,6 +4964,7 @@ GameObject:
   - component: {fileID: 275050540}
   - component: {fileID: 275050548}
   - component: {fileID: 275050550}
+  - component: {fileID: 275050551}
   m_Layer: 0
   m_Name: PassHolder
   m_TagString: Untagged
@@ -5352,6 +5353,18 @@ MonoBehaviour:
   onInteractEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 275050551}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: ModifyFieldValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 960150118}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -5389,6 +5402,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumable: 0
+--- !u!114 &275050551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275050539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionRA:
+  - objectName: Player
+    componentName: GlassesController
+    componentSubclassNamespace: 
+    componentSubclass: 
+    lookingFor: FakeDisable
+    arguments: []
+    argumentTypes: []
+  fieldRA:
+  - objectName: Player
+    componentName: GlassesController
+    componentSubclassNamespace: UnityEngine
+    componentSubclass: UnityEngine.Behaviour
+    lookingFor: enabled
+    isProperty: 1
+    newValue: true
+    fieldType: System.Boolean
 --- !u!1 &304528636
 GameObject:
   m_ObjectHideFlags: 0
@@ -6077,7 +6119,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653493469}
+    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653493468}
   m_SourcePrefab: {fileID: 100100000, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
 --- !u!1001 &418409202
 PrefabInstance:
@@ -10438,8 +10486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -11106,8 +11154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -11950,8 +11998,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255613
-  m_fontColor: {r: 0.992313, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12418,8 +12466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -22798,8 +22846,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255613
-  m_fontColor: {r: 0.992313, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28379,8 +28427,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255613
-  m_fontColor: {r: 0.992313, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29510,8 +29558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -29625,7 +29673,7 @@ GameObject:
   - component: {fileID: 1519278760}
   - component: {fileID: 1519278759}
   m_Layer: 0
-  m_Name: PostProccesingURP
+  m_Name: PostProcessingURP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29827,8 +29875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -30029,8 +30077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
@@ -30369,6 +30417,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1653493458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+  m_PrefabInstance: {fileID: 366866685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1653493468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653493458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5144a16509d213447bb8018f0a067f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1653493469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653493458}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233a272525b4bc14da7e6ab7342d022a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1678182011
 GameObject:
   m_ObjectHideFlags: 0
@@ -30417,8 +30495,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255613
-  m_fontColor: {r: 0.992313, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -32549,8 +32627,20 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 217788154}
         m_TargetAssemblyTypeName: HallwayTimelineResources, Assembly-CSharp
-        m_MethodName: SwitchLights
-        m_Mode: 6
+        m_MethodName: FinalSwitchOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 275050551}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: CallFunction
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -32813,8 +32903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b6b89ae18175c44b3b779dc8c7a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedColor: {r: 0.49803922, g: 1, b: 0.1254902, a: 1}
-  wrongColor: {r: 0.7490196, g: 0, b: 0, a: 1}
+  lockedColor: {r: 0.2712417, g: 0.12549019, b: 1, a: 1}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
   lockSound: {fileID: 8300000, guid: 0c5dc53d40a1d0b46b4f4441b14b5437, type: 3}
   unlockSound: {fileID: 8300000, guid: 37cdfecb85fd1c141b1105efa617a0e7, type: 3}
   phaseSound: {fileID: 8300000, guid: f08ba1a7bd6c77240a6ca983aa4e486e, type: 3}
