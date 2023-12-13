@@ -16,6 +16,10 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:7ac21bcc173d564418b271a43135abb3
   npcColor: {r: 1, g: 0, b: 0, a: 1}
-  preTimeline: {fileID: 0}
-  interrupts: []
+  preTimeline: {fileID: 11400000, guid: 276ae2ae284bb234d83ce69fdff8a4a0, type: 2}
+  interrupts:
+  - atLine: 5
+    timeline: {fileID: 11400000, guid: 43feeb4134b97d34798aed4c3f09ecc1, type: 2}
+    dontStopText: 0
   postTimeline: {fileID: 0}
+  currIndex: 0
