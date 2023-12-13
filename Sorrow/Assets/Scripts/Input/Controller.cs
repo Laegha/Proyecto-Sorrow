@@ -490,6 +490,45 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Concentrate"",
+            ""id"": ""3ca7523e-b1c9-484f-808c-89503473822e"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc698afb-0b7a-4501-995e-d2b5d2290c59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fd09c7d5-f9e8-46df-94c1-c6524cc9344c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8493b121-90f4-4c49-98c3-713ec377bc6e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -544,6 +583,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         // LockRhythm
         m_LockRhythm = asset.FindActionMap("LockRhythm", throwIfNotFound: true);
         m_LockRhythm_LockNum = m_LockRhythm.FindAction("LockNum", throwIfNotFound: true);
+        // Concentrate
+        m_Concentrate = asset.FindActionMap("Concentrate", throwIfNotFound: true);
+        m_Concentrate_Newaction = m_Concentrate.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -909,6 +951,52 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         }
     }
     public LockRhythmActions @LockRhythm => new LockRhythmActions(this);
+
+    // Concentrate
+    private readonly InputActionMap m_Concentrate;
+    private List<IConcentrateActions> m_ConcentrateActionsCallbackInterfaces = new List<IConcentrateActions>();
+    private readonly InputAction m_Concentrate_Newaction;
+    public struct ConcentrateActions
+    {
+        private @Controller m_Wrapper;
+        public ConcentrateActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Concentrate_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Concentrate; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ConcentrateActions set) { return set.Get(); }
+        public void AddCallbacks(IConcentrateActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(IConcentrateActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(IConcentrateActions instance)
+        {
+            if (m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IConcentrateActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ConcentrateActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ConcentrateActions @Concentrate => new ConcentrateActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -954,5 +1042,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     public interface ILockRhythmActions
     {
         void OnLockNum(InputAction.CallbackContext context);
+    }
+    public interface IConcentrateActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
