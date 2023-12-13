@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour
         controller.Dialog.Disable();
         controller.ChaseMovement.Disable();
         controller.ButtonMashing.Disable();
-        controller.LockRythm.Disable();
+        controller.LockRhythm.Disable();
     }
 
     void OnDisable()

@@ -27,8 +27,8 @@ public class LockRhythmController : MonoBehaviour
     {
         CinematicManager.instance.CameraChange(lockCamera);
         InputManager.instance.RemRegControl(false);
-        InputManager.controller.LockRythm.Enable();
-        InputManager.controller.LockRythm.LockNum.performed += Lock;
+        InputManager.controller.LockRhythm.Enable();
+        InputManager.controller.LockRhythm.LockNum.performed += Lock;
         RecalculateHalfBeatDuration();
         audioSource.Play();
     }
@@ -38,8 +38,8 @@ public class LockRhythmController : MonoBehaviour
         audioSource.Stop();
         CinematicManager.instance.ReturnPlayerCamera();
         InputManager.instance.RemRegControl(true);
-        InputManager.controller.LockRythm.LockNum.performed -= Lock;
-        InputManager.controller.LockRythm.Disable();
+        InputManager.controller.LockRhythm.LockNum.performed -= Lock;
+        InputManager.controller.LockRhythm.Disable();
         completionActions.Invoke();
     }
 

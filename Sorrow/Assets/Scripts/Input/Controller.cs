@@ -409,7 +409,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""LockRythm"",
+            ""name"": ""LockRhythm"",
             ""id"": ""f1264aed-1226-4b01-8bef-628e897e4853"",
             ""actions"": [
                 {
@@ -541,9 +541,9 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         // ButtonMashing
         m_ButtonMashing = asset.FindActionMap("ButtonMashing", throwIfNotFound: true);
         m_ButtonMashing_Button = m_ButtonMashing.FindAction("Button", throwIfNotFound: true);
-        // LockRythm
-        m_LockRythm = asset.FindActionMap("LockRythm", throwIfNotFound: true);
-        m_LockRythm_LockNum = m_LockRythm.FindAction("LockNum", throwIfNotFound: true);
+        // LockRhythm
+        m_LockRhythm = asset.FindActionMap("LockRhythm", throwIfNotFound: true);
+        m_LockRhythm_LockNum = m_LockRhythm.FindAction("LockNum", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -864,51 +864,51 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     }
     public ButtonMashingActions @ButtonMashing => new ButtonMashingActions(this);
 
-    // LockRythm
-    private readonly InputActionMap m_LockRythm;
-    private List<ILockRythmActions> m_LockRythmActionsCallbackInterfaces = new List<ILockRythmActions>();
-    private readonly InputAction m_LockRythm_LockNum;
-    public struct LockRythmActions
+    // LockRhythm
+    private readonly InputActionMap m_LockRhythm;
+    private List<ILockRhythmActions> m_LockRhythmActionsCallbackInterfaces = new List<ILockRhythmActions>();
+    private readonly InputAction m_LockRhythm_LockNum;
+    public struct LockRhythmActions
     {
         private @Controller m_Wrapper;
-        public LockRythmActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @LockNum => m_Wrapper.m_LockRythm_LockNum;
-        public InputActionMap Get() { return m_Wrapper.m_LockRythm; }
+        public LockRhythmActions(@Controller wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LockNum => m_Wrapper.m_LockRhythm_LockNum;
+        public InputActionMap Get() { return m_Wrapper.m_LockRhythm; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(LockRythmActions set) { return set.Get(); }
-        public void AddCallbacks(ILockRythmActions instance)
+        public static implicit operator InputActionMap(LockRhythmActions set) { return set.Get(); }
+        public void AddCallbacks(ILockRhythmActions instance)
         {
-            if (instance == null || m_Wrapper.m_LockRythmActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_LockRythmActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_LockRhythmActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LockRhythmActionsCallbackInterfaces.Add(instance);
             @LockNum.started += instance.OnLockNum;
             @LockNum.performed += instance.OnLockNum;
             @LockNum.canceled += instance.OnLockNum;
         }
 
-        private void UnregisterCallbacks(ILockRythmActions instance)
+        private void UnregisterCallbacks(ILockRhythmActions instance)
         {
             @LockNum.started -= instance.OnLockNum;
             @LockNum.performed -= instance.OnLockNum;
             @LockNum.canceled -= instance.OnLockNum;
         }
 
-        public void RemoveCallbacks(ILockRythmActions instance)
+        public void RemoveCallbacks(ILockRhythmActions instance)
         {
-            if (m_Wrapper.m_LockRythmActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_LockRhythmActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(ILockRythmActions instance)
+        public void SetCallbacks(ILockRhythmActions instance)
         {
-            foreach (var item in m_Wrapper.m_LockRythmActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_LockRhythmActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_LockRythmActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_LockRhythmActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public LockRythmActions @LockRythm => new LockRythmActions(this);
+    public LockRhythmActions @LockRhythm => new LockRhythmActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -951,7 +951,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     {
         void OnButton(InputAction.CallbackContext context);
     }
-    public interface ILockRythmActions
+    public interface ILockRhythmActions
     {
         void OnLockNum(InputAction.CallbackContext context);
     }
