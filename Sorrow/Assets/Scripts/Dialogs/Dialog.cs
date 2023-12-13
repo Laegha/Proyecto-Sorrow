@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New Dialog", menuName = "Dialog")]
 public class Dialog : ScriptableObject
@@ -19,7 +20,7 @@ public class Dialog : ScriptableObject
     public PlayableAsset preTimeline;
     [SerializeField] List<TimelineInterrupt> interrupts;
     public PlayableAsset postTimeline;
-    int currIndex = 0;
+    [HideInInspector] public int currIndex = 0;
 
     public int Count => dialogTable.Count;
 
@@ -35,6 +36,7 @@ public class Dialog : ScriptableObject
 
     public bool TryInterrupt(int line, out PlayableAsset timeline, out bool dontStopText)
     {
+        Debug.Log("Line: " + line + " CurrIndex: " + currIndex);
         dontStopText = false;
         timeline = null;
         if (currIndex >= interrupts.Count)

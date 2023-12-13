@@ -48,6 +48,7 @@ public class DialogDriver : MonoBehaviour
 
     void Awake()
     {
+        dialog.currIndex = 0;
         dialog.SetLanguage();
         director = GetComponent<PlayableDirector>();
         //letterTime = LetterTimeFor(LocalizationSettings.SelectedLocale.Identifier.Code);
@@ -145,6 +146,7 @@ public class DialogDriver : MonoBehaviour
                 actions.actions.Invoke();
             if (dialog.TryInterrupt(currentLine, out var timeline, out var dontStopText))
             {
+                print("timeline");
                 director.Play(timeline);
                 if (!dontStopText)
                 {
