@@ -474,7 +474,7 @@
             "id": "3ca7523e-b1c9-484f-808c-89503473822e",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Toggle",
                     "type": "Button",
                     "id": "cc698afb-0b7a-4501-995e-d2b5d2290c59",
                     "expectedControlType": "Button",
@@ -491,7 +491,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "New action",
+                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -502,7 +502,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "New action",
+                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -496,7 +496,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
             ""id"": ""3ca7523e-b1c9-484f-808c-89503473822e"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Toggle"",
                     ""type"": ""Button"",
                     ""id"": ""cc698afb-0b7a-4501-995e-d2b5d2290c59"",
                     ""expectedControlType"": ""Button"",
@@ -513,7 +513,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""New action"",
+                    ""action"": ""Toggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -524,7 +524,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
-                    ""action"": ""New action"",
+                    ""action"": ""Toggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -585,7 +585,7 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         m_LockRhythm_LockNum = m_LockRhythm.FindAction("LockNum", throwIfNotFound: true);
         // Concentrate
         m_Concentrate = asset.FindActionMap("Concentrate", throwIfNotFound: true);
-        m_Concentrate_Newaction = m_Concentrate.FindAction("New action", throwIfNotFound: true);
+        m_Concentrate_Toggle = m_Concentrate.FindAction("Toggle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -955,12 +955,12 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     // Concentrate
     private readonly InputActionMap m_Concentrate;
     private List<IConcentrateActions> m_ConcentrateActionsCallbackInterfaces = new List<IConcentrateActions>();
-    private readonly InputAction m_Concentrate_Newaction;
+    private readonly InputAction m_Concentrate_Toggle;
     public struct ConcentrateActions
     {
         private @Controller m_Wrapper;
         public ConcentrateActions(@Controller wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Concentrate_Newaction;
+        public InputAction @Toggle => m_Wrapper.m_Concentrate_Toggle;
         public InputActionMap Get() { return m_Wrapper.m_Concentrate; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -970,16 +970,16 @@ public partial class @Controller: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_ConcentrateActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Toggle.started += instance.OnToggle;
+            @Toggle.performed += instance.OnToggle;
+            @Toggle.canceled += instance.OnToggle;
         }
 
         private void UnregisterCallbacks(IConcentrateActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Toggle.started -= instance.OnToggle;
+            @Toggle.performed -= instance.OnToggle;
+            @Toggle.canceled -= instance.OnToggle;
         }
 
         public void RemoveCallbacks(IConcentrateActions instance)
@@ -1045,6 +1045,6 @@ public partial class @Controller: IInputActionCollection2, IDisposable
     }
     public interface IConcentrateActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnToggle(InputAction.CallbackContext context);
     }
 }
