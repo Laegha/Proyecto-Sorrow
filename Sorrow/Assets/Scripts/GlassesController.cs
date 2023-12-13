@@ -26,7 +26,7 @@ public class GlassesController : MonoBehaviour
 
     void OnEnable() => ToggleConcentration(true);
 
-    void OnDisable() => ToggleConcentration(false);
+    void OnDisable() => colorAdjustments.colorFilter.value = oldColor;
 
     public void FakeDisable()
     {

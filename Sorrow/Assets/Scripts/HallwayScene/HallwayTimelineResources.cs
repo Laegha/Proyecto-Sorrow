@@ -69,15 +69,12 @@ public class HallwayTimelineResources : MonoBehaviour
 
     public void FinalSwitchOn()
     {
-        bool wasOn = lights.activeSelf;
+        onOffDirector.Stop();
         lights.SetActive(true);
+        colorAdjustments.postExposure.value = onPostExposure;
+
         foreach (Material light in lightsMaterials)
             light.SetColor("_Emission", lightsOnColor);
-
-        colorAdjustments.postExposure.value = onPostExposure;
-        if (!wasOn)
-            foreach (TextMeshPro text in textObjects)
-                text.color *= onTextMultiplier;
     }
 
     public void CloseElevator() => GameObject.Find("ElevatorDoor").GetComponent<Animator>().Play("DoorClose");

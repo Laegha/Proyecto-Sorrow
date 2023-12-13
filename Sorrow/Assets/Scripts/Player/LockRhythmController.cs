@@ -36,11 +36,11 @@ public class LockRhythmController : MonoBehaviour
     void OnDisable()
     {
         audioSource.Stop();
-        CinematicManager.instance.ReturnPlayerCamera();
-        InputManager.instance.RemRegControl(true);
         InputManager.controller.LockRhythm.LockNum.performed -= Lock;
         InputManager.controller.LockRhythm.Disable();
         completionActions.Invoke();
+        CinematicManager.instance.ReturnPlayerCamera();
+        InputManager.instance.RemRegControl(true);
     }
 
     void Awake()
@@ -100,11 +100,8 @@ public class LockRhythmController : MonoBehaviour
             lockedNums = 0;
         }
 
-        if (lockPhase is not 3 || lockedNums is not 0)
-            return;
-
-        print("Unlocked");
-        enabled = false;
+        if (lockPhase is 3)
+            enabled = false;
     }
 
     void RecalculateHalfBeatDuration()

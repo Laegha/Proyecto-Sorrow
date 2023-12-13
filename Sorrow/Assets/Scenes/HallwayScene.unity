@@ -33081,22 +33081,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 217788154}
-        m_TargetAssemblyTypeName: HallwayTimelineResources, Assembly-CSharp
-        m_MethodName: FinalSwitchOn
-        m_Mode: 1
+      - m_Target: {fileID: 1992799795}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: ModifyFieldValue
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1992799795}
-        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: CallFunction
-        m_Mode: 3
+      - m_Target: {fileID: 217788154}
+        m_TargetAssemblyTypeName: HallwayTimelineResources, Assembly-CSharp
+        m_MethodName: FinalSwitchOn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -33213,14 +33213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  functionRA:
-  - objectName: Player
-    componentName: GlassesController
-    componentSubclassNamespace: 
-    componentSubclass: 
-    lookingFor: FakeDisable
-    arguments: []
-    argumentTypes: []
+  functionRA: []
   fieldRA:
   - objectName: Player
     componentName: GlassesController
@@ -33229,6 +33222,14 @@ MonoBehaviour:
     lookingFor: enabled
     isProperty: 1
     newValue: true
+    fieldType: System.Boolean
+  - objectName: Player
+    componentName: GlassesController
+    componentSubclassNamespace: UnityEngine
+    componentSubclass: UnityEngine.Behaviour
+    lookingFor: enabled
+    isProperty: 1
+    newValue: false
     fieldType: System.Boolean
 --- !u!1001 &2044236849
 PrefabInstance:
