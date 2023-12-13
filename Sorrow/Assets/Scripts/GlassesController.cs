@@ -9,7 +9,7 @@ public class GlassesController : MonoBehaviour
 {
     [SerializeField] Color onColor;
     Color oldColor;
-    bool isConcentrating = false;
+    bool isConcentrating, shallDisable = false;
     float timer = 1.1f;
 
     ColorAdjustments colorAdjustments;
@@ -17,8 +17,11 @@ public class GlassesController : MonoBehaviour
     
     void Update()
     {
-        if (timer >= 1.1f)
+        if (timer >= 1.1f)   
+        {
+            enabled = !shallDisable;
             return;
+        }
 
         timer += Time.deltaTime * .5f;
         colorAdjustments.colorFilter.value = isConcentrating ? Color.Lerp(oldColor, onColor, timer) : Color.Lerp(onColor, oldColor, timer);
@@ -28,21 +31,10 @@ public class GlassesController : MonoBehaviour
 
     void OnDisable() => colorAdjustments.colorFilter.value = oldColor;
 
-    public void FakeDisable()
+    public void GradialDisable()
     {
-        OnDisable();
-        StartCoroutine(GreedyUpdate()); // Not Proud of this
-    }
-
-    IEnumerator GreedyUpdate()
-    {
-        while (timer < 1.1f)
-        {
-            Update();
-            yield return new WaitForEndOfFrame();
-        }
-        enabled = false;
-        StopCoroutine(GreedyUpdate());
+        shallDisable = true;
+        ToggleConcentration(false);
     }
 
     void ToggleConcentration(bool on)
