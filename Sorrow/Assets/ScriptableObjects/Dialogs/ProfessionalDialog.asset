@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogTables:
     m_TableReference:
       m_TableCollectionName: GUID:7ac21bcc173d564418b271a43135abb3
-  npcColor: {r: 1, g: 0, b: 0, a: 0}
+  npcColor: {r: 1, g: 0, b: 0, a: 1}
   preTimeline: {fileID: 0}
   interrupts: []
   postTimeline: {fileID: 0}
