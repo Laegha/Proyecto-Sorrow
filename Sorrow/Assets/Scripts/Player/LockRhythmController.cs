@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class LockRhythmController : MonoBehaviour
@@ -11,6 +12,7 @@ public class LockRhythmController : MonoBehaviour
     [SerializeField] float bpm, bpmIncrease;
     [SerializeField] bool continuousLockingFeature = false;
     [SerializeField] AudioClip[] audioClips;
+    [SerializeField] UnityEvent completionActions;
     public static readonly int[,] finalPin = new int[3, 8];
     readonly int[] currentPin = new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 };
     int lockPhase, lockedNums = 0;
@@ -38,6 +40,7 @@ public class LockRhythmController : MonoBehaviour
         InputManager.instance.RemRegControl(true);
         InputManager.controller.LockRythm.LockNum.performed -= Lock;
         InputManager.controller.LockRythm.Disable();
+        completionActions.Invoke();
     }
 
     void Awake()
