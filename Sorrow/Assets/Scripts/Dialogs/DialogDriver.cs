@@ -193,6 +193,16 @@ public class DialogDriver : MonoBehaviour
             if (wishToSkip)
                 break;
 
+            if (c == '…')
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    speech.text += '.';
+                    yield return new WaitForSeconds(comaTime);
+                }
+                continue;
+            }
+
             speech.text += c;
             // TODO: Play sound
             yield return new WaitForSeconds(CharTimeFor(c));
