@@ -27,23 +27,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3453055012864
-    m_Localized: "Uy, te veo con cara larga... \xBFEst\xE1s bien?"
+    m_Localized: "Uy, te veo con cara larga\u2026 \xBFEst\xE1s bien?"
     m_Metadata:
       m_Items: []
   - m_Id: 3621712171008
-    m_Localized: "No se, podr\xEDa estar mejor..."
+    m_Localized: "No s\xE9, podr\xEDa estar mejor\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 4109560057856
-    m_Localized: "\xBFQu\xE9 pasa? Sab\xE9s que podes contarme."
+    m_Localized: "\xBFQu\xE9 pasa? Sab\xE9s que pod\xE9s contarme."
     m_Metadata:
       m_Items: []
   - m_Id: 4186747834368
-    m_Localized: Seguramente no me creas, pero...
+    m_Localized: "Seguramente no me creas, pero\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 4255823826944
-    m_Localized: El Monstruo no para de molestarme.
+    m_Localized: "Me persigue una especie de monstruo\u2026 y no para de molestarme."
     m_Metadata:
       m_Items: []
   - m_Id: 4602969591808
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9120658992533504
-    m_Localized: "Es que la m\xFAsica..."
+    m_Localized: "Es que la m\xFAsica\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 9121906516955136

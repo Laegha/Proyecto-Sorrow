@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3621712171008
-    m_Localized: Could be better I guess...
+    m_Localized: "Could be better I guess\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 4109560057856
@@ -40,11 +40,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4186747834368
-    m_Localized: I'm sure you won't believe it, but...
+    m_Localized: "I'm sure you won't believe it, but\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 4255823826944
-    m_Localized: There's an entity bothering me no matter where I go.
+    m_Localized: "I'm being chased by a sort of monster\u2026 and it won't stop bothering
+      me."
     m_Metadata:
       m_Items: []
   - m_Id: 4602969591808
@@ -84,7 +85,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9120658992533504
-    m_Localized: It's just that music is...
+    m_Localized: "It's just that music is\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 9121906516955136
