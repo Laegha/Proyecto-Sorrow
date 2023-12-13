@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2292,10 +2292,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 217788154}
-        m_TargetAssemblyTypeName: HallwayTimelineResources, Assembly-CSharp
-        m_MethodName: PutOnGlasses
-        m_Mode: 1
+      - m_Target: {fileID: 1992799795}
+        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
+        m_MethodName: ModifyFieldValue
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4964,7 +4964,6 @@ GameObject:
   - component: {fileID: 275050540}
   - component: {fileID: 275050548}
   - component: {fileID: 275050550}
-  - component: {fileID: 275050551}
   m_Layer: 0
   m_Name: PassHolder
   m_TagString: Untagged
@@ -5353,18 +5352,6 @@ MonoBehaviour:
   onInteractEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 275050551}
-        m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
-        m_MethodName: ModifyFieldValue
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 960150118}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -5402,35 +5389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConsumable: 0
---- !u!114 &275050551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275050539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  functionRA:
-  - objectName: Player
-    componentName: GlassesController
-    componentSubclassNamespace: 
-    componentSubclass: 
-    lookingFor: FakeDisable
-    arguments: []
-    argumentTypes: []
-  fieldRA:
-  - objectName: Player
-    componentName: GlassesController
-    componentSubclassNamespace: UnityEngine
-    componentSubclass: UnityEngine.Behaviour
-    lookingFor: enabled
-    isProperty: 1
-    newValue: true
-    fieldType: System.Boolean
 --- !u!1 &304528636
 GameObject:
   m_ObjectHideFlags: 0
@@ -29087,6 +29045,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 506603312d9b2d749b027383db3069e7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1992799794}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 506603312d9b2d749b027383db3069e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992799795}
     - targetCorrespondingSourceObject: {fileID: 8513859187771203891, guid: 506603312d9b2d749b027383db3069e7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 174048737}
@@ -32637,7 +32598,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 275050551}
+      - m_Target: {fileID: 1992799795}
         m_TargetAssemblyTypeName: CrossReferenceHelper, Assembly-CSharp
         m_MethodName: CallFunction
         m_Mode: 3
@@ -32745,6 +32706,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1992799795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992799792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08e445a42f40a442b9e44a2e62f493d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionRA:
+  - objectName: Player
+    componentName: GlassesController
+    componentSubclassNamespace: 
+    componentSubclass: 
+    lookingFor: FakeDisable
+    arguments: []
+    argumentTypes: []
+  fieldRA:
+  - objectName: Player
+    componentName: GlassesController
+    componentSubclassNamespace: UnityEngine
+    componentSubclass: UnityEngine.Behaviour
+    lookingFor: enabled
+    isProperty: 1
+    newValue: true
+    fieldType: System.Boolean
 --- !u!1001 &2044236849
 PrefabInstance:
   m_ObjectHideFlags: 0

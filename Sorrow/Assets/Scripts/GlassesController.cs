@@ -24,17 +24,9 @@ public class GlassesController : MonoBehaviour
         colorAdjustments.colorFilter.value = isConcentrating ? Color.Lerp(oldColor, onColor, timer) : Color.Lerp(onColor, oldColor, timer);
     }
 
-    void OnEnable()
-    {
-        InputManager.controller.Concentrate.Enable();
-        InputManager.controller.Concentrate.Toggle.performed += ToggleConcentration;
-    }
+    void OnEnable() => ToggleConcentration(true);
 
-    void OnDisable()
-    {
-        InputManager.controller.Concentrate.Disable();
-        InputManager.controller.Concentrate.Toggle.performed -= ToggleConcentration;
-    }
+    void OnDisable() => ToggleConcentration(false);
 
     public void FakeDisable()
     {
@@ -53,7 +45,7 @@ public class GlassesController : MonoBehaviour
         StopCoroutine(GreedyUpdate());
     }
 
-    void ToggleConcentration(InputAction.CallbackContext _)
+    void ToggleConcentration(bool on)
     {
         isConcentrating ^= true;
         timer = 0f;
