@@ -1914,34 +1914,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 9.569214
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974835839369491600, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 7.569214
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969680877627220749, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.666626
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4151564523744977942, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
@@ -1956,6 +1928,16 @@ GameObject:
 --- !u!1 &715398861 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4428482704168024238, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 715398859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &715398862 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6440264693805127193, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
+  m_PrefabInstance: {fileID: 715398859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &715398863 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4934807979501552396, guid: 14383e8cb9c0388419e41cdb8a582800, type: 3}
   m_PrefabInstance: {fileID: 715398859}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &812605995 stripped
@@ -3142,10 +3124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechPanel: {fileID: 715398861}
   transcriptPanel: {fileID: 715398860}
-  clickAnimator: {fileID: 0}
-  autoAnimator: {fileID: 0}
+  clickAnimator: {fileID: 715398863}
+  autoAnimator: {fileID: 715398862}
   dialog: {fileID: 11400000, guid: 0f30a632281e344428afd20df3141b9f, type: 2}
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  playerColor: {r: 0, g: 0, b: 0, a: 1}
   defaultCamera: {fileID: 1071610020}
   actionInterrupts: []
   endActions:
@@ -3829,9 +3811,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7009864002487706631, guid: 3de2aa1ccf6bfdf4583706b46a28dd1c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7009864002487706631, guid: 3de2aa1ccf6bfdf4583706b46a28dd1c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 32e8f9f28444f0541a4768ada859a34c, type: 2}
+    - target: {fileID: -7009864002487706631, guid: 3de2aa1ccf6bfdf4583706b46a28dd1c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32e8f9f28444f0541a4768ada859a34c, type: 2}
+    - target: {fileID: -7009864002487706631, guid: 3de2aa1ccf6bfdf4583706b46a28dd1c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3beba3271a2a04a4fb87d2381540d591, type: 2}
     - target: {fileID: 919132149155446097, guid: 3de2aa1ccf6bfdf4583706b46a28dd1c, type: 3}
       propertyPath: m_Name
       value: Depresion_Gotita
@@ -4390,7 +4384,7 @@ GameObject:
   - component: {fileID: 1950789826}
   - component: {fileID: 1950789825}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: PostProcessingURP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4410,7 +4404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 0
+  blendDistance: 2
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cdc268f80f6c3f24cac04229eeb8a6c1, type: 2}
 --- !u!4 &1950789824
