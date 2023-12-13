@@ -86,7 +86,6 @@ public class LockRhythmController : MonoBehaviour
                 RecalculateHalfBeatDuration();
                 audioSource.clip = audioClips[++lockPhase];
                 audioSource.Play();
-                lockedNums = 0;
                 OnPhase?.Invoke(this, CurrentLockEventArgs);
             } else
                 OnLock?.Invoke(this, CurrentLockEventArgs);
@@ -107,6 +106,9 @@ public class LockRhythmController : MonoBehaviour
 
     void RecalculateHalfBeatDuration()
     {
+        lockedNums = 0;
+        currentBeat = 1;
+        currentBeatTimer = 0f;
         beatDuration = 60 / bpm;
         stillDuration = beatDuration * 0.5f;
         tfsBeatDuration = beatDuration * 0.75f;
