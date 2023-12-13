@@ -17,13 +17,14 @@ public class HallwayTimelineResources : MonoBehaviour
     [SerializeField] PlayableDirector onOffDirector;
     [SerializeField] float minRandomSpeed, maxRandomSpeed, offTextMultiplier;
     float onPostExposure, onTextMultiplier;
+    bool textAnnoyance = true;
     ColorAdjustments colorAdjustments;
     Material[] lightsMaterials;
     
     Color lightsOnColor;
     [SerializeField] Color lightsOffColor;
 
-    private void Awake()
+    void Awake()
     {
         onTextMultiplier = 1f / offTextMultiplier;
 
@@ -34,20 +35,49 @@ public class HallwayTimelineResources : MonoBehaviour
 
         _ = volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         onPostExposure = colorAdjustments.postExposure.value;
+        GlassesController.OnConcentrationChange += PutOnGlasses;
+    }
+
+    void OnDestroy() => GlassesController.OnConcentrationChange -= PutOnGlasses;
+
+    void PutOnGlasses(object _, bool isConcentrating)
+    {
+        textAnnoyance = !isConcentrating;
+        colorAdjustments.postExposure.value = isConcentrating ? onPostExposure : offPostExposure;
+        if (!lights.activeSelf)
+            foreach (TextMeshPro text in textObjects)
+                text.color *= isConcentrating ? onTextMultiplier : offTextMultiplier;
     }
 
     public void SwitchLights(bool on)
     {
-        colorAdjustments.postExposure.value = on ? onPostExposure : offPostExposure;
         lights.SetActive(on);
         foreach (Material light in lightsMaterials)
             light.SetColor("_Emission", on ? lightsOnColor : lightsOffColor);
         
-        foreach (TextMeshPro text in textObjects)
-            text.color *= on ? onTextMultiplier : offTextMultiplier;
+        if (textAnnoyance)
+        {
+            colorAdjustments.postExposure.value = on ? onPostExposure : offPostExposure;
+
+            foreach (TextMeshPro text in textObjects)
+                text.color *= on ? onTextMultiplier : offTextMultiplier;
+        }
         
         var playable = onOffDirector.playableGraph.GetRootPlayable(0);
         PlayableExtensions.SetSpeed(playable, Random.Range(minRandomSpeed, maxRandomSpeed));
+    }
+
+    public void FinalSwitchOn()
+    {
+        bool wasOn = lights.activeSelf;
+        lights.SetActive(true);
+        foreach (Material light in lightsMaterials)
+            light.SetColor("_Emission", lightsOnColor);
+
+        colorAdjustments.postExposure.value = onPostExposure;
+        if (!wasOn)
+            foreach (TextMeshPro text in textObjects)
+                text.color *= onTextMultiplier;
     }
 
     public void CloseElevator() => GameObject.Find("ElevatorDoor").GetComponent<Animator>().Play("DoorClose");
