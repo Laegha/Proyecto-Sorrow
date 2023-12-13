@@ -3,7 +3,22 @@ guid: c71a357f619371a4aa6dc1c186acfae5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ButtonMaterial
+    second: {fileID: 2100000, guid: 86aa4b0d84c3349428e9a6dfce53641e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ring
+    second: {fileID: 2100000, guid: 96ef400bd71141e4ba75808d5f10992e, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: KeyPadNumbers
+    second: {fileID: 2800000, guid: 69a882fcdf50bc44990fde7085afda00, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
