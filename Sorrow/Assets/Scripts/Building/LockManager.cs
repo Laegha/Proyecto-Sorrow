@@ -53,7 +53,6 @@ public class LockManager : MonoBehaviour
 
     void SetupRotation(object _, LockRhythmController.LockEventArgs e)
     {
-        
         if (selfPosition <= e.LockedNums)
             return;
 
@@ -91,6 +90,7 @@ public class LockManager : MonoBehaviour
 
     void Phase(object _, LockRhythmController.LockEventArgs e)
     {
+        material.color = lockedColor;
         audioSource.PlayOneShot(phaseSound);
         timer = 0f;
         timeMultiplier = 1f / e.InTime;
