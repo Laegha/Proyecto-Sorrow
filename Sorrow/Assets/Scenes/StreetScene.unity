@@ -38333,6 +38333,7 @@ GameObject:
   - component: {fileID: 1179723530}
   - component: {fileID: 1179723531}
   - component: {fileID: 1179723532}
+  - component: {fileID: 1179723533}
   m_Layer: 0
   m_Name: DoorFrame
   m_TagString: Untagged
@@ -38433,8 +38434,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 1179723528}
   sceneName: RoomScene
-  sceneLoadDelay: 1
+  sceneLoadDelay: 5
   unloadScene: 0
+--- !u!114 &1179723533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179723527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3d07c7227da444ea25d7b009343e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 990399266}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: RemRegControl
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1186763326
 PrefabInstance:
   m_ObjectHideFlags: 0
