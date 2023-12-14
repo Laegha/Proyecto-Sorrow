@@ -3950,6 +3950,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 784331991}
+    - targetCorrespondingSourceObject: {fileID: 2665982127368777901, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784331992}
   m_SourcePrefab: {fileID: 100100000, guid: d03f421f88b3ec74590bb5bebc5d1ab9, type: 3}
 --- !u!1 &784331972 stripped
 GameObject:
@@ -4026,6 +4029,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5144a16509d213447bb8018f0a067f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &784331992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784331972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233a272525b4bc14da7e6ab7342d022a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!4 &785572432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 190bdc44a10a95745b6ae5d6e64275d3, type: 3}
@@ -10606,6 +10622,9 @@ MonoBehaviour:
   loadOnStart: 0
   isAdditive: 1
   sceneToLoad: DesertScene
+  onSceneLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1856286198
 GameObject:
   m_ObjectHideFlags: 0
