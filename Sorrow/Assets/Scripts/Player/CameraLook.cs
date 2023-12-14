@@ -32,7 +32,11 @@ public class CameraLook : MonoBehaviour
             PointerAnimator.SetBool("Show", false);
     }
 
-    public void ChangeRotation(float newRotation) => transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
+    public void ChangeRotation(Quaternion rotation)
+    {
+        rb.MoveRotation(Quaternion.Euler(0f, rotation.eulerAngles.y, 0f));
+        transform.localRotation = Quaternion.Euler(rotation.eulerAngles.x, 0f, 0f);
+    }
 
     void Update()
     {
