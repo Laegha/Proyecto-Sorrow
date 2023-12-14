@@ -3,106 +3,89 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class KeypadButton : MonoBehaviour
+public class KeypadButton : ActionInteractable
 {
-    [HideInInspector] public KeyPadInteractable keyPadInteractable;
+    [SerializeField] float beatAnticipation, clickSpareTime, ringDisappearTime;
+    [SerializeField] Color unhighlightedRingColor, highlightedRingColor, pushedInColor;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip errorClip;
+    [HideInInspector] public bool waitingForBeat;
+    SpriteRenderer outerRingSR, innerRingSR;
+    Material ringMaterial;
+    Color oldRingColor;
+    float timer, speedMultiplier;
+    Vector3 outerRingInit;
+    public static event System.EventHandler OnMiss;
+    bool IsInTime => Mathf.Abs(timer - beatAnticipation) < clickSpareTime;
 
-    [SerializeField] SpriteRenderer outerRingSR;
-    SpriteRenderer ringSR => GetComponent<SpriteRenderer>();
-    [HideInInspector]public bool waitingForBeat;
-    bool WaitingForBeat
+
+    protected override void Awake()
     {
-        set
-        {
-            waitingForBeat = value;
-
-            ringSR.enabled = value;
-            outerRingSR.enabled = value;
-        }
+        base.Awake();
+        var renderer = GetComponent<Renderer>();
+        ringMaterial = renderer.materials[1];
+        outerRingSR = transform.Find("outerRing").GetComponent<SpriteRenderer>();
+        innerRingSR = transform.Find("innerRing").GetComponent<SpriteRenderer>();
+        outerRingInit = outerRingSR.transform.localScale;
+        var delta = outerRingInit.x - 1f;
+        var deltaPercent = delta / outerRingInit.x;
+        speedMultiplier = deltaPercent / beatAnticipation;
     }
-    bool canHitBeat;
 
-    [SerializeField] float outerRingScale;
-    [SerializeField] float clickSpareRange;
+    void OnEnable() => ringMaterial.SetColor("_Color", oldRingColor);
 
-    [SerializeField] Color unhighlightedRingColor;
-    [SerializeField] Color highlightedRingColor;
+    public override void Interaction()
+    {
+        base.Interaction();
 
-    [SerializeField] float ringDissapearTime;
+        if (waitingForBeat && IsInTime)
+            Success();
+        else
+            Fail();
 
-    [SerializeField] int materialIndex;
-    //ParticleSystem particleSystem => GetComponent<ParticleSystem>();
-    private void OnMouseDown()
+        waitingForBeat = false;
+    }
+
+    void Update()
     {
         if (!waitingForBeat)
             return;
 
-        if (canHitBeat)
-            StartCoroutine(BeatSucceed());
-        else
-            StartCoroutine(BeatFailed());
+        timer += Time.deltaTime * speedMultiplier;
+        outerRingSR.transform.localScale = Vector3.Lerp(outerRingInit, Vector3.zero, timer);
+        outerRingSR.material.SetColor("_RingColor", IsInTime ? highlightedRingColor : unhighlightedRingColor);
 
-    }
-    IEnumerator BeatFailed()
-    {
-        //El botón queda presionado
-        outerRingSR.material.SetColor("_RingColor", Color.red);
+        if (timer < 1f)
+            return;
+
         waitingForBeat = false;
-        keyPadInteractable.buttons.Remove(this);
-
-        keyPadInteractable.GetComponent<Renderer>().materials[materialIndex].SetColor("_Color", Color.red);
-        if (keyPadInteractable.buttons.Count == 0)
-            keyPadInteractable.RestartMinigame();
-            //reiniciar el minijuego
-
-            yield return new WaitForSeconds(ringDissapearTime);
-        WaitingForBeat = false;
+        Fail();
     }
 
-    IEnumerator BeatSucceed()
+    public void WaitForBeat()
     {
-        outerRingSR.material.SetColor("_RingColor", Color.green);
-        //particleSystem.Play();
-        waitingForBeat = false;
-        yield return new WaitForSeconds(ringDissapearTime);
-     
-        WaitingForBeat = false;
+        timer = 0f;
+        waitingForBeat = innerRingSR.enabled = outerRingSR.enabled = true;
+        outerRingSR.transform.localScale = outerRingInit;
     }
-    public IEnumerator WaitForBeat(float beatDuration)
+
+    void Success()
     {
-        WaitingForBeat = true;
-
-        outerRingSR.transform.localScale = new Vector3(outerRingScale, outerRingScale, outerRingScale);
-        outerRingSR.material.SetColor("_RingColor", unhighlightedRingColor);
-        canHitBeat = false;
-
-        float timer = 0;
-
-        while (timer < beatDuration - beatDuration * 0.37)
-        {
-            yield return new WaitForEndOfFrame();
-
-            if (!waitingForBeat)
-                break;
-
-            float currOuterRingScale = outerRingScale / (beatDuration * beatDuration) * ((timer - beatDuration) * (timer - beatDuration));
-            outerRingSR.transform.localScale = new Vector3(currOuterRingScale, currOuterRingScale, currOuterRingScale);
-            timer += Time.deltaTime;
-
-            if (canHitBeat)
-                continue;
-
-            if (new Vector2(outerRingSR.transform.localScale.x, outerRingSR.transform.localScale.y).magnitude <= 2 * clickSpareRange)
-            {
-                outerRingSR.material.SetColor("_RingColor", highlightedRingColor);
-                canHitBeat = true;
-            }
-        }
-        if (waitingForBeat)
-        {
-            StartCoroutine(BeatFailed());
-            WaitingForBeat = false;
-
-        }
+        outerRingSR.material.SetColor("_RingColor", oldRingColor);
+        Invoke(nameof(DisableRings), ringDisappearTime);
     }
+
+    void Fail()
+    {
+        OnMiss?.Invoke(this, System.EventArgs.Empty);
+        outerRingSR.material.SetColor("_RingColor", pushedInColor);
+        ringMaterial.SetColor("_Color", pushedInColor);
+        audioSource.PlayOneShot(errorClip);
+        Invoke(nameof(DisableRings), ringDisappearTime);
+        enabled = false;
+    }
+
+    void DisableRings() => innerRingSR.enabled = outerRingSR.enabled = false;
+
+    public void RestoreColor() => ringMaterial.SetColor("_Color", oldRingColor);
 }
